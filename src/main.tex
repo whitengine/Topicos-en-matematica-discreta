@@ -1,0 +1,594 @@
+\documentclass[12pt]{report}
+
+
+\usepackage{fouriernc}%la fuente
+%\usepackage[sc]{mathpazo} %antigua fuente
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+
+
+
+\usepackage{subfiles} %esto es para modularizar el overleaf
+%para usar este paquete solamente hay que usar el comando
+%\subfile{}
+
+
+
+\usepackage{graphicx}
+
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
+
+%\usepackage[outdir=./]{epstopdf} %sin esto importar eps es imposible
+
+
+
+\usepackage{xparse}
+\usepackage{xstring}
+
+\usepackage{stmaryrd} %para poner el comando \mapsfrom "<---|"
+
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+
+\usepackage{subfig}
+
+\usepackage{mathrsfs} % para tener mas tipos de texto: \mathscr que es una letra mayuscula cursiva.
+
+\usepackage{tikz-cd}
+
+\usepackage{tkz-graph}%este paquete es para crear grafos con el ambiente \begin{tikzpicture}
+
+\usepackage{caption}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathabx}
+\let\widering\relax %esto es porque hay problemas con el comando \widering que se define en la fuenta fouriernc y en el paquete \usepackage{mathabx}
+
+\usepackage[spanish,activeacute]{babel}
+
+\usepackage{xparse}
+\usepackage{xstring}
+
+\usepackage{braket} %para definir \set , \Set y que los conjuntos se vean mas lindos
+
+\usepackage{mathtools}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=red,
+    filecolor=red,
+    linkcolor=red,
+    urlcolor=red
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{proposition/definition}[theorem]{Proposición/Definición}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem{afirmacion}[theorem]{Afirmación}
+\newtheorem{recuerdo}[theorem]{Recuerdo}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{hypothesis}[theorem]{Hipótesis}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{obs}[theorem]{Observación}
+\newtheorem{notation}[theorem]{Notación}
+\newtheorem{remark}[theorem]{Comentario}
+
+
+%por alguna razon el teorema $warning  est aen uso, asi que lo remuevo de maqnera trucha
+\newtheorem{warn}[theorem]{\textbf{ADVERTENCIA}}
+\renewenvironment{warning}{\begin{warn}}{\end{warn}}
+
+%crear ejercicio
+\newtheorem{exercise}[theorem]{Ejercicio}
+%solución
+\newenvironment{solution}{\begin{proof}[Solución]}{\end{proof}}
+
+
+
+
+
+%como crear un nuevo ambiente de teorema o proposición que este sobreado con un recuadro de "color". primero hacemos
+
+%\newenvironment{Theorem}{\colorlet{shadecolor}{color} \begin{shaded} \begin{theorem} }{ \end{theorem} \end{shaded} }
+
+%Notar que primero hay que definir el color del sobreado con el comando
+%"\colorlet{shadecolor}{color}" y luego hay que usar el environment "shaded". Adentro de este ponemos el environment que queremos, en nuestro caso queremos "pintar" el environment "\begin{theorem}".
+
+
+%se puede cambiar la tonalidad de un color "yellow!80" es el color amarillo pero al 80%  y el 20% es mezclado con blanco, i.e. está aclarado. Pero "yellow!80!Black" es 80% amarillo y 20% negro, i.e. es obscurecido 20%.
+
+\newenvironment{Definition}{\colorlet{shadecolor}{Apricot!12} \begin{shaded} \begin{definition} }{ \end{definition} \end{shaded} }
+
+\newenvironment{Example}{\colorlet{shadecolor}{Goldenrod!16} \begin{shaded} \begin{example}}{ \end{example} \end{shaded}}
+
+\newenvironment{Remark}{\colorlet{shadecolor}{Orchid!12} \begin{shaded} \begin{remark}}{ \end{remark} \end{shaded}}
+
+\newenvironment{Warning}{\colorlet{shadecolor}{red!12} \begin{shaded} \begin{warning}}{ \end{warning} \end{shaded}}
+
+\newenvironment{Conjecture}{\colorlet{shadecolor}{magenta!16} \begin{shaded} \begin{conjecture}}{ \end{conjecture} \end{shaded}}
+
+\newenvironment{Theorem}{\colorlet{shadecolor}{OliveGreen!18} \begin{shaded} \begin{theorem}}{ \end{theorem} \end{shaded}}
+
+\newenvironment{Lemma}{\colorlet{shadecolor}{LimeGreen!12} \begin{shaded} \begin{lemma}}{ \end{lemma} \end{shaded}}
+
+\newenvironment{Proposition}{\colorlet{shadecolor}{Green!12} \begin{shaded} \begin{proposition}}{ \end{proposition}\end{shaded}}
+
+\newenvironment{Corollary}{\colorlet{shadecolor}{TealBlue!16} \begin{shaded} \begin{corollary}}{ \end{corollary} \end{shaded}}
+
+\newenvironment{Obs}{\colorlet{shadecolor}{Dandelion!22} \begin{shaded} \begin{obs}}{ \end{obs} \end{shaded}}
+
+\newenvironment{Exercise}{\colorlet{shadecolor}{Lavender!12} \begin{shaded} \begin{exercise}}{ \end{exercise} \end{shaded}}
+
+%%%%%COLORES%%%%%%%%%%%%
+%Hay varios comandos del paquete Xcolor:
+%\color{blue,green,red,yellow,orange,black,white,pink,purble,etc...} hace que todo el bloque de texto se transforme en este color, se puede encerrar entre {} el bloque de texto que uno quiere colorear
+%\textcolor{color}{text} escribe el texto "text" en "color".
+%\colorbox{color}{text} pinta un rectangulo de "color" detrás del "text".
+%\shaded
+
+
+
+%lista de colores base de xcolor, como son colores de la extension del paquetem, empiezan con la primera letra mayuscula: si usaramos solo el paquete {xcolor} entonces no sería necesario.
+
+%red, Green (fluorecente), Blue (muy obscuro), Cyan, Magenta, Yellow, Black, Gray, lightgray, White, darkgray, lightgray, Brown, lime (este verde mas lindo manzana), olive (marron verdoso feo), Orange, pink, Purple, teal (verde marino), Violet
+
+%marco los colores lindos: red, Cyan, Magenta, Yellow, Black, Gray, White,  lime, Orange, pink, teal, Violet
+
+%Colores que incluye el paquete dvipsnames: Apricot (color beige), Brown, Goldenrod, JungleGreen, Salmon, Lavender, SpringGreen, Turquoise, Plum, Emerald, BurntOrange (naranja piola), ForestGreen (verde oscuro), BrickRed (rojo obscuro)
+
+
+\newcommand{\red}[1]{\textcolor{BrickRed}{#1}}
+
+			\newcommand{\comentario}[1]{\red{#1}}
+
+\newcommand{\green}[1]{\textcolor{SpringGreen}{#1}}
+
+\newcommand{\blue}[1]{\textcolor{Cyan}{#1}}
+
+\newcommand{\darkblue}[1]{\textcolor{Cyan!70!Black}{#1}}
+
+\newcommand{\yellow}[1]{\textcolor{yellow!80!Black}{#1}} %se puede cambiar la tonalidad de un color "yellow!80" es el color amarillo pero al 80%  y el 20% es mezclado con blanco, i.e. está aclarado. Pero "yellow!80!Black" es 80% amarillo y 20% negro, i.e. es obscurecido 20%.
+
+\newcommand{\black}[1]{\textcolor{Black}{#1}}
+
+\newcommand{\gray}[1]{\textcolor{Gray}{#1}}
+
+\newcommand{\purple}[1]{\textcolor{Purple}{#1}}
+
+\newcommand{\beige}[1]{\textcolor{Apricot}{#1}}
+
+\newcommand{\darkgreen}[1]{\textcolor{ForestGreen}{#1}}
+
+\newcommand{\pink}[1]{\textcolor{Lavender}{#1}}
+
+\newcommand{\salmon}[1]{\textcolor{Salmon}{#1}}
+
+\newcommand{\brown}[1]{\textcolor{RawSienna!50!Black}{#1}}
+
+\newcommand{\white}[1]{\textcolor{White}{#1}}
+
+\newcommand{\orange}[1]{\textcolor{BurntOrange}{#1}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%grupos de matrices
+%SL
+\newcommand{\SL}[2]{\operatorname{SL}_{#1} ( #2)}
+%GL
+\newcommand{\GL}[2]{\operatorname{GL}_{#1} ( #2)}
+
+%matriz identidad
+\newcommand{\Id}{\operatorname{Id}}
+
+
+
+%enteros Z
+\newcommand{\integers}{\mathbb{Z}}
+%racionales
+\newcommand{\rationals}{\mathbb{Q}}
+%naturales
+\newcommand{\naturals}{\mathbb{N}}
+%reales R
+\newcommand{\reals}{\mathbb{R}}
+%imaginarios
+\newcommand{\complex}{\mathbb{C}}
+%p-adicos
+\newcommand{\padics}{\mathbb{Q}_p}
+%enteros p-adicos
+\newcommand{\padicintegers}{\mathbb{Z}_p}
+
+%cuerpos finitos
+%Fp
+\newcommand{\Fp}{\mathbb{F}_p}
+%Fq
+\newcommand{\Fq}{\mathbb{F}_q}
+
+
+
+%valor absoluto p-adico
+\newcommand{\abs}[1]{\left \vert #1 \right \vert}
+%valor absoluto p-adico
+\newcommand{\Abs}[1]{\left \vert \left \vert #1 \right \vert \right \vert}
+%valuacion p-adica
+\newcommand{\val}[1]{\operatorname{val} (#1)}
+
+%Hom
+\newcommand{\Hom}{\operatorname{Hom}}
+
+%imagen y núcleo
+\newcommand{\Imagen}{\operatorname{Im}}
+\newcommand{\Ker}{\operatorname{Ker}}
+
+%coker
+\newcommand{\Coker}{\operatorname{Coker}}
+
+%limite inverso
+\newcommand{\liminv}{\varprojlim}
+
+
+%un poco de typeset para categorias
+\newcommand{\catname}[1]{{\operatorfont\textbf{#1}}}
+
+
+\renewcommand{\hat}[1]{\widehat{#1}}
+\renewcommand{\bar}[1]{\overline{#1}}
+
+%declaro un comando nuevo para escribir restricción de funciones
+\newcommand\rest[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+%%%%   COMANDO ALGEBRA CONMUTATIVA   %%%%
+
+%altura de un ideal:
+\newcommand{\height}{\textsc{height}}
+
+%Clausura topológica
+\newcommand{\closure}[1]{\overline{#1}}
+
+%longitud de un A-modulo. Notacion: \length_A M
+\newcommand{\length}{\operatorname{length}}
+
+%Anulador de un $A$-módulo.
+\newcommand{\Ann}[1]{\operatorname{Ann} (#1)}
+
+%Cuerpo de fracciones. Notacion $\FracField A$.
+\newcommand{\FracField}[1]{\operatorname{Fr} (#1)}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%   COMANDO TEORÍA DE NÚMEROS  %%%%
+
+%Discriminante
+\newcommand{\discriminant}[1]{\mathfrak{d} (#1 )}
+
+%%%%Ideales primos%%%
+%escribe una letra en notación mathfrak, para denotar a un ideal o elemento primo.
+
+\newcommand{\primo}[1]{\mathfrak{#1}}
+\newcommand{\Primo}[1]{\mathfrak{\MakeUppercase{#1}}}
+
+%anillo de enteros O_K
+\renewcommand{\O}{\mathcal{O}}
+%anillo de enteros con subindice de cuerpo (input, por ejemplo $K$).
+\newcommand{\integralring}[1]{O_{#1}}
+
+%caracteristica de un cuerpo Char k
+\newcommand{\Char}[1]{\operatorname{Char} #1}
+
+%traza. Notación \trace = Tr
+\newcommand{\trace}{\operatorname{Tr}}
+
+%Traza de extensiones. Notación \Tr L K \alpha = \operatorname{Tr}_{L/K} (\alpha)
+\newcommand{\Tr}[1]{\operatorname{Tr}_{L/K} (#1)} %la extension es L/K por default
+\newcommand{\tr}[3]{\operatorname{Tr}_{#1/#2} (#3)}
+
+%Norma de extensiones. Notación \Norm L K \alpha = \operatorname{N}_{L/K} (\alpha)
+\newcommand{\Norm}[1]{\operatorname{N}_{L/K} (#1)}%la extension es L/K por default
+\newcommand{\norm}[3]{\operatorname{N}_{#1/#2} (#3)}
+
+
+%discriminante de una forma bilineal simetrica. notacion \disc{B} = \operatorname{disc} ( B)
+\newcommand{\disc}[1]{\operatorname{disc} (#1)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%COMANDO GRAFOS%%%%%%%%%%%%%
+
+%\ceil funcion techo
+\newcommand{\ceil}[1]{\left\lceil #1  \right\rceil}
+
+%\floor funcion piso
+\newcommand{\floor}[1]{\left\lfloor #1  \right\rfloor}
+
+%diámetro de un grafo
+\newcommand{\diam}[1]{\operatorname{diam} (#1)}
+
+%radio de un grafo
+\newcommand{\rad}[1]{\operatorname{rad}(#1)}
+
+%Kappa:
+\newcommand{\Kappa}{\mathcal{K}}
+
+%Defecto:
+\newcommand{\defecto}[1]{\mathrm{df}(#1)}
+
+%Conjunto de últimos vértices de una familia \mathcal P de caminos dirigidos: \ter{\mathcal P}
+\newcommand{\ter}[1]{\operatorname{ter} (#1)}
+
+%numero de coloreo de un grafo G:
+\newcommand{\col}[1]{\operatorname{col} (#1)}
+
+%número de lista coloreo de un grafo G:
+\newcommand{\ch}[1]{\operatorname{ch} (#1)}
+
+
+
+%Número extremal
+\newcommand{\ex}[2]{\operatorname{ex} (#1, #2)}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{numeroSeccion}[section]%ponemos un contador que empieza en 0 y que cuenta el número de seccion
+
+\newcounter{numeroCapitulo}[chapter]
+
+\newcounter{numeroDibujo}[numeroSeccion]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Cada dibujo se puede automatizar:
+%1) necesitamos el archivo "Dibujo n.png" en la carpeta "Clase m", donde $n$ es el número del dibujo y $m$ es el número de la clase.
+
+
+
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+
+%el comando Dibujo tiene dos inputs \Dibujo{input 1}{input 2}, el primer input es [OPCIONAL] y representa el ancho del dibujo, y el segundo es el caption de la figura.
+\NewDocumentCommand{\Dibujo}{O{1} m m}{
+\stepcounter{numeroDibujo}
+\begin{center}\label{Figura:Capitulo \thenumeroCapitulo - Seccion \thenumeroSeccion Dibujo \thenumeroDibujo}
+\includegraphics[width=#1\columnwidth]{#3}
+\captionof{figure}{#2}
+\end{center}
+}
+
+
+%el comando Inkscape tiene dos inputs \Inkscape{input 1}{input 2}, el primer input es [OPCIONAL] y representa el ancho del dibujo, y el segundo es el caption de la figura.
+\NewDocumentCommand{\Inkscape}{O{1} m m}{
+\stepcounter{numeroDibujo}
+\begin{center}\label{Figura:Capitulo \thenumeroCapitulo - Seccion \thenumeroSeccion Dibujo \thenumeroDibujo}
+\def\svgwidth{#1\textwidth}
+\input{#3}
+\captionof{figure}{#2}
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Apuntes - Tópicos en matemática discreta}
+\author{Enzo Giannotta}
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+%--------------------------------- ACA VA LA TABLA DE CONTENIDOS
+
+\tableofcontents
+
+%---------------------------------
+
+
+
+En este curso trabajaremos con grafos simples, usualmente denotados: $G=(V,E)$.
+
+
+\chapter{Teoría extremal de grafos}
+
+\section{Teoría extremal de grafos}
+
+¿Cuál es la máxima cantidad de aristas que puede tener un grafo de $n$ vértices sin que aparezca una cierta estructura?
+
+¿Cómo lucen estos grafos maximales?
+
+\begin{example}
+\begin{enumerate}
+\item Cuando la estructura es un ciclo, la cantidad de aristas es $n-1$ y los grafos maximales son los árboles.
+\item Cuando la estructura es un ciclo impar. ¿Cómo lucen los grafos sin ciclos impares y que tienen una cantidad máxima de aristas? Son los completos balanceados $K_{\ceil {\frac n 2},\floor{\frac n 2}}$. En efecto, para que un grafo bipartito con $n$ vértices tenga una cantidad máxima de aristas, tiene dos partes $\abs X, \abs Y$ con $\abs X + \abs Y = n$ y si maximiza la cantidad de aristas es un grafo $K_{\abs X, \abs Y}$. Es decir, tiene $\abs X \cdot \abs Y$ aristas y si maximizamos, hay que maximizar la función $f(y) = (n-y)y$ con $1 \leq y \leq n-1$ e $y$ entero; esto sucede sii $y = \lfloor {\frac n 2} \rfloor$ o $y = \lceil \frac n 2 \rceil$.
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+Sean $G$ y $H$ dos grafos. Decimos que $G$ es \textbf{H}-libre (o \textbf{libre de $H$}) si $H \not \subset G$. El \textbf{número extremal} de $H$ es la cantidad
+\[
+    \ex n H = \max \{e (G) | G \text{ es un grafo de $n$ vértices $H$-libre}\},
+\]
+donde $e(G)$ siempre denotará el número de aristas de $G$.
+\end{definition}
+
+
+\begin{theorem}[Mantel, 1907]
+Sea $n \in \naturals$, $G$ un grafo $K_3$-libre con $n$ vértices. Entonces, $e(G) \leq \ceil{\frac n 2}, \floor {\frac n 2}$. Además, $e(G) = \ceil{\frac n 2}, \floor {\frac n 2} \Leftrightarrow G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$\footnote{Cuando $n = 1,2$ tenemos que $G$ es el completo $K_n$}.
+\end{theorem}
+\begin{proof}
+Por inducción en $n$. Los casos $n = 1, n=2$ son un vértice, un $1$-camino respectivamente. Luego vale para $n=1,2$. Ahora, supongamos que $n \geq 3$. Sea $G$ un grafo $K_3$-libre con $n$ vértices, y $uv \in E(G)$ (si $G$ no tuviera aristas, podríamos agregar una arista y seguiría siendo $K_3$-libre); consideremos $G' = G \setminus \{u,v\}$. Tenemos que $G'$ también es $K_3$-libre y tiene $n-2$ vértices. Por inducción, $G'$ satisface
+\[
+    e(G') \leq \ceil{\frac {n-2} 2}, \floor {\frac {n-2} 2}.
+\]
+Más aún, como $G$ es $K_3$-libre, no existen vértices $w \in G'$ tal que sea adyacente a $u$ y $v$ al mismo tiempo. Luego existen a lo más $n-2$ aristas en $E(G) \setminus E(G')$ sin contar la arista $uv$. Es decir,
+\[
+    e(G) \leq e(G') + n-1 \leq \ceil{\frac n 2}, \floor {\frac n 2}.
+\]
+\Inkscape{Ilustración}{"./Figuras/Teoria extremal de grafos/Dibujo 1.pdf_tex"}
+
+
+Para la segunda parte, $e(G) =\ceil{\frac n 2}, \floor {\frac n 2} \Leftrightarrow G = K_{\ceil {\frac{n}{2}} , \floor {\frac{n}{2}}}$. Es claro que si $G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$ luego $e (G) = \ceil{\frac n 2}, \floor {\frac n 2}$. Veamos la recíproca. Sea $G$ con $n$ vértices y cantidad máxima de aristas tal que es $K_3$-libre. Los casos $n=1,2$ son triviales, luego podemos suponer que $\abs G \geq 3$. Como $G$ es $K_3$-libre, existen una aristas $uv \in E(G)$ por maximalidad. Por inducción, $G':= G \setminus \{u,v\}$ es un $K_{\ceil{\frac {n-2} 2}, \floor {\frac {n-2} 2}}$, digamos con partición $X',Y' \subset V(G')$ de sus vértices. Como $G$ es $K_3$-libre, ni $u$ ni $v$ pueden tener vecinos en $G'$ que estén en ambas particiones $X',Y'$, además, no puede haber una partición que no tenga a $u$ y $v$ como vecinos en $G$ pues podríamos agregar aristas entre vértices de esa particiones: contradiciendo maximalidad. Sin pérdida de generalidad, los vecinos de $u$ en $G'$ están en $X$ y los de $v$ en $Y$. Más aún, por maximalidad, todos los vértices de $X$ son vecinos con $u$ y todos los de $Y$ con $v$. Así, $G$ es un $X,Y$ bigrafo tomando $X := X' \cup \{v\}$ e $Y := Y' \cup \{u\}$. Notar que esto prueba que $G$ es un $K_{\ceil{\frac n 2}, \floor {\frac n 2}}$.
+
+
+\end{proof}
+
+
+\begin{definition}
+El \textbf{grafo de Turán} $T_k (n)$ es el grafo $k$-partito completo con la mayor cantidad de aristas. Notamos
+\[
+    t_k(n) := e(T_k (n)).
+\]
+\end{definition}
+
+\begin{obs}
+Si $n$ es un múltiplo de $k$,
+\[
+    t_k (n) = \frac{n^2}{k^2} \cdot \binom k 2 = (1- \frac 1 k)\cdot \frac{n^2}{2}.
+\]
+\end{obs}
+
+
+\begin{theorem}[Turán, 1941]
+Sean $n,k \in \naturals$, $G$ un grafo $K_{k}$-libre con $n$ vértice. Entonces
+\[
+    e(G) \leq t_k (n).
+\]
+Además, $e(G) = t_k (n) \Leftrightarrow G = T_k (n)$\footnote{Cuando $n = 1,2, \ldots, k-1$ tenemos que $G$ es el completo $K_n$}.
+\end{theorem}
+
+\begin{proof}
+Hagamos inducción en $n$. Para $n \leq k-1$ es trivial. Sea ahora $G$ con $n \geq k$ que a su vez es $K_{k}$-libre y arista maximal. Esto implica que agregar cualquier arista hace aparecer un $K_{k}$ como subgrafo. Entonces $G$ contiene un $K_{k-1}$. Sea $A$ el conjunto de vértices de un subgrafo $K_{k-1}$ en $G$. Consideremos luego $G' = G\setminus A$. El grafo $G'$ es $K_{k}$-libre y tiene $n-k+1$ vértices. Cada $x \in V(G')$ tiene a lo más $k-2$ vecinos en $A$ dentro del grafo $G$, pues $G$ es $K_{k}$-libre. Luego por hipótesis inductiva:
+\[
+    e(G') \leq t_k(n-k+1).
+\]
+Si juntamos esto con la hipotesis inductiva, tenemos que
+\[
+    e(G) \leq e(G') + \overbrace{(n-k+1) \cdot (k-2)}^{\text{aristas entre $A$ y $V(G')$}} + \binom {k-1} 2    \leq t_k (n-k+1) + (n-k+1) \cdot (k-2) + \binom {k-1} 2 = t_k (n).
+\]
+
+TAREA: ESCRIBIR LA SEGUNDA PARTE DE LA DEMOSTRACIÓN (EL ADEMAS...)
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%import{nombre de carpeta/}{Nombre del archivo}
+%\subfile{Apendice/Apendice.tex}
+
+
+
+
+
+%--------------------------------
+\newpage
+
+\bibliographystyle{alpha}
+\bibliography{main.bib}{}
+%--------------------------------
+
+
+
+
+
+
+
+\end{document}
+
