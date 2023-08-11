@@ -469,6 +469,8 @@ Sean $G$ y $H$ dos grafos. Decimos que $G$ es \textbf{H}-libre (o \textbf{libre 
     \ex n H = \max \{e (G) | G \text{ es un grafo de $n$ vértices $H$-libre}\},
 \]
 donde $e(G)$ siempre denotará el número de aristas de $G$.
+
+Si $G$ es $H$-libre y $\Abs G = \ex n H$, decimos que $G$ es \textbf{extremal} respecto de $n$ y $H$.
 \end{definition}
 
 
@@ -494,22 +496,30 @@ Para la segunda parte, $e(G) =\ceil{\frac n 2}, \floor {\frac n 2} \Leftrightarr
 
 
 \begin{definition}
-El \textbf{grafo de Turán} $T_k (n)$ es el grafo $k$-partito completo con la mayor cantidad de aristas. Notamos
+El \textbf{grafo de Turán} $T_k (n)$ es el grafo $k$-partito completo con la mayor cantidad de aristas, es decir, los cardinales de las particiones difieren a lo más en $1$ entre sí (por maximalidad). Notamos
 \[
     t_k(n) := e(T_k (n)).
 \]
 \end{definition}
 
 \begin{obs}
-Si $n$ es un múltiplo de $k$,
+Podemos calcular $t_k(n)$. Sea $\alpha \in \naturals$ el cardinal más grande de una partición de $T_k (n)$. Entonces las demás particiones tienen cardinal $\alpha$ o $\alpha -1$. Sea $r$ la cantidad de particiones con cardinal $\alpha -1$ y $k-r$ de cardinal $\alpha$. Tenemos que sumando los cardinales de todas las particiones:
 \[
-    t_k (n) = \frac{n^2}{k^2} \cdot \binom k 2 = (1- \frac 1 k)\cdot \frac{n^2}{2}.
+    \alpha k - r = n.
+\]
+Como $0 \leq r < k$, $r$ es el resto de la división de $n$ por $k$ y $\alpha$ es el cociente. Despejando obtenemos que $\alpha = \frac{n+r}{k}$ es decir, $\alpha = \lceil \frac{n}{k} \rceil$. En particular $\alpha -1 = \lfloor \frac{n}{k} \rfloor$. Juntado todo, tenemos que la cantidad total de aristas es:
+\[
+    \alpha^2 \binom{k-r}2 + \alpha (\alpha -1) (k-r)r + (\alpha-1)^2 \binom{r}2,
+\]
+i.e.,
+\[
+    \boxed{t_k(n) = \lceil \frac{n}{k} \rceil^2 \binom{k-r}2 + \lceil \frac{n}{k} \rceil \lfloor \frac{n}{k} \rfloor (k-r) r + \lceil \frac{n}{k} \rceil^2 \binom r 2.}
 \]
 \end{obs}
 
 
 \begin{theorem}[Turán, 1941]
-Sean $n,k \in \naturals$, $G$ un grafo $K_{k}$-libre con $n$ vértice. Entonces
+Sean $n,k \in \naturals$, $G$ un grafo $K_{k+1}$-libre con $n$ vértice. Entonces
 \[
     e(G) \leq t_k (n).
 \]
@@ -517,16 +527,33 @@ Además, $e(G) = t_k (n) \Leftrightarrow G = T_k (n)$\footnote{Cuando $n = 1,2, 
 \end{theorem}
 
 \begin{proof}
-Hagamos inducción en $n$. Para $n \leq k-1$ es trivial. Sea ahora $G$ con $n \geq k$ que a su vez es $K_{k}$-libre y arista maximal. Esto implica que agregar cualquier arista hace aparecer un $K_{k}$ como subgrafo. Entonces $G$ contiene un $K_{k-1}$. Sea $A$ el conjunto de vértices de un subgrafo $K_{k-1}$ en $G$. Consideremos luego $G' = G\setminus A$. El grafo $G'$ es $K_{k}$-libre y tiene $n-k+1$ vértices. Cada $x \in V(G')$ tiene a lo más $k-2$ vecinos en $A$ dentro del grafo $G$, pues $G$ es $K_{k}$-libre. Luego por hipótesis inductiva:
+Hagamos inducción en $n$. Para $n \leq k$ es trivial. Sea ahora $G$ con $n \geq k+1$ que a su vez es $K_{k+1}$-libre y arista maximal. Esto implica que agregar cualquier arista hace aparecer un $K_{k+1}$ como subgrafo. Entonces $G$ contiene un $K_{k}$. Sea $A$ el conjunto de vértices de un subgrafo $K_{k}$ en $G$. Consideremos luego $G' = G\setminus A$. El grafo $G'$ es $K_{k+1}$-libre y tiene $n-k$ vértices. Cada $x \in V(G')$ tiene a lo más $k-1$ vecinos en $A$ dentro del grafo $G$, pues $G$ es $K_{k+1}$-libre. Luego por hipótesis inductiva:
 \[
-    e(G') \leq t_k(n-k+1).
+    e(G') \leq t_k(n-k).
 \]
 Si juntamos esto con la hipotesis inductiva, tenemos que
 \[
-    e(G) \leq e(G') + \overbrace{(n-k+1) \cdot (k-2)}^{\text{aristas entre $A$ y $V(G')$}} + \binom {k-1} 2    \leq t_k (n-k+1) + (n-k+1) \cdot (k-2) + \binom {k-1} 2 = t_k (n).
+    e(G) \leq e(G') + (n-k) (k-1) + \binom {k} 2    \leq t_k (n-k) + (n-k) \cdot (k-1) + \binom {k} 2 = t_k (n),
 \]
+donde el segundo término es la cantidad de aristas entre $A$ y $V(G')$.
 
-TAREA: ESCRIBIR LA SEGUNDA PARTE DE LA DEMOSTRACIÓN (EL ADEMAS...)
+Veamos ahora la segunda afirmación. Por definición, $G = T_k (n)$ tiene $t_k (n)$ aristas. Recíprocamente, supongamos que $G$ con $n$ vértices y cantidad máxima de aristas $e(G)$ tal que es $K_{k+1}$-libre. Los casos $n \leq k$ son triviales, luego supongamos que $n \geq k+1$. Por maximalidad, $G$ contiene un $K_{k}$ como subgrafo; llamemos $A$ a su conjunto de vértices en $G$ y consideremos $G' := G \setminus A$. Notar que
+\[
+    e(G') \geq e(G)- \left ( (n-k) (k-1) + \binom {k} 2 \right ) = t_k (n) -(n-k) (k-1) - \binom{k} 2 = t_k(n-k),
+\]
+pues cada vértice de $G'$ tiene a lo más $k-1$ vecinos en $A$. Como $G'$ es $K_{k+1}$-libre, en realidad vale la igualdad: $e(G') = t_k (n-k)$, por la primera parte que ya demostramos. Llamemos $X_1, X_2, \ldots, X_k$ a las particiones de $G'$. Como vale la igualdad arriba, tenemos que cada vértice de $G'$ tiene exactamente $k-1$ vecinos en $A$. Para cada $x' \in G'$ llamemos $\alpha(x')$ al único vértice de $A$ que no es adyacente a $x'$ en $G$. Más formalmente, $\alpha : V(G') \rightarrow A$ es una función; afirmamos que:
+\begin{enumerate}[(i)]
+\item $\alpha$ es sobreyectiva.
+\item Si $x_i ' \in X_i$ y $X_j ' \in X_j$ para $i \neq j$, entonces $\alpha (x_i') \neq \alpha (x_j')$.
+\end{enumerate}
+Antes de probar la afirmación, notemos que esta prueba que
+$\rest{\alpha}{X_i}$ es constante para cada $i = 1, \ldots, k$ (y por lo tanto tiene sentido el abuso de notación $\alpha (X_i)$ para denotar al único vértice de $A$ que no es adyacente a ningún vértice $x' \in X_i$). Veamos entonces la afirmación:
+\begin{enumerate}[(i)]
+\item Supongamos que $\alpha$ no es sobreyectiva: existe un $a_0 \in A$ tal que para todo $i = 1, \ldots, k$ existe $x_i ' \in X_i$ adyacente a $a_0$ en $G$. Pero esto implica entonces que los vértices $x_1' , \ldots, x_k ', a_0$ forman un $K_{k+1}$ en $G$, absurdo.
+\item En efecto, si $\alpha (x_i ') = a_0 = \alpha (x_j ')$, entonces $x_i, x_j$ y los vértices de $A \setminus \{a_0\}$ juntos forman un $K_{k+1}$ en $G$, absurdo.
+\end{enumerate}
+
+Así, podemos extender la partición de $G'$ a todo $G$: definimos $\tilde X_i := X_i \cup \{\alpha (X_i)\}$. Es claro que de esta manera $G$ es un grafo $k$-partito completo. Como $G$ es maximal en su cantidad de aristas, entonces $G = T_k (n)$.
 \end{proof}
 
 
