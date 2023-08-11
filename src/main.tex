@@ -18,7 +18,7 @@
 
 \usepackage{graphicx}
 
-\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
 
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
@@ -559,19 +559,209 @@ Así, podemos extender la partición de $G'$ a todo $G$: definimos $\tilde X_i :
 
 
 
+\begin{theorem}[Erdös - segunda demostración del teorema]
+Sean $n, k  \in \naturals    $ y $G$ un grafo $K_{k+1}$-libre con $n$ vértices. Entonces existe un grafo $H$ que es $k$-partito con $V(H) = V(G)$ tal que:
+\[
+    d_H (v) \geq d_G (v) , \quad \forall v \in V(G).
+\]
+\end{theorem}
+\begin{proof}[Erdös]
+Haremos inducción en $k$. Para $k = 1$ no hay que hacer nada. Sea ahora $k \geq 2$. Sea $v \in V(G)$ con $d_G (v) = \Delta (G)$. La vecindad de $v$, $G' := G[N_G (v)]$ debe ser $K_{k}$-libre. Sea $A := G \setminus N_G (v)$. Notar que
+\[
+    d_{G} (u) \leq d_{G'} (u) + \abs A.
+\]
+Por hipótesis inductiva existe un grafo $H'$ que es $(k-1)$-partito con $V(H') = V(G')$ y
+\[
+    d_{H'} (u) \geq d_{G'} (u), \quad \forall u \in V(G').
+\]
+Sea $H$ el grafo obtenido a paratir de $H'$ añadiendo los vértices de $A$ y conectando todas las aristas entre $A$ y $V(H')$. Observar que $H$ es $k+1$-partito y como $v$ tiene grado máximo en $G$, tenemos que para cada $u \in A$:
+\[
+    d_G (u) \leq d_G (v) = \abs{V(H')} = d_H (u)
+\]
+y para $u \in V(H')$ sabemos que:
+\[
+    d_G (u) \leq d_{G'} (u) + \abs A    \underset{H.I.}{\leq} d_{H'} (u) + \abs A = d_H (u).
+\]
+\end{proof}
+
+\begin{exercise}
+A partir de la demostración deducir que el grafo $K_{k+1}$-extremal es $T_k (n)$ y es único.
+\end{exercise}
+
+\begin{obs}
+Sea $H$ un grafo con $\chi (H) \geq 3$, es decir no bipartito, entonces
+\[
+    \ex n H = \Theta (n^2).
+\]
+\end{obs}
+\begin{proof}
+En primer lugar, si $G$ es un grafo que no contiene a $H$ luego no puede ser bipartito; en particular si $G = K_{\ceil { \frac n 2} , \floor {\frac n 2}}$ entonces tiene $n$ vértices y $e(G) = \ceil { \frac n 2} \floor {\frac n 2}$. Consecuentemente
+\[
+    (n-1)^2/4 \leq  \ceil { \frac n 2} \floor {\frac n 2} \leq \ex n H.
+\]
+
+Por otro lado, la cantidad de aristas maxima de $G$ es $\binom n 2$ (en general para cualquier grafo con $n$ vértices) y por lo tanto $\ex n H = \Theta (n^2)$.
+\end{proof}
 
 
 
 
+\section{Números extremales en grafos bipartitos}
+
+
+\begin{recuerdo}[Desigualdad de Jensen]
+Vamos a usar la desigualdad de Jensen: si $\varphi$ es una función convexa entonces:
+\[
+    \boxed{\varphi(\mathbb E (X)) \leq \mathbb E (\varphi (X)).}
+\]
+\end{recuerdo}
+
+
+\begin{exercise}
+Probar las siguientes dos desigualdades elementales para el binomio de Newton:
+\[
+    \left(\frac n k \right)^k \overset{\text{Cota 1}}{\leq} \binom n k \overset{\text{Cota 1}}{\leq} \left(\frac{n \cdot e}{k}\right)^k.
+\]
+\end{exercise}
+\begin{solution}
+\begin{enumerate}
+\item[Cota 1:] Recordar que el binomio de Newton tiene la siguiente identidad recursiva: $\binom n k = $
+\item[Cota 2:]
+\end{enumerate}
+\end{solution}
+
+n/k < n-1 /k-1 si y solo si n k-1 < n -1 k sii -n < -k sii k < n
+
+
+\begin{theorem}[Erdös, 1938]
+Para todo $n \in \naturals$
+\[
+    \ex n {C_4} \leq n^{\frac 3 2}.
+\]
+\end{theorem}
+
+\begin{definition}
+Una \textbf{cereza} es un $2$-camino $x_0 x_1 x_2$. Llamaremos a $x_1$ el \textbf{centro} y a $x_0,x_2$ las \textbf{hojas}.
+\end{definition}
+
+\Inkscape{Dibujo de cereza.}{"./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf_tex"}
+
+\begin{proof}
+Sea $G$ un grafo $C_4$-libre con $n$ vértices. Contaremos cereza en $G$ para acotar el número de aristas $e(G)$.
+
+Para cada vértice $v \in V(G)$ hay exactamente
+\[
+    \binom{d(v)}{2} \text{ cerezas con centro en $v$}.
+\]
+Por lo tanto, en $G$ hay
+\[
+    \sum_{v \in V(G)} \binom{d(v)}{2} \text{ cerezas en $G$}.
+\]
+Por la desigualdad de Jensen la sumatoria se minimiza cuando todos los grados son iguales:
+\begin{align*}
+    \sum_{v \in V(G)} \binom{d(v)}{2} &\geq n \cdot \binom{2 e(g) / n}{2} \\
+                                        &\overset{Cota 1}{\geq} n \cdot \left ( \frac{e(G)}{n} \right )^2 = \frac{e(G)^2}{n}.
+\end{align*}
+Por otro lado, dado un par $\{u,v\}$ de hojas de cerezas distintas, entonces tendríamos un subgrafo $C_4$ en $G$, absurdo; por lo tanto hay a lo más
+\[
+    \binom{n} 2 \text{ cerezas en $G$}.
+\]
+
+Juntando todo:
+\[
+    \frac{e(G)^2}{n} \leq \binom n 2 = \frac{n(n-1)}{2},
+\]
+consecuentemente $e(G)^2 \leq n^3$, i.e., $e(G) \leq n^{\frac{3}{2}}$.
+\end{proof}
 
 
 
 
+\begin{theorem}[(Kövani, Sós, Turán)]
+Sean $s, t \in \naturals$, $s \leq t$. Entonces existe una constante $c = c(s,t) > 0$ tal que
+\[
+    \ex n {K_{s,t}} \leq c \cdot n^{2 - \frac 1 s}, \quad \forall n \in \naturals.
+\]
+\end{theorem}
+
+\begin{definition}
+Una \textbf{$s$-cereza} es un $K_{1,s}$. Similarmente tenemos la noción de \textbf{centro} y \textbf{hojas} (las cuales son $s$).
+\Inkscape{Dibujo de $s$-cereza.}{"./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf_tex"}
+\end{definition}
+
+\begin{proof}
+Sea $G$ un grafo $K_{s,t}$-libre en $n$ vértices. Para cada $v \in V(G)$ hay $\binom{d(v)}{s}$ $s$-cerezas. Por lo tanto en $G$ hay
+\[
+    \sum_{v \in V(G)} \binom{d(v)}{s} \text{ $s$-cerezas},
+\]
+con lo cual
+\[
+    \sum_{v\in V(G)} \binom{d(v)}{s} \overset{Jensen}\geq n \binom{2 e(G)/n}{s} \overset{Cota 1}\geq n \left( \frac{2 e (G)}{s n}\right)^2.
+\]
+Procediendo de manera análoga a la demostración del teorema anterior, tenemos que un conjunto de $s$ vértices del grafo puede ser conjunto de hojas de a lo más $(t-1)$ cerezas, pues de lo contrario habría una copia de $K_{s,t}$. Por lo tanto, hay en total a lo más
+\[
+    (t-1) \cdot \binom{n}s \text{ $s$-cerezas}.
+\]
+
+Juntando todo:
+\[
+    n ( \frac{2 e(G)}{s n})^s \leq (t-1) \cdot \binom n s \overset{Cota 2}{\leq} (t-1) \cdot (\frac{n e}{s})^s,
+\]
+luego
+\[
+    \frac{2 e(G)}{s n} \leq \frac{(t-1)^{\frac 1 s}}{n^{\frac 1 s}} \cdot \frac{n e}{s},
+\]
+equivalentemente,
+\[
+    e(G) \leq {\frac{(t-1)^{\frac 1 s} s e}{2 s}} \cdot n^{2-\frac{1}{s}} = c(s,t ) \cdot n ^{2 - \frac 1 s}.
+\]
+\end{proof}
+
+\begin{exercise}
+Demostrar que
+\[
+    \ex n H = o (n^2) \quad \Leftrightarrow \quad H \text{ es bipartito}.
+\]
+\end{exercise}
 
 
 
+\section{Números extremales para árboles}
 
 
+
+\begin{theorem}
+Sean $n,k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces,
+\[
+    \ex n T \leq (k-1) \cdot n.
+\]
+\end{theorem}
+\begin{proof}
+\begin{lemma}
+Sean $k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces si $G$ es un grafo con $\delta (G) \geq k$, luego contiene a $T$ como subfrafo.
+\end{lemma}
+
+\begin{lemma}
+Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) \geq \frac{e(g)}{n}$, donde $n = \abs G$.
+\end{lemma}
+
+Sea $G$ un grafo con $\geq (k-1) \cdot n + 1$ aristas que no contiene a $T$. Por el segundo lema, $G$ contiene $H$ con
+\[
+    \delta (H) \geq \frac{e(G)}{n} > \frac{(k-1) n}{n},
+\]
+y por el primer lema ganamos.
+\end{proof}
+
+\begin{conjecture}[Erdös, Sós, 1963]
+Se conjetura que en el teorema anterior se tiene una mejor cota:
+\[
+    \ex n T \leq \frac 1 2 (k-1) n.
+\]
+
+Notar que de ser verdadera la conjetura, entonces esta cota es tight cuando $n$ es un múltiplo de $k$: Sea $G$ el grafo obtenido al unir $\frac n k$ copias de $K_k$, así $e(G) = \frac n k \binom k 2 = \frac n 2 (k-1)$.
+
+Esta conjetura es verdadera en el caso \underline{$T$ un camino}.
+\end{conjecture}
 
 
 
