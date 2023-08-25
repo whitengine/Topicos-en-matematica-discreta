@@ -445,10 +445,12 @@
 
 
 
-En este curso trabajaremos con grafos simples, usualmente denotados: $G=(V,E)$.
+
 
 
 \chapter{Teoría extremal de grafos}
+
+En este curso trabajaremos con grafos simples, usualmente denotados: $G=(V,E)$.
 
 \section{Teoría extremal de grafos}
 
@@ -475,21 +477,21 @@ Si $G$ es $H$-libre y $\Abs G = \ex n H$, decimos que $G$ es \textbf{extremal} r
 
 
 \begin{theorem}[Mantel, 1907]
-Sea $n \in \naturals$, $G$ un grafo $K_3$-libre con $n$ vértices. Entonces, $e(G) \leq \ceil{\frac n 2}, \floor {\frac n 2}$. Además, $e(G) = \ceil{\frac n 2}, \floor {\frac n 2} \Leftrightarrow G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$\footnote{Cuando $n = 1,2$ tenemos que $G$ es el completo $K_n$}.
+Sea $n \in \naturals$, $G$ un grafo $K_3$-libre con $n$ vértices. Entonces, $e(G) \leq \ceil{\frac n 2} \floor {\frac n 2}$. Además, $e(G) = \ceil{\frac n 2} \floor {\frac n 2} \Leftrightarrow G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$\footnote{Cuando $n = 1,2$ tenemos que $G$ es el completo $K_n$}.
 \end{theorem}
 \begin{proof}
 Por inducción en $n$. Los casos $n = 1, n=2$ son un vértice, un $1$-camino respectivamente. Luego vale para $n=1,2$. Ahora, supongamos que $n \geq 3$. Sea $G$ un grafo $K_3$-libre con $n$ vértices, y $uv \in E(G)$ (si $G$ no tuviera aristas, podríamos agregar una arista y seguiría siendo $K_3$-libre); consideremos $G' = G \setminus \{u,v\}$. Tenemos que $G'$ también es $K_3$-libre y tiene $n-2$ vértices. Por inducción, $G'$ satisface
 \[
-    e(G') \leq \ceil{\frac {n-2} 2}, \floor {\frac {n-2} 2}.
+    e(G') \leq \ceil{\frac {n-2} 2} \floor {\frac {n-2} 2}.
 \]
 Más aún, como $G$ es $K_3$-libre, no existen vértices $w \in G'$ tal que sea adyacente a $u$ y $v$ al mismo tiempo. Luego existen a lo más $n-2$ aristas en $E(G) \setminus E(G')$ sin contar la arista $uv$. Es decir,
 \[
-    e(G) \leq e(G') + n-1 \leq \ceil{\frac n 2}, \floor {\frac n 2}.
+    e(G) \leq e(G') + n-1 \leq \ceil{\frac n 2} \floor {\frac n 2}.
 \]
 \Inkscape{Ilustración}{"./Figuras/Teoria extremal de grafos/Dibujo 1.pdf_tex"}
 
 
-Para la segunda parte, $e(G) =\ceil{\frac n 2}, \floor {\frac n 2} \Leftrightarrow G = K_{\ceil {\frac{n}{2}} , \floor {\frac{n}{2}}}$. Es claro que si $G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$ luego $e (G) = \ceil{\frac n 2}, \floor {\frac n 2}$. Veamos la recíproca. Sea $G$ con $n$ vértices y cantidad máxima de aristas tal que es $K_3$-libre. Los casos $n=1,2$ son triviales, luego podemos suponer que $\abs G \geq 3$. Como $G$ es $K_3$-libre, existen una aristas $uv \in E(G)$ por maximalidad. Por inducción, $G':= G \setminus \{u,v\}$ es un $K_{\ceil{\frac {n-2} 2}, \floor {\frac {n-2} 2}}$, digamos con partición $X',Y' \subset V(G')$ de sus vértices. Como $G$ es $K_3$-libre, ni $u$ ni $v$ pueden tener vecinos en $G'$ que estén en ambas particiones $X',Y'$, además, no puede haber una partición que no tenga a $u$ y $v$ como vecinos en $G$ pues podríamos agregar aristas entre vértices de esa particiones: contradiciendo maximalidad. Sin pérdida de generalidad, los vecinos de $u$ en $G'$ están en $X$ y los de $v$ en $Y$. Más aún, por maximalidad, todos los vértices de $X$ son vecinos con $u$ y todos los de $Y$ con $v$. Así, $G$ es un $X,Y$ bigrafo tomando $X := X' \cup \{v\}$ e $Y := Y' \cup \{u\}$. Notar que esto prueba que $G$ es un $K_{\ceil{\frac n 2}, \floor {\frac n 2}}$.
+Para la segunda parte, $e(G) =\ceil{\frac n 2} \floor {\frac n 2} \Leftrightarrow G = K_{\ceil {\frac{n}{2}} , \floor {\frac{n}{2}}}$. Es claro que si $G = K_{\ceil{\frac n 2}, \floor {\frac n 2}}$ luego $e (G) = \ceil{\frac n 2}, \floor {\frac n 2}$. Veamos la recíproca. Sea $G$ con $n$ vértices y cantidad máxima de aristas tal que es $K_3$-libre. Los casos $n=1,2$ son triviales, luego podemos suponer que $\abs G \geq 3$. Como $G$ es $K_3$-libre, existen una aristas $uv \in E(G)$ por maximalidad. Por inducción, $G':= G \setminus \{u,v\}$ es un $K_{\ceil{\frac {n-2} 2}, \floor {\frac {n-2} 2}}$, digamos con partición $X',Y' \subset V(G')$ de sus vértices. Como $G$ es $K_3$-libre, ni $u$ ni $v$ pueden tener vecinos en $G'$ que estén en ambas particiones $X',Y'$, además, no puede haber una partición que no tenga a $u$ y $v$ como vecinos en $G$ pues podríamos agregar aristas entre vértices de esa particiones: contradiciendo maximalidad. Sin pérdida de generalidad, los vecinos de $u$ en $G'$ están en $X$ y los de $v$ en $Y$. Más aún, por maximalidad, todos los vértices de $X$ son vecinos con $u$ y todos los de $Y$ con $v$. Así, $G$ es un $X,Y$ bigrafo tomando $X := X' \cup \{v\}$ e $Y := Y' \cup \{u\}$. Notar que esto prueba que $G$ es un $K_{\ceil{\frac n 2}, \floor {\frac n 2}}$.
 
 
 \end{proof}
@@ -518,7 +520,7 @@ i.e.,
 \end{obs}
 
 
-\begin{theorem}[Turán, 1941]
+\begin{theorem}[Turán, 1941]\label{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}
 Sean $n,k \in \naturals$, $G$ un grafo $K_{k+1}$-libre con $n$ vértice. Entonces
 \[
     e(G) \leq t_k (n).
@@ -677,7 +679,7 @@ consecuentemente $e(G)^2 \leq n^3$, i.e., $e(G) \leq n^{\frac{3}{2}}$.
 
 
 
-\begin{theorem}[(Kövani, Sós, Turán)]
+\begin{theorem}[Kövani, Sós, Turán]
 Sean $s, t \in \naturals$, $s \leq t$. Entonces existe una constante $c = c(s,t) > 0$ tal que
 \[
     \ex n {K_{s,t}} \leq c \cdot n^{2 - \frac 1 s}, \quad \forall n \in \naturals.
@@ -736,15 +738,22 @@ Sean $n,k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces,
     \ex n T \leq (k-1) \cdot n.
 \]
 \end{theorem}
-\begin{proof}
+
 \begin{lemma}
 Sean $k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces si $G$ es un grafo con $\delta (G) \geq k$, luego contiene a $T$ como subfrafo.
 \end{lemma}
+\begin{proof}
+Haremos inducción en $k$. Para $k = 1$ es claro, pues existe un vértice con al menos un vecino. En general, supongamos que $k \geq 2$. Sea $h$ una hoja de $T$ y consideremos el árbol $T' = T \setminus \{h\}$. Por hipótesis inductiva, $T' \subset G$. Sea $p$ el único vecino de $h$ en $T$, i.e. $p \in T'$. Como $T$ tiene $k+1$ vértices, $p$ tiene a lo más $k-1$ vecinos en $T'$, luego $p$ tiene un vecino en $G$ que no está en $T'$ pues $\delta_G (p) \geq k$. Entonces podemos incrustar $T$ en $G$ considerando $h$ como este vértice.
+\end{proof}
 
 \begin{lemma}
-Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) \geq \frac{e(g)}{n}$, donde $n = \abs G$.
+Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) \geq \frac{e(G)}{n}$, donde $n = \abs G$.
 \end{lemma}
+\begin{proof}
+Ver Diestel.
+\end{proof}
 
+\begin{proof}[Demostración del teorema]
 Sea $G$ un grafo con $\geq (k-1) \cdot n + 1$ aristas que no contiene a $T$. Por el segundo lema, $G$ contiene $H$ con
 \[
     \delta (H) \geq \frac{e(G)}{n} > \frac{(k-1) n}{n},
@@ -760,23 +769,191 @@ Se conjetura que en el teorema anterior se tiene una mejor cota:
 
 Notar que de ser verdadera la conjetura, entonces esta cota es tight cuando $n$ es un múltiplo de $k$: Sea $G$ el grafo obtenido al unir $\frac n k$ copias de $K_k$, así $e(G) = \frac n k \binom k 2 = \frac n 2 (k-1)$.
 
-Esta conjetura es verdadera en el caso \underline{$T$ un camino}.
+Esta conjetura es verdadera en el caso \underline{$T$ un camino}:
 \end{conjecture}
 
+\begin{theorem}[Erdös \& Gallai, 1959]
+Sean $n, k \in \naturals$. Entonces,
+\[
+    \ex n {P_k} \leq \frac{(k-1) \cdot n}{2}
+\]
+\end{theorem}
+\begin{exercise}
+A partir de la demostración de este teorema, obtenga que los grafos extremales son únicos.
+\end{exercise}
+
+\begin{lemma}\label{lema:grafo G conexo con n vertices tiene un camino de largo al menos 2 delta o n-1}
+Todo grafo conexo $G$ con $n$ vértices contiene un camino de largo
+\[
+    k := \min \{2 \delta (G), n-1\}.
+\]
+\end{lemma}
+\begin{proof}
+Tomemos $P := v_0, \ldots, ,v_l$ camino de largo máximo. Sabemos que $N_G (v_0), N_G (v_l) \subset V(P)$ por maximalidad de $P$. Si $V(P) = V(G)$ ganamos. Así que supongamos que no; supongamos también que $l < k\leq 2\delta (G)$. Demostraremos que existe un ciclo de longitud $l$ contenido en $G[V(P)]$, así llegaremos a una contradicción pues al existir un vértice $x$ fuera de $G[V(P)]$ en $G$, podríamos extender el ciclo a un camino de longitud al menos $k+1$ en $G$ conectándolo con $x$.
+
+\Inkscape{Notar que en este caso $v_0 P v_{i-1} v_l P v_i v_0$ es un ciclo de longitud $\abs P$ en $G[V(P)]$.}{"./Figuras/Numeros extremales para arboles/figura.pdf_tex"}
+
+En efecto, supongamos que no existe tal ciclo, luego para cada $i \in \{1, \ldots, l-1\}$ se tiene que $v_{i-1}v_l \not \in E(G)$ o $v_0 v_i \not \in E(G)$. Entonces
+\[
+    2 \delta(G) \leq d_G (v_0) + d_G (v_l) \leq l < 2 \delta (G),
+\]
+absurdo.
+\end{proof}
+
+
+\begin{proof}[Demostración del teorema]
+Haremos inducción en $n$. Afirmamos que $G$ es $P_k$-libre en $n$ vérties, entonces
+\[
+    e(G) \leq \frac{(k-1)\cdot n}{2}.
+\]
+El caso base es $n \leq k$, luego $e(G) \leq \binom n 2 = \frac{n (n-1)}{2} \leq \frac{n (k-1)}{2}$. Luego supongamos que $n \geq k+1$. Si $G$ no es conexo: sean $G_1, \ldots, G_r$ las componentes conexas, por hipótesis
+\[
+    e(G_i) \leq \frac{\abs{G_i} (k-1)}{2},
+\]
+entonces
+\[
+    e(G) = \sum_{i = 1}^r e(G_i) \leq \frac{k-1}{2} \sum_{i =1}^r \abs {G_i} = \frac{n (k-1)}{2}.
+\]
+
+Ahora, supongamos que $G$ es conexo. Si $n-1 \leq 2 \delta (G)$, entonces por el Lema \ref{lema:grafo G conexo con n vertices tiene un camino de largo al menos 2 delta o n-1}, $G$ contiene un camino de largo $n-1 \geq k$, absurdo. Con lo cual, podemos asumir que $2 \delta (G) \leq n-1$, y por el Lema, $G$ contiene un camino de largo $2 \delta (G)$ que debe cumplir
+\[
+    2\delta (G) < k \quad \Leftrightarrow \quad \delta (G) \leq \frac{k-1}{2}.
+\]
+Sea $v$ un vértice de grado $\leq \frac{k-1}{2}$, consideremos $G' := G \setminus \{v\}$. Por hipótesis inductiva
+\[
+    e(G') \leq \frac{(n-1)(k-1)}{2},
+\]
+con lo cual,
+\[
+    e(G) \leq e(G') + \frac{k-1}{2} \leq \frac{(n-1)(k-1)}{2} + \frac{k-1}{2} = \frac{n(k-1)}{2}.
+\]
+\end{proof}
+
+
+
+\section{Estabilidad y supersaturación}
+
+\begin{theorem}[Füredi, 2015]\label{th:teorema de furedi si G esta t lejos de ser bipartito entonces tiene triangulos}
+Sean $n,t \in \naturals$, y $G$ con $n$ vértices. Si $G$ está \textbf{$t$-lejos} de ser bipartito\footnote{Esto significa que si $H$ es un subgrafo bipartito de $G$, entonces $e(H) \leq e(G)-t$.}, entonces hay al menos
+\[
+    \frac{n}{6} \left(e(G)-\frac{n^2}{4}+t\right)
+\]
+triángulos en $G$.
+\end{theorem}
+\begin{proof}
+Para cada $u \in V(G)$, definimos
+\[
+    B_u := N_G (u) \quad \text{y} \quad A_u := V(G) \setminus B_u.
+\]
+Luego la cantidad de tríangulos de $G$ es:
+\[
+    k_3 (G) = \frac 1 3 \sum_{u \in V(G)} e(B_u).
+\]
+
+Para cada $u \in V(G)$, si borro las aristas de $G[B_u]$ y las de $G[A_u]$, obtengo un subgrafo bipartito de $G$: el $(A_u,B_u)$-bigrafo; luego tuvimos que haber quitado al menos $t$ aristas porque $G$ está $t$-lejos de ser bipartito, es decir:
+\[
+    e(B_u) + e(A_u) \geq t.
+\]
+
+Además, para cada $u \in V(G)$
+\[
+    \sum_{v \in A_u} d_G (v) = e(B_u, A_u) + 2e (A_u).
+\]
+Como
+\[
+    e(G) = e(A_u) + e(A_u, B_u) + e(B_u),
+\]
+se sigue que $e (A_u) = e(B_u) - e(G) + \sum_{v \in A_u} d_G (v)$ (juntando ambas ecuaciones). Ahora, por la desigualdad $e(B_u) + e (A_u)\geq t$, se tiene que
+\[
+    e(B_u) \geq t - e(A_u) = t +e(G) - e(B_u) - \sum_{v \in A_u} d_G (v)
+\]
+y por lo tanto
+\[
+    2 e(B_u) \geq t + e(G) - \sum_{v \in A_u} d_G (v).
+\]
+Sumando sobre todos los $u \in V(G)$ y utilizando que $k_3 (G) = \frac 1 3 \sum_{u \in V(G)} e (B_u)$, concluimos:
+\[
+    k_3 (G) \geq \frac 1 2 \cdot \frac 1 3 (n t + n e(G) - \sum_{u \in V(G) } \sum_{v \in A_u} d_G (v));
+\]
+sin embargo, afirmamos que vale la siguiente igualdad:
+\[
+    \sum_{u \in V(G)} \sum_{v \in A_u} d_G (v) = \sum_{x \in V(G)} d_G (x) ( n - d_G (x));
+\]
+ya que cada término de la sumatoria se acota por $\frac n 2  \cdot (n - \frac n 2) = \frac{n^2}{2}$. De aquí concluimos el resultado.
+
+Veamos la afirmación: notar que para cada $x \in V(G)$, su cantidad de aristas $d_G (x)$ es contada exactamente $\abs {A_x} = n - d_G (x)$ veces del lado izquierdo de la sumatoria
+\end{proof}
+
+Como corolario, se prueban los siguientes dos teoremas:
+\begin{theorem}[Estabilidad]
+Sean $n,t \in \naturals$, y $G$ es $K_3$-libre con $n$ vértices. Si $e(G) \geq \frac{n^2}{4}- t$, entonces $G$ contiene un grafo bipartito con al menos $e(G)-t$ aristas.
+\end{theorem}
+\begin{proof}
+Si $G$ no tuviera un grafo bipartito con al menos $e(G) - t$ aristas, entonces $G$ estaría $(t+1)$-lejos de ser bipartito. Por el Teorema \ref{th:teorema de furedi si G esta t lejos de ser bipartito entonces tiene triangulos} tiene al menos
+\[
+    \frac{n}{6} \left ( e(G) - \frac{n^2}{4} + (t + 1) \right ) \geq \frac n 6
+\]
+triángulos, i.e., al menos uno, lo cual es absurdo.
+\end{proof}
+
+\begin{theorem}[Supersaturación]
+Sean $n,t \in \naturals$, y $G$ un grafo con $n$ vértices. Si $e(G) \geq \frac{n^2}{4} + t$, entonces $G$ contiene al menos $t \cdot n /3$ triángulos.
+\end{theorem}
+\begin{proof}
+Notar que $G$ está $t$-lejos de ser bipartito, en efecto, un grafo bipartito de orden $m \leq n$ tiene a lo más $\frac{m^2}{4}\leq \frac{n^2}{4}$ aristas, pero $G$ tiene al menos $\frac{n^2}{4} + t \geq \frac{m^2}{4} + t$ aristas. Luego por el Teorema \ref{th:teorema de furedi si G esta t lejos de ser bipartito entonces tiene triangulos}, $G$ tiene
+\[
+    \frac{n}{6} \left ( e(G) - \frac{n^2}{4} + (t + 1) \right ) \geq \frac{n}{3} t
+\]
+triángulos.
+\end{proof}
+
+
+\bigskip
+
+\begin{theorem}[Füredi, 2015 -- Estabilidad]
+Sean $n,k \in \naturals$, $t \geq 0$ y $G$ un grafo $K_{k+1}$-libre en $n$-vértices. Si $e(G) \geq t_k (n)- t$, entonces $G$ contiene un subgrafo generador $k$-partito con al menos $e(G)-t$ aristas.
+\end{theorem}
+\begin{proof}
+Haremos inducción en $k$. El caso $k = 1$ tenemos que $t_k (n) = 0$ y siempre se cumple. Entonces supongamos que $k \geq 2$. Tomemos $u \in V(G)$ con $d_G (u) = \Delta (G)$. Definamos $G' := G[B]$ con $B = N_G (u)$. Sea $A = V(G) \setminus B$. El grafo $G'$ es $K_k$-libre porque $G$ es $K_{k+1}$-libre, luego por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}, $e(G') \leq t_{k-1} (d)$ con $d := \abs B$ y entonces podemos definir $t' := t_{k-1}(d) - e(G') \geq 0$ y aplicar hipótesis inductiva al grafo $G'$. Así, $G'$ contiene un subgrafo $H'$ generador $(k-1)$-partito con al menos $e(G') - t' = 2 e(G') - t_{k-1} (d)$ aristas.
+
+ Probemos que
+\[
+    H := \Big (V(H') \cup A, E(H') \cup E(A,B) \Big)
+\]
+tiene al menos $e(G) - t$ aristas, y así $H$ es un subgrafo $k$-partito generador de $G$ con al menos $e(G)- t$ aristas. En efecto, queremos probar que
+\[
+    e(H') + e(A, B) \geq e(G) - t;
+\]
+como $e(G) = e(A,B) + e(G') + e(A)$, la desigualdad de arriba es equivalente a
+\[
+    e(H') \geq e(G') + e(A) - t \quad \Leftrightarrow \quad e(H') - e(G') + t \geq e(A).
+\]
+Ya que $e(H') \geq e(G') - t'$, nos queda que la última desigualdad es cierta si $e(A) \leq t - t'$.
+
+Sabemos que
+\[
+     2 e(A) + e(A,B) = \sum_{v \in A} d_G (v) \leq d \cdot (n - d),
+\]
+donde la desigualdad sale de que la sumatoria tiene $(n-d)$ términos y cada grado $d_G(v) \leq \Delta (G) = d_G(u) = \abs B = d$;
+y reemplacemos $e(A,B) = e(G) - e(A) - e(G')$ y nos queda
+\[
+    e(A) + e(G) - e(G') \leq d \cdot (n-d).
+\]
+Ahora, notar que
+\[
+    t_k (n) \geq t_{k-1} (d) + d \cdot (n-d),
+\]
+pues el lado izquierdo es la cantidad de aristas de un grafo de Turán (la cual es máxima) y el lado derecho es la cantidad de aristas de un grafo $k$-partito en $n$-vértices: el obtenido a patir del grafo de turán $T_{k-1} (d)$ agregando $n-d$ vértices y conectándolos a las $k-1$ particiones de $T_{k-1} (d)$. Juntando todo,
+\[
+    e(A ) \leq d \cdot (n-d) - \overbrace{e(G)}^{\geq t_k (n) -t} + \overbrace{e(G')}^{=t_{k-1} (d) - t'} \leq d \cdot (n-d) - t_k (n) + t + t_{k-1} (d) - t' \leq t - t'
+\]
+como queríamos probar.
+\end{proof}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+\section{Ejercicios}
 
 
 
