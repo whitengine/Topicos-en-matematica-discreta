@@ -952,6 +952,105 @@ como queríamos probar.
 
 
 
+\section{Teorema de Erdös-Stone}
+
+
+\begin{notation}
+Notaremos por $K_s (t)$ al grafo de Turán $T_{s} (t \cdot s)$.
+\end{notation}
+
+\begin{theorem}[Erdös-Stone, 1946]
+Sea $H$ un grafo con $e(H) \geq 1$. Entonces
+\[
+    \ex n H \leq \left ( 1 - \frac{1}{\chi (H) - 1}  + o (1) \right) \cdot \frac{n^2}{2} \quad (n \to \infty) \\
+\]
+\end{theorem}
+
+\begin{obs}
+Sea $H$ un grafo con $e(H) \geq 1$. Entonces
+\[
+    t_{\chi (H) -1} (n) \leq \ex n H,
+\]
+pues todo grafo $G$ necesita se al menos $\chi (H)$ coloreable para tener a $H$ incrustado, por lo tanto $T_{\chi (H) - 1} (n)$ no puede contener a $H$.
+\end{obs}
+
+\begin{obs}
+\[
+t_{\chi (H) - 1 (n)} \sim \left ( 1 - \frac{1}{\chi (H)- 1}\right ) \frac{n^2}{2}.
+\]
+
+Con lo cual, la desigualdad de Erdös-Stone es asintóticamente justa.
+\end{obs}
+
+\begin{lemma}
+Sea $c \in (0,1)$ y sea $\varepsilon > 0$. Si $G$ es un grafo con $n$ vértices, con $n$ lo suficientemente grande tal que
+\[
+    e(G) \geq c \frac{n^2}{2},
+\]
+entonces existe un subgrafo $G' \subset G$ con
+\[
+    v(G') \geq \varepsilon n \quad \text y \quad \delta (G') \geq (c- \varepsilon) \abs{G'}.
+\]
+\end{lemma}
+\begin{proof}
+Sea $G_n, G_{n-1}, G_{n-2}, \ldots, G_t$ la secuencia de subgrafos de $G$ obtenida de la siguiente manera: $G_n := G$ y el grafo $G_{n - (i+1)}$ se obtiene a partir de $G_{n-i}$ borrando un vértice $v \in V(G_{n-i})$ con $d_{G_{n-i}} (v) < (c - \varepsilon) \cdot \abs{G_{n-i}}$; además, $G_t$ es el último grafo de la secuencia. Notar que $\abs{G_{n-i}} = n - i$.
+
+Afirmamos que $t \geq \varepsilon n$ para $n$ lo suficientemente grande. Para eso, calculamos la cantidad total de aristas borradas para la obtención de $G_t$:
+\[
+    \sum_{i = t + 1}^n d_{G_{n-i}} (v_i) < (c-\varepsilon) \sum_{i = t+ 1}^n i,
+\]
+y como $G_t$ tiene a lo más $\binom t 2$ aristas, tenemos que
+\[
+    e(G) \leq (c - \varepsilon) \sum_{i = t + 1}^n i + \binom t 2 .
+\]
+A su vez, $e(G) \geq c \frac{n^2}{2}$.
+
+Por un lado, $\sum_{i = t + 1}^n i = \frac{(n-t) (n+ t -1 )}{2} = \frac{n^2 - t^2}{2} + \frac{n - t}{2}$, así
+\[
+    e(G) \leq (c-\varepsilon) \frac{n^2 - t^2}{2} + \frac{n-t}{2} + \frac{t^2}{2},
+\]
+luego con la cota inferior de $e(G)$:
+\[
+    c \frac{n^2}{2} \leq (c-\varepsilon) \frac{n^2 - t^2}{2} + \frac{n-t}{2} + \frac{t^2}{2}.
+\]
+Juntando las $n$ del lado izquierdo y las $t$ del lado derecho:
+\[
+    \frac{n^2}{2} \varepsilon - \frac{n}{2} \leq \frac{t^2}{2} (1 - (c- \varepsilon)) - \frac t 2;
+\]
+consideremos la función creciente $f : \reals_{\geq 0} \to \reals$ dada por $f(x) := \frac{x^2}{2} (1 - (c- \varepsilon)) - \frac x 2$ (tenemos que $1 - (c - \varepsilon) > \frac 1 2$) para $\varepsilon$ suficientemente chico. Luego, $f(x) \leq f(y)$ si y solo si $x \leq y$ para todo $x,y \in \reals_{\geq 0}$. Por lo tanto, si vemos que $f(\varepsilon n) \leq \frac {n^2} 2 \varepsilon - \frac n 2$, se seguirá que $f(\varepsilon n) \leq f(t)$ y por lo tanto $\varepsilon n \leq t$. En efecto,
+\begin{align*}
+\frac{\varepsilon^2 n^2}{2} (1 - (c- \varepsilon)) - \frac{\varepsilon n}{2}
+&= \frac{\varepsilon^2 n^2}{2} - \frac{(c- \varepsilon)}{2} \varepsilon^2 n^2 - \frac{\varepsilon n}{2} \\
+&< \varepsilon \frac{n^2}{2} - \frac n 2.
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+Para todo $r, t \in \naturals$ y $\varepsilon > 0$, existe $n_0 \in \naturals$ tal que si $G$ es un grafo con $n \geq n_0$ vértices y
+\[
+    \delta (G) \geq \left ( 1 - \frac 1 r + \varepsilon \right ) n
+\]
+luego $K_{r+1} (t) \subset G$.
+\end{lemma}
+
+
+\begin{proof}[Demostración del Teorema]
+Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, $T_{\chi (H)} (\chi (H) \cdot \abs H)$. Con lo cual, basta probar el teorema para $H' := T_{\chi (H)} ( \chi (H) \cdot \abs H)$. De hecho, probaremos que para $r := \chi (H)- 1$, $t \in \naturals$, $\forall \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
+\[
+    \ex n K_{r +1} (t) \leq \left (1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2} \quad (n \geq n_0).
+\]
+
+Vamos a tomar $r = \chi (H) - 1$ y $t = \abs H$ y $\varepsilon > 0$ arbitrariamente pequeño. Sea $n$ lo suficientemente grande y $G$ con $n$ vértices tal que
+\[
+    e(G) \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2}.
+\]
+Aplicamos el primer lema con $c = 1 - \frac 1 r + 2 \varepsilon$. Así, obtenemos un subgrafo $G' \subset G$ con
+\[
+    \abs{G'} \geq \varepsilon \quad \text y \quad \delta (G') \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \abs{G'}.
+\]
+Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo lema $G'$ contiene a $K_{r+1} (t)$, y por lo tanto el resultado se sigue.
+\end{proof}
+
 
 \section{Ejercicios}
 
