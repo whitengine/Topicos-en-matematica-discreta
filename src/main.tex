@@ -1032,7 +1032,36 @@ Para todo $r, t \in \naturals$ y $\varepsilon > 0$, existe $n_0 \in \naturals$ t
 \]
 luego $K_{r+1} (t) \subset G$.
 \end{lemma}
+\begin{proof}
+Procedemos por inducción en $r$. Para $r = 1$, tenemos que $K_2 (t) = K_{t,t}$ y sabemos que en este caso $\ex n {K_{t,t}} = o (n^2)$. Como $n$ es lo suficientemente grande, $K_{t,t} \subset G$.
 
+Ahora, supongamos que $r \geq 2$. Primero, encontraremos por hipótesis inductiva, una copia de $K_{r} (q)$ con $q \geq t/\varepsilon$. $A := \bigcup_{i = 1}^r A_i$. En efecto,
+\[
+    \left ( 1 - \frac 1 r + \varepsilon \right ) n \geq \left ( 1 - \frac 1 {r-1} + \varepsilon \right) n.
+\]
+
+Luego, definimos $X \subset B := V(G) \setminus A$, el conjunto de todos los vértices que tienen al menos $k$ vecinos en cada $A_i$ con $i \in [q]$. Mostramos que $\abs X \to \infty$ cuando $n \to \infty$. Para esto, acotamos $e(A,B)$ por abajo:
+\begin{align*}
+    e(A,B) = \sum_{v \in A}  d_G (v) - 2 e(A) \\
+        &\geq q r  \left (1 - \frac 1 r + \varepsilon \right ) - 2 \frac{(q r)^2}{2}.
+\end{align*}
+Y a cotamos por arriba:
+\[
+    e(A,B) \leq \abs X  q r + ( \abs B - \abs X) ( q (r-1) + t - 1).
+\]
+Juntando ambas desigualdades, tenemos:
+\begin{align*}
+- n (q (r-1) + t - 1) + q r \left (1 - \frac 1 r + \varepsilon \right ) n - (q r )^2 &\leq \abs X ( q r - q (r-1) - t + 1) \\
+    \underbrace{(-t + 1 + \varepsilon q)}_{> 0} n - q r^2 \leq \abs X \underbrace{(q - t + 1)}_{> 0}.
+\end{align*}
+Por lo tanto, se sigue lo que queremos cuando $n \to \infty$.
+
+Finalmente, demostramos que existen conjuntos
+\[
+    B_i \subset A_i \text{ con } \abs {B_i} = t \text{ y $t$ vértices $x \in X$ que satisfacen } N_G (x) \supset B_i.
+\]
+Sea $x \in X$, existen a lo más $\binom q t$ formas de elegir $B_i^x$ en $A_i$, donde $B_i^x$ satisface $\abs{B_i^x} = t$ y $N_G (x) \subset B_i^x$. Si $\abs X > \binom q t ^r \cdot (t-1)$, entonces por el principio del palomar tenemos lo que queremos.
+\end{proof}
 
 \begin{proof}[Demostración del Teorema]
 Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, $T_{\chi (H)} (\chi (H) \cdot \abs H)$. Con lo cual, basta probar el teorema para $H' := T_{\chi (H)} ( \chi (H) \cdot \abs H)$. De hecho, probaremos que para $r := \chi (H)- 1$, $t \in \naturals$, $\forall \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
@@ -1052,7 +1081,151 @@ Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo
 \end{proof}
 
 
+\begin{definition}
+$G$ está \textbf{$t$-cerca} de ser $r$-partito si existe un subgrupo $r$-partito de $G$ con al menos $e(G) - t$ aristas.
+\end{definition}
+
+
+
+
+
+\begin{theorem}[Teorema de Estabilidad de Erdös-simonovits]
+Para todo grafo $H$ con $e(H) \geq 1$, para todo $\varepsilon > 0$ existe $\delta > 0$ tal que: si $G$ es $H$-libre en $n$-vertices y
+\[
+    e(G) \geq \left ( 1 - \frac {1}{\chi (H) - 1} - \delta \right) \binom n 2.
+\]
+Entonces $G$ está $(\varepsilon n^2)$-cerca de ser $(\chi (H) - 1)$-partito.
+\end{theorem}
+\begin{proof}
+Haremos la demostración con $H = K_{r+1}$ y para $H$ general lo haremos con el Lema de regularidad:
+\end{proof}
+
+\begin{quote}
+Para todo $\varepsilon > 0$ existe $\delta > 0$ tal que: si $G$ es $K_{r+1}$-libre en $n$-vértices y
+\[
+    e(G) \geq \left ( 1 - \frac 1 r - \delta\right) \overbrace{\binom n 2}^{\sim \frac {n^2}2},
+\]
+entonces $G$ está $(\varepsilon n^2)$-cerca de ser $r$-partito.
+\end{quote}
+
+\begin{lemma}
+Sea $r \in \naturals$ y $\delta > 0$ y $n$ suficientemente grande. Si $G$ es $K_{r+1}$-libre con $n$ vértices y
+\[
+    e(G) \geq \left ( 1 - \frac 1 r - \delta^2\right) \frac{n^2}2,
+\]
+entonces existe $G' \subset G$ con $v (G') \geq (1 - \delta)n $ y
+\[
+    \delta (G') \geq \left ( 1 - \frac 1 r - \delta \right) \abs { G'}.
+\]
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}
+Para todo $r \in \naturals$, para todo $\varepsilon > 0$, existe $\delta > 0$ tal que si $G$ es $K_{r+1}$-libre con $n$ vértices y
+\[
+    \delta (G) \geq \left ( 1 - \frac 1 r - \delta \right) n,
+\]
+entonces existe una partición $V(G) = A_0 \coprod A_1 \coprod \cdots \coprod A_r$ tal que $\abs {A_0} \leq \varepsilon n$ y $A_i$ son conjuntos independientes para todo $i \in \{0, \ldots, r\}$.
+\end{lemma}
+\begin{proof}
+Si tomamos $\delta >0$ lo suficientemente pequeño, entonces $G$ contiene una copia de $K_r$ por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)} (esto ocurre si $e(G) \geq \left ( 1 - \frac 1 {r-1} \right)\frac{n^2}{2}$; tomar $\delta < \frac 1 {r-1} - \frac 1 r$).
+
+Sea $A$ un conjunto de vértices que induce un $K_r$ en $G$. Sean $B := V(G) \setminus A$ y $X := \set{v \in V(G) | \abs{N_G (v) \cap A} \leq r -2}$, vamos a mostrar que $X$ es pequeño.
+\[
+    \left ( 1 - \frac 1 r - \delta \right) n r - r (r-1) \leq e(A, B) \leq (r-1) (n-r) - \abs X \quad (\sum_{v \in A} d_G (v) = e(A,B) + 2 \abs A),
+\]
+manipulando la desigualdad, obtenemos:
+\[
+    \abs X \leq \delta n r.
+\]
+Tomando $\delta < \min \{\frac{\varepsilon}{r}, \frac 1{r-1} - \frac 1 r\}$, los consjuntos independientes son:
+\[
+    A_u = \{u\} \cup \{v \in B | vu \not \in E(G)\}
+\]
+para cada $u \in A$.
+\end{proof}
+
+
+\begin{exercise}
+Utilizando los lemas 1 y 2, probar el teorema de estabilidad de Erdös-Simonits para $H = K_{r+1}$.
+\end{exercise}
+
+Sea $\varepsilon > 0$, tomar $\delta = (\delta ')^2$ donde $\delta'$ se obtiene del Lema 2 con $\varepsilon ' > \frac \varepsilon 2$. Por hipótesis
+\[
+    e(G) \geq \left ( 1 - \frac 1 r - (\delta ')^2 \right ) \frac{n^2}{2},
+\]
+entonces por el Lema 1: existe $G' \subset G$ con $n' := v(G' ) \geq ( 1 - \delta ')n$ y $\delta (G') \geq \left ( 1 - \frac 1 r - \delta' \right) v(G') = n'$. Por el Lema 2: para $\varepsilon ' < \frac \varepsilon 2$ se tiene que $A_0, A_1, \ldots, A_r$ partición con $\abs {A_0} < \varepsilon ' n ' \leq \varepsilon ' n$ y $A_i$ conjunto independiente para todo $i = 0 , \ldots, r$. Así, se pierden en total a lo más
+\[
+    \delta ' n ^2 + \varepsilon ' n^2 < \varepsilon n^2
+\]
+aristas.
+
+
+
+
+
+
 \section{Ejercicios}
+
+
+
+
+
+
+
+
+
+\section{Regularidad}
+
+\begin{definition}
+Una partición de un grafo $G$, $X, Y \subset V(G)$, entonces definimos la \textbf{densidad} de $(X,Y)$ como la cantidad
+\[
+    d(X,Y) = \frac{e(X,Y)}{\abs X \abs Y}.
+\]
+\end{definition}
+
+\begin{definition}
+Dado $\varepsilon > 0$. Sea una partición $A,B \subset V(G)$ de los vértices de un grafo $G$. Diremos que el par $(A,B)$ es \textbf{$\varepsilon$-regular} si para todo $X  \subset A$, $Y \subset B$ con
+\[
+    \abs X \geq \varepsilon A \quad \text e \quad \abs{Y} \geq \varepsilon \abs B
+\]
+tenemos
+\[
+    \abs{d (X,Y) - d(A,B)} \leq \varepsilon.
+\]
+\end{definition}
+
+\begin{definition}
+Sea $G$ un grafo. Una partición $V(G ) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ es una \textbf{equipartición}, si
+\[
+    \abs {V_0} \leq \abs{V_1} = \abs{V_2} = \cdots = \abs{V_k}.
+\]
+Al conjunto $V_0$ lo llamamos \textbf{conjunto excepcional}.
+\end{definition}
+
+\begin{definition}
+Sea $G$ un grafo con $n$ vértices y $\varepsilon > 0$. Diremos que una partición $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ es \textbf{$\varepsilon$-regular}, si $\abs{V_0} \leq \varepsilon n$ y a lo más $\varepsilon k^2$ pares $(V_i,V_j)$ con $1 \leq i , j \leq k$ no son $\varepsilon$-regulares.
+\end{definition}
+
+\begin{theorem}[Lema de Regularidad de Szemerédi]
+Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m)$ tal que para cualquier grafo, existe una partición $\varepsilon$-regular
+\[
+    V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k
+\]
+con $m \leq k \leq M$.
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
 
 
 
