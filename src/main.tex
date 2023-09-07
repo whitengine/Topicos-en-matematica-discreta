@@ -515,7 +515,7 @@ Como $0 \leq r < k$, $r$ es el resto de la división de $n$ por $k$ y $\alpha$ e
 \]
 i.e.,
 \[
-    \boxed{t_k(n) = \lceil \frac{n}{k} \rceil^2 \binom{k-r}2 + \lceil \frac{n}{k} \rceil \lfloor \frac{n}{k} \rfloor (k-r) r + \lceil \frac{n}{k} \rceil^2 \binom r 2.}
+    \boxed{t_k(n) = \lceil \frac{n}{k} \rceil^2 \binom{k-r}2 + \lceil \frac{n}{k} \rceil \lfloor \frac{n}{k} \rfloor (k-r) r + \lfloor \frac{n}{k} \rfloor^2 \binom r 2.}
 \]
 \end{obs}
 
@@ -740,7 +740,7 @@ Sean $n,k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces,
 \end{theorem}
 
 \begin{lemma}
-Sean $k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces si $G$ es un grafo con $\delta (G) \geq k$, luego contiene a $T$ como subfrafo.
+Sean $k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces si $G$ es un grafo con $\delta (G) \geq k$, luego contiene a $T$ como subgrafo.
 \end{lemma}
 \begin{proof}
 Haremos inducción en $k$. Para $k = 1$ es claro, pues existe un vértice con al menos un vecino. En general, supongamos que $k \geq 2$. Sea $h$ una hoja de $T$ y consideremos el árbol $T' = T \setminus \{h\}$. Por hipótesis inductiva, $T' \subset G$. Sea $p$ el único vecino de $h$ en $T$, i.e. $p \in T'$. Como $T$ tiene $k+1$ vértices, $p$ tiene a lo más $k-1$ vecinos en $T'$, luego $p$ tiene un vecino en $G$ que no está en $T'$ pues $\delta_G (p) \geq k$. Entonces podemos incrustar $T$ en $G$ considerando $h$ como este vértice.
@@ -879,7 +879,7 @@ sin embargo, afirmamos que vale la siguiente igualdad:
 \[
     \sum_{u \in V(G)} \sum_{v \in A_u} d_G (v) = \sum_{x \in V(G)} d_G (x) ( n - d_G (x));
 \]
-ya que cada término de la sumatoria se acota por $\frac n 2  \cdot (n - \frac n 2) = \frac{n^2}{2}$. De aquí concluimos el resultado.
+ya que cada término de la sumatoria se acota inferiormente por $\frac n 2  \cdot (n - \frac n 2) = \frac{n^2}{2}$, concluimos el resultado.
 
 Veamos la afirmación: notar que para cada $x \in V(G)$, su cantidad de aristas $d_G (x)$ es contada exactamente $\abs {A_x} = n - d_G (x)$ veces del lado izquierdo de la sumatoria
 \end{proof}
@@ -971,18 +971,32 @@ Sea $H$ un grafo con $e(H) \geq 1$. Entonces
 \[
     t_{\chi (H) -1} (n) \leq \ex n H,
 \]
-pues todo grafo $G$ necesita se al menos $\chi (H)$ coloreable para tener a $H$ incrustado, por lo tanto $T_{\chi (H) - 1} (n)$ no puede contener a $H$.
+pues todo grafo $G$ necesita de al menos $\chi (H)$ colores para tener a $H$ incrustado, por lo tanto $T_{\chi (H) - 1} (n)$ es $H$-libre.
 \end{obs}
 
 \begin{obs}
 \[
-t_{\chi (H) - 1 (n)} \sim \left ( 1 - \frac{1}{\chi (H)- 1}\right ) \frac{n^2}{2}.
+t_{\chi (H) - 1 } (n) \sim \left ( 1 - \frac{1}{\chi (H)- 1}\right ) \frac{n^2}{2}.
 \]
-
 Con lo cual, la desigualdad de Erdös-Stone es asintóticamente justa.
 \end{obs}
+\begin{proof}
+En efecto, esto equivale a probar que
+\[
+    t_{k} (n) \sim \left (1 - \frac 1 {k} \right ) \frac{n^2}{2} \quad (n \to \infty),
+\]
+para $k \geq 2$ fijo. Escribiendo $n = q k + r$ con $0 \leq r < k$, tenemos que
+\[
+    t_k (q k) \leq t_k (n) \leq t_k((q+1)k),
+\]
+pero para cualquier $q \in \naturals$ es fácil de calcular el número de aristas del grafo de Turán $T_k (q k)$:
+\[
+    t_k (q k) = \left ( 1 - \frac 1 k \right ) \frac{(q k)^2}{2},
+\]
+con lo cual $t_k (q k) , t_k ((q+1)k) \sim \left ( 1 - \frac 1 k \right)  \frac {n^2}{2}$ y por lo tanto $t_k (n)$ también.
+\end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lema:erdos-stone lema 1}
 Sea $c \in (0,1)$ y sea $\varepsilon > 0$. Si $G$ es un grafo con $n$ vértices, con $n$ lo suficientemente grande tal que
 \[
     e(G) \geq c \frac{n^2}{2},
@@ -995,7 +1009,7 @@ entonces existe un subgrafo $G' \subset G$ con
 \begin{proof}
 Sea $G_n, G_{n-1}, G_{n-2}, \ldots, G_t$ la secuencia de subgrafos de $G$ obtenida de la siguiente manera: $G_n := G$ y el grafo $G_{n - (i+1)}$ se obtiene a partir de $G_{n-i}$ borrando un vértice $v \in V(G_{n-i})$ con $d_{G_{n-i}} (v) < (c - \varepsilon) \cdot \abs{G_{n-i}}$; además, $G_t$ es el último grafo de la secuencia. Notar que $\abs{G_{n-i}} = n - i$.
 
-Afirmamos que $t \geq \varepsilon n$ para $n$ lo suficientemente grande. Para eso, calculamos la cantidad total de aristas borradas para la obtención de $G_t$:
+Afirmamos que $t \geq \varepsilon n$ para $n$ lo suficientemente grande, y por ende, $G_t$ será el subgrafo que buscabamos: por construcción $\delta (G_t) \geq (c - \varepsilon) \abs{G_t}$. Para eso, calculamos la cantidad total de aristas borradas para la obtención de $G_t$:
 \[
     \sum_{i = t + 1}^n d_{G_{n-i}} (v_i) < (c-\varepsilon) \sum_{i = t+ 1}^n i,
 \]
@@ -1005,27 +1019,38 @@ y como $G_t$ tiene a lo más $\binom t 2$ aristas, tenemos que
 \]
 A su vez, $e(G) \geq c \frac{n^2}{2}$.
 
-Por un lado, $\sum_{i = t + 1}^n i = \frac{(n-t) (n+ t -1 )}{2} = \frac{n^2 - t^2}{2} + \frac{n - t}{2}$, así
+Dado $1 > c > 0$ fijo, tomemos $\varepsilon > 0$ lo suficientemente chico, de tal suerte que $(1 - (c - \varepsilon ) ) \frac{\varepsilon}{2} < 1 $ $(\star)$ . Supongamos por el absurdo que $t \leq \varepsilon n$. Nuestro objetivo es acotar la siguiente expresión:
 \[
-    e(G) \leq (c-\varepsilon) \frac{n^2 - t^2}{2} + \frac{n-t}{2} + \frac{t^2}{2},
+\sum_{i = t + 1}^n (c - \varepsilon) i + \binom t 2.
 \]
-luego con la cota inferior de $e(G)$:
-\[
-    c \frac{n^2}{2} \leq (c-\varepsilon) \frac{n^2 - t^2}{2} + \frac{n-t}{2} + \frac{t^2}{2}.
-\]
-Juntando las $n$ del lado izquierdo y las $t$ del lado derecho:
-\[
-    \frac{n^2}{2} \varepsilon - \frac{n}{2} \leq \frac{t^2}{2} (1 - (c- \varepsilon)) - \frac t 2;
-\]
-consideremos la función creciente $f : \reals_{\geq 0} \to \reals$ dada por $f(x) := \frac{x^2}{2} (1 - (c- \varepsilon)) - \frac x 2$ (tenemos que $1 - (c - \varepsilon) > \frac 1 2$) para $\varepsilon$ suficientemente chico. Luego, $f(x) \leq f(y)$ si y solo si $x \leq y$ para todo $x,y \in \reals_{\geq 0}$. Por lo tanto, si vemos que $f(\varepsilon n) \leq \frac {n^2} 2 \varepsilon - \frac n 2$, se seguirá que $f(\varepsilon n) \leq f(t)$ y por lo tanto $\varepsilon n \leq t$. En efecto,
+Para eso, requerimos el siguiente cálculo: $\sum_{i = t+1}^n i = \frac{n(n+1)}{2} - \frac {t(t+1)}2$. Ahora, acomodamos un poco la ecuación anterior, de manera que haya cancelación:
 \begin{align*}
-\frac{\varepsilon^2 n^2}{2} (1 - (c- \varepsilon)) - \frac{\varepsilon n}{2}
-&= \frac{\varepsilon^2 n^2}{2} - \frac{(c- \varepsilon)}{2} \varepsilon^2 n^2 - \frac{\varepsilon n}{2} \\
-&< \varepsilon \frac{n^2}{2} - \frac n 2.
+\sum_{i = t + 1}^n (c - \varepsilon) i + \binom t 2 &= (c - \varepsilon) \left ( \frac{n(n+1)}{2} - \frac{t(t+1)}{2} \right ) + \binom t 2 \\
+                                        &= (c - \varepsilon) \Bigg ( \underbrace{\frac{n(n-1)}{2}}_{\binom n 2} + n - \Big (\underbrace{\frac{t(t-1)}{2}}_{\binom t 2} + t \Big ) \Bigg ) + \binom t 2 \\
+                                        &= (c - \varepsilon) \binom n 2 + (c - \varepsilon)(n - t) + (1 - (c - \varepsilon)) \binom t 2.
 \end{align*}
+
+
+
+
+Notar que los últimos dos términos son menores o iguales a $\varepsilon \frac{n (n-1)}{2}$ para $n$ lo suficientemente grande respecto de $\varepsilon$ y $c$. En efecto,
+\[
+(c - \varepsilon)(n - t) + (1 - (c - \varepsilon)) \binom t 2 \leq (c - \varepsilon ) (n-t) + (1 - (c - \varepsilon ) ) \frac{\varepsilon n}{2} (\varepsilon n - 1),
+\]
+y el lado derecho es un polinomio cuadrático en la variable $n$ con coeficiente principal
+\[
+(1 - (c - \varepsilon ) ) \frac{\varepsilon^2}{2} < \varepsilon \quad \Leftrightarrow \quad (1 - (c - \varepsilon ) ) \frac{\varepsilon}{2} < 1  \quad (\text{verdadero por ($\star$)}),
+\]
+y por lo tanto,
+\[
+(c - \varepsilon ) (n-t) + (1 - (c - \varepsilon ) ) \frac{\varepsilon n}{2} (\varepsilon n - 1) \leq \varepsilon \frac{n (n-1)} 2
+\]
+para $n$  lo suficientemente grande ya que el lado derecho es un polinomio cuadrático en $n$ con coeficiente principal más grande: $\varepsilon$.
+
+Finalmente, esto nos llevaría a un absurdo y por lo tanto deberá ser que $t \geq \varepsilon n$ para $n$ lo suficientemente grande para $\varepsilon$ lo suficientemente chico. En efecto, achicando $\varepsilon$ de ser necesario: para que $\varepsilon < c$, el lado derecho es menor que $ c \frac {n^2} 2$ para todo $n$ lo suficientemente grande, sin embargo $e(G) \geq c \frac{n^2}{2}$, absurdo.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lema:erdos-stone lema 2}
 Para todo $r, t \in \naturals$ y $\varepsilon > 0$, existe $n_0 \in \naturals$ tal que si $G$ es un grafo con $n \geq n_0$ vértices y
 \[
     \delta (G) \geq \left ( 1 - \frac 1 r + \varepsilon \right ) n
@@ -1033,51 +1058,52 @@ Para todo $r, t \in \naturals$ y $\varepsilon > 0$, existe $n_0 \in \naturals$ t
 luego $K_{r+1} (t) \subset G$.
 \end{lemma}
 \begin{proof}
-Procedemos por inducción en $r$. Para $r = 1$, tenemos que $K_2 (t) = K_{t,t}$ y sabemos que en este caso $\ex n {K_{t,t}} = o (n^2)$. Como $n$ es lo suficientemente grande, $K_{t,t} \subset G$.
-
-Ahora, supongamos que $r \geq 2$. Primero, encontraremos por hipótesis inductiva, una copia de $K_{r} (q)$ con $q \geq t/\varepsilon$. $A := \bigcup_{i = 1}^r A_i$. En efecto,
+Procedemos por inducción en $r$. Para $r = 1$, tenemos que $K_2 (t) = K_{t,t}$ y sabemos que en este caso $\ex n {K_{t,t}} = o (n^2)$. Como $n$ es lo suficientemente grande, $K_{t,t} \subset G$. En efecto, se tendrá que
 \[
-    \left ( 1 - \frac 1 r + \varepsilon \right ) n \geq \left ( 1 - \frac 1 {r-1} + \varepsilon \right) n.
+    e(G) = \frac 1 2 \sum_{v \in G} d_G (v ) \geq \frac{\delta (G) n}{2} \geq \left (1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2}.
 \]
 
-Luego, definimos $X \subset B := V(G) \setminus A$, el conjunto de todos los vértices que tienen al menos $k$ vecinos en cada $A_i$ con $i \in [q]$. Mostramos que $\abs X \to \infty$ cuando $n \to \infty$. Para esto, acotamos $e(A,B)$ por abajo:
+
+Ahora, supongamos que $r \geq 2$. Primero, encontraremos por hipótesis inductiva, una copia de $K_{r} (q)$ con $q \geq t/\varepsilon$; escribamos $A := \bigcup_{i = 1}^r A_i$ a la partición de los vértices de $K_r (q)$.
+
+Luego, definimos $X \subset B := V(G) \setminus A$, el conjunto de todos los vértices que tienen al menos $t$ vecinos en cada $A_i$. Mostramos que $\abs X \to \infty$ cuando $n \to \infty$. Para esto, acotamos $e(A,B)$ por abajo:
 \begin{align*}
-    e(A,B) = \sum_{v \in A}  d_G (v) - 2 e(A) \\
-        &\geq q r  \left (1 - \frac 1 r + \varepsilon \right ) - 2 \frac{(q r)^2}{2}.
+    e(A,B) &= \sum_{v \in A}  d_G (v) - 2 e(A) \\
+        &\geq q r  \left (1 - \frac 1 r + \varepsilon \right )n - 2 \frac{(q r)^2}{2}.
 \end{align*}
 Y a cotamos por arriba:
 \[
     e(A,B) \leq \abs X  q r + ( \abs B - \abs X) ( q (r-1) + t - 1).
 \]
 Juntando ambas desigualdades, tenemos:
-\begin{align*}
-- n (q (r-1) + t - 1) + q r \left (1 - \frac 1 r + \varepsilon \right ) n - (q r )^2 &\leq \abs X ( q r - q (r-1) - t + 1) \\
-    \underbrace{(-t + 1 + \varepsilon q)}_{> 0} n - q r^2 \leq \abs X \underbrace{(q - t + 1)}_{> 0}.
-\end{align*}
+\[
+    n\underbrace{(q r \varepsilon - t  + 1)}_{>0} + q^2 r^2 - q^2 r - q r + q r t \leq \abs X \underbrace{( q - k +1)}_{> 0}
+\]
 Por lo tanto, se sigue lo que queremos cuando $n \to \infty$.
 
 Finalmente, demostramos que existen conjuntos
 \[
-    B_i \subset A_i \text{ con } \abs {B_i} = t \text{ y $t$ vértices $x \in X$ que satisfacen } N_G (x) \supset B_i.
+    B_i \subset A_i \text{ con } \abs {B_i} = t \text{ y $t$ vértices $x \in X$ que satisfacen } N_G (x) \supset B_i,
 \]
+de donde concluiremos que $K_{r+1} (t) \subset G$.
 Sea $x \in X$, existen a lo más $\binom q t$ formas de elegir $B_i^x$ en $A_i$, donde $B_i^x$ satisface $\abs{B_i^x} = t$ y $N_G (x) \subset B_i^x$. Si $\abs X > \binom q t ^r \cdot (t-1)$, entonces por el principio del palomar tenemos lo que queremos.
 \end{proof}
 
 \begin{proof}[Demostración del Teorema]
-Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, $T_{\chi (H)} (\chi (H) \cdot \abs H)$. Con lo cual, basta probar el teorema para $H' := T_{\chi (H)} ( \chi (H) \cdot \abs H)$. De hecho, probaremos que para $r := \chi (H)- 1$, $t \in \naturals$, $\forall \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
+Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, en $K_{\chi (H)} (\abs H)$. Con lo cual, basta probar el teorema para $H' := K_{\chi (H)} (\abs H)$. De hecho, probaremos que para $r := \chi (H)- 1$, $t \in \naturals$, $\forall \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
 \[
-    \ex n K_{r +1} (t) \leq \left (1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2} \quad (n \geq n_0).
+    \ex n { K_{r +1} (t)} \leq \left (1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2} \quad (n \geq n_0).
 \]
 
 Vamos a tomar $r = \chi (H) - 1$ y $t = \abs H$ y $\varepsilon > 0$ arbitrariamente pequeño. Sea $n$ lo suficientemente grande y $G$ con $n$ vértices tal que
 \[
     e(G) \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2}.
 \]
-Aplicamos el primer lema con $c = 1 - \frac 1 r + 2 \varepsilon$. Así, obtenemos un subgrafo $G' \subset G$ con
+Aplicamos el primer lema \ref{lema:erdos-stone lema 1} con $c = 1 - \frac 1 r + 2 \varepsilon$. Así, obtenemos un subgrafo $G' \subset G$ con
 \[
     \abs{G'} \geq \varepsilon \quad \text y \quad \delta (G') \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \abs{G'}.
 \]
-Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo lema $G'$ contiene a $K_{r+1} (t)$, y por lo tanto el resultado se sigue.
+Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo lema \ref{lema:erdos-stone lema 2}, $G'$ contiene a $K_{r+1} (t)$, y por lo tanto $G$ también. El resultado se sigue.
 \end{proof}
 
 
@@ -1169,7 +1195,142 @@ aristas.
 
 \section{Ejercicios}
 
+\begin{exercise}
+Puebe el teorema de Mantel de manera alternativa. Considere un conjunto independiente $B$ de tamaño máximo en un grafo $K_3$-libre  y la suma de los grados de los vértices que no están en $B$.
+\end{exercise}
 
+\begin{solution}
+Sea $G$ un grafo $K_3$-libre con orden $n$ y $B$ un conjunto independiente de $G$ de tamaño máximo; consideremos $A := V(G) \setminus B$. Inspeccionemos la sumatoria
+\[
+    \sum_{v \in A} d_G (v);
+\]
+notar que $d_G (v) = \abs{N_G (v)}$ y que $N_G (v)$ es un conjunto de vértices aislados en $G$: si $x,y$ son dos vecinos de $v$ entonces $xy \not \in E(G)$ porque de lo contrario $G$ tendría un triángulo $xyv$. Así, como $\abs B$ es máximo, se sigue que $\abs{N_G (v)} \leq \abs B$. Esto implica que
+\[
+    \sum_{v \in A} d_G (v) \leq \abs A \abs B   .
+\]
+Más aún, como $A,B$ particionan $V(G)$: $\abs A + \abs B = n$. Luego $\abs{A} \cdot \abs B$ se maximiza cuando $\abs A \abs B = \floor{\frac n 2} \ceil{\frac n 2} = t_2 (n)$. Así,
+\[
+    e(G) = e(A,B) + e(A) \leq e(A,B) + 2 e(A) = \sum_{v \in A} d_G (v) \leq t_2 (n),
+\]
+como queríamos probar.
+\end{solution}
+
+\begin{remark}
+Que $\abs A \cdot \abs B$ con $\abs A + \abs B = n$ se maximiza cuando $\abs A \cdot \abs B = \floor {\frac n 2} \ceil {\frac n 2}$ se deduce de que reemplazando $\abs B = n - \abs A$, el problema equivale a maximizar $\abs A \cdot (n - \abs A)$. Más formalmente, el problema equivale a maximizar $f (x) = x (n - x)$ con $x$ número natural en el intervalo $[0, n]$. Simplemente notemos que $f'(x) = n - 2 x$, luego $f$ es creciente en $[0, \frac n 2]$ y decreciente en $[ \frac n 2 , n]$, pero como $\floor{\frac n 2}$ es el mayor número entero $\leq \frac n 2$, $f$ alcanza máximo en $[0, \frac n 2]$ cuando $x = \floor {\frac n 2}$, similarmente, $f$ alcanza máximo en $[\frac n 2, n]$ cuando $x = \ceil{\frac n 2}$. Como $f(\floor{\frac n 2}) = f (\ceil {\frac n 2})$, se sigue que $f$ se maximiza en $x = \floor {\frac n 2}$ y $x = \ceil {\frac n 2}$, es decir, el valor máximo de $f$ es $f (\floor{\frac n 2}) = \floor{\frac n 2} \ceil{\frac n 2}$.
+\end{remark}
+
+
+\begin{exercise}
+Demuestre que si $G$ es un grafo con $n = 2k+1$ vértices, entonces $G$ contiene un camino de largo $k$, digamos $P_k$, o el complemento de $G$ tiene un triángulo.
+\end{exercise}
+\begin{solution}
+Supongamos por el absurdo que ninguna de las dos situaciones pasa. Por un lado, si el complemento $\bar G$ de $G$ no contiene triángulos, el Teorema de Mantel nos dice que
+\[
+    e(\bar G) \leq \ex n {K_3} \leq k (k+1).
+\]
+Como $(2k + 1) k = \binom n 2 = e(G) + e(\bar G)$, deducimos que
+\[
+    k^2 \leq e(G).
+\]
+
+Por otro lado, si $G$ no contiene $P_k$-caminos, el Teorema de Erdös \& Gallai dice que
+\[
+    e(G) \leq \ex n {P_k} \leq \frac{(k-1)n}{2} = \frac{(k-1)(2k+1)}{2}.
+\]
+
+Juntando ambas desigualdades, llegamos al absurdo:
+\[
+    k^2 \overset{!!!}{\leq} \frac{(k-1)(2k+1)}{2}.
+\]
+Por lo tanto, $G$ contiene un $P_k$-camino o $\bar G$ un triángulo.
+\end{solution}
+
+\begin{exercise}
+Demuestre que si $T$ es un árbol con $k$ vértices, entonces $T\subseteq G$ o el complemento de $G$ contiene un triángulo si $n := \abs G = 2k -1$.
+\end{exercise}
+
+\begin{solution}
+Supongamos por el absurdo que $G$ es un grafo con $n = 2k-1$ vértices que no contiene a un árbol $T$ con $k$ vértices, y que $\bar G$, su complemento, no contiene triángulos. En particular, la primera suposición implica que $\delta (G) \leq k-2$ por el siguiente lema, cuya demostración vimos en clase:
+\textit{
+\begin{quote}
+Sean $t \in \naturals$ y $T$ un árbol con $t+1$ vértices. Entonces si $G$ es un grafo con $\delta (G) \geq t$, luego contiene a $T$ como subgrafo.
+\end{quote}
+}
+Mientras que la segunda suposición ($\bar G$ no tiene triángulos), implica que dado un vértice $w \in V(G)$, entonces para cada par de vértices $w', w''$ no adyacentes a $w$ se tiene que $w' w'' \in E(G)$. En otras palabras, para todo $w \in V(G)$, el subgrafo $G[A_w]$ inducido por el conjunto $A_w := V(G) \setminus \left\{N_G (w) \cup \{w\} \right\}$ es completo; notar que como $\abs {A_w} = n - (d_G (w) +1)$, este grafo es isomorfo a $K_{n - d_G (w) - 1}$.
+
+Finalmente, para llegar al absurdo, consideremos $v \in V(G)$ un vértice con grado $d_G (v) = \delta (G) \leq k-2$, entonces $G[A_v]$ es un subgrafo de $G$ isomorfo a $K_{n - \delta(G) - 1}$, i.e. un completo con al menos
+\[
+    n - \delta (G) - 1 = (2k -1) - \delta (G) - 1 \geq (2k-1) - (k-2) - 1 = k
+\]
+vértices, luego contiene una copia de $T$, con lo cual $G$ también: absurdo. Consecuentemente, $G$ contiene una copia de $T$ o $\bar G$ tiene triángulo(s).
+\end{solution}
+
+\begin{exercise}
+Pruebe que si $e(G)> n^2/4$, entonces $G$ contiene al menos $\lfloor n/2 \rfloor$ triángulos.
+\end{exercise}
+\begin{solution}
+El Teorema de Füredi (2015) dice:
+\textit{
+\begin{quote}
+Sean $n,t \in \naturals$, y $G$ con $n$ vértices. Si $G$ está $t$-lejos de ser bipartito, entonces hay al menos
+\[
+    \frac{n}{6} \left(e(G)-\frac{n^2}{4}+t\right)
+\]
+triángulos en $G$.
+\end{quote}
+}
+
+Sea $H \subset G$ el subgrafo bipartito con cantidad de aristas $e(H)$ máxima de $G$. Como $e(H) \leq \frac {n^2}{2} < e(G)$, tenemos que $H \subsetneq G$; y podemos escribir $t := e(G) - e(H) \geq 1$. En particular, como $e(H)$ es máximo, tenemos que $G$ está $t$-lejos de ser bipartito. Con lo cual, el Teorema de Füredi implica que $G$ contiene al menos
+\[
+    \frac{n}{6} \left(e(G)-\frac{n^2}{4}+t\right)
+\]
+triángulos; en particular, si $e(G) - \frac{n^2}{4} + t \geq 3$ ganamos, pues en este caso habrían al menos $\frac{n}{2} \geq \floor{\frac n 2}$ triángulos. Por otro lado, esta cantidad es menor que $3$ si y solo si $t =1$ y $H = T_2 (n)$. En este caso, $H = K_{\floor{\frac n 2}, \ceil{\frac n 2}}$. Tomemos una aristas $f \in E(G) \setminus E(H)$, con lo cual $f$ tiene sus extremos en una de las dos particiones de $H$; en el peor de los casos está en la partición más grande, es decir, para todo vértice $v$ de la partición de $H$ con menor cantidad de vértices: $\floor{\frac n 2}$, se forma un triángulo distinto con vértices $v$ y los extremos de $f$. En particular, $G$ contiene en este caso al menos $\floor{\frac n 2}$ triángulos.
+\end{solution}
+
+\begin{exercise}
+Sean $G$ y $H$ grafos. Demuestre que si $G$ tiene $n$ vértices y al menos $2 \cdot \ex n H$ aristas, entonces $G$ contiene al menos $\ex n H$ copias de $H$.
+\end{exercise}
+\begin{solution}
+Supongamos que $G$ no contiene $e := \ex n H $ copias de $H$, luego quitando una arista por cada copia de $H$ en $G$ obtenemos un grafo $H$-libre con al menos $e(G) - (e-1) \geq 2 e - (e-1) = e + 1$ aristas. Sin embargo, por definición de $e$, se sigue que este grafo tiene a lo más $e$ aristas, absurdo. Esto prueba que $G$ tiene al menos $e$ copias de $H$.
+\end{solution}
+
+\begin{exercise}
+Sea $k \in \mathbb{N}$ y $n\in \mathbb{N}$ suficientemente grande.
+Demuestre que todo grafo $G$ con $n$ vértices y al menos $n^2/4$ aristas contiene un grafo $H$ con al menos $k$ vértices y $\delta(H)\geq v(H)/2$.
+\end{exercise}
+\begin{solution}
+Probaremos un enunciado más fuerte:
+\textit{
+\begin{quote}
+Sea $k \in \naturals$ y $n \in \naturals$ suficientemente grande. Entonces todo grafo $G$ con $n$ vértices y al menos $\frac{n^2}{4}$ aristas contiene a $H:= K_{k,k}$.
+\end{quote}
+}
+
+Esto prueba el ejercicio pues el grafo $H := K_{k,k}$ tiene $2k \geq k$ vértices y $\delta (H) = k = \frac {v(H)}{2}$.
+
+Ahora probemos este enunciado más fuerte. Para eso utilizaremos el Teorema de Kövani, Sós, y Turán (abreviado ``KST''):
+\textit{
+\begin{quote}
+Sean $s, t \in \naturals$, $s \leq t$. Entonces existe una constante $c = c(s,t) > 0$ tal que
+\[
+    \ex n {K_{s,t}} \leq c \cdot n^{2 - \frac 1 s}, \quad \forall n \in \naturals;
+\]
+\end{quote}
+}
+lo aplicamos al caso $s = t = k$.
+
+\bigskip
+
+Así, el Teorema de KST dice que
+\[
+    \ex n H \leq c \cdot n^{2 - \frac 1 k}, \quad \forall n \in \naturals
+\]
+con $c > 0$ una constante que depende solo de $k$.
+Tomando $n_0 \in \naturals$ para que $\frac{n^2}{4} > c n^{2 - \frac 1 k}$ valga para todo $n\geq n_0$, se sigue que $G$ siempre debe tener a $H$ como subgrafo: de lo contrarío se llegaría al absurdo:
+\[
+    \frac{n^2}{4} \leq e(G) \leq \ex n H \leq c n^{2 - \frac 1 k}.
+\]
+\end{solution}
 
 
 
@@ -1217,8 +1378,82 @@ Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m)$ 
 con $m \leq k \leq M$.
 \end{theorem}
 
+\begin{corollary}
+Se puede probar el Teorema de Erdös-Stone: para todo $\delta >0$ existe $n_0 \in \naturals$ tal que si
+\[
+    e(G) \geq \left ( 1 - \frac 1 r + \delta \right ) \frac{n^2}{2},
+\]
+entonces $H \subset G$, donde $r = \chi (H) - 1$.
+\end{corollary}
+
+Tomemos $\delta > 0$ arbitrariamente pequeño, aplicar regularidad de Szemeredi con $\varepsilon $ lo suficientemente pequeño y $n > \frac 1 \varepsilon$. Así, obtenemos una equipartición $\varepsilon$-regular
+\[
+    v(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k.
+\]
+
+Borramos de $G$ todas las aristas sobre las que ``no hay control'':
+\begin{itemize}
+\item Las que ven a $V_0$.
+\item Las aristas entre pares no $\varepsilon$-regulares.
+\item Aristas entre pares no densos, i.e., ``tenemos menos que $\delta / 2$ densidad''.
+\item Aristas dentro las partes.
+\end{itemize}
+
+Después, obtenemos el gafo reducido $R$: dado por contraer cada $V_i$ a un vértice $w_i$ y borrar aristas múltiples. Así, $R$ tiene cconjunto de vértices $w_1, \ldots, w_r$ donde $w_{iw_j \in E(R)}$ sii $(V_i, V_j)$ es $\varepsilon$-regular y denso.
+
+Aplicamos lemas de inmersión en ``aristas'' de grafo - grafo reducido:
+\[
+    \text{Si $H \subset R$} ¸quad \Rightarrow H \subset G.
+\]
+
+\begin{lemma}
+Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-regular de un grafo $G$ con $k \geq \frac 1 \varepsilon$. Entonces, hay un máximo de:
+\begin{enumerate}[(a)]
+\item $\varepsilon n^2$ aristas con un extremo en $V_0$.
+\item $\varepsilon n^2$ aristas dentro de una parte $V_i$ con $i\geq 1$.
+\item $\varepsilon n^2$ aristas entre pares que no son $\varepsilon$-regulares.
+\item $\delta n^2$ aristas entre pares que tienen densidad $< \delta$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}[(a)]
+\item Como $\abs{V_0} \leq \varepsilon n$ entonces hay a lo más
+\[
+    \varepsilon n (1-\varepsilon) n + \binom{\varepsilon n}{2} < \varepsilon n^2 \text{ aristas en (a)}.
+\]
+\item Cada $V_i$ tiene $\leq \frac n k$ vértices, y entonces hay a lo más $K \cdot \binom{\frac n k}{2} \leq \frac \varepsilon 2 n^2$ aristas para (b).
+\item Hay a lo más $\varepsilon k^2$ pares que no son $\varepsilon$-regulares y cada par tiene a lo más $\binom n k ^2 < \varepsilon n^2$ aristas.
+\item En el peor caso, los $\binom r 2$ pares son poco densos. En este caso
+\[
+    e(V_i, V_j) \leq \delta \left ( \frac n k \right )^2, \quad \forall i, j < \delta n^2,
+\]
+y entonces, hay a lo más $\delta \left ( \frac n k \right )^2 \binom k n$ aristas en pares ``poco densos''.
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+Sea $\varepsilon > 0$, $(A,B)$ un par $\varepsilon$-regular de un grafo $G$. Entonces,
+\[
+    \left ( d(A,B) - \varepsilon \right ) \abs B \leq \abs{N_G (v) \cap B} \leq \left ( d(A,B) \right ) \abs B
+\]
+para todos, excepto a lo más $2 \varepsilon \abs A$ vértices $v \in A$.
+\end{lemma}
+\begin{proof}
+Tarea: tomar Y = los v qu eno funcionan y Y = B. y aplicar la epsilon regularidad de (A,B)
+\end{proof}
 
 
+\begin{lemma}[Slicing]
+Sea $\alpha \geq \varepsilon > 0$, y sea $(A,B)$ un par $\varepsilon$-regular en un grafo $G$. Para cualquier $X \subset A, Y \subset B$ con
+\[
+    \abs X \geq d \abs A \quad \text y \quad \abs Y \geq \alpha \abs B
+\]
+se tiene que el par $(X,Y)$ es $\frac{2 \varepsilon}{\alpha}$-regular y
+\[
+    d(X,Y) \geq d (A,B) - \varepsilon \quad (\text{por definición de $\varepsilon$-regular}).
+\]
+
+\end{lemma}
 
 
 
