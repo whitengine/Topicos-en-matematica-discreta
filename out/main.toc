@@ -5,5 +5,5 @@
 \contentsline {section}{\numberline {1.3}Números extremales para árboles}{8}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Estabilidad y supersaturación}{10}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Teorema de Erdös-Stone}{13}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Ejercicios}{18}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Regularidad}{21}{section.1.7}%
+\contentsline {section}{\numberline {1.6}Ejercicios}{19}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Regularidad}{22}{section.1.7}%

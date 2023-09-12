@@ -974,7 +974,7 @@ Sea $H$ un grafo con $e(H) \geq 1$. Entonces
 pues todo grafo $G$ necesita de al menos $\chi (H)$ colores para tener a $H$ incrustado, por lo tanto $T_{\chi (H) - 1} (n)$ es $H$-libre.
 \end{obs}
 
-\begin{obs}
+\begin{obs}\label{obs:tenemos que el numero de turan es asintotico a (1-1/r)n2/2}
 \[
 t_{\chi (H) - 1 } (n) \sim \left ( 1 - \frac{1}{\chi (H)- 1}\right ) \frac{n^2}{2}.
 \]
@@ -1003,7 +1003,7 @@ Sea $c \in (0,1)$ y sea $\varepsilon > 0$. Si $G$ es un grafo con $n$ vértices,
 \]
 entonces existe un subgrafo $G' \subset G$ con
 \[
-    v(G') \geq \varepsilon n \quad \text y \quad \delta (G') \geq (c- \varepsilon) \abs{G'}.
+    \abs{G'} \geq \varepsilon n \quad \text y \quad \delta (G') \geq (c- \varepsilon) \abs{G'}.
 \]
 \end{lemma}
 \begin{proof}
@@ -1108,7 +1108,7 @@ Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo
 
 
 \begin{definition}
-$G$ está \textbf{$t$-cerca} de ser $r$-partito si existe un subgrupo $r$-partito de $G$ con al menos $e(G) - t$ aristas.
+$G$ está \textbf{$t$-cerca} de ser $r$-partito si existe un subgrafo $r$-partito de $G$ con al menos $e(G) - t$ aristas.
 \end{definition}
 
 
@@ -1123,70 +1123,116 @@ Para todo grafo $H$ con $e(H) \geq 1$, para todo $\varepsilon > 0$ existe $\delt
 Entonces $G$ está $(\varepsilon n^2)$-cerca de ser $(\chi (H) - 1)$-partito.
 \end{theorem}
 \begin{proof}
-Haremos la demostración con $H = K_{r+1}$ y para $H$ general lo haremos con el Lema de regularidad:
-\end{proof}
+Haremos la demostración con $H = K_{r+1}$ y para $H$ general lo haremos con el Lema de Regularidad:
 
-\begin{quote}
-Para todo $\varepsilon > 0$ existe $\delta > 0$ tal que: si $G$ es $K_{r+1}$-libre en $n$-vértices y
+\begin{lemma}[Lema de Regularidad]\label{lemma: Teorema de Estabilidad de Erdos-simonovits - lema de regularidad}
+Para todo $\varepsilon > 0$ lo suficientemente chico, existe $\delta > 0$ tal que: si $G$ es $K_{r+1}$-libre en $n$-vértices y
 \[
     e(G) \geq \left ( 1 - \frac 1 r - \delta\right) \overbrace{\binom n 2}^{\sim \frac {n^2}2},
 \]
 entonces $G$ está $(\varepsilon n^2)$-cerca de ser $r$-partito.
-\end{quote}
+\end{lemma}
 
-\begin{lemma}
+En efecto, Si $G$ es $H$-libre, como $H \subset K_{r+1}$ con $r = \chi (H)$, entonces $G$ es $K_{r+1}$-libre y por lo tanto el Lema de Regularidad implica el enunciado del Teorema de Estabilidad de Erdös-simonovits.
+\end{proof}
+
+Para probar el Teorema de Regularidad, requerimos probar dos lemas previos:
+
+\begin{lemma}\label{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 1}
 Sea $r \in \naturals$ y $\delta > 0$ y $n$ suficientemente grande. Si $G$ es $K_{r+1}$-libre con $n$ vértices y
 \[
     e(G) \geq \left ( 1 - \frac 1 r - \delta^2\right) \frac{n^2}2,
 \]
-entonces existe $G' \subset G$ con $v (G') \geq (1 - \delta)n $ y
+entonces existe $G' \subset G$ con $\abs{G'} \geq (1 - \delta)n $ y
 \[
     \delta (G') \geq \left ( 1 - \frac 1 r - \delta \right) \abs { G'}.
 \]
 \end{lemma}
 \begin{proof}
+De la demostración del Lema \ref{lema:erdos-stone lema 1} se deduce un enunciado más fuerte:
+\begin{quote}
+Dados $r \in \naturals$ y $c\in (0,1)$. Para todo $\varepsilon > 0$ existe $n_0 \in \naturals$ tal que para todo grafo $G$ con $n \geq n_0$ vértices y
+\[
+    e(G) \geq c \frac{n^2}{2}
+\], existe un subgrafo $G_{t} \subset G$ con $\abs {G_t} = t \geq \varepsilon n$ y $\delta (G_t) \geq (c- \varepsilon) \abs{G_t}$; más aún,
+\[
+    e(G) \leq e(G_t) + (c- \varepsilon) \left (\binom{n+1}2 - \binom{t+1}2\right ).
+\]
+\end{quote}
 
+Ahora, dado $\delta > 0$, el cual sin pérdida de generalidad lo podemos asumir $\delta < \frac 1 2$, tomamos $c := \left ( 1 - \frac 1 r - \delta^2 \right ) > 0$ y $\varepsilon = \delta - \delta^2>0$. Supongamos que $G$ es un grafo con $n$ vértices $K_{r+1}$-libre, y
+\[
+    e(G) \geq \left ( 1 - \frac 1 r - \delta^2 \right ) \frac{n^2}{2} = c \frac {n^2}{2},
+\]
+luego existe un subgrafo $G_t \subset G$ con $t \geq (\delta - \delta^2) n$ vértices. Como en la demostración de la Observación \ref{obs:tenemos que el numero de turan es asintotico a (1-1/r)n2/2} se ve que $t_r (t) \sim  \left ( 1 - \frac 1 r \right) \frac{t^2}{2} \:\: (t \to \infty)$, podemos suponer que existe $n_0 \in \naturals$ tal que si $n \geq n_0$, entonces $t_r (t) \leq \left ( 1 - \frac 1 r + \gamma \right ) \frac{t^2}{2}$, para $\gamma := \frac{\delta^2}{2}$.
+
+Ahora, como $G$ es $K_{r+1}$-libre, entonces $G_t$ también y se tiene que
+\[
+    e(G_t) \leq \ex t {K_{r+1}} \leq t_r (t) \leq \left (1 - \frac 1 r + \frac{\delta^2}{2} \right) \frac{t^2}{2},
+\]
+Por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}. Juntando esto con lo mencionado al principio, tenemos que
+\[
+    c \frac{n^2}{2} \leq e(G) \leq e (G_t) + \binom{n+1}2 - \binom{t+1}{2} \leq \left (1 - \frac 1 r + \frac{ \delta^2}2 \right) \frac{t^2}{2} + (c- \varepsilon) \left (\binom{n+1}2 - \binom{t+1}2\right ),
+\]
+esto implica que para $n$ lo suficientemente grande de tal suerte que $\frac{(c - \varepsilon)}{2} n \leq \frac{\varepsilon }{2} \frac{n^2}{2}$,
+\[
+    \varepsilon \frac{n^2}{4}  \leq (\delta + \frac{\delta^2}{2}) \frac{t^2}{2}.
+\]
+Reemplazando $\varepsilon = \delta - \delta^2$ en la última desigualdad, y despejando $t$:
+\[
+    \sqrt{\frac{\delta - \delta^2}{2 \delta + \delta^2}} n \leq t.
+\]
+Como la exprosión de la izquierda es más grande que $(1 - \delta)$ cuando $\delta < \frac 1 2$, se sigue que para todo $n$ lo suficientemente grande,
+\[
+    \abs {G_t}  = t \geq (1 - \delta) n.
+\]
+Es decir, $G_t$ es el subgrafo $G'$ de $G$ que cumple las propiedades deseadas del enunciado.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 2}
 Para todo $r \in \naturals$, para todo $\varepsilon > 0$, existe $\delta > 0$ tal que si $G$ es $K_{r+1}$-libre con $n$ vértices y
 \[
     \delta (G) \geq \left ( 1 - \frac 1 r - \delta \right) n,
 \]
-entonces existe una partición $V(G) = A_0 \coprod A_1 \coprod \cdots \coprod A_r$ tal que $\abs {A_0} \leq \varepsilon n$ y $A_i$ son conjuntos independientes para todo $i \in \{0, \ldots, r\}$.
+entonces existe una partición $V(G) = A_0 \coprod A_1 \coprod \cdots \coprod A_r$ tal que $\abs {A_0} \leq \varepsilon n$ y $A_i$ son conjuntos independientes para todo $i \geq 1$.
 \end{lemma}
 \begin{proof}
 Si tomamos $\delta >0$ lo suficientemente pequeño, entonces $G$ contiene una copia de $K_r$ por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)} (esto ocurre si $e(G) \geq \left ( 1 - \frac 1 {r-1} \right)\frac{n^2}{2}$; tomar $\delta < \frac 1 {r-1} - \frac 1 r$).
 
 Sea $A$ un conjunto de vértices que induce un $K_r$ en $G$. Sean $B := V(G) \setminus A$ y $X := \set{v \in V(G) | \abs{N_G (v) \cap A} \leq r -2}$, vamos a mostrar que $X$ es pequeño.
-\[
-    \left ( 1 - \frac 1 r - \delta \right) n r - r (r-1) \leq e(A, B) \leq (r-1) (n-r) - \abs X \quad (\sum_{v \in A} d_G (v) = e(A,B) + 2 \abs A),
-\]
+\begin{align*}
+\left ( 1 - \frac 1 r - \delta \right ) n r - r (r-1) &\leq e(A, B) \quad \quad \left ( 2 e(A) + e(A,B) = \sum_{v \in A} d_G (v) \geq r \left (1 - \frac 1 r - \delta \right )n \right )\\
+                &\leq (r-1) (n-r \abs X) + (r-2) \abs X  = (r-1) (n-r) - \abs X,
+\end{align*}
 manipulando la desigualdad, obtenemos:
 \[
     \abs X \leq \delta n r.
 \]
-Tomando $\delta < \min \{\frac{\varepsilon}{r}, \frac 1{r-1} - \frac 1 r\}$, los consjuntos independientes son:
+Tomando $\delta < \min \{\frac{\varepsilon}{r}, \frac 1{r-1} - \frac 1 r\}$, el $A_0$ será $X$ y los consjuntos independientes son:
 \[
-    A_u = \{u\} \cup \{v \in B | vu \not \in E(G)\}
+    A_u = \{u\} \cup \{v \in B \setminus X | vu \not \in E(G)\}
 \]
 para cada $u \in A$.
 \end{proof}
 
+Ahora estamos en condiciones de demostrar el Lema de Rstabilidad de Erdos-Simonovits \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema de regularidad}:
 
-\begin{exercise}
-Utilizando los lemas 1 y 2, probar el teorema de estabilidad de Erdös-Simonits para $H = K_{r+1}$.
-\end{exercise}
+\begin{proof}[Demostración del Lema de Rstabilidad de Erdos-Simonovits]
 
-Sea $\varepsilon > 0$, tomar $\delta = (\delta ')^2$ donde $\delta'$ se obtiene del Lema 2 con $\varepsilon ' > \frac \varepsilon 2$. Por hipótesis
+Sea $\varepsilon > 0$ chico, tomemos $\delta = (\delta ')^2$ donde $\delta'$ se obtiene del Lema \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 2} con $\varepsilon ' < \frac \varepsilon 2$. Notar que de la demostración podemos suponer que si $\varepsilon > 0$ es chico, luego $\delta ' < \frac {\varepsilon ' }2$ también. Por hipótesis
 \[
     e(G) \geq \left ( 1 - \frac 1 r - (\delta ')^2 \right ) \frac{n^2}{2},
 \]
-entonces por el Lema 1: existe $G' \subset G$ con $n' := v(G' ) \geq ( 1 - \delta ')n$ y $\delta (G') \geq \left ( 1 - \frac 1 r - \delta' \right) v(G') = n'$. Por el Lema 2: para $\varepsilon ' < \frac \varepsilon 2$ se tiene que $A_0, A_1, \ldots, A_r$ partición con $\abs {A_0} < \varepsilon ' n ' \leq \varepsilon ' n$ y $A_i$ conjunto independiente para todo $i = 0 , \ldots, r$. Así, se pierden en total a lo más
+entonces por el Lema \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 1}: existe $G' \subset G$ con $n' := \abs{G'} \geq ( 1 - \delta ')n$ y $\delta (G') \geq \left ( 1 - \frac 1 r - \delta' \right) \abs {G'} = n'$. Por el Lema \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 2}: para $\varepsilon ' < \frac \varepsilon 2$ se tiene que existe $A_0, A_1, \ldots, A_r$ partición de $G'$ con $\abs {A_0} < \varepsilon ' n ' \leq \varepsilon ' n$ y $A_i$ conjuntos independientes para todo $i \geq 1$. Así el subgrafo generado por los $A_i$ con $i \geq 1$ es $r$-partito. Además, para obtener este subgrafo, hay que quitar a lo más
 \[
-    \delta ' n ^2 + \varepsilon ' n^2 < \varepsilon n^2
+    \varepsilon ' n ^2 + \varepsilon ' n^2 < \varepsilon n^2 \quad \quad ( \delta , \delta ' \ll 1)
 \]
-aristas.
+aristas de $G$, es decir, $G$ está $\varepsilon n^2$-cerca de ser $r$-partito. En efecto, las aristas de $G[V(G) \setminus V(G')]$ junto con $E_G(V(G'), V(G) \setminus V(G'))$ aportan $\leq \binom { \delta ' n} 2 + n' \cdot (n - n') \leq \delta ' n^2 + \delta ' n^2 \leq \varepsilon ' n^2$, y las de $G[V(A_0)]$ junto con $E_G(V(A_0), V(G) \setminus V(A_0))$ aportan
+\[
+    \leq \binom{\varepsilon' n}2 + (\varepsilon ' n) \cdot (\delta ') n \leq \varepsilon ' n^2.
+\]
+\end{proof}
+
 
 
 
@@ -1370,7 +1416,7 @@ Al conjunto $V_0$ lo llamamos \textbf{conjunto excepcional}.
 Sea $G$ un grafo con $n$ vértices y $\varepsilon > 0$. Diremos que una partición $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ es \textbf{$\varepsilon$-regular}, si $\abs{V_0} \leq \varepsilon n$ y a lo más $\varepsilon k^2$ pares $(V_i,V_j)$ con $1 \leq i , j \leq k$ no son $\varepsilon$-regulares.
 \end{definition}
 
-\begin{theorem}[Lema de Regularidad de Szemerédi]
+\begin{theorem}[Lema de Regularidad de Szemerédi]\label{theorem:lema de regularidad de szemeredi}
 Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m)$ tal que para cualquier grafo, existe una partición $\varepsilon$-regular
 \[
     V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k
@@ -1403,10 +1449,10 @@ Después, obtenemos el gafo reducido $R$: dado por contraer cada $V_i$ a un vér
 
 Aplicamos lemas de inmersión en ``aristas'' de grafo - grafo reducido:
 \[
-    \text{Si $H \subset R$} ¸quad \Rightarrow H \subset G.
+    \text{Si $H \subset R$} \quad \Rightarrow \quad H \subset G.
 \]
 
-\begin{lemma}
+\begin{lemma}\label{lema:regularidad de szemeredi - lema 1}
 Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-regular de un grafo $G$ con $k \geq \frac 1 \varepsilon$. Entonces, hay un máximo de:
 \begin{enumerate}[(a)]
 \item $\varepsilon n^2$ aristas con un extremo en $V_0$.
@@ -1431,7 +1477,7 @@ y entonces, hay a lo más $\delta \left ( \frac n k \right )^2 \binom k n$ arist
 \end{enumerate}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lema:regularidad de szemeredi - lema 2}
 Sea $\varepsilon > 0$, $(A,B)$ un par $\varepsilon$-regular de un grafo $G$. Entonces,
 \[
     \left ( d(A,B) - \varepsilon \right ) \abs B \leq \abs{N_G (v) \cap B} \leq \left ( d(A,B) \right ) \abs B
@@ -1443,7 +1489,7 @@ Tarea: tomar Y = los v qu eno funcionan y Y = B. y aplicar la epsilon regularida
 \end{proof}
 
 
-\begin{lemma}[Slicing]
+\begin{lemma}[Slicing]{lema:regularidad de szemeredi - lema slicing}
 Sea $\alpha \geq \varepsilon > 0$, y sea $(A,B)$ un par $\varepsilon$-regular en un grafo $G$. Para cualquier $X \subset A, Y \subset B$ con
 \[
     \abs X \geq d \abs A \quad \text y \quad \abs Y \geq \alpha \abs B
@@ -1454,6 +1500,114 @@ se tiene que el par $(X,Y)$ es $\frac{2 \varepsilon}{\alpha}$-regular y
 \]
 
 \end{lemma}
+
+\begin{definition}[Reducido]
+Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos la cantidad
+\[
+    \mathcal G (H,n, \varepsilon, \delta)
+\]
+como la familia de grafos $G$ tales que existe una partición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i} = n$ y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)$.
+
+\end{definition}
+
+\begin{lemma}[Lema de inmersión general]{lema:regularidad de szemeredi - lema inmersion general}
+Para todo grafo $H$ y todo $\delta > 0$, existen $\varepsilon > 0$ y $n \in \naturals$ tales que
+\[
+    G \in \mathcal G (H, n , \varepsilon, \delta) \quad \Rightarrow \quad H \subset G.
+\]
+\end{lemma}
+\begin{proof}
+Haremos inducción en $\abs H$. Cuando $\abs H = 1$ es trivial. Supongamos entonces que $\abs H \geq 2$. Escribamos $V(H) = \{w_1, \ldots, w_l\}$ y sea $V(G) = A_1 \coprod \cdots \coprod A_l$ una partición de acuerdo a la definición de $\mathcal G (H, n , \varepsilon , \delta)$: $(A_i, A_j)$ $\varepsilon$-regular y $d(A_i, A_j) \geq \delta$ para cada $i \leq l-1$ tal que $w_i w_l \in E(H)$.
+
+Elijamos $\varepsilon $ lo suficientemente pequeño y apliquemos el Lema \ref{lema:regularidad de szemeredi - lema 2} a cada $(A_i, A_l)$ con $w_i w_l \in E(H)$: todos, excepto a lo más $2 \varepsilon \abs {A_l}$ vértices $v \in A_l$ satisfaciendo:
+\[
+    \abs{N_G (v) \cap A_i} \geq (\delta - \varepsilon) \cdot \abs{A_i}
+\]
+\Inkscape[1.5]{}{"./Figuras/Regularidad/Dibujo 1.pdf_tex"}
+Como $2 \varepsilon \abs{A_l} (l-1) < n$, existe $v \in A_l$ tal que
+\[
+    \abs{N_G (v) \cap A_i} \geq (\delta - \varepsilon) \abs{A_i}, \quad i \leq l-1
+\]
+con $w_i w_l \in E(H)$. Definimos
+\[
+    X_i = \begin{cases}
+    A_i \cap N_G (v) & \text{ si $w_i \in N_H (w_l)$} \\
+    A_i & \text{ si no}
+    \end{cases}
+\]
+
+Ahora, tomando $\alpha = \delta - \varepsilon \geq \varepsilon >0 $, podemos aplicar el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing} en $X_i, X_j$ cuando $w_i w_j \in E(H)$ para asegurar que son pares $\left ( \frac{2 \varepsilon}{\delta - \varepsilon} \right)$-regulares y densidad al menos $\delta - \varepsilon$. Luego queremos usar la hipótesis inductiva: sea $H' := H \setminus \{w_l\}$ y $G':= G[\bigcup_{i = 1}^{l-1} X_i]$. Así, existen $\varepsilon ' > 0$ y $n' \in \naturals$ tales que
+\[
+    G' \in \mathcal G (H', n', \varepsilon ', \delta - \varepsilon) \quad \Rightarrow \quad H' \subset G'
+\]
+Con lo cual, si escogemos $\varepsilon$ tal que $\frac{2 \varepsilon}{\delta - \varepsilon} < \varepsilon '$ tenemos que $H' \subset G'$. Por lo tanto, $H \subset G$.
+\end{proof}
+
+\begin{lemma}\label{lema:regularidad de szemeredi - lema inmersion aplicable}
+Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varepsilon > 0$ y $n_0 \in \naturals$ tales que
+\[
+    G \in \mathcal G (K_r , n , \varepsilon, \delta), \:\:n \geq n_0 \quad \Rightarrow \quad H \subset G.
+\]
+\end{lemma}
+\begin{proof}
+Como $H \subset K_r (t)$ con $t = \abs H$, el Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'$ tales que
+\[
+    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta ') \quad \Rightarrow \quad H \subset K_r (t) \subset G.
+\]
+\begin{exercise}
+Demostrar que
+\[
+    \mathcal G (k_r, n , \varepsilon, \delta) \subset \mathcal G (K_r (t), n', \varepsilon ', \delta ').
+\]
+\end{exercise}
+\end{proof}
+
+\begin{theorem}[Regularidad de Erdös-Stone]
+Para todo grafo $H$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que si
+\[
+    e(G) \geq \left ( 1 - \frac{1}{\chi (H)- 1} + 3 \delta\right ) \frac{n^2}{2}
+\]
+\end{theorem}
+
+\begin{proof}
+Tomamos $\varepsilon > 0$ lo suficientemente pequeño dado por el Lema de inmersión aplicable ref{lema:regularidad de szemeredi - lema inmersion aplicable}, y aplicamos Regularidad \ref{theorem:lema de regularidad de szemeredi} para el caso $m \geq \frac 1 \varepsilon$ al grafo $G$ con $r = \chi (H) -1$ satisfaciendo la hipótesis del enunciado. Obtenemos una partición $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ una partición $\varepsilon$-regular. Sea $G'$ el grafo obtenido a partir de $G$ borrando todas ``las aristas sobre las que no hay control'' con parámetro $\varepsilon$ (regularidad) y $\delta$ (densidad). Así, tenemos que $G'$ tiene al menos $e(G) - (3 \varepsilon + \delta) n^2$ aristas por el Lema \ref{lema:regularidad de szemeredi - lema 1}. Sea $R$ el ``grafo reducido'', se tiene
+\[
+    G' \in \mathcal G (R, n', \varepsilon , \delta)
+\]
+con $n' := \frac{n - \abs{V_0}}{k}$. Por lo tanto, si $H \subset R$, entonces por el lema de inmersión aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable} tendríamos que $H \subset G'$.
+
+Supongamos que $K_{r+1} \not \subset R$. Luego por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}:
+\[
+    e(R) \leq t_r (k) \sim  \left (1 - \frac 1 r \right ) \frac{k^2}{2},
+\]
+y se tiene que
+\[
+    e(G') \leq \left ( 1 - \frac 1 r \right ) \frac{k^2}{2} \cdot \frac{n^2}{k^2} = \left (1 - \frac 1 r \right ) \frac{n^2}{2}.
+\]
+Consecuentemente,
+\[
+    e(G) \leq \left ( 1 - \frac 1 r \right )\frac{n^2}{2} + 2(3 \varepsilon +\delta)\frac{n^2}{2} < \left ( 1 - \frac 1 r + 3 \delta \right ) \frac{n^2}{2},
+\]
+absurdo.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
