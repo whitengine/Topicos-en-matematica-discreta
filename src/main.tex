@@ -1518,45 +1518,41 @@ Sea $\alpha \geq \varepsilon > 0$, y sea $(A,B)$ un par $\varepsilon$-regular en
 \[
     \abs X \geq \alpha \abs A \quad \text y \quad \abs Y \geq \alpha \abs B
 \]
-se tiene que el par $(X,Y)$ es $\frac{2 \varepsilon}{\alpha}$-regular. Además, por $\varepsilon$-regularidad del par $(A,B)$, se tiene que
+se tiene que el par $(X,Y)$ es $\max\{\frac{\varepsilon}{\alpha}, 2 \epsilon\}$-regular. Además, por $\varepsilon$-regularidad del par $(A,B)$, se tiene que
 \[
-    d(X,Y) \geq d (A,B) - \varepsilon.
+    \abs {d(X,Y) - d (A,B)} \leq \varepsilon.
 \]
 
 \end{lemma}
 \begin{proof}
-La última afirmación es clara. Veamos la primera. Sean $Z \subset X$ y $W \subset Y$ tales que $\abs Z \geq \frac{2\varepsilon}{\alpha} \abs X$ y $\abs W \geq \frac{2\varepsilon}{\alpha} \abs Y$, entonces $\abs Z \geq 2 \varepsilon \abs A$ y $\abs W \geq 2 \varepsilon \abs B$. Luego por $2\varepsilon$-regularidad del par (A,B), se tiene que
+La última afirmación es clara. Veamos la primera, para eso consideremos $\varepsilon ' = \max \{ \frac{\varepsilon}{\alpha} , 2 \varepsilon \}$. Sean $Z \subset X$ y $W \subset Y$ tales que $\abs Z \geq \varepsilon ' \abs X$ y $\abs W \geq \varepsilon ' \abs Y$, entonces $\abs Z \geq \varepsilon \abs A$ y $\abs W \geq \varepsilon \abs B$. Luego por $\varepsilon$-regularidad del par (A,B), se tiene que
 \[
-    \abs{d(Z,W) - d(A,B)} \leq 2 \varepsilon.
+    \abs{d(Z,W) - d(A,B)} \leq \varepsilon.
 \]
-Además, por $\alpha$-regularidad del par $(A,B)$, se tiene que
+Además, por $\varepsilon$-regularidad del par $(A,B)$, se tiene que
 \[
-    \abs{d(X,Y) - d(A,B)} \leq \alpha.
+    \abs{d(X,Y) - d(A,B)} \leq \varepsilon.
 \]
 Juntando ambas desigualdades tenemos que:
 \begin{align*}
 \abs{d(Z,W) - d(X,Y)} &\leq \abs{ d(Z, W) - d(A,B)} + \abs{d(X,Y) - d(A,B)} \\
-    &\leq 2 \varepsilon + \alpha \leq 2 \frac{\varepsilon}{ \alpha}
+    &\leq \varepsilon + \varepsilon \leq 2 \varepsilon \leq \varepsilon '.
 \end{align*}
 \end{proof}
-
-\begin{remark}
-Creo que no vale que $(X,Y)$ sea $2\frac \varepsilon \alpha$-regular, si no que es $\varepsilon '$-regular con $\varepsilon ' := \max \{ \frac{\varepsilon}{\alpha}, 2 \alpha \}$, pues esta es la constante a la cual se le puede probar regularidad de manera sencilla. Ver como modificar los siguientes resultados que usan el lema de slicing.
-\end{remark}
 
 \begin{definition}[Reducido]
 Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos la cantidad
 \[
     \mathcal G (H,n, \varepsilon, \delta)
 \]
-como la familia de grafos $G$ tales que existe una partición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i} = n$ y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)$.
+como la familia de grafos $G$ tales que existe una equipartición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i}$ todos del mismo tamaño $n$, y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)\geq\delta$.
 
 \end{definition}
 
-\begin{lemma}[Lema de inmersión general]{lema:regularidad de szemeredi - lema inmersion general}
-Para todo grafo $H$ y todo $\delta > 0$, existen $\varepsilon > 0$ y $n \in \naturals$ tales que
+\begin{lemma}[Lema de inmersión general]\label{lema:regularidad de szemeredi - lema inmersion general}
+Para todo grafo $H$ y todo $\delta > 0$, existen $\varepsilon > 0$ y $n_0 \in \naturals$ tales que
 \[
-    G \in \mathcal G (H, n , \varepsilon, \delta) \quad \Rightarrow \quad H \subset G.
+    G \in \mathcal G (H, n , \varepsilon, \delta), n \geq n_0 \quad \Rightarrow \quad H \subset G.
 \]
 \end{lemma}
 \begin{proof}
@@ -1569,47 +1565,60 @@ Elijamos $\varepsilon $ lo suficientemente pequeño y apliquemos el Lema \ref{le
 \Inkscape[1.5]{}{"./Figuras/Regularidad/Dibujo 1.pdf_tex"}
 Como $2 \varepsilon \abs{A_l} (l-1) < n$, existe $v \in A_l$ tal que
 \[
-    \abs{N_G (v) \cap A_i} \geq (\delta - \varepsilon) \abs{A_i}, \quad i \leq l-1
+    \abs{N_G (v) \cap A_i} \geq (\delta - \varepsilon) \abs{A_i}, \quad \forall i \leq l-1
 \]
 con $w_i w_l \in E(H)$. Definimos
 \[
-    X_i = \begin{cases}
+    \tilde X_i = \begin{cases}
     A_i \cap N_G (v) & \text{ si $w_i \in N_H (w_l)$} \\
-    A_i & \text{ si no}
+    A_i & \text{ si no},
     \end{cases}
 \]
+y por cada $\tilde X_i$ construimos un subgrafo $X_i$, de manera que todos los $X_i$ tengan el mismo cardinal.
 
-Ahora, tomando $\alpha = \delta - \varepsilon \geq \varepsilon >0 $, podemos aplicar el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing} en $X_i, X_j$ cuando $w_i w_j \in E(H)$ para asegurar que son pares $\left ( \frac{2 \varepsilon}{\delta - \varepsilon} \right)$-regulares y densidad al menos $\delta - \varepsilon$. Luego queremos usar la hipótesis inductiva: sea $H' := H \setminus \{w_l\}$ y $G':= G[\bigcup_{i = 1}^{l-1} X_i]$. Así, existen $\varepsilon ' > 0$ y $n' \in \naturals$ tales que
+Ahora, tomando $\alpha = \delta - \varepsilon \geq \varepsilon >0 $, podemos aplicar el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing} en $X_i, X_j$ cuando $w_i w_j \in E(H)$ para asegurar que son pares $\max\{\frac{\varepsilon}{\delta - \varepsilon}, 2 \varepsilon\}$-regulares y densidad al menos $\delta - \varepsilon$. Luego queremos usar la hipótesis inductiva: sea $H' := H \setminus \{w_l\}$ y $G':= G[\bigcup_{i = 1}^{l-1} X_i]$. Así, existen $\varepsilon ' > 0$ y $n'_0 \in \naturals$ tales que
 \[
-    G' \in \mathcal G (H', n', \varepsilon ', \delta - \varepsilon) \quad \Rightarrow \quad H' \subset G'
+    G' \in \mathcal G (H', n', \varepsilon ', \delta - \varepsilon), n' \geq n_0 ' \quad \Rightarrow \quad H' \subset G'
 \]
-Con lo cual, si escogemos $\varepsilon$ tal que $\frac{2 \varepsilon}{\delta - \varepsilon} < \varepsilon '$ tenemos que $H' \subset G'$. Por lo tanto, $H \subset G$.
+Con lo cual, si escogemos $\varepsilon$ tal que $\max \{\frac{2 \varepsilon}{\delta - \varepsilon}, 2 \varepsilon\} < \varepsilon '$ y $n_0$ lo suficientemente grande, de tal suerte que $(\delta - \varepsilon) n_0 \geq n'_0$, tenemos por hipótesis inductiva que $H' \subset G'$. Por lo tanto, $H \subset G$.
 \end{proof}
 
 \begin{lemma}\label{lema:regularidad de szemeredi - lema inmersion aplicable}
-Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varepsilon > 0$ y $n_0 \in \naturals$ tales que
+Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varepsilon > 0$ y $n \in \naturals$ tales que
 \[
-    G \in \mathcal G (K_r , n , \varepsilon, \delta), \:\:n \geq n_0 \quad \Rightarrow \quad H \subset G.
+    G \in \mathcal G (K_r , n , \varepsilon, \delta) \quad \Rightarrow \quad H \subset G.
 \]
 \end{lemma}
 \begin{proof}
-Como $H \subset K_r (t)$ con $t = \abs H$, el Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'$ tales que
+Como $H \subset K_r (t)$ con $t = \abs H$, el Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
 \[
-    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta ') \quad \Rightarrow \quad H \subset K_r (t) \subset G.
+    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad H \subset K_r (t) \subset G.
 \]
+Concluimos gracias al siguiente ejercicio:
 \begin{exercise}
-Demostrar que
+Demostrar que existen $n \in \naturals$, $\varepsilon$ y $\delta'$ tales que
 \[
-    \mathcal G (k_r, n , \varepsilon, \delta) \subset \mathcal G (K_r (t), n', \varepsilon ', \delta ').
+    \mathcal G (K_r, n , \varepsilon, \delta) \subset \mathcal G (K_r (t), n', \varepsilon ', \delta ').
 \]
 \end{exercise}
+\begin{solution}
+Tomemos $n = n' t$, para $n'\geq n_0'$ lo suficientemente grande. Fijemos un etiquetamiento $K_r = \{w_1, \ldots, w_r\}$ tal que $K_r (t) = \{w_i^j\}_{1 \leq i \leq r}^{1 \leq j \leq t}$ con $w_i^j w_{i'}^{j'} \in E(K_r (t))$ si y solo si $w_i w_{i'} \in E(K_r)$. Entonces si $G \in \mathcal G (K_r , n, \varepsilon, \delta)$, con equipartición $V(G) = \coprod_{i = 1}^r V_i$. Se sigue que podemos subdividir la partición: cada $V_i = \coprod_{j = 1}^t V_i^t$ en otra equipartición con partes de cardinal $n'$.
+
+Ahora busquemos $\varepsilon$ y $\delta'$ tales que $G \in \mathcal G (K_r (t), n', \varepsilon ', \delta')$. Pero si $w_i^j w_{i'}^{j'} \in E(K_r (t))$, entonces $w_i w_{i'} \in E(K_r)$, y por lo tanto el par $(V_i, V_{i'})$ es $\varepsilon$ regular y como $\abs {V_i^j} = \frac{1}{t} \abs{V_i}$ para todo $1 \leq j \leq t$, el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing} garantiza que los pares $(V_i^j, V_{i'}^{j'})$ para $1 \leq j,j' \leq t$ son $\max \{t \varepsilon, 2 \varepsilon\}$-regularaes si $\varepsilon$ es lo suficientemente pequeño, i.e. $\frac 1 t > \varepsilon$. En cuanto a la densidad, nuevamente el Lema de Slicing garantiza que
+\[
+    d(A_i^j, A_{i'}^{j'}) \geq d(A_i, A_{i'}) - \varepsilon  \geq \delta - \varepsilon.
+\]
+
+Por lo tanto, tomamos $\varepsilon < \min \{\varepsilon '/2, \frac 1 t \varepsilon ', \frac 1 t, \delta / 2\}$ y $\delta' =  \delta /2$ y funciona.
+\end{solution}
 \end{proof}
 
 \begin{theorem}[Regularidad de Erdös-Stone]
-Para todo grafo $H$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que si
+Para todo grafo $H$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que para todo grafo $G$ con $n \geq n_0$ vértices y
 \[
-    e(G) \geq \left ( 1 - \frac{1}{\chi (H)- 1} + 3 \delta\right ) \frac{n^2}{2}
+    e(G) \geq \left ( 1 - \frac{1}{\chi (H)- 1} + 3 \delta\right ) \frac{n^2}{2},
 \]
+entonces $H \subset G$.
 \end{theorem}
 
 \begin{proof}
