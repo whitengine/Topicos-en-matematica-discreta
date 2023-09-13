@@ -959,7 +959,7 @@ como queríamos probar.
 Notaremos por $K_s (t)$ al grafo de Turán $T_{s} (t \cdot s)$.
 \end{notation}
 
-\begin{theorem}[Erdös-Stone, 1946]
+\begin{theorem}[Erdös-Stone, 1946]\label{th:teorema de Erdos-stone}
 Sea $H$ un grafo con $e(H) \geq 1$. Entonces
 \[
     \ex n H \leq \left ( 1 - \frac{1}{\chi (H) - 1}  + o (1) \right) \cdot \frac{n^2}{2} \quad (n \to \infty) \\
@@ -1115,28 +1115,25 @@ $G$ está \textbf{$t$-cerca} de ser $r$-partito si existe un subgrafo $r$-partit
 
 
 
-\begin{theorem}[Teorema de Estabilidad de Erdös-simonovits]
+\begin{theorem}[Teorema de Estabilidad de Erdös-simonovits]\label{Teorema de Estabilidad de Erdos-simonovits version H general}
 Para todo grafo $H$ con $e(H) \geq 1$, para todo $\varepsilon > 0$ existe $\delta > 0$ tal que: si $G$ es $H$-libre en $n$-vertices y
 \[
     e(G) \geq \left ( 1 - \frac {1}{\chi (H) - 1} - \delta \right) \binom n 2.
 \]
 Entonces $G$ está $(\varepsilon n^2)$-cerca de ser $(\chi (H) - 1)$-partito.
 \end{theorem}
-\begin{proof}
-Haremos la demostración con $H = K_{r+1}$ y para $H$ general lo haremos con el Lema de Regularidad:
 
-\begin{lemma}[Lema de Regularidad]\label{lemma: Teorema de Estabilidad de Erdos-simonovits - lema de regularidad}
+Haremos la demostración con $H = K_{r+1}$ y para $H$ general lo haremos con el Lema de Regularidad \ref{theorem:lema de regularidad de szemeredi}.
+
+\begin{quote}\label{Teorema de Estabilidad de Erdos-simonovits version H un r+1 completo}
 Para todo $\varepsilon > 0$ lo suficientemente chico, existe $\delta > 0$ tal que: si $G$ es $K_{r+1}$-libre en $n$-vértices y
 \[
     e(G) \geq \left ( 1 - \frac 1 r - \delta\right) \overbrace{\binom n 2}^{\sim \frac {n^2}2},
 \]
 entonces $G$ está $(\varepsilon n^2)$-cerca de ser $r$-partito.
-\end{lemma}
+\end{quote}
 
-En efecto, Si $G$ es $H$-libre, como $H \subset K_{r+1}$ con $r = \chi (H)$, entonces $G$ es $K_{r+1}$-libre y por lo tanto el Lema de Regularidad implica el enunciado del Teorema de Estabilidad de Erdös-simonovits.
-\end{proof}
-
-Para probar el Teorema de Regularidad, requerimos probar dos lemas previos:
+Requerimos probar dos lemas previos:
 
 \begin{lemma}\label{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 1}
 Sea $r \in \naturals$ y $\delta > 0$ y $n$ suficientemente grande. Si $G$ es $K_{r+1}$-libre con $n$ vértices y
@@ -1215,9 +1212,9 @@ Tomando $\delta < \min \{\frac{\varepsilon}{r}, \frac 1{r-1} - \frac 1 r\}$, el 
 para cada $u \in A$.
 \end{proof}
 
-Ahora estamos en condiciones de demostrar el Lema de Rstabilidad de Erdos-Simonovits \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema de regularidad}:
+Ahora estamos en condiciones de demostrar el Teorema de Estabilidad de Erdos-Simonovits para $H = K_{r+1}$ \ref{Teorema de Estabilidad de Erdos-simonovits version H un r+1 completo}:
 
-\begin{proof}[Demostración del Lema de Rstabilidad de Erdos-Simonovits]
+\begin{proof}[Demostración del Teorema de Estabilidad de Erdos-Simonovits para $H =K_{r+1}$ \ref{Teorema de Estabilidad de Erdos-simonovits version H un r+1 completo}]
 
 Sea $\varepsilon > 0$ chico, tomemos $\delta = (\delta ')^2$ donde $\delta'$ se obtiene del Lema \ref{lemma: Teorema de Estabilidad de Erdos-simonovits - lema 2} con $\varepsilon ' < \frac \varepsilon 2$. Notar que de la demostración podemos suponer que si $\varepsilon > 0$ es chico, luego $\delta ' < \frac {\varepsilon ' }2$ también. Por hipótesis
 \[
@@ -1387,16 +1384,16 @@ Tomando $n_0 \in \naturals$ para que $\frac{n^2}{4} > c n^{2 - \frac 1 k}$ valga
 \section{Regularidad}
 
 \begin{definition}
-Una partición de un grafo $G$, $X, Y \subset V(G)$, entonces definimos la \textbf{densidad} de $(X,Y)$ como la cantidad
+Dada una partición de los vértices de un grafo $G$, digamos $ V(G) = X \coprod Y$, definimos la \textbf{densidad} del par $(X,Y)$ como la cantidad
 \[
-    d(X,Y) = \frac{e(X,Y)}{\abs X \abs Y}.
+    d(X,Y) := \frac{e(X,Y)}{\abs X \abs Y}.
 \]
 \end{definition}
 
 \begin{definition}
-Dado $\varepsilon > 0$. Sea una partición $A,B \subset V(G)$ de los vértices de un grafo $G$. Diremos que el par $(A,B)$ es \textbf{$\varepsilon$-regular} si para todo $X  \subset A$, $Y \subset B$ con
+Dado $\varepsilon > 0$. Sean $A,B \subset V(G)$ con $G$ un grafo. Diremos que el par $(A,B)$ es \textbf{$\varepsilon$-regular} si para todo $X  \subset A$, $Y \subset B$ con
 \[
-    \abs X \geq \varepsilon A \quad \text e \quad \abs{Y} \geq \varepsilon \abs B
+    \abs X \geq \varepsilon \abs A \quad \text e \quad \abs{Y} \geq \varepsilon \abs B
 \]
 tenemos
 \[
@@ -1405,7 +1402,7 @@ tenemos
 \end{definition}
 
 \begin{definition}
-Sea $G$ un grafo. Una partición $V(G ) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ es una \textbf{equipartición}, si
+Sea $G$ un grafo. Una partición $V(G ) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$, se dice \textbf{equipartición}, si
 \[
     \abs {V_0} \leq \abs{V_1} = \abs{V_2} = \cdots = \abs{V_k}.
 \]
@@ -1417,7 +1414,7 @@ Sea $G$ un grafo con $n$ vértices y $\varepsilon > 0$. Diremos que una partici�
 \end{definition}
 
 \begin{theorem}[Lema de Regularidad de Szemerédi]\label{theorem:lema de regularidad de szemeredi}
-Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m)$ tal que para cualquier grafo, existe una partición $\varepsilon$-regular
+Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m) \in \naturals$ tal que para cualquier grafo $G$ con $\abs G \geq M$, existe una \underline{equipartición} $\varepsilon$-regular
 \[
     V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k
 \]
@@ -1425,27 +1422,35 @@ con $m \leq k \leq M$.
 \end{theorem}
 
 \begin{corollary}
-Se puede probar el Teorema de Erdös-Stone: para todo $\delta >0$ existe $n_0 \in \naturals$ tal que si
+Se puede probar el Teorema de Erdös-Stone \ref{th:teorema de Erdos-stone}:
+\begin{quote}
+Dado un grafo $H$, para todo $\delta >0$ existe $n_0 \in \naturals$ tal que si $G$ es un grafo con $n \geq n_0$ vértices y
 \[
     e(G) \geq \left ( 1 - \frac 1 r + \delta \right ) \frac{n^2}{2},
 \]
 entonces $H \subset G$, donde $r = \chi (H) - 1$.
+\end{quote}
 \end{corollary}
 
-Tomemos $\delta > 0$ arbitrariamente pequeño, aplicar regularidad de Szemeredi con $\varepsilon $ lo suficientemente pequeño y $n > \frac 1 \varepsilon$. Así, obtenemos una equipartición $\varepsilon$-regular
+La idea de la demostración del corolario será la siguiente:
+
+\bigskip
+
+Tomemos $\delta > 0$ arbitrariamente pequeño, aplicamos el Lema de Regularidad de Szemeredi con $\varepsilon $ lo suficientemente pequeño y $m > \frac 1 \varepsilon$. Así existe $M \in \naturals$, y obtenemos una equipartición $\varepsilon$-regular
 \[
-    v(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k.
+ V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k,
 \]
+con $M \geq k \geq m > \frac 1 \varepsilon$, de cualquier grafo $G$ con $\abs G \geq M$.
 
 Borramos de $G$ todas las aristas sobre las que ``no hay control'':
-\begin{itemize}
+\begin{enumerate}[(a)]
 \item Las que ven a $V_0$.
+\item Aristas dentro de las partes $V_i$ con $i \geq 1$.
 \item Las aristas entre pares no $\varepsilon$-regulares.
 \item Aristas entre pares no densos, i.e., ``tenemos menos que $\delta / 2$ densidad''.
-\item Aristas dentro las partes.
-\end{itemize}
+\end{enumerate}
 
-Después, obtenemos el gafo reducido $R$: dado por contraer cada $V_i$ a un vértice $w_i$ y borrar aristas múltiples. Así, $R$ tiene cconjunto de vértices $w_1, \ldots, w_r$ donde $w_{iw_j \in E(R)}$ sii $(V_i, V_j)$ es $\varepsilon$-regular y denso.
+Después, obtenemos el gafo reducido $R$: dado por contraer cada $V_i$ a un vértice $w_i$ con $i \geq 1$, y borrar aristas múltiples. Así, $R$ tiene conjunto de vértices $w_1, \ldots, w_r$ donde $w_{i}w_j \in E(R)$ sii $(V_i, V_j)$ es $\varepsilon$-regular y denso.
 
 Aplicamos lemas de inmersión en ``aristas'' de grafo - grafo reducido:
 \[
@@ -1453,7 +1458,7 @@ Aplicamos lemas de inmersión en ``aristas'' de grafo - grafo reducido:
 \]
 
 \begin{lemma}\label{lema:regularidad de szemeredi - lema 1}
-Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-regular de un grafo $G$ con $k \geq \frac 1 \varepsilon$. Entonces, hay un máximo de:
+Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-regular de un grafo $G$ de $n$ vértices, con $k \geq \frac 1 \varepsilon$. Entonces, hay un máximo de:
 \begin{enumerate}[(a)]
 \item $\varepsilon n^2$ aristas con un extremo en $V_0$.
 \item $\varepsilon n^2$ aristas dentro de una parte $V_i$ con $i\geq 1$.
@@ -1467,39 +1472,77 @@ Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-re
 \[
     \varepsilon n (1-\varepsilon) n + \binom{\varepsilon n}{2} < \varepsilon n^2 \text{ aristas en (a)}.
 \]
-\item Cada $V_i$ tiene $\leq \frac n k$ vértices, y entonces hay a lo más $K \cdot \binom{\frac n k}{2} \leq \frac \varepsilon 2 n^2$ aristas para (b).
-\item Hay a lo más $\varepsilon k^2$ pares que no son $\varepsilon$-regulares y cada par tiene a lo más $\binom n k ^2 < \varepsilon n^2$ aristas.
-\item En el peor caso, los $\binom r 2$ pares son poco densos. En este caso
+\item Cada $V_i$ tiene $\leq \frac n k$ vértices (pues estamos en una equipartición), y entonces hay a lo más $k \cdot \binom{\frac n k}{2} \leq \frac \varepsilon 2 n^2$ aristas para (b).
+\item Hay a lo más $\varepsilon k^2$ pares que no son $\varepsilon$-regulares y cada par tiene a lo más $\left ( \frac n k \right)  ^2$ aristas entre sí. Consecuentemente, aportan a lo más $\varepsilon k^2 \cdot \left ( \frac n k \right )^2 = \varepsilon n^2$ aristas en (c).
+\item En el peor caso, los $\binom k 2$ pares son poco densos. En este caso
 \[
-    e(V_i, V_j) \leq \delta \left ( \frac n k \right )^2, \quad \forall i, j < \delta n^2,
+    e(V_i, V_j) \leq \delta \left ( \frac n k \right )^2, \quad \forall 1 \leq i, j \leq k,
 \]
-y entonces, hay a lo más $\delta \left ( \frac n k \right )^2 \binom k n$ aristas en pares ``poco densos''.
+y entonces, hay a lo más $\delta \left ( \frac n k \right )^2 \binom k 2 \leq \delta n^2$ aristas en pares ``poco densos'', i.e., en (d).
 \end{enumerate}
 \end{proof}
 
 \begin{lemma}\label{lema:regularidad de szemeredi - lema 2}
-Sea $\varepsilon > 0$, $(A,B)$ un par $\varepsilon$-regular de un grafo $G$. Entonces,
+Sea $\varepsilon > 0$, y sea $(A,B)$ un par $\varepsilon$-regular de un grafo $G$. Entonces,
 \[
-    \left ( d(A,B) - \varepsilon \right ) \abs B \leq \abs{N_G (v) \cap B} \leq \left ( d(A,B) \right ) \abs B
+    \big ( d(A,B) - \varepsilon \big ) \abs B \leq \abs{N_G (v) \cap B} \leq \big ( d(A,B)
+    + \varepsilon \big ) \abs B
 \]
-para todos, excepto a lo más $2 \varepsilon \abs A$ vértices $v \in A$.
+para todo $v \in A$, salvo a lo más $2 \varepsilon \abs A$.
 \end{lemma}
 \begin{proof}
-Tarea: tomar Y = los v qu eno funcionan y Y = B. y aplicar la epsilon regularidad de (A,B)
+Consideremos el conjunto $X \subset A$ de los vértices que no cumplen alguna de las dos desigualdades. Probaremos que $\abs X < 2 \varepsilon \abs A$ por el absurdo. Si este no fuera el caso, tendríamos que $\abs X \geq 2 \varepsilon \abs A$ y por lo tanto hay al menos $\varepsilon \abs A$ vértices que no cumplen la primera desigualdad o la segunda. Supongamos que estamos en el perimer caso, el segundo caso es análogo. Es decir, supongamos que existe un conjunto $X' \subset A$ con $\abs{X'} \geq \varepsilon \abs A$ tal que para todo $v \in X'$,
+\[
+    \big ( d(A,B) - \varepsilon \big) \abs B > \abs{N_G (v) \cap \abs B}.
+\]
+Sumando en la desigualdad anterior sobre todos los $v \in X'$, tenemos que
+\[
+    \big ( d(A,B) - \varepsilon \big ) \abs B \abs A > e(X', B),
+\]
+por lo tanto $\big ( d (A,B) - \varepsilon \big ) >d(X', B)$, i.e.,
+\[
+    \abs {d(A,B) - d(X', B)} > \varepsilon.
+\]
+
+Consideremos ahora $Y' = B$, en particular $\abs {Y'} \geq \varepsilon \abs B$ si $\varepsilon > 0$ es chico. Luego por $\varepsilon$-regularidad del par $(A,B)$, tenemos que
+\[
+    \abs{d(A,B) - d(X', B)} \leq \varepsilon,
+\]
+absurdo.
 \end{proof}
 
 
-\begin{lemma}[Slicing]{lema:regularidad de szemeredi - lema slicing}
+
+\begin{lemma}[Slicing]\label{lema:regularidad de szemeredi - lema slicing}
 Sea $\alpha \geq \varepsilon > 0$, y sea $(A,B)$ un par $\varepsilon$-regular en un grafo $G$. Para cualquier $X \subset A, Y \subset B$ con
 \[
-    \abs X \geq d \abs A \quad \text y \quad \abs Y \geq \alpha \abs B
+    \abs X \geq \alpha \abs A \quad \text y \quad \abs Y \geq \alpha \abs B
 \]
-se tiene que el par $(X,Y)$ es $\frac{2 \varepsilon}{\alpha}$-regular y
+se tiene que el par $(X,Y)$ es $\frac{2 \varepsilon}{\alpha}$-regular. Además, por $\varepsilon$-regularidad del par $(A,B)$, se tiene que
 \[
-    d(X,Y) \geq d (A,B) - \varepsilon \quad (\text{por definición de $\varepsilon$-regular}).
+    d(X,Y) \geq d (A,B) - \varepsilon.
 \]
 
 \end{lemma}
+\begin{proof}
+La última afirmación es clara. Veamos la primera. Sean $Z \subset X$ y $W \subset Y$ tales que $\abs Z \geq \frac{2\varepsilon}{\alpha} \abs X$ y $\abs W \geq \frac{2\varepsilon}{\alpha} \abs Y$, entonces $\abs Z \geq 2 \varepsilon \abs A$ y $\abs W \geq 2 \varepsilon \abs B$. Luego por $2\varepsilon$-regularidad del par (A,B), se tiene que
+\[
+    \abs{d(Z,W) - d(A,B)} \leq 2 \varepsilon.
+\]
+Además, por $\alpha$-regularidad del par $(A,B)$, se tiene que
+\[
+    \abs{d(X,Y) - d(A,B)} \leq \alpha.
+\]
+Juntando ambas desigualdades tenemos que:
+\begin{align*}
+\abs{d(Z,W) - d(X,Y)} &\leq \abs{ d(Z, W) - d(A,B)} + \abs{d(X,Y) - d(A,B)} \\
+    &\leq 2 \varepsilon + \alpha \leq 2 \frac{\varepsilon}{ \alpha}
+\end{align*}
+\end{proof}
+
+\begin{remark}
+Creo que no vale que $(X,Y)$ sea $2\frac \varepsilon \alpha$-regular, si no que es $\varepsilon '$-regular con $\varepsilon ' := \max \{ \frac{\varepsilon}{\alpha}, 2 \alpha \}$, pues esta es la constante a la cual se le puede probar regularidad de manera sencilla. Ver como modificar los siguientes resultados que usan el lema de slicing.
+\end{remark}
 
 \begin{definition}[Reducido]
 Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos la cantidad
@@ -1591,12 +1634,90 @@ Consecuentemente,
 absurdo.
 \end{proof}
 
+Segunda aplicación del Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi}:
+
+\begin{theorem}[Erdös-Simonovits]\label{Teorema de Estabilidad de Erdos-simonovits version H general - formulacion 2}
+
+Para todo grafo $H$, y para todo $\delta > 0$, existe $n_0 \in \naturals$ tal que $G$ es un grafo $H$-libre con $n \geq n_0$ vértices y
+\[
+    e(G) \geq \left ( 1 - \frac 1 {\chi (H) - 1} - \delta \right) \frac{n^2}{2},
+\]
+entonces $G$ está $5 \delta n^2$-cerca de ser $(\chi (H)-1)$-partito.
+\end{theorem}
+
+\begin{remark}
+Notar que este enunciado es equivalente al enunciado que vimos antes: \ref{Teorema de Estabilidad de Erdos-simonovits version H general}
+\end{remark}
+
+\begin{proof}
+Sea $\varepsilon > 0$ lo suficientemente pequeño (que depende de $H$ y $\delta$). Aplicamos el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} para $\varepsilon$ y $m \geq \frac 1 \varepsilon$; obtenemos la partición $\varepsilon$-regular $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ para todo grafo con $\abs G \geq M$.
+
+Luego consideramos el ``grafo reducido'' $R$ con parámetros $\varepsilon$ y $\delta$, y vértices $w_1, \ldots, w_k$. Sea $r = \chi (H) - 1$. Si $K_{r+1} \subset R$, entonces $H \subset G$ por el Lema de Inmersión general aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable}, lo cual nos lleva a una contradicción. Es decir, $R$ es $K_{r+1}$-libre.
+
+Elijamos $t = 3 \delta k^2$. Si $e(R) < t_r (k)-t$, entonces por el Lema \ref{lema:regularidad de szemeredi - lema 1}, tenemos:
+\begin{align*}
+e(G) &\leq (\delta + 3 \varepsilon)n^2 + e(R) \cdot \left (\frac n k\right)^2 \\
+    &< (\delta + 3 \varepsilon)n^2 + \left ( (1 - \frac 1 r) \frac{k^2}{2} - 3 \delta k^2 \right ) \frac{n^2}{k^2} \\
+    &= (1 - \frac 1 r) \frac{n^ 2}{2} + \underbrace{(3 \varepsilon - 2 \delta)}_{< - \frac \delta 2} n^2 \\
+    &<(1-\frac 1 r) \frac{n^2}{2} - \frac{\delta}{2} n^2,
+\end{align*}
+contradicción. Con lo cual, podemos asumir que $R$ está $t$-cerca de ser $r$-partito. Es decir, hay una $r$-partición
+\[
+    V(R) = A_1 \coprod \cdots \coprod A_r
+\]
+con a lo más $t$ aristas dentro de las partes. Utilizando nuevamente el Lema \ref{lema:regularidad de szemeredi - lema 1} para acotar las aristas despecriables de la partición de $G$, y acotando las aristas dentro de las partes de la partición de $R$, concluimos que es posible borrar a lo más
+\[
+    \underbrace{t \cdot \left ( \frac n k \right )^2}_{\leq 5 \delta n^2} + \underbrace{(\delta + 3 \varepsilon)n^2}_{< 5 \delta n^2}
+\]
+aristas para obtener una $r$-partición de $G$.
+\end{proof}
 
 
+\bigskip
 
+\begin{lemma}[Lema de conteo general]\label{lema:lema de conteo general - corolario del lema de regularidad de szemeredi}
 
+Para todo grafo $H$, y todo $\delta > 0$, existen $\varepsilon > 0$ y $M \in \naturals$ tales que si
+\[
+    G \in \mathcal G (H, n, \varepsilon, \delta)
+\]
+para algún $n \geq M$, entonces $G$ contiene al menos
+\[
+    \frac{\delta^{e(H)} \cdot n^{\abs H}}{2}
+\]
+copias de $H$.
+\end{lemma}
+\begin{proof}
+\red{TAREA.}
+\end{proof}
 
+Apliación $3$ del Lema de Regularidad de Szemeredi \ref{theorem:lema de regularidad de szemeredi}:
 
+\begin{theorem}[Teorema de Roth]\label{th:teorema de Roth}
+Para todo $\varepsilon > 0$, existe $n_0 \in \naturals$ tall que si $n \geq n_0$ y $A \subset \{1 , \ldots, n\}$ con $\abs A > \varepsilon n$, entonces $A$ contiene una \textit{$3$-progresión aritmética}\footnote{En general, una \textbf{$k$-progresión aritmética} es una secuencia de enteros $a, a+d, a + 2d , \ldots, a + (k-1)d$.}.
+\end{theorem}
+
+\begin{lemma}[Lema de remoción de triángulos]\ref{lema:lema de remocion de triangulos}
+
+Para todo $\alpha > 0$, existe $\beta > 0$ tal que todo grafo $G$ con $n$ vértices y a lo más $\beta n^3$ triángulos, puede ser $K_3$-libre borrando a lo más $\alpha n^2$ aristas
+\end{lemma}
+\begin{proof}
+Tomemos $0 < \delta < \frac{ \alpha}{3}$ y $\varepsilon < \frac{\delta}{9}$ lo suficientemente chico. Aplicamos el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} con parámetros $\varepsilon$ y $m \geq \frac 1 \varepsilon$, obteniendo una partición de un grafo $G$ con $\abs G \geq M \geq k \geq m$,
+\[
+    V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k.
+\]
+Consideremos el grafo reducido $R$ con parámetros $\varepsilon$ y $\delta$.
+
+Supongamos que $R$ tiene al menos un triángulo $K_3$. Aplicando el Lema de conteo general \ref{lema:lema de conteo general - corolario del lema de regularidad de szemeredi} para $H = K_3$, tenemos que $G$ tiene al menos:
+\[
+    \delta^3 \cdot \left ( \frac{(1 - \varepsilon)n}{k} \right )^3 > \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3} \cdot n^3 > \beta n^3
+\]
+triángulos, donde $\beta < \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3}$.
+
+Con lo cual, si $G$ tiene a lo más $\beta n^3$ triángulos, el párrafo anterior nos dice que $R$ no tiene triángulos. Con lo cual, al remover $\leq \underbrace{(\delta + \varepsilon)}_{< \alpha}n^2$ aristas de $G$ nos quedamos sin triángulos.
+
+En general si $\abs G < m$, podemos achicar a $\beta$ para que valga el enunciado en general.
+\end{proof}
 
 
 
