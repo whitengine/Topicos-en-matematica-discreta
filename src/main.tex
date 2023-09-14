@@ -910,7 +910,7 @@ triángulos.
 
 \bigskip
 
-\begin{theorem}[Füredi, 2015 -- Estabilidad]
+\begin{theorem}[Füredi, 2015 -- Estabilidad]\label{theorem:teorema de estabilidad de furedi}
 Sean $n,k \in \naturals$, $t \geq 0$ y $G$ un grafo $K_{k+1}$-libre en $n$-vértices. Si $e(G) \geq t_k (n)- t$, entonces $G$ contiene un subgrafo generador $k$-partito con al menos $e(G)-t$ aristas.
 \end{theorem}
 \begin{proof}
@@ -1583,26 +1583,38 @@ Ahora, tomando $\alpha = \delta - \varepsilon \geq \varepsilon >0 $, podemos apl
 Con lo cual, si escogemos $\varepsilon$ tal que $\max \{\frac{2 \varepsilon}{\delta - \varepsilon}, 2 \varepsilon\} < \varepsilon '$ y $n_0$ lo suficientemente grande, de tal suerte que $(\delta - \varepsilon) n_0 \geq n'_0$, tenemos por hipótesis inductiva que $H' \subset G'$. Por lo tanto, $H \subset G$.
 \end{proof}
 
-\begin{lemma}\label{lema:regularidad de szemeredi - lema inmersion aplicable}
-Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varepsilon > 0$ y $n \in \naturals$ tales que
+\begin{lemma}[Lema de inmersión aplicable]\label{lema:regularidad de szemeredi - lema inmersion aplicable}
+Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varepsilon > 0$ y $n_0 \in \naturals$ tales que
 \[
-    G \in \mathcal G (K_r , n , \varepsilon, \delta) \quad \Rightarrow \quad H \subset G.
+    G \in \mathcal G (K_r , n , \varepsilon, \delta), n \geq n_0 \quad \Rightarrow \quad H \subset G.
 \]
 \end{lemma}
 \begin{proof}
-Como $H \subset K_r (t)$ con $t = \abs H$, el Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
+El Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
 \[
-    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad H \subset K_r (t) \subset G.
+    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad K_r (t) \subset G;
 \]
+Como $H \subset K_r (t)$, se tiene que en este caso $H \subset G$.
+
 Concluimos gracias al siguiente ejercicio:
 \begin{exercise}
-Demostrar que existen $n \in \naturals$, $\varepsilon$ y $\delta'$ tales que
+\begin{enumerate}[(1)]
+\item[]
+\item Demostrar que para todo $\delta > 0$, $n' \in \naturals$ y $\varepsilon ' > 0$, existen $\varepsilon$ y $\delta'$ tales que
 \[
-    \mathcal G (K_r, n , \varepsilon, \delta) \subset \mathcal G (K_r (t), n', \varepsilon ', \delta ').
+    \mathcal G (K_r, n' t , \varepsilon, \delta) \subset \mathcal G (K_r (t), n', \varepsilon ', \delta ').
 \]
+\item Demostrar que para todo $\delta > 0$, $\varepsilon > 0$ y $n' \in \naturals$ es lo suficientemente grande, se tiene que si
+\[
+    G \in \mathcal G (K_r, n , \varepsilon, \delta) \quad \text{con } n't \leq n < (n'+1)t,
+\]
+entonces existe un subgrafo $G' \subset G$ tal que $G' \in \mathcal G (K_r, n't, 2\varepsilon, \delta - \varepsilon)$.
+\end{enumerate}
 \end{exercise}
 \begin{solution}
-Tomemos $n = n' t$, para $n'\geq n_0'$ lo suficientemente grande. Fijemos un etiquetamiento $K_r = \{w_1, \ldots, w_r\}$ tal que $K_r (t) = \{w_i^j\}_{1 \leq i \leq r}^{1 \leq j \leq t}$ con $w_i^j w_{i'}^{j'} \in E(K_r (t))$ si y solo si $w_i w_{i'} \in E(K_r)$. Entonces si $G \in \mathcal G (K_r , n, \varepsilon, \delta)$, con equipartición $V(G) = \coprod_{i = 1}^r V_i$. Se sigue que podemos subdividir la partición: cada $V_i = \coprod_{j = 1}^t V_i^t$ en otra equipartición con partes de cardinal $n'$.
+\begin{enumerate}[(1)]
+\item[]
+\item Tomemos $n = n' t$. Fijemos un etiquetamiento $K_r = \{w_1, \ldots, w_r\}$ tal que $K_r (t) = \{w_i^j\}_{1 \leq i \leq r}^{1 \leq j \leq t}$ con $w_i^j w_{i'}^{j'} \in E(K_r (t))$ si y solo si $w_i w_{i'} \in E(K_r)$. Entonces si $G \in \mathcal G (K_r , n, \varepsilon, \delta)$, con equipartición $V(G) = \coprod_{i = 1}^r V_i$. Se sigue que podemos subdividir la partición: cada $V_i = \coprod_{j = 1}^t V_i^j$ en otra equipartición con partes de cardinal $n'$.
 
 Ahora busquemos $\varepsilon$ y $\delta'$ tales que $G \in \mathcal G (K_r (t), n', \varepsilon ', \delta')$. Pero si $w_i^j w_{i'}^{j'} \in E(K_r (t))$, entonces $w_i w_{i'} \in E(K_r)$, y por lo tanto el par $(V_i, V_{i'})$ es $\varepsilon$ regular y como $\abs {V_i^j} = \frac{1}{t} \abs{V_i}$ para todo $1 \leq j \leq t$, el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing} garantiza que los pares $(V_i^j, V_{i'}^{j'})$ para $1 \leq j,j' \leq t$ son $\max \{t \varepsilon, 2 \varepsilon\}$-regularaes si $\varepsilon$ es lo suficientemente pequeño, i.e. $\frac 1 t > \varepsilon$. En cuanto a la densidad, nuevamente el Lema de Slicing garantiza que
 \[
@@ -1610,7 +1622,25 @@ Ahora busquemos $\varepsilon$ y $\delta'$ tales que $G \in \mathcal G (K_r (t), 
 \]
 
 Por lo tanto, tomamos $\varepsilon < \min \{\varepsilon '/2, \frac 1 t \varepsilon ', \frac 1 t, \delta / 2\}$ y $\delta' =  \delta /2$ y funciona.
+\item Sea $G \in \mathcal G (K_r, n , \varepsilon, \delta)$. Luego $V(G) = V_1 \coprod \cdots \coprod V_k$ es una equipartición de $G$ con $\abs{V_i} = n$. Consiederemos cualquier subgrafo $G'$ de $G$ dado por quitar a cada conjunto $V_i$ los suficientes elementos tales que los vértices de $G'$ se equiparticionan en partes de tamaño $n't \geq \frac{n'}{n' + 1} n = (1 - \frac{1}{n'+1}) n = \left (1 - \frac{1}{\ceil {\frac{n}{t}}}\right ) n = \alpha n$, con $\alpha \geq \frac{1}{2}$ para $n'$ lo suficientemente grande ($t$ está fijo). Luego por el Lema de Slicing \ref{lema:regularidad de szemeredi - lema slicing},
+\[
+    G' \in \mathcal G (K_r, n' t, 2 \varepsilon, \delta - \varepsilon).
+\]
+\end{enumerate}
 \end{solution}
+
+En efecto, para todo $\delta > 0$, el primer ítem dice que
+\[
+    \mathcal G (K_r, n' t, \varepsilon , \delta '),
+\]
+para algún $\varepsilon$ y todo $n' \geq n_0'$. Luego, por el segundo ítem, existe $n_0 \in \naturals$ lo sufientemente grande tal que si
+\[
+    G \in \mathcal G (K_r, n, \varepsilon, \delta),
+\]
+entonces existe un subgrafo $G' \subset G$ tal que $G' \in \mathcal G (K_r, n' t, 2 \varepsilon , \delta - \varepsilon)$. Juntando ambas cosas obtenemos que
+\[
+    G \in \mathcal G (K_r, n , \varepsilon, \delta), n \geq n_0 \quad \Rightarrow \quad H \subset G.
+\]
 \end{proof}
 
 \begin{theorem}[Regularidad de Erdös-Stone]
@@ -1621,25 +1651,31 @@ Para todo grafo $H$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que pa
 entonces $H \subset G$.
 \end{theorem}
 
+\begin{remark}
+Como $\delta > 0$ es arbitrario, podríamos reemplazar $3\delta$ por $\delta ' > 0$ arbitrario en el enunciado.
+\end{remark}
+
 \begin{proof}
-Tomamos $\varepsilon > 0$ lo suficientemente pequeño dado por el Lema de inmersión aplicable ref{lema:regularidad de szemeredi - lema inmersion aplicable}, y aplicamos Regularidad \ref{theorem:lema de regularidad de szemeredi} para el caso $m \geq \frac 1 \varepsilon$ al grafo $G$ con $r = \chi (H) -1$ satisfaciendo la hipótesis del enunciado. Obtenemos una partición $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ una partición $\varepsilon$-regular. Sea $G'$ el grafo obtenido a partir de $G$ borrando todas ``las aristas sobre las que no hay control'' con parámetro $\varepsilon$ (regularidad) y $\delta$ (densidad). Así, tenemos que $G'$ tiene al menos $e(G) - (3 \varepsilon + \delta) n^2$ aristas por el Lema \ref{lema:regularidad de szemeredi - lema 1}. Sea $R$ el ``grafo reducido'', se tiene
+Tomamos $\varepsilon > 0$ lo suficientemente pequeño dado por el Lema de inmersión aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable}, y aplicamos Regularidad \ref{theorem:lema de regularidad de szemeredi} para el caso $m \geq \frac 1 \varepsilon$ al grafo $G$ con $r = \chi (H) -1$ satisfaciendo la hipótesis del enunciado. Obtenemos una partición $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ una equipartición $\varepsilon$-regular. Sea $G'$ el grafo obtenido a partir de $G$ borrando todas ``las aristas sobre las que no hay control'' con parámetro $\varepsilon$ (regularidad) y $\delta$ (densidad). Así, tenemos que $G'$ tiene al menos $e(G) - (3 \varepsilon + \delta) n^2$ aristas por el Lema \ref{lema:regularidad de szemeredi - lema 1}. Sea $R$ el ``grafo reducido'', se tiene
 \[
     G' \in \mathcal G (R, n', \varepsilon , \delta)
 \]
-con $n' := \frac{n - \abs{V_0}}{k}$. Por lo tanto, si $H \subset R$, entonces por el lema de inmersión aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable} tendríamos que $H \subset G'$.
+con $n' := \frac{n - \abs{V_0}}{k}$. Por lo tanto, si $K_{r+1} \subset R$, entonces por el lema de inmersión aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable} tendríamos que $H \subset G'$. En efecto, quitando algunas particiones de $V(G')$, obtenemos un subgrafo $G'' \subset G'$ tal que $G'' \in \mathcal G (K_{r+1}, n', \varepsilon, \delta)$.
 
-Supongamos que $K_{r+1} \not \subset R$. Luego por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}:
+Supongamos ahora que $K_{r+1} \not \subset R$. Luego por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}:
 \[
-    e(R) \leq t_r (k) \sim  \left (1 - \frac 1 r \right ) \frac{k^2}{2},
+    e(R) \leq t_r (k) \sim  \left (1 - \frac 1 r \right ) \frac{k^2}{2} \quad (k \to \infty),
 \]
-y se tiene que
+es decir, achicando $\varepsilon$ de ser necesario para que $k$ sea grande y $t_r (k) \leq \left ( 1 - \frac 1 r + \delta \right ) \frac{k^2}{2}$. Se tiene que
 \[
-    e(G') \leq \left ( 1 - \frac 1 r \right ) \frac{k^2}{2} \cdot \frac{n^2}{k^2} = \left (1 - \frac 1 r \right ) \frac{n^2}{2}.
+    e(G') \leq \left ( 1 - \frac 1 r + \delta \right ) \frac{k^2}{2} \cdot \frac{n^2}{k^2} = \left (1 - \frac 1 r + \delta \right ) \frac{n^2}{2}.
 \]
 Consecuentemente,
-\[
-    e(G) \leq \left ( 1 - \frac 1 r \right )\frac{n^2}{2} + 2(3 \varepsilon +\delta)\frac{n^2}{2} < \left ( 1 - \frac 1 r + 3 \delta \right ) \frac{n^2}{2},
-\]
+\begin{align*}
+e(G) &\leq \left ( 1 - \frac 1 r + \delta \right )\frac{n^2}{2} + 2(3 \varepsilon +\delta)\frac{n^2}{2} \\
+    &= \left ( 1 - \frac 1 r + 6 \varepsilon + 2\delta \right ) \frac{n^2}{2} \\
+    &< \left ( 1 - \frac 1 r + 3 \delta \right ) \frac{n^2}{2},
+\end{align*}
 absurdo.
 \end{proof}
 
@@ -1651,7 +1687,7 @@ Para todo grafo $H$, y para todo $\delta > 0$, existe $n_0 \in \naturals$ tal qu
 \[
     e(G) \geq \left ( 1 - \frac 1 {\chi (H) - 1} - \delta \right) \frac{n^2}{2},
 \]
-entonces $G$ está $5 \delta n^2$-cerca de ser $(\chi (H)-1)$-partito.
+entonces $G$ está $(5 \delta n^2)$-cerca de ser $(\chi (H)-1)$-partito.
 \end{theorem}
 
 \begin{remark}
@@ -1659,9 +1695,9 @@ Notar que este enunciado es equivalente al enunciado que vimos antes: \ref{Teore
 \end{remark}
 
 \begin{proof}
-Sea $\varepsilon > 0$ lo suficientemente pequeño (que depende de $H$ y $\delta$). Aplicamos el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} para $\varepsilon$ y $m \geq \frac 1 \varepsilon$; obtenemos la partición $\varepsilon$-regular $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ para todo grafo con $\abs G \geq M$.
+Sea $\varepsilon > 0$ lo suficientemente pequeño (que depende de $H$ y $\delta$). Aplicamos el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} para $\varepsilon$ y $m \geq \frac 1 \varepsilon$; obtenemos la equipartición $\varepsilon$-regular $V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k$ con $m \leq k \leq M$ para todo grafo con $\abs G \geq M$.
 
-Luego consideramos el ``grafo reducido'' $R$ con parámetros $\varepsilon$ y $\delta$, y vértices $w_1, \ldots, w_k$. Sea $r = \chi (H) - 1$. Si $K_{r+1} \subset R$, entonces $H \subset G$ por el Lema de Inmersión general aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable}, lo cual nos lleva a una contradicción. Es decir, $R$ es $K_{r+1}$-libre.
+Luego consideramos el ``grafo reducido'' $R$ con parámetros $\varepsilon$ y $\delta$, y vértices $w_1, \ldots, w_k$. Sea $r = \chi (H) - 1$. Si $K_{r+1} \subset R$, entonces $H \subset G$ por el Lema de Inmersión aplicable \ref{lema:regularidad de szemeredi - lema inmersion aplicable}, lo cual nos lleva a una contradicción. Es decir, $R$ es $K_{r+1}$-libre.
 
 Elijamos $t = 3 \delta k^2$. Si $e(R) < t_r (k)-t$, entonces por el Lema \ref{lema:regularidad de szemeredi - lema 1}, tenemos:
 \begin{align*}
@@ -1670,13 +1706,15 @@ e(G) &\leq (\delta + 3 \varepsilon)n^2 + e(R) \cdot \left (\frac n k\right)^2 \\
     &= (1 - \frac 1 r) \frac{n^ 2}{2} + \underbrace{(3 \varepsilon - 2 \delta)}_{< - \frac \delta 2} n^2 \\
     &<(1-\frac 1 r) \frac{n^2}{2} - \frac{\delta}{2} n^2,
 \end{align*}
-contradicción. Con lo cual, podemos asumir que $R$ está $t$-cerca de ser $r$-partito. Es decir, hay una $r$-partición
+contradicción.
+
+Con lo cual, el Teorema de Estabilidad de Füredi \ref{theorem:teorema de estabilidad de furedi} nos permite suponer que $R$ está $t$-cerca de ser $r$-partito. Es decir, hay una $r$-partición
 \[
     V(R) = A_1 \coprod \cdots \coprod A_r
 \]
 con a lo más $t$ aristas dentro de las partes. Utilizando nuevamente el Lema \ref{lema:regularidad de szemeredi - lema 1} para acotar las aristas despecriables de la partición de $G$, y acotando las aristas dentro de las partes de la partición de $R$, concluimos que es posible borrar a lo más
 \[
-    \underbrace{t \cdot \left ( \frac n k \right )^2}_{\leq 5 \delta n^2} + \underbrace{(\delta + 3 \varepsilon)n^2}_{< 5 \delta n^2}
+    \underbrace{t \cdot \left ( \frac n k \right )^2}_{\leq 3 \delta n^2} + \underbrace{(\delta + 3 \varepsilon)n^2}_{\leq 2 \delta n^2} \leq 5 \delta n^2
 \]
 aristas para obtener una $r$-partición de $G$.
 \end{proof}
