@@ -1735,7 +1735,64 @@ para algún $n \geq M$, entonces $G$ contiene al menos
 copias de $H$.
 \end{lemma}
 \begin{proof}
-\red{TAREA.}
+Haremos inducción en $\abs H$, y de hecho nuestra hipótesis inductiva será más fuerte:
+\begin{quote}
+Para todo grafo $H$, y todo $\delta > 0$, existen $\varepsilon > 0$ y $M \in \naturals$, tales que si
+\[
+    G \in \mathcal G (H, n , \varepsilon , \delta)
+\]
+para algún $n \geq M$, y más aún, dada una equipartición $G = V_1 \coprod \cdots \coprod V_l$ indexada según $H = \{w_1, \ldots, w_l\}$ con $(V_i, V_j)$ $\varepsilon$-regular y $d(v_i, V_j) \geq \delta$ siempre y cuando que $w_i w_j \in E(H)$, se tiene que hay al menos
+\[
+    \frac{\delta^{e(H)} \cdot n^{\abs H}}{2}
+\]
+copias de $H$, de tal forma que los vértices $x_j$ correspondientes a un $w_j$ vía un isomorfismo con $H$ pertenezcan a $V_j$ para todo $j = 1, \ldots, l$.
+\end{quote}
+Si $\abs H = 1$, la afirmación es inmediata. Si $\abs H = 2$ y no tiene aristas también es fácil. Si $\abs H = 2$ y $e(H) = 1$, luego basta probar que existen al menos $\delta \frac{n^2}{2}$ aristas en $E(V_0, V_1)$. Pero tomando $\varepsilon < \min \{\delta / 4, 1/8\}$, la $\varepsilon$-regularidad del par $(V_0,V_1)$ junto con $d(V_0,V_1)$ implican que existen vértices $v \in V_1$ tales que
+\[
+    (\delta - \varepsilon)n \leq \abs{N_G (v) \cap V_0}
+\]
+salvo $2 \varepsilon n$ vértices por el Lema \ref{lema:regularidad de szemeredi - lema 2}. Es decir, $E(V_0, V_1)$ tiene al menos
+\[
+    (\delta - \varepsilon)(1-2\varepsilon)n^2 \geq (\frac 3 4 \cdot \frac 3 4) \delta n^2 \geq \frac 1 2 \delta n^2
+\]
+aristas, como queríamos.
+
+En general, supongamos que $\abs H \geq 3$. Si $G \in \mathcal G (H, n , \varepsilon , \delta)$ para $n \geq M$, entonces $G = V_1 \coprod \cdots \coprod V_l$ con $V_i$ todos de cardinal $n$ y para la escritura $H = \{w_1, \ldots, w_l\}$, $w_i w_j \in E(H)$ si y solo si $(V_i, V_j)$ es $\varepsilon$-regular y $d(V_i, V_j) \geq \delta$.
+
+Consideremos $H' = H \setminus \{w_l\}$ y $G' := G \setminus V_l$, entonces $G' \in \mathcal G (H' , n , \varepsilon, \delta)$ y por hipótesis inductiva existe $M'$ tal que si $n \geq M'$, entonces $G'$ contiene al menos
+\[
+    \frac{\delta^{e(H')} \cdot n^{\abs {H'}}}{2}
+\]
+copias de $H'$, donde cada copia tiene su vértice correspondiente a $w_j$ en la parte $V_j$ para cada $j < l$. Ahora, por el Lema \ref{lema:regularidad de szemeredi - lema 2}, para todo $v \in V_l$, salvo $2 \varepsilon n$ vértices, se tiene que
+\[
+    (\delta - \varepsilon)n \leq \abs {N_G (v) \cap V_j}, \quad \forall j < l.
+\]
+Por lo tanto, tenemos al menos $(1-2 \varepsilon (l-1))n$ vértices en $V_l$, cada uno con al menos $(\delta - \varepsilon)n$ vecinos en cada $V_j$ con $j <l$, y por lo tanto, $(\delta - \varepsilon)n(l-1)$ vecinos en $G$.
+
+En el peor de los casos, todos los vértices que no son vecinos de $v$ en $V_j$ pertenecen a una de estas copias de $H'$ para cada $j < l$, luego este $v$ forma al menos $\frac{\delta^{e ( H')} \cdot n^{l-1}}{2} - (1 - (\delta - \varepsilon))n(l-1)$ copias de $H$ en $G$. Es decir, $G$ tiene al menos
+\[
+\left ( \frac{\delta^{e ( H')} \cdot n^{l-1}}{2} - (1 - (\delta - \varepsilon))n(l-1) \right )(1 - 2 \varepsilon(l-1))n
+\]
+copias de $H$, donde cada copia tiene su vértice correspondiente a $w_j$ en la parte $V_j$ para cada $1 \leq j \leq l$. Así, basta probar que tomando $M \gg M'$ y $\varepsilon > 0$ lo suficientemente chico, esta cantidad es $\geq \frac{\delta^{e(H)} \cdot n^{l}}{2}$.
+
+En efecto, esto equivale a que
+\[
+    \left ( \frac{\delta^{e ( H')} \cdot n^{l-1}}{2} - (1 - (\delta - \varepsilon))n(l-1) \right )(1 - 2 \varepsilon(l-1)) \geq \frac{\delta^{e(H)} \cdot n^{l-1}}{2}
+\]
+si y solo si,
+\[
+\frac{\delta^{e(H')} \cdot n^{l-1}(1 - 2 \varepsilon (l-1))}{2} - \frac{\delta^{e(H)}\cdot n^{l-1}}{2} \geq (1- (\delta - \varepsilon))(l-1)(1-2\varepsilon (l-1))n.
+\]
+Es decir, hay que probar
+\[
+    \left ( \delta^{e(H')}(1- 2 \varepsilon (l-1)) - \delta^{e(H)} \right )\frac{n^{l-2}}{2} \geq (1- (\delta - \varepsilon))(l-1)(1-2\varepsilon (l-1)).
+\]
+Pero como $l \geq 3$, se sigue que si $\varepsilon>0$ es lo suficientemente chico (por ejemplo $\varepsilon < \frac{1 - \delta^{e(H)- e(H')}}{2(l-1)}$), existe $M$ con $M \geq M'$ lo suficientemente grande, tal que si $n \geq M$, el lado izquierdo ess más grande que el lado derecho (que no depende de $n$) pues
+\[
+    \left ( \delta^{e(H')}(1- 2 \varepsilon (l-1)) - \delta^{e(H)} \right ) > 0.
+\]
+
+
 \end{proof}
 
 Apliación $3$ del Lema de Regularidad de Szemeredi \ref{theorem:lema de regularidad de szemeredi}:
@@ -1744,7 +1801,7 @@ Apliación $3$ del Lema de Regularidad de Szemeredi \ref{theorem:lema de regular
 Para todo $\varepsilon > 0$, existe $n_0 \in \naturals$ tall que si $n \geq n_0$ y $A \subset \{1 , \ldots, n\}$ con $\abs A > \varepsilon n$, entonces $A$ contiene una \textit{$3$-progresión aritmética}\footnote{En general, una \textbf{$k$-progresión aritmética} es una secuencia de enteros $a, a+d, a + 2d , \ldots, a + (k-1)d$.}.
 \end{theorem}
 
-\begin{lemma}[Lema de remoción de triángulos]\ref{lema:lema de remocion de triangulos}
+\begin{lemma}[Lema de remoción de triángulos]\label{lema:lema de remocion de triangulos}
 
 Para todo $\alpha > 0$, existe $\beta > 0$ tal que todo grafo $G$ con $n$ vértices y a lo más $\beta n^3$ triángulos, puede ser $K_3$-libre borrando a lo más $\alpha n^2$ aristas
 \end{lemma}
@@ -1753,19 +1810,46 @@ Tomemos $0 < \delta < \frac{ \alpha}{3}$ y $\varepsilon < \frac{\delta}{9}$ lo s
 \[
     V(G) = V_0 \coprod V_1 \coprod \cdots \coprod V_k.
 \]
-Consideremos el grafo reducido $R$ con parámetros $\varepsilon$ y $\delta$.
+Consideremos el grafo reducido $R$ con parámetros $\varepsilon$ y $\delta$. Notar que el subgrafo $G' := G \setminus V_0 \subset G$ cumple que $G' \in \mathcal G (R, n', \varepsilon, \delta)$ con $n' \geq \frac{(1- \varepsilon)n}{k} \geq \frac{1-\varepsilon}{M}n$.
 
-Supongamos que $R$ tiene al menos un triángulo $K_3$. Aplicando el Lema de conteo general \ref{lema:lema de conteo general - corolario del lema de regularidad de szemeredi} para $H = K_3$, tenemos que $G$ tiene al menos:
+Supongamos que $R$ tiene al menos un triángulo $K_3$. Entonces $G'$ tiene un subgrafo $G''$ dado por quedarnos solamente con las partes $V_i, V_j, V_k$ correspondientes a vértices $w_i,w_j,w_k$ que forman un triángulo en $R$; en particular, $G'' \in \mathcal G (K_3, n', \varepsilon, \delta)$. Aplicando el Lema de conteo general \ref{lema:lema de conteo general - corolario del lema de regularidad de szemeredi} para $H = K_3$ y el subgrafo $G'' \in \mathcal G (H, n' , \varepsilon, \delta)$, tenemos que $G$ tiene al menos:
 \[
     \delta^3 \cdot \left ( \frac{(1 - \varepsilon)n}{k} \right )^3 > \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3} \cdot n^3 > \beta n^3
 \]
-triángulos, donde $\beta < \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3}$.
+triángulos para $n$ lo suficientemente grande, donde $\beta < \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3}$. Achicando $\beta$ de ser necesario, podemos asumir que $n$ es arbitrario.
 
 Con lo cual, si $G$ tiene a lo más $\beta n^3$ triángulos, el párrafo anterior nos dice que $R$ no tiene triángulos. Con lo cual, al remover $\leq \underbrace{(\delta + \varepsilon)}_{< \alpha}n^2$ aristas de $G$ nos quedamos sin triángulos.
-
-En general si $\abs G < m$, podemos achicar a $\beta$ para que valga el enunciado en general.
 \end{proof}
 
+\begin{theorem}[Teorema de Roth]\label{theorem:teorema de Roth}
+Para todo $\varepsilon > 0$, existe $n_0 \in \naturals$ tal que si $n \geq n_0$ y $A \subset \{1, \ldots, n\}$ con $\abs A > \varepsilon n$, entonces $A$ contiene una $3$-progresión aritmética.
+\end{theorem}
+\begin{proof}
+Vamos a probar que si $A$ no contiene una $3$-progresión aritmética, entonces $\abs A = o (n)$.
+
+Sea $\varepsilon > 0$, y $n$ lo suficientemente grande, supongamos que $\abs A \geq \varepsilon n$ y qu eno contiene $3$-progresiones aritméticas. Definimos un grafo $G$ con $V(G) = X \coprod Y \coprod Z$, disjuntos y $\abs X = \abs Y = \abs Z = 3n$ cada conjunto $X,Y,Z$ es una copia de $\{1, \ldots, 3n\}$.
+\begin{align*}
+E(X,Y) &= \set{xy | x\in X, y \in Y, y = x + a \text{ para algún $a \in A$}}. \\
+E(Y,Z) &= \set{yz | y\in Y, z \in Z, z = y + a \text{ para algún $a \in A$}}. \\
+E(X,Z) &= \set{xz | x\in X, z \in Z, z = x + 2a \text{ para algún $a \in A$}}.
+\end{align*}
+
+Si $xyz$ es un triángulo en $G$, entonces existen $a,a',a'' \in A$ tales que
+\[
+  \begin{cases}
+  y &= x+ a, \quad a \in A \\
+  z &= y + a', \quad a' \in A \\
+  z &= x + 2a'', \quad a'' \in A,
+  \end{cases}
+\]
+y esto es una $3$-progresión aritmética $a, a'' = a +(a'-a''), a' = a + 2 (a'-a'')$ si $a,a', a''$ son distintos. Como $A$ no tiene $3$-progresiones aritméticas, entonces cada triángulo en $G$ es de la forma $xyz$ con $y = x+a$, $z = x + 2 a$. Lo cual implica que cada triángulo queda completamente determinado por $x$ y $a$. Consecuentemente $G$ tiene a lo más
+\[
+    3n \abs A \leq 3n^2 = o (n^3)
+\]
+triángulos.
+
+Por el Lema de remoción de Triángulos \ref{lema:lema de remocion de triangulos}, es posible borrar $o(n^2)$ aristas de $G$ para obtener un grafo libre de triángulos. Ahora, vamos a obtener una cota por abajo de la cantidad de triángulos arista disjunto que tiene $G$: consideremos el conjunto de tripletas de la forma $(x,x+a,x+2a)$, con $x\in X, a \in A$. Observar que cada tripleta corresponde con un triángulo de $G$ y todos sons arista-disjuntos entre sí, por lo tanto $G$ contiene al menos $3n \abs A> 3 \varepsilon n^2$ triángulos disjuntos y por lo tanto si o si deben ser quitados para que $G$ sea libre de triángulos. Contradiciendo el Lema de remoción de triángulso.
+\end{proof}
 
 
 
