@@ -1812,13 +1812,13 @@ Tomemos $0 < \delta < \frac{ \alpha}{3}$ y $\varepsilon < \frac{\delta}{9}$ lo s
 \]
 Consideremos el grafo reducido $R$ con parámetros $\varepsilon$ y $\delta$. Notar que el subgrafo $G' := G \setminus V_0 \subset G$ cumple que $G' \in \mathcal G (R, n', \varepsilon, \delta)$ con $n' \geq \frac{(1- \varepsilon)n}{k} \geq \frac{1-\varepsilon}{M}n$.
 
-Supongamos que $R$ tiene al menos un triángulo $K_3$. Entonces $G'$ tiene un subgrafo $G''$ dado por quedarnos solamente con las partes $V_i, V_j, V_k$ correspondientes a vértices $w_i,w_j,w_k$ que forman un triángulo en $R$; en particular, $G'' \in \mathcal G (K_3, n', \varepsilon, \delta)$. Aplicando el Lema de conteo general \ref{lema:lema de conteo general - corolario del lema de regularidad de szemeredi} para $H = K_3$ y el subgrafo $G'' \in \mathcal G (H, n' , \varepsilon, \delta)$, tenemos que $G$ tiene al menos:
+Supongamos que $R$ tiene al menos un triángulo $K_3$. Entonces $G'$ tiene un subgrafo $G''$ dado por quedarnos solamente con las partes $V_i, V_j, V_k$ correspondientes a vértices $w_i,w_j,w_k$ que forman un triángulo en $R$; en particular, $G'' \in \mathcal G (K_3, n', \varepsilon, \delta)$. Aplicando el Lema de conteo general \ref{lema:lema de conteo general - corolario del lema de regularidad de szemeredi} para $H = K_3$ y el subgrafo $G'' \in \mathcal G (H, n' , \varepsilon, \delta)$, tenemos que $G''$, y por lo tanto $G$, tiene al menos:
 \[
     \delta^3 \cdot \left ( \frac{(1 - \varepsilon)n}{k} \right )^3 > \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3} \cdot n^3 > \beta n^3
 \]
 triángulos para $n$ lo suficientemente grande, donde $\beta < \frac{\delta^3}{2} \frac{(1- \varepsilon)^3}{M^3}$. Achicando $\beta$ de ser necesario, podemos asumir que $n$ es arbitrario.
 
-Con lo cual, si $G$ tiene a lo más $\beta n^3$ triángulos, el párrafo anterior nos dice que $R$ no tiene triángulos. Con lo cual, al remover $\leq \underbrace{(\delta + \varepsilon)}_{< \alpha}n^2$ aristas de $G$ nos quedamos sin triángulos.
+Con lo cual, si $G$ tiene a lo más $\beta n^3$ triángulos, el párrafo anterior nos dice que $R$ no tiene triángulos. Así, al remover $\leq (\delta + 3 \varepsilon)n^2 < \alpha n^2$ aristas de $G$ (ver Lema \ref{lema:regularidad de szemeredi - lema 1}), nos quedamos sin triángulos.
 \end{proof}
 
 \begin{theorem}[Teorema de Roth]\label{theorem:teorema de Roth}
@@ -1827,7 +1827,7 @@ Para todo $\varepsilon > 0$, existe $n_0 \in \naturals$ tal que si $n \geq n_0$ 
 \begin{proof}
 Vamos a probar que si $A$ no contiene una $3$-progresión aritmética, entonces $\abs A = o (n)$.
 
-Sea $\varepsilon > 0$, y $n$ lo suficientemente grande, supongamos que $\abs A \geq \varepsilon n$ y qu eno contiene $3$-progresiones aritméticas. Definimos un grafo $G$ con $V(G) = X \coprod Y \coprod Z$, disjuntos y $\abs X = \abs Y = \abs Z = 3n$ cada conjunto $X,Y,Z$ es una copia de $\{1, \ldots, 3n\}$.
+Sea $\varepsilon > 0$, y $n$ lo suficientemente grande, supongamos que $\abs A \geq \varepsilon n$ y que no contiene $3$-progresiones aritméticas. Definimos un grafo $G$ con $V(G) = X \coprod Y \coprod Z$, disjuntos y $\abs X = \abs Y = \abs Z = 3n$ cada conjunto $X,Y,Z$ es una copia de $\{1, \ldots, 3n\}$.
 \begin{align*}
 E(X,Y) &= \set{xy | x\in X, y \in Y, y = x + a \text{ para algún $a \in A$}}. \\
 E(Y,Z) &= \set{yz | y\in Y, z \in Z, z = y + a \text{ para algún $a \in A$}}. \\
@@ -1836,11 +1836,13 @@ E(X,Z) &= \set{xz | x\in X, z \in Z, z = x + 2a \text{ para algún $a \in A$}}.
 
 Si $xyz$ es un triángulo en $G$, entonces existen $a,a',a'' \in A$ tales que
 \[
-  \begin{cases}
-  y &= x+ a, \quad a \in A \\
-  z &= y + a', \quad a' \in A \\
-  z &= x + 2a'', \quad a'' \in A,
-  \end{cases}
+\left \{
+  \begin{array}{ll}
+  y = x+ a, &a \in A \\
+  z = y + a', &a' \in A \\
+  z = x + 2a'', &a'' \in A,
+  \end{array}
+  \right .
 \]
 y esto es una $3$-progresión aritmética $a, a'' = a +(a'-a''), a' = a + 2 (a'-a'')$ si $a,a', a''$ son distintos. Como $A$ no tiene $3$-progresiones aritméticas, entonces cada triángulo en $G$ es de la forma $xyz$ con $y = x+a$, $z = x + 2 a$. Lo cual implica que cada triángulo queda completamente determinado por $x$ y $a$. Consecuentemente $G$ tiene a lo más
 \[
@@ -1848,7 +1850,7 @@ y esto es una $3$-progresión aritmética $a, a'' = a +(a'-a''), a' = a + 2 (a'-
 \]
 triángulos.
 
-Por el Lema de remoción de Triángulos \ref{lema:lema de remocion de triangulos}, es posible borrar $o(n^2)$ aristas de $G$ para obtener un grafo libre de triángulos. Ahora, vamos a obtener una cota por abajo de la cantidad de triángulos arista disjunto que tiene $G$: consideremos el conjunto de tripletas de la forma $(x,x+a,x+2a)$, con $x\in X, a \in A$. Observar que cada tripleta corresponde con un triángulo de $G$ y todos sons arista-disjuntos entre sí, por lo tanto $G$ contiene al menos $3n \abs A> 3 \varepsilon n^2$ triángulos disjuntos y por lo tanto si o si deben ser quitados para que $G$ sea libre de triángulos. Contradiciendo el Lema de remoción de triángulso.
+Por el Lema de Remoción de Triángulos \ref{lema:lema de remocion de triangulos}, es posible borrar $o(n^2)$ aristas de $G$ para obtener un grafo libre de triángulos. Ahora, vamos a obtener una cota por abajo de la cantidad de triángulos arista disjunto que tiene $G$: consideremos el conjunto de tripletas de la forma $(x,x+a,x+2a)$, con $x\in X, a \in A$. Observar que cada tripleta corresponde con un triángulo de $G$ y todos son arista-disjuntos entre sí, por lo tanto $G$ contiene al menos $3n \abs A> 3 \varepsilon n^2$ triángulos disjuntos y por lo tanto si o si deben ser quitados para que $G$ sea libre de triángulos. Contradiciendo el Lema de Remoción de Triángulos.
 \end{proof}
 
 
