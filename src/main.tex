@@ -466,7 +466,7 @@ En este curso trabajaremos con grafos simples, usualmente denotados: $G=(V,E)$.
 \end{example}
 
 \begin{definition}
-Sean $G$ y $H$ dos grafos. Decimos que $G$ es \textbf{H}-libre (o \textbf{libre de $H$}) si $H \not \subset G$. El \textbf{número extremal} de $H$ es la cantidad
+Sean $G$ y $H$ dos grafos. Decimos que $G$ es \textbf{H}-libre (o \textbf{libre de $H$}) si $H \nsubset G$. El \textbf{número extremal} de $H$ es la cantidad
 \[
     \ex n H = \max \{e (G) | G \text{ es un grafo de $n$ vértices $H$-libre}\},
 \]
@@ -546,7 +546,7 @@ Veamos ahora la segunda afirmación. Por definición, $G = T_k (n)$ tiene $t_k (
 pues cada vértice de $G'$ tiene a lo más $k-1$ vecinos en $A$. Como $G'$ es $K_{k+1}$-libre, en realidad vale la igualdad: $e(G') = t_k (n-k)$, por la primera parte que ya demostramos. Llamemos $X_1, X_2, \ldots, X_k$ a las particiones de $G'$. Como vale la igualdad arriba, tenemos que cada vértice de $G'$ tiene exactamente $k-1$ vecinos en $A$. Para cada $x' \in G'$ llamemos $\alpha(x')$ al único vértice de $A$ que no es adyacente a $x'$ en $G$. Más formalmente, $\alpha : V(G') \rightarrow A$ es una función; afirmamos que:
 \begin{enumerate}[(i)]
 \item $\alpha$ es sobreyectiva.
-\item Si $x_i ' \in X_i$ y $X_j ' \in X_j$ para $i \neq j$, entonces $\alpha (x_i') \neq \alpha (x_j')$.
+\item Si $x_i ' \in X_i$ y $x_j ' \in X_j$ para $i \neq j$, entonces $\alpha (x_i') \neq \alpha (x_j')$.
 \end{enumerate}
 Antes de probar la afirmación, notemos que esta prueba que
 $\rest{\alpha}{X_i}$ es constante para cada $i = 1, \ldots, k$ (y por lo tanto tiene sentido el abuso de notación $\alpha (X_i)$ para denotar al único vértice de $A$ que no es adyacente a ningún vértice $x' \in X_i$). Veamos entonces la afirmación:
@@ -576,7 +576,7 @@ Por hipótesis inductiva existe un grafo $H'$ que es $(k-1)$-partito con $V(H') 
 \[
     d_{H'} (u) \geq d_{G'} (u), \quad \forall u \in V(G').
 \]
-Sea $H$ el grafo obtenido a paratir de $H'$ añadiendo los vértices de $A$ y conectando todas las aristas entre $A$ y $V(H')$. Observar que $H$ es $k+1$-partito y como $v$ tiene grado máximo en $G$, tenemos que para cada $u \in A$:
+Sea $H$ el grafo obtenido a paratir de $H'$ añadiendo los vértices de $A$ y conectando todos los vértices entre $A$ y $V(H')$. Observar que $H$ es $k+1$-partito y como $v$ tiene grado máximo en $G$, tenemos que para cada $u \in A$:
 \[
     d_G (u) \leq d_G (v) = \abs{V(H')} = d_H (u)
 \]
@@ -589,6 +589,15 @@ y para $u \in V(H')$ sabemos que:
 \begin{exercise}
 A partir de la demostración deducir que el grafo $K_{k+1}$-extremal es $T_k (n)$ y es único.
 \end{exercise}
+\begin{solution}
+Sea $G$ un grafo $K_{k+1}$-extremal y $H$ el grafo $r$-partito obtenido por el Teorema anterior. Así, $V(H) = V(G)$ y $d_H (v) \geq d_G (v)$ para todo vértice $v$. Esta desigualdad implica que
+\[
+    e(H) \geq e(G),
+\]
+y por lo tanto, $H$ también es $K_{r+1}$-extremal. Pero por definición, $t_k (n) \geq e(H)$. Pero ya vimos que los grafos $K_{r+1}$ extremales tienen $\geq t_k (n)$ aritas. Con lo cual, en realidad $e(G) = e(H)$ y más aún, $d_H (v) = d_G (v)$ para todo $v$.
+
+Esto nos indica que inspeccionando la demostración más detalladamanete, se tiene que $G'$ es un $T_{k-1} (\Delta)$ (con $\Delta := \delta (G)$) y que $G$ es luego $T_k (n)$.
+\end{solution}
 
 \begin{obs}
 Sea $H$ un grafo con $\chi (H) \geq 3$, es decir no bipartito, entonces
@@ -597,7 +606,7 @@ Sea $H$ un grafo con $\chi (H) \geq 3$, es decir no bipartito, entonces
 \]
 \end{obs}
 \begin{proof}
-En primer lugar, si $G$ es un grafo que no contiene a $H$ luego no puede ser bipartito; en particular si $G = K_{\ceil { \frac n 2} , \floor {\frac n 2}}$ entonces tiene $n$ vértices y $e(G) = \ceil { \frac n 2} \floor {\frac n 2}$. Consecuentemente
+En primer lugar, si $G$ es un grafo que contiene a $H$, luego no puede ser bipartito. En particular, si $G = K_{\ceil { \frac n 2} , \floor {\frac n 2}}$, entonces es $H$-libre al ser bipartito; de hecho tiene $n$ vértices y $e(G) = \ceil { \frac n 2} \floor {\frac n 2}$. Consecuentemente
 \[
     (n-1)^2/4 \leq  \ceil { \frac n 2} \floor {\frac n 2} \leq \ex n H.
 \]
@@ -622,18 +631,28 @@ Vamos a usar la desigualdad de Jensen: si $\varphi$ es una función convexa ento
 \begin{exercise}
 Probar las siguientes dos desigualdades elementales para el binomio de Newton:
 \[
-    \left(\frac n k \right)^k \overset{\text{Cota 1}}{\leq} \binom n k \overset{\text{Cota 1}}{\leq} \left(\frac{n \cdot e}{k}\right)^k.
+    \left(\frac n k \right)^k \overset{\text{Cota 1}}{\leq} \binom n k \overset{\text{Cota 2}}{\leq} \left(\frac{n \cdot e}{k}\right)^k.
 \]
 \end{exercise}
 \begin{solution}
 \begin{enumerate}
-\item[Cota 1:] Recordar que el binomio de Newton tiene la siguiente identidad recursiva: $\binom n k = $
-\item[Cota 2:]
+\item[]
+\item[Cota 1:] Notar que
+\[
+    \binom n k = \frac{n}{k} \cdot \frac{n-1}{k-1} \cdots \frac{n-k+1}{1}\geq \left ( \frac n k \right )^k,
+\]
+pues $\frac n k \leq \frac{n - j}{k - j}$ para todo $j = 0 , \ldots, k$.
+\item[Cota 2:] Notar que se tiene una mejor cota:
+\[
+    \binom n k = \frac{n \cdot (n-1) \cdots (n-k + 1)}{k!} \leq \frac{n^k}{k!}.
+\]
+Por lo tanto, como $e^x = \sum_{k = 0}^\infty \frac{x^k}{k!}$, se sigue que $e^k \geq \frac{k^k}{k!}$, y luego
+\[
+    \frac{n^k}{k!} \leq \frac{n^ke^k}{k^k},
+\]
+como queríamos.
 \end{enumerate}
 \end{solution}
-
-n/k < n-1 /k-1 si y solo si n k-1 < n -1 k sii -n < -k sii k < n
-
 
 \begin{theorem}[Erdös, 1938]
 Para todo $n \in \naturals$
@@ -1071,13 +1090,13 @@ Luego, definimos $X \subset B := V(G) \setminus A$, el conjunto de todos los vé
     e(A,B) &= \sum_{v \in A}  d_G (v) - 2 e(A) \\
         &\geq q r  \left (1 - \frac 1 r + \varepsilon \right )n - 2 \frac{(q r)^2}{2}.
 \end{align*}
-Y a cotamos por arriba:
+Y acotamos por arriba:
 \[
     e(A,B) \leq \abs X  q r + ( \abs B - \abs X) ( q (r-1) + t - 1).
 \]
 Juntando ambas desigualdades, tenemos:
 \[
-    n\underbrace{(q r \varepsilon - t  + 1)}_{>0} + q^2 r^2 - q^2 r - q r + q r t \leq \abs X \underbrace{( q - k +1)}_{> 0}
+    n\underbrace{(q r \varepsilon - t  + 1)}_{>0} + q^2 (- r^2 +r - 1) - q (t- 1) \leq \abs X \underbrace{( q - t +1)}_{> 0}
 \]
 Por lo tanto, se sigue lo que queremos cuando $n \to \infty$.
 
@@ -1541,12 +1560,11 @@ Juntando ambas desigualdades tenemos que:
 \end{proof}
 
 \begin{definition}[Reducido]
-Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos la cantidad
+Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos
 \[
     \mathcal G (H,n, \varepsilon, \delta)
 \]
-como la familia de grafos $G$ tales que existe una equipartición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i}$ todos del mismo tamaño $n$, y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)\geq\delta$.
-
+como la familia de grafos $G$, tales que existe una equipartición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i}$ todos del mismo tamaño $n$ e independiente, y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)\geq\delta$.
 \end{definition}
 
 \begin{lemma}[Lema de inmersión general]\label{lema:regularidad de szemeredi - lema inmersion general}
@@ -1791,8 +1809,6 @@ Pero como $l \geq 3$, se sigue que si $\varepsilon>0$ es lo suficientemente chic
 \[
     \left ( \delta^{e(H')}(1- 2 \varepsilon (l-1)) - \delta^{e(H)} \right ) > 0.
 \]
-
-
 \end{proof}
 
 Apliación $3$ del Lema de Regularidad de Szemeredi \ref{theorem:lema de regularidad de szemeredi}:

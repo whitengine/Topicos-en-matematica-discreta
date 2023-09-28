@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  25 SEP 2023 14:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  28 SEP 2023 19:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1611,8 +1611,9 @@ pdfTeX warning: pdflatex (file ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf
 >]
 LaTeX Font Info:    Font shape `T1/fnc/m/sc' will be
 (Font)              scaled to size 11.15991pt on input line 548.
- [4] [5] (./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf_tex
-<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf, id=107, page=1
+ [4] [5] [6]
+(./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf_tex
+<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf, id=114, page=1
 , 469.47046pt x 249.95587pt>
 File: ./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf Graphic fi
 le (type pdf)
@@ -1623,12 +1624,12 @@ jo 1.pdf , page1 used on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 649.
+(caption)                particular \caption on input line 668.
 See the caption package documentation for explanation.
 
-[6 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf>]
+[7 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf>]
 (./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf_tex
-<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf, id=120, page=1
+<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf, id=124, page=1
 , 469.47046pt x 249.95587pt>
 File: ./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf Graphic fi
 le (type pdf)
@@ -1639,11 +1640,11 @@ jo 2.pdf , page1 used on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 691.
+(caption)                particular \caption on input line 710.
 See the caption package documentation for explanation.
 
-[7 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf>] [8]
-Overfull \hbox (64.49756pt too wide) in paragraph at lines 792--793
+[8 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf>] [9]
+Overfull \hbox (64.49756pt too wide) in paragraph at lines 811--812
 []\T1/fnc/m/n/12 Tomemos $\FML/fncmi/m/it/12 P \T1/fnc/m/n/12 :\U/matha/m/n/12 
 ^^P \FML/fncmi/m/it/12 v[]; [] ; ; v[]$ \T1/fnc/m/n/12 ca-mino de lar-go má-xi-
 mo. Sa-be-mos que $\FML/fncmi/m/it/12 N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v[
@@ -1652,7 +1653,7 @@ mo. Sa-be-mos que $\FML/fncmi/m/it/12 N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v[
  []
 
 (./Figuras/Numeros extremales para arboles/figura.pdf_tex
-<./Figuras/Numeros extremales para arboles/figura.pdf, id=137, page=1, 469.4704
+<./Figuras/Numeros extremales para arboles/figura.pdf, id=143, page=1, 469.4704
 6pt x 249.95587pt>
 File: ./Figuras/Numeros extremales para arboles/figura.pdf Graphic file (type p
 df)
@@ -1660,7 +1661,7 @@ df)
 Package pdftex.def Info: ./Figuras/Numeros extremales para arboles/figura.pdf ,
  page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.23134pt.
-<./Figuras/Numeros extremales para arboles/figura.pdf, id=138, page=2, 469.4704
+<./Figuras/Numeros extremales para arboles/figura.pdf, id=144, page=2, 469.4704
 6pt x 249.95587pt>
 File: ./Figuras/Numeros extremales para arboles/figura.pdf Graphic file (type p
 df)
@@ -1671,24 +1672,24 @@ Package pdftex.def Info: ./Figuras/Numeros extremales para arboles/figura.pdf ,
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 794.
+(caption)                particular \caption on input line 813.
 See the caption package documentation for explanation.
 
-[9 <./Figuras/Numeros extremales para arboles/figura.pdf> <./Figuras/Numeros ex
-tremales para arboles/figura.pdf
+[10 <./Figuras/Numeros extremales para arboles/figura.pdf> <./Figuras/Numeros e
+xtremales para arboles/figura.pdf
 
 pdfTeX warning: pdflatex (file ./Figuras/Numeros extremales para arboles/figura
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 LaTeX Font Info:    Font shape `T1/fnc/b/it' will be
-(Font)              scaled to size 11.15991pt on input line 837.
- [10] [11] [12]
+(Font)              scaled to size 11.15991pt on input line 856.
+ [11] [12] [13]
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
-(Font)              scaled to size 8.36993pt on input line 1006.
+(Font)              scaled to size 8.36993pt on input line 1025.
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
-(Font)              scaled to size 6.50995pt on input line 1006.
- [13] [14] [15] [16]
-Overfull \hbox (29.10089pt too wide) detected at line 1173
+(Font)              scaled to size 6.50995pt on input line 1025.
+ [14] [15] [16] [17]
+Overfull \hbox (29.10089pt too wide) detected at line 1192
 \FML/fncmi/m/it/12 c[] \U/matha/m/n/12 ¤ \FML/fncmi/m/it/12 e\U/matha/m/n/12 p\
 FML/fncmi/m/it/12 G\U/matha/m/n/12 q ¤ \FML/fncmi/m/it/12 e\U/matha/m/n/12 p\FM
 L/fncmi/m/it/12 G[]\U/matha/m/n/12 q ^^@ [] ^^A [] ¤ [] [] ^^@ p\FML/fncmi/m/it
@@ -1696,18 +1697,18 @@ L/fncmi/m/it/12 G[]\U/matha/m/n/12 q ^^@ [] ^^A [] ¤ [] [] ^^@ p\FML/fncmi/m/it
 /it/12 ;
  []
 
-[17]
-Overfull \hbox (18.81047pt too wide) detected at line 1203
+
+Overfull \hbox (18.81047pt too wide) detected at line 1222
+[]
+ []
+
+[18]
+Overfull \hbox (4.37251pt too wide) in paragraph at lines 1238--1239
 []
  []
 
 
-Overfull \hbox (4.37251pt too wide) in paragraph at lines 1219--1220
-[]
- []
-
-
-Overfull \hbox (42.71147pt too wide) in paragraph at lines 1222--1224
+Overfull \hbox (42.71147pt too wide) in paragraph at lines 1241--1243
 \T1/fnc/m/n/12 entonces por el Le-ma [][]1.5.9[][]: exis-te $\FML/fncmi/m/it/12
  G[] \U/matha/m/n/12 € \FML/fncmi/m/it/12 G$ \T1/fnc/m/n/12 con $\FML/fncmi/m/i
 t/12 n[] \T1/fnc/m/n/12 :\U/matha/m/n/12 ^^P [] ¥ p\T1/fnc/m/n/12 1 \U/matha/m/
@@ -1716,16 +1717,16 @@ n/12 ^^A \FML/fncmi/m/it/12 ^^N[]\U/matha/m/n/12 q\FML/fncmi/m/it/12 n$ \T1/fnc
 a/m/n/12 q ¥ [] [] ^^P
  []
 
-[18] [19] [20] [21]
-Overfull \hbox (1.54587pt too wide) in paragraph at lines 1417--1418
+[19] [20] [21]
+Overfull \hbox (1.54587pt too wide) in paragraph at lines 1436--1437
 \FML/fncmi/m/it/12 M \U/matha/m/n/12 ^^P \FML/fncmi/m/it/12 M\U/matha/m/n/12 p\
 FML/fncmi/m/it/12 "; m\U/matha/m/n/12 q P \U/futm/m/n/12 N$ \T1/fnc/m/it/12 tal
  que pa-ra cual-quier gra-fo $\FML/fncmi/m/it/12 G$ \T1/fnc/m/it/12 con $[] \U/
 matha/m/n/12 ¥ \FML/fncmi/m/it/12 M$\T1/fnc/m/it/12 , exis-te una $[]$
  []
 
-[22] [23]
-Overfull \hbox (14.89626pt too wide) in paragraph at lines 1559--1560
+[22] [23] [24]
+Overfull \hbox (14.89626pt too wide) in paragraph at lines 1577--1578
 \T1/fnc/m/n/12 una par-ti-ción de acuer-do a la de-fi-ni-ción de $\FMS/fncm/m/n
 /12 G\U/matha/m/n/12 p\FML/fncmi/m/it/12 H; n; "; ^^N\U/matha/m/n/12 q$\T1/fnc/
 m/n/12 : $\U/matha/m/n/12 p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q$ $\FML/
@@ -1733,21 +1734,21 @@ fncmi/m/it/12 "$\T1/fnc/m/n/12 -regular y $\FML/fncmi/m/it/12 d\U/matha/m/n/12
 p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q ¥
  []
 
-[24]
-Overfull \hbox (1.71645pt too wide) in paragraph at lines 1561--1562
+
+Overfull \hbox (1.71645pt too wide) in paragraph at lines 1579--1580
 []\T1/fnc/m/n/12 Elijamos $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/12 lo su-fi-cien-t
 e-men-te pe-que-ño y apli-que-mos el Le-ma [][]1.7.8[][] a ca-da $\U/matha/m/n/
 12 p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q$
  []
 
 (./Figuras/Regularidad/Dibujo 1.pdf_tex
-<./Figuras/Regularidad/Dibujo 1.pdf, id=281, page=1, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=278, page=1, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 640.187pt x 257.2629pt.
-<./Figuras/Regularidad/Dibujo 1.pdf, id=282, page=2, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=279, page=2, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 2>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page2 used on inp
@@ -1756,20 +1757,21 @@ ut line 61.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1565.
+(caption)                particular \caption on input line 1583.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (213.39566pt too wide) in paragraph at lines 70--1565
+Overfull \hbox (213.39566pt too wide) in paragraph at lines 70--1583
  [] 
  []
 
-[25 <./Figuras/Regularidad/Dibujo 1.pdf> <./Figuras/Regularidad/Dibujo 1.pdf
+[25] [26 <./Figuras/Regularidad/Dibujo 1.pdf> <./Figuras/Regularidad/Dibujo 1.p
+df
 
 pdfTeX warning: pdflatex (file ./Figuras/Regularidad/Dibujo 1.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (10.08612pt too wide) in paragraph at lines 1619--1620
+Overfull \hbox (10.08612pt too wide) in paragraph at lines 1637--1638
 []\T1/fnc/m/n/12 Ahora bus-que-mos $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/12 y $\FM
 L/fncmi/m/it/12 ^^N[]$ \T1/fnc/m/n/12 ta-les que $\FML/fncmi/m/it/12 G \U/matha
 /m/n/12 P \FMS/fncm/m/n/12 G\U/matha/m/n/12 p\FML/fncmi/m/it/12 K[]\U/matha/m/n
@@ -1779,19 +1781,19 @@ m/n/12 P \FML/fncmi/m/it/12 E\U/matha/m/n/12 p\FML/fncmi/m/it/12 K[]\U/matha/m/
 n/12 p\FML/fncmi/m/it/12 t\U/matha/m/n/12 qq$\T1/fnc/m/n/12 ,
  []
 
-[26] [27]
-Overfull \hbox (17.3196pt too wide) in paragraph at lines 1700--1701
+[27] [28]
+Overfull \hbox (17.3196pt too wide) in paragraph at lines 1718--1719
 []\T1/fnc/m/n/12 Luego con-si-de-ra-mos el ``gra-fo re-du-ci-do'' $\FML/fncmi/m
 /it/12 R$ \T1/fnc/m/n/12 con pa-rá-me-tros $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/1
 2 y $\FML/fncmi/m/it/12 ^^N$\T1/fnc/m/n/12 , y vér-ti-ces $\FML/fncmi/m/it/12 w
 []; [] ; w[]$\T1/fnc/m/n/12 .
  []
 
-[28] [29]
+[29] [30]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 9.29993pt on input line 1801.
- [30]
-Overfull \hbox (18.6302pt too wide) in paragraph at lines 1815--1816
+(Font)              scaled to size 9.29993pt on input line 1817.
+
+Overfull \hbox (18.6302pt too wide) in paragraph at lines 1831--1832
 \T1/fnc/m/n/12 Apli-can-do el Le-ma de con-teo ge-ne-ral [][]1.7.18[][] pa-ra $
 \FML/fncmi/m/it/12 H \U/matha/m/n/12 ^^P \FML/fncmi/m/it/12 K[]$ \T1/fnc/m/n/12
  y el sub-gra-fo $\FML/fncmi/m/it/12 G[] \U/matha/m/n/12 P \FMS/fncm/m/n/12 G\U
@@ -1826,7 +1828,7 @@ Here is how much of TeX's memory you used:
  48859 multiletter control sequences out of 15000+600000
  601223 words of font info for 191 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,94p,1345b,760s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,15n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/whitengine/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-
 bb.pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/public/fourier/fou
 rier-mcl.pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/public/fouri
@@ -1843,7 +1845,7 @@ itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></home/wh
 itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></home/whi
 tengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (34 pages, 245942 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (34 pages, 248283 bytes).
 PDF statistics:
  454 PDF objects out of 1000 (max. 8388607)
  378 compressed objects within 4 object streams
