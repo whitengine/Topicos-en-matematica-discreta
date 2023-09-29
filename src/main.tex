@@ -599,7 +599,7 @@ y por lo tanto, $H$ también es $K_{r+1}$-extremal. Pero por definición, $t_k (
 Esto nos indica que inspeccionando la demostración más detalladamanete, se tiene que $G'$ es un $T_{k-1} (\Delta)$ (con $\Delta := \delta (G)$) y que $G$ es luego $T_k (n)$.
 \end{solution}
 
-\begin{obs}
+\begin{obs}\label{obs:notar que si H es no bipartito entonces ex(n,H)= Theta (n2)}
 Sea $H$ un grafo con $\chi (H) \geq 3$, es decir no bipartito, entonces
 \[
     \ex n H = \Theta (n^2).
@@ -672,15 +672,15 @@ Sea $G$ un grafo $C_4$-libre con $n$ vértices. Contaremos cereza en $G$ para ac
 
 Para cada vértice $v \in V(G)$ hay exactamente
 \[
-    \binom{d(v)}{2} \text{ cerezas con centro en $v$}.
+    \binom{d_G(v)}{2} \text{ cerezas con centro en $v$}.
 \]
 Por lo tanto, en $G$ hay
 \[
-    \sum_{v \in V(G)} \binom{d(v)}{2} \text{ cerezas en $G$}.
+    \sum_{v \in V(G)} \binom{d_G(v)}{2} \text{ cerezas en $G$}.
 \]
 Por la desigualdad de Jensen la sumatoria se minimiza cuando todos los grados son iguales:
 \begin{align*}
-    \sum_{v \in V(G)} \binom{d(v)}{2} &\geq n \cdot \binom{2 e(g) / n}{2} \\
+    \sum_{v \in V(G)} \binom{d_G(v)}{2} &\geq n \cdot \binom{2 e(g) / n}{2} \\
                                         &\overset{Cota 1}{\geq} n \cdot \left ( \frac{e(G)}{n} \right )^2 = \frac{e(G)^2}{n}.
 \end{align*}
 Por otro lado, dado un par $\{u,v\}$ de hojas de cerezas distintas, entonces tendríamos un subgrafo $C_4$ en $G$, absurdo; por lo tanto hay a lo más
@@ -698,7 +698,7 @@ consecuentemente $e(G)^2 \leq n^3$, i.e., $e(G) \leq n^{\frac{3}{2}}$.
 
 
 
-\begin{theorem}[Kövani, Sós, Turán]
+\begin{theorem}[Kövani, Sós, Turán]\label{th:teorema de kovani sos turan - extremalidad de Kst}
 Sean $s, t \in \naturals$, $s \leq t$. Entonces existe una constante $c = c(s,t) > 0$ tal que
 \[
     \ex n {K_{s,t}} \leq c \cdot n^{2 - \frac 1 s}, \quad \forall n \in \naturals.
@@ -711,13 +711,13 @@ Una \textbf{$s$-cereza} es un $K_{1,s}$. Similarmente tenemos la noción de \tex
 \end{definition}
 
 \begin{proof}
-Sea $G$ un grafo $K_{s,t}$-libre en $n$ vértices. Para cada $v \in V(G)$ hay $\binom{d(v)}{s}$ $s$-cerezas. Por lo tanto en $G$ hay
+Sea $G$ un grafo $K_{s,t}$-libre en $n$ vértices. Para cada $v \in V(G)$ hay $\binom{d_G(v)}{s}$ $s$-cerezas. Por lo tanto en $G$ hay
 \[
-    \sum_{v \in V(G)} \binom{d(v)}{s} \text{ $s$-cerezas},
+    \sum_{v \in V(G)} \binom{d_G(v)}{s} \quad \text{$s$-cerezas},
 \]
 con lo cual
 \[
-    \sum_{v\in V(G)} \binom{d(v)}{s} \overset{Jensen}\geq n \binom{2 e(G)/n}{s} \overset{Cota 1}\geq n \left( \frac{2 e (G)}{s n}\right)^2.
+    \sum_{v \in V(G)} \binom{d_G (v)} s \overset{\text{Cota 1}}{\geq} \sum_{v \in V(G)} \frac{d_G (v)^s}{s^s} \overset{\text{Jensen}}{\geq} \frac{n}{s^s} \left ( \frac{2e(G)}{n} \right)^s .
 \]
 Procediendo de manera análoga a la demostración del teorema anterior, tenemos que un conjunto de $s$ vértices del grafo puede ser conjunto de hojas de a lo más $(t-1)$ cerezas, pues de lo contrario habría una copia de $K_{s,t}$. Por lo tanto, hay en total a lo más
 \[
@@ -726,7 +726,7 @@ Procediendo de manera análoga a la demostración del teorema anterior, tenemos 
 
 Juntando todo:
 \[
-    n ( \frac{2 e(G)}{s n})^s \leq (t-1) \cdot \binom n s \overset{Cota 2}{\leq} (t-1) \cdot (\frac{n e}{s})^s,
+    n \left ( \frac{2 e(G)}{s n} \right)^s \leq (t-1) \cdot \binom n s \overset{\text{Cota 2}}{\leq} (t-1) \cdot \left (\frac{n e}{s} \right )^s,
 \]
 luego
 \[
@@ -744,7 +744,15 @@ Demostrar que
     \ex n H = o (n^2) \quad \Leftrightarrow \quad H \text{ es bipartito}.
 \]
 \end{exercise}
+\begin{solution}
+Como $H$ es bipartito, existen $s,t \in \naturals$, digamos $s \leq t$, tales $H \subset K_{s,t}$. Así, por el Teorema de \ref{th:teorema de kovani sos turan - extremalidad de Kst},
+\[
+    \ex n H \leq c(s,t) \cdot n^{2 - \frac{1}{s}},
+\]
+pues si $G$ no contiene a $H$, tampoco contiene a $K_{s,t}$. Así, obtenemos que $\ex n H = o(n^2)$.
 
+Recíprocamente, supongamos que $H$ no es bipartito, luego por la Observación \ref{obs:notar que si H es no bipartito entonces ex(n,H)= Theta (n2)}, $\ex n H = \Theta (n^2)$. Con lo cual, si $\ex (n, H) = o (n^2)$, necesariamente $H$ es bipartito.
+\end{solution}
 
 
 \section{Números extremales para árboles}
