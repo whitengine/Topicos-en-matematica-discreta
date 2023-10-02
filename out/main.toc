@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1.1}Teoría extremal de grafos}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Números extremales en grafos bipartitos}{6}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Números extremales para árboles}{9}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Estabilidad y supersaturación}{11}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Estabilidad y supersaturación}{12}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Teorema de Erdös-Stone}{14}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Ejercicios}{19}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Regularidad}{22}{section.1.7}%
+\contentsline {section}{\numberline {1.6}Ejercicios}{20}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Regularidad}{23}{section.1.7}%

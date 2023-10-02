@@ -774,10 +774,32 @@ Haremos inducción en $k$. Para $k = 1$ es claro, pues existe un vértice con al
 \end{proof}
 
 \begin{lemma}
-Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) \geq \frac{e(G)}{n}$, donde $n = \abs G$.
+Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) > \varepsilon (H) \geq \frac{e(G)}{n}$, donde $n = \abs G$.
 \end{lemma}
 \begin{proof}
-Ver Diestel.
+Construiremos una secuencia de subgrafos de $G$:
+\[
+    G =: G_0 \supset G_1 \supset \cdots
+\]
+de la siguiente manera, si $v_i \in G_i$ es un vértice con $d_{G_i} (v_i) \leq \varepsilon (G_i) := \frac{e(G_i)}{\abs{G_i}}$, entonces definimos $G_{i+1} := G_i \setminus \{v_i\}$. Eventualmente esta secuencia termina, digamos en $H := G_{j_0}$.
+
+Notar que $\varepsilon (G_{i+1}) \geq \varepsilon (G_i)$, y por lo tanto $\varepsilon (H) \geq \varepsilon (G)$. En efecto,
+\[
+    \varepsilon (G_{i+1}) = \frac{e(G_{i+1})}{\abs{G_{i+1}}} = \frac{e(G_i) - d_{G_i} (v_i)}{\abs{G_i} - 1},
+\]
+que es mayor o igual que $\frac{e(G_i)}{\abs{G_i}}$ si y solo si
+\[
+    (e(G_i) - d_{G_i} (v_i)) \abs{G_i} \geq e(G_i)(\abs{G_i} - 1),
+\]
+equivalentemente,
+\[
+    e(G_i) \geq \abs{G_i} d_{G_i} (v_i),
+\]
+i.e.,
+\[
+    \frac{e(G_i)}{\abs{G_i}} \geq d_{G_i} (v_i),
+\]
+que es cierto por construcción. Por otro lado, por minimalidad de $H$, se sigue que $\delta (H) > \varepsilon (H)$.
 \end{proof}
 
 \begin{proof}[Demostración del teorema]
@@ -1447,6 +1469,71 @@ Para todo $\varepsilon > 0$, $m \in \naturals$, existe $M = M (\varepsilon, m) \
 \]
 con $m \leq k \leq M$.
 \end{theorem}
+\begin{proof}
+\begin{definition}
+Dado un grafo $G$ con $n$ vértices y partición de sus vértices $\mathcal P = \{ V_1, \ldots, V_k \}$, definimos la \textbf{media cuadrática} del par $(V_i,V_j)$ para cada $i\neq j$ como
+\[
+    d_2 (V_i , V_j) := \frac{e(V_i,V_j)^2}{\abs{V_i} \abs {V_j} n^2},
+\]
+y la \textbf{media cuadrática} de la partición $\mathcal P$ como
+\[
+    d_2 (\mathcal P) = \sum_{1 \leq i < j \leq k} d_2 (V_i, V_j) = \sum_{1 \leq i < j \leq k} \frac {\abs {V_i} \abs{ V_j}}{n^2} d(V_i, V_j)^2 \leq 1.
+\]
+\end{definition}
+
+\begin{definition}
+Una partición $\mathcal P'$ de $G$ se dice que \textbf{refina} a una partición $\mathcal P$ (o que es un \textbf{refinamiento} de $\mathcal P$) si cada parte de $\mathcal P$ es una unión de algunas partes de $\mathcal P'$.
+\end{definition}
+
+\begin{lemma}
+Si $\mathcal P'$ es un refinamiento de $\mathcal P$, entonces
+\[
+d_2 (\mathcal P') \geq d_2 (\mathcal P).
+\]
+\end{lemma}
+
+\begin{lemma}
+Sea $G$ un grafo y $\mathcal P$ una partición de $V(G)$. Si $(X,Y)$ es un par no $\varepsilon$-regular en $\mathcal P$. Entonces, existen particiones $\{X_1, X_2\}$ de $X$ y particiones $\{Y_1, Y_2\}$ de $Y$ tales que
+\[
+\sum_{1 \leq r, s \leq 2} \frac{\abs{X_r} \abs{Y_s}}{n^2} \cdot d(X_r, Y_s)^2 \geq d(X,Y)^2 + \varepsilon^4.
+\]
+\end{lemma}
+
+\begin{lemma}
+Sea $G$ un grafo con $n$ vértices y $\mathcal P$ partición de $G$ que no es $\varepsilon$-regular. Entonces existe un refinamiento $\mathcal P'$ de $\mathcal P$ tal que:
+\begin{enumerate}[(i)]
+\item $d_2 (\mathcal P') \geq d_2 (\mathcal P) + \varepsilon^5$.
+\item $\# \mathcal P ' \leq k \cdot 2^{k-1}$.
+\end{enumerate}
+\end{lemma}
+
+Ahora, veamos la demostración del teorema. Sea $\mathcal P_0 = \{V_0, V_1, \ldots, V_m\}$ una partición de $G$ con $\underbrace{\abs {V_0}}_{1 \leq \abs{V_0} \leq m-1} = n - n \floor{\frac n m}$ y $\abs{V_i} = \floor{\frac{n}{m}}$ para todo $i = 1 , \ldots, m$. Si $\mathcal P_0$ no es $\varepsilon$-regular, existe $\mathcal P_1$ refinamiento de $\mathcal P_0$ tal que $d_2 (\mathcal P_1) \geq d_2 (\mathcal P_0) + \varepsilon^5$ y
+\[
+\abs{\mathcal P_1} \leq m \cdot 2^m.
+\]
+
+Ahora, obtenemos una equipartición de $\mathcal P_1'$ a partir de $\mathcal P_1$: particionando cada parte de $\mathcal P_1$ en conjuntos de tamaño
+\[
+\frac{\frac{\varepsilon^6}{2}n}{\# \mathcal P _1},
+\]
+y un conjunto despreciable de tamaño $< \frac{\frac{\varepsilon^6}{2}n}{\# \mathcal P _1}$. En total, el conjunto de los vértices despreciados lo agregamos al \textit{conjunto excepcional} $V_0$, es decir, agregamos $< \frac{\varepsilon^6}{2}n$ vértices. Afirmamos que $\mathcal P_1'$ está acotado por arriba por algo que depende de $\varepsilon$ y $m$:
+\[
+\# \mathcal P _ 1 ' \leq \frac{n}{\frac{\varepsilon^6 n}{2}}\big / \# \mathcal P_1 = \frac{2 \# \mathcal P _1}{\varepsilon^6} \leq \frac{m2^{m+1}}{\varepsilon^6}.
+\]
+Por el primer lema, $d_2 (\mathcal P_1 ') \geq d_2 (\mathcal P_1) \geq d_2 (\mathcal P_0) + \varepsilon^5$.
+
+Si no obtenemos una partición $\varepsilon$-regular, entonces continuamos refinando, para así obtener una secuencia de equiparticiones:
+\[
+\mathcal P_0, \mathcal P _1 ' , \mathcal P_2 ' , \ldots, \mathcal P _k'.
+\]
+Como $d_(\mathcal Q) \leq 1$ para cualquier partición $\mathcal Q$ de $G$, y $d_2 (\mathcal P_{i+1}) \geq d_2 (\mathcal P_i') + \varepsilon^5$, tenemos que $k \leq \varepsilon^{-5}$.
+Entonces, luego de a lo más $\varepsilon^{-5}$ iteraciones, habremos encontrado una partición $\varepsilon$-regular con una cantidad de partes acotada por $M$ que solamente depende de $m $ y $\varepsilon$. Por último, el conjunto excepcional de dicha partición es
+\[
+\leq (m-1) + \frac{\varepsilon^6 n}{2} \varepsilon^{-5} < \varepsilon n.
+\]
+
+
+\end{proof}
 
 \begin{corollary}
 Se puede probar el Teorema de Erdös-Stone \ref{th:teorema de Erdos-stone}:
