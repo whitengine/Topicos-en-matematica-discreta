@@ -1011,7 +1011,7 @@ Notaremos por $K_s (t)$ al grafo de Turán $T_{s} (t \cdot s)$.
 \begin{theorem}[Erdös-Stone, 1946]\label{th:teorema de Erdos-stone}
 Sea $H$ un grafo con $e(H) \geq 1$. Entonces
 \[
-    \ex n H \leq \left ( 1 - \frac{1}{\chi (H) - 1}  + o (1) \right) \cdot \frac{n^2}{2} \quad (n \to \infty) \\
+    \ex n H \leq \left ( 1 - \frac{1}{\chi (H) - 1}  + o (1) \right) \cdot \frac{n^2}{2} \quad (n \to \infty). \\
 \]
 \end{theorem}
 
@@ -1060,43 +1060,23 @@ Sea $G_n, G_{n-1}, G_{n-2}, \ldots, G_t$ la secuencia de subgrafos de $G$ obteni
 
 Afirmamos que $t \geq \varepsilon n$ para $n$ lo suficientemente grande, y por ende, $G_t$ será el subgrafo que buscabamos: por construcción $\delta (G_t) \geq (c - \varepsilon) \abs{G_t}$. Para eso, calculamos la cantidad total de aristas borradas para la obtención de $G_t$:
 \[
-    \sum_{i = t + 1}^n d_{G_{n-i}} (v_i) < (c-\varepsilon) \sum_{i = t+ 1}^n i,
+    \sum_{i = 0}^{n-(t+1)} d_{G_{n-i}} (v_i) < (c-\varepsilon) \sum_{i = 0}^{n-(t+1)} n-i = (c-\varepsilon) (n-t) (n+t+1)/2,
 \]
 y como $G_t$ tiene a lo más $\binom t 2$ aristas, tenemos que
 \[
-    e(G) \leq (c - \varepsilon) \sum_{i = t + 1}^n i + \binom t 2 .
+    e(G) \leq (c- \varepsilon) (n-t) (n+ t + 1)/2 + \binom t 2 .
 \]
-A su vez, $e(G) \geq c \frac{n^2}{2}$.
 
-Dado $1 > c > 0$ fijo, tomemos $\varepsilon > 0$ lo suficientemente chico, de tal suerte que $(1 - (c - \varepsilon ) ) \frac{\varepsilon}{2} < 1 $ $(\star)$ . Supongamos por el absurdo que $t \leq \varepsilon n$. Nuestro objetivo es acotar la siguiente expresión:
-\[
-\sum_{i = t + 1}^n (c - \varepsilon) i + \binom t 2.
-\]
-Para eso, requerimos el siguiente cálculo: $\sum_{i = t+1}^n i = \frac{n(n+1)}{2} - \frac {t(t+1)}2$. Ahora, acomodamos un poco la ecuación anterior, de manera que haya cancelación:
+Supongamos por el absurdo que $t \leq \varepsilon n$. Nuestro objetivo es acotar el lado derecho:
 \begin{align*}
-\sum_{i = t + 1}^n (c - \varepsilon) i + \binom t 2 &= (c - \varepsilon) \left ( \frac{n(n+1)}{2} - \frac{t(t+1)}{2} \right ) + \binom t 2 \\
-                                        &= (c - \varepsilon) \Bigg ( \underbrace{\frac{n(n-1)}{2}}_{\binom n 2} + n - \Big (\underbrace{\frac{t(t-1)}{2}}_{\binom t 2} + t \Big ) \Bigg ) + \binom t 2 \\
-                                        &= (c - \varepsilon) \binom n 2 + (c - \varepsilon)(n - t) + (1 - (c - \varepsilon)) \binom t 2.
+e(G) \leq (c- \varepsilon) (n-t) (n+ t + 1)/2 + \binom t 2  &= (c- \varepsilon) \frac{(n^2 + n  - (t^2 + t))}{2} + \frac{t(t-1)}{2} \\
+&\leq (c-\varepsilon) \frac{n^2 + n}{2 } + \frac{\varepsilon n (\varepsilon n - 1)}{2} \\
+&= (c- \varepsilon + \varepsilon^2)\frac{n^2}{2} + (c - 2\varepsilon) \frac{n}{2}.
 \end{align*}
 
 
-
-
-Notar que los últimos dos términos son menores o iguales a $\varepsilon \frac{n (n-1)}{2}$ para $n$ lo suficientemente grande respecto de $\varepsilon$ y $c$. En efecto,
-\[
-(c - \varepsilon)(n - t) + (1 - (c - \varepsilon)) \binom t 2 \leq (c - \varepsilon ) (n-t) + (1 - (c - \varepsilon ) ) \frac{\varepsilon n}{2} (\varepsilon n - 1),
-\]
-y el lado derecho es un polinomio cuadrático en la variable $n$ con coeficiente principal
-\[
-(1 - (c - \varepsilon ) ) \frac{\varepsilon^2}{2} < \varepsilon \quad \Leftrightarrow \quad (1 - (c - \varepsilon ) ) \frac{\varepsilon}{2} < 1  \quad (\text{verdadero por ($\star$)}),
-\]
-y por lo tanto,
-\[
-(c - \varepsilon ) (n-t) + (1 - (c - \varepsilon ) ) \frac{\varepsilon n}{2} (\varepsilon n - 1) \leq \varepsilon \frac{n (n-1)} 2
-\]
-para $n$  lo suficientemente grande ya que el lado derecho es un polinomio cuadrático en $n$ con coeficiente principal más grande: $\varepsilon$.
-
-Finalmente, esto nos llevaría a un absurdo y por lo tanto deberá ser que $t \geq \varepsilon n$ para $n$ lo suficientemente grande para $\varepsilon$ lo suficientemente chico. En efecto, achicando $\varepsilon$ de ser necesario: para que $\varepsilon < c$, el lado derecho es menor que $ c \frac {n^2} 2$ para todo $n$ lo suficientemente grande, sin embargo $e(G) \geq c \frac{n^2}{2}$, absurdo.
+Notar que el lado derecho es un polinomio cuadrático en la variable $n$ con coeficiente principal $\frac{c-\varepsilon + \varepsilon^2}{2} < \frac c 2$
+y por lo tanto para $n$ lo suficientemente grande, se contradice la desigualdad $c\frac{n^2}{2} \leq e(G)$. Así, $t \geq \varepsilon n$.
 \end{proof}
 
 \begin{lemma}\label{lema:erdos-stone lema 2}
@@ -1139,20 +1119,20 @@ Sea $x \in X$, existen a lo más $\binom q t$ formas de elegir $B_i^x$ en $A_i$,
 \end{proof}
 
 \begin{proof}[Demostración del Teorema]
-Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, en $K_{\chi (H)} (\abs H)$. Con lo cual, basta probar el teorema para $H' := K_{\chi (H)} (\abs H)$. De hecho, probaremos que para $r := \chi (H)- 1$, $t \in \naturals$, $\forall \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
+Observemos que $H$ está contenido en el grafo $\chi (H)$-partito, completo y con partes de tamaño $\abs H$, es decir, en $K_{\chi (H)} (\abs H)$. Con lo cual, basta probar el teorema para $H' := K_{r} (t)$ con $r := \chi (H)$ y $t := \abs H$. De hecho, probaremos que para cualquier $r \geq 2$, $t \in \naturals$, $ \varepsilon > 0$, existe $n_0 \in \naturals$ tal que:
 \[
-    \ex n { K_{r +1} (t)} \leq \left (1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2} \quad (n \geq n_0).
+    \ex n { K_{r} (t)} \leq \left (1 - \frac 1 {r-1} + \varepsilon \right ) \frac{n^2}{2} \quad (n \geq n_0).
 \]
 
-Vamos a tomar $r = \chi (H) - 1$ y $t = \abs H$ y $\varepsilon > 0$ arbitrariamente pequeño. Sea $n$ lo suficientemente grande y $G$ con $n$ vértices tal que
+Sea $\varepsilon > 0$ arbitrariamente pequeño. Sea $n$ lo suficientemente grande, y $G$ con $n$ vértices tal que
 \[
-    e(G) \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \frac{n^2}{2}.
+    e(G) \geq \left ( 1 - \frac 1 {r-1} + \varepsilon \right ) \frac{n^2}{2}.
 \]
-Aplicamos el primer lema \ref{lema:erdos-stone lema 1} con $c = 1 - \frac 1 r + 2 \varepsilon$. Así, obtenemos un subgrafo $G' \subset G$ con
+Aplicamos el primer lema \ref{lema:erdos-stone lema 1} con $c = 1 - \frac 1 {r-1} + \varepsilon$ y $\frac{\varepsilon}{2}$. Así, obtenemos un subgrafo $G' \subset G$ con
 \[
-    \abs{G'} \geq \varepsilon \quad \text y \quad \delta (G') \geq \left ( 1 - \frac 1 r + \varepsilon \right ) \abs{G'}.
+    \abs{G'} \geq \frac{\varepsilon}{2} n \quad \text y \quad \delta (G') \geq \left ( 1 - \frac 1 {r-1} + \frac{\varepsilon}{2} \right ) \abs{G'}.
 \]
-Como $n$ es lo suficientemente grande, $\varepsilon n \geq n_0$ y por el segundo lema \ref{lema:erdos-stone lema 2}, $G'$ contiene a $K_{r+1} (t)$, y por lo tanto $G$ también. El resultado se sigue.
+Como $n$ es lo suficientemente grande: $\frac{\varepsilon}{2} n \geq n_0$, y por el segundo lema \ref{lema:erdos-stone lema 2}, $G'$ contiene a $K_{r} (t)$, y por lo tanto $G$ también. El resultado se sigue.
 \end{proof}
 
 
@@ -1199,10 +1179,11 @@ De la demostración del Lema \ref{lema:erdos-stone lema 1} se deduce un enunciad
 \begin{quote}
 Dados $r \in \naturals$ y $c\in (0,1)$. Para todo $\varepsilon > 0$ existe $n_0 \in \naturals$ tal que para todo grafo $G$ con $n \geq n_0$ vértices y
 \[
-    e(G) \geq c \frac{n^2}{2}
-\], existe un subgrafo $G_{t} \subset G$ con $\abs {G_t} = t \geq \varepsilon n$ y $\delta (G_t) \geq (c- \varepsilon) \abs{G_t}$; más aún,
+    e(G) \geq c \frac{n^2}{2},
+\]
+existe un subgrafo $G_{t} \subset G$ con $\abs {G_t} = t \geq \varepsilon n$ y $\delta (G_t) \geq (c- \varepsilon) \abs{G_t}$; más aún,
 \[
-    e(G) \leq e(G_t) + (c- \varepsilon) \left (\binom{n+1}2 - \binom{t+1}2\right ).
+    e(G) \leq e(G_t) + (c- \varepsilon) (n-t) (n+t+1)/2.
 \]
 \end{quote}
 
@@ -1216,10 +1197,12 @@ Ahora, como $G$ es $K_{r+1}$-libre, entonces $G_t$ también y se tiene que
 \[
     e(G_t) \leq \ex t {K_{r+1}} \leq t_r (t) \leq \left (1 - \frac 1 r + \frac{\delta^2}{2} \right) \frac{t^2}{2},
 \]
-Por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}. Juntando esto con lo mencionado al principio, tenemos que
-\[
-    c \frac{n^2}{2} \leq e(G) \leq e (G_t) + \binom{n+1}2 - \binom{t+1}{2} \leq \left (1 - \frac 1 r + \frac{ \delta^2}2 \right) \frac{t^2}{2} + (c- \varepsilon) \left (\binom{n+1}2 - \binom{t+1}2\right ),
-\]
+por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}. Juntando esto con lo mencionado al principio, tenemos que
+\begin{align*}
+    c \frac{n^2}{2} \leq e(G) &\leq e (G_t) + (c- \varepsilon) (n-t) (n+t+1)/2 \\
+    &\leq \left (1 - \frac 1 r + \frac{ \delta^2}2 \right) \frac{t^2}{2} + (c- \varepsilon) (n-t) (n+t+1)/2 \\
+    &= \left (1 - \frac 1 r + \frac{ \delta^2}2 \right) \frac{t^2}{2} + (c- \varepsilon) \frac{(n^2 + n - t^2 - t)}{2},
+\end{align*}
 esto implica que para $n$ lo suficientemente grande de tal suerte que $\frac{(c - \varepsilon)}{2} n \leq \frac{\varepsilon }{2} \frac{n^2}{2}$,
 \[
     \varepsilon \frac{n^2}{4}  \leq (\delta + \frac{\delta^2}{2}) \frac{t^2}{2}.
@@ -1228,7 +1211,7 @@ Reemplazando $\varepsilon = \delta - \delta^2$ en la última desigualdad, y desp
 \[
     \sqrt{\frac{\delta - \delta^2}{2 \delta + \delta^2}} n \leq t.
 \]
-Como la exprosión de la izquierda es más grande que $(1 - \delta)$ cuando $\delta < \frac 1 2$, se sigue que para todo $n$ lo suficientemente grande,
+Como la expresión de la izquierda es más grande que $(1 - \delta)$ cuando $\delta < \frac 1 2$, se sigue que para todo $n$ lo suficientemente grande,
 \[
     \abs {G_t}  = t \geq (1 - \delta) n.
 \]
@@ -1243,12 +1226,12 @@ Para todo $r \in \naturals$, para todo $\varepsilon > 0$, existe $\delta > 0$ ta
 entonces existe una partición $V(G) = A_0 \coprod A_1 \coprod \cdots \coprod A_r$ tal que $\abs {A_0} \leq \varepsilon n$ y $A_i$ son conjuntos independientes para todo $i \geq 1$.
 \end{lemma}
 \begin{proof}
-Si tomamos $\delta >0$ lo suficientemente pequeño, entonces $G$ contiene una copia de $K_r$ por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)} (esto ocurre si $e(G) \geq \left ( 1 - \frac 1 {r-1} \right)\frac{n^2}{2}$; tomar $\delta < \frac 1 {r-1} - \frac 1 r$).
+Si tomamos $\delta >0$ lo suficientemente pequeño, entonces $G$ contiene una copia de $K_r$ por el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)} (esto ocurre si $e(G) \geq \left ( 1 - \frac 1 {r-1} \right)\frac{n^2}{2}$; tomar $\delta < \frac 1 {r-1} - \frac 1 r$ y notar que en la demostración de la Observación \ref{obs:tenemos que el numero de turan es asintotico a (1-1/r)n2/2} se ve que $t_r (t) \sim  \left ( 1 - \frac 1 r \right) \frac{t^2}{2} \:\: (t \to \infty)$).
 
 Sea $A$ un conjunto de vértices que induce un $K_r$ en $G$. Sean $B := V(G) \setminus A$ y $X := \set{v \in V(G) | \abs{N_G (v) \cap A} \leq r -2}$, vamos a mostrar que $X$ es pequeño.
 \begin{align*}
 \left ( 1 - \frac 1 r - \delta \right ) n r - r (r-1) &\leq e(A, B) \quad \quad \left ( 2 e(A) + e(A,B) = \sum_{v \in A} d_G (v) \geq r \left (1 - \frac 1 r - \delta \right )n \right )\\
-                &\leq (r-1) (n-r \abs X) + (r-2) \abs X  = (r-1) (n-r) - \abs X,
+                &\leq (r-1) \large ((n-r) -\abs X \large) + (r-2) \abs X  = (r-1) (n-r) - \abs X,
 \end{align*}
 manipulando la desigualdad, obtenemos:
 \[
