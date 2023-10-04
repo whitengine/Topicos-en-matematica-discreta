@@ -1559,8 +1559,8 @@ Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-re
 \begin{enumerate}[(a)]
 \item $\varepsilon n^2$ aristas con un extremo en $V_0$.
 \item $\varepsilon n^2$ aristas dentro de una parte $V_i$ con $i\geq 1$.
-\item $\varepsilon n^2$ aristas entre pares que no son $\varepsilon$-regulares.
-\item $\delta n^2$ aristas entre pares que tienen densidad $< \delta$.
+\item $\varepsilon n^2$ aristas entre pares (con $i,j \neq 0$) que no son $\varepsilon$-regulares.
+\item $\delta n^2$ aristas entre pares (con $i,j \neq 0$) de densidad $< \delta$.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -1571,7 +1571,7 @@ Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-re
 \]
 \item Cada $V_i$ tiene $\leq \frac n k$ vértices (pues estamos en una equipartición), y entonces hay a lo más $k \cdot \binom{\frac n k}{2} \leq \frac \varepsilon 2 n^2$ aristas para (b).
 \item Hay a lo más $\varepsilon k^2$ pares que no son $\varepsilon$-regulares y cada par tiene a lo más $\left ( \frac n k \right)  ^2$ aristas entre sí. Consecuentemente, aportan a lo más $\varepsilon k^2 \cdot \left ( \frac n k \right )^2 = \varepsilon n^2$ aristas en (c).
-\item En el peor caso, los $\binom k 2$ pares son poco densos. En este caso
+\item En el peor caso, los $\binom k 2$ pares son poco densos. En este caso, por definiciónde densidad:
 \[
     e(V_i, V_j) \leq \delta \left ( \frac n k \right )^2, \quad \forall 1 \leq i, j \leq k,
 \]
@@ -1642,7 +1642,7 @@ Dado un grafo $H$, $n \in \naturals$, $\varepsilon, \delta > 0$, definimos
 \[
     \mathcal G (H,n, \varepsilon, \delta)
 \]
-como la familia de grafos $G$, tales que existe una equipartición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $\abs{A_i}$ todos del mismo tamaño $n$ e independiente, y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)\geq\delta$.
+como la familia de grafos $G$, tales que existe una equipartición $V(G)  = A_1 \coprod \cdots \coprod A_l$ con $A_i$ de cardinal $n$ e independiente, y un etiquetamiento de los vértices $V(H) = \{w_1, \ldots, w_l\}$ tal que para cada $w_i w_j \in E(G)$, el par $(A_i, A_j)$ es un par $\varepsilon$-regular y además $d(A_i, A_j)\geq\delta$.
 \end{definition}
 
 \begin{lemma}[Lema de inmersión general]\label{lema:regularidad de szemeredi - lema inmersion general}
@@ -1686,7 +1686,7 @@ Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varep
 \]
 \end{lemma}
 \begin{proof}
-El Lema \ref{lema:regularidad de szemeredi - lema inmersion aplicable} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
+El Lema \ref{lema:regularidad de szemeredi - lema inmersion general} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
 \[
     G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad K_r (t) \subset G;
 \]
@@ -1740,15 +1740,15 @@ entonces existe un subgrafo $G' \subset G$ tal que $G' \in \mathcal G (K_r, n' t
 \end{proof}
 
 \begin{theorem}[Regularidad de Erdös-Stone]
-Para todo grafo $H$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que para todo grafo $G$ con $n \geq n_0$ vértices y
+Para todo grafo $H$ con $e(H) \geq 1$ y cada $\delta > 0$, existe $n_0 \in \naturals$ tales que para todo grafo $G$ con $n \geq n_0$ vértices y
 \[
-    e(G) \geq \left ( 1 - \frac{1}{\chi (H)- 1} + 3 \delta\right ) \frac{n^2}{2},
+    e(G) \geq \left ( 1 - \frac{1}{\chi (H)- 1} + 4 \delta\right ) \frac{n^2}{2},
 \]
 entonces $H \subset G$.
 \end{theorem}
 
 \begin{remark}
-Como $\delta > 0$ es arbitrario, podríamos reemplazar $3\delta$ por $\delta ' > 0$ arbitrario en el enunciado.
+Como $\delta > 0$ es arbitrario, podríamos reemplazar $4\delta$ por $\delta ' > 0$ arbitrario en el enunciado.
 \end{remark}
 
 \begin{proof}
@@ -1769,8 +1769,8 @@ es decir, achicando $\varepsilon$ de ser necesario para que $k$ sea grande y $t_
 Consecuentemente,
 \begin{align*}
 e(G) &\leq \left ( 1 - \frac 1 r + \delta \right )\frac{n^2}{2} + 2(3 \varepsilon +\delta)\frac{n^2}{2} \\
-    &= \left ( 1 - \frac 1 r + 6 \varepsilon + 2\delta \right ) \frac{n^2}{2} \\
-    &< \left ( 1 - \frac 1 r + 3 \delta \right ) \frac{n^2}{2},
+    &= \left ( 1 - \frac 1 r + 6 \varepsilon + 3\delta \right ) \frac{n^2}{2} \\
+    &< \left ( 1 - \frac 1 r + 4 \delta \right ) \frac{n^2}{2},
 \end{align*}
 absurdo.
 \end{proof}
