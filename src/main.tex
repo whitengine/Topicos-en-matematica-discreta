@@ -773,7 +773,7 @@ Sean $k \in \naturals$ y $T$ un árbol con $k+1$ vértices. Entonces si $G$ es u
 Haremos inducción en $k$. Para $k = 1$ es claro, pues existe un vértice con al menos un vecino. En general, supongamos que $k \geq 2$. Sea $h$ una hoja de $T$ y consideremos el árbol $T' = T \setminus \{h\}$. Por hipótesis inductiva, $T' \subset G$. Sea $p$ el único vecino de $h$ en $T$, i.e. $p \in T'$. Como $T$ tiene $k+1$ vértices, $p$ tiene a lo más $k-1$ vecinos en $T'$, luego $p$ tiene un vecino en $G$ que no está en $T'$ pues $\delta_G (p) \geq k$. Entonces podemos incrustar $T$ en $G$ considerando $h$ como este vértice.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lema:lema 2 - teorema de extremalidad de arboles}
 Todo grafo $G$ contiene un subgrafo $H$ con $\delta (H) > \varepsilon (H) \geq \frac{e(G)}{n}$, donde $n = \abs G$.
 \end{lemma}
 \begin{proof}
@@ -1377,7 +1377,7 @@ Supongamos que $G$ no contiene $e := \ex n H $ copias de $H$, luego quitando una
 
 \begin{exercise}
 Sea $k \in \mathbb{N}$ y $n\in \mathbb{N}$ suficientemente grande.
-Demuestre que todo grafo $G$ con $n$ vértices y al menos $n^2/4$ aristas contiene un grafo $H$ con al menos $k$ vértices y $\delta(H)\geq v(H)/2$.
+Demuestre que todo grafo $G$ con $n$ vértices y al menos $n^2/4$ aristas contiene un grafo $H$ con al menos $k$ vértices y $\delta(H)\geq \frac{\abs H}{2}$.
 \end{exercise}
 \begin{solution}
 Probaremos un enunciado más fuerte:
@@ -1410,6 +1410,17 @@ con $c > 0$ una constante que depende solo de $k$.
 Tomando $n_0 \in \naturals$ para que $\frac{n^2}{4} > c n^{2 - \frac 1 k}$ valga para todo $n\geq n_0$, se sigue que $G$ siempre debe tener a $H$ como subgrafo: de lo contrarío se llegaría al absurdo:
 \[
     \frac{n^2}{4} \leq e(G) \leq \ex n H \leq c n^{2 - \frac 1 k}.
+\]
+\end{solution}
+
+\begin{solution}[Segunda solución]
+Por el Lema \ref{lema:lema 2 - teorema de extremalidad de arboles}, $G$ contiene un subgrafo $H'$ tal que
+\[
+    \delta (H') > \varepsilon (H') \geq \varepsilon (G).
+\]
+Como $\varepsilon (G) = \frac{e(G)}{\abs G} \geq \frac{n}{4}$, se tiene que para $n$ lo suficientemente grande, $H'$ contiene a $K_{1, k}$, y por lo tanto $H := K_{1,k}$ sirve. En efecto,
+\[
+    \delta (H) = k \geq \frac{k+1}{2} = \frac{\abs H}{2}.
 \]
 \end{solution}
 
