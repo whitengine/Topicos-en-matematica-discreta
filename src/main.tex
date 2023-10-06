@@ -1340,6 +1340,12 @@ Finalmente, para llegar al absurdo, consideremos $v \in V(G)$ un vértice con gr
 vértices, luego contiene una copia de $T$, con lo cual $G$ también: absurdo. Consecuentemente, $G$ contiene una copia de $T$ o $\bar G$ tiene triángulo(s).
 \end{solution}
 
+\begin{solution}[Segunda solución]
+Otra manera de resolver el ejercicio es haciendo inducción $k \geq 1$: supongamos que $G$ es un grafo de orden $2k-1$ con $\bar G$ libre de triángulos, probaremos que $T \subset G$ para cualquier árbol $T$ de orden $k$. El caso $k=1$ es trivial.
+
+En general, supongamos que $k \geq 2$ y tomemos una hoja $h$ de $T$, consideremos $T' := T \setminus \{h\}$ y escribamos $p \in T'$ para el padre de $h$ en $T$. Ahora, si $G$ es completo ya ganamos, pues $K_{2k-1} \supset T$, con lo cual podemos suponer que existen $v,w \in V(G)$ tales que $vw \not \in G$, y consideremos $G' := G \setminus \{v,w\}$. Notar que $\bar{G}'$ es $K_3$-libre y $G'$ tiene orden $2(k-1) -1$, luego por hipótesis inductiva $G'$ contiene a $T'$. Por otro lado, $p \in T'$ tiene que ser vecino de $w$ o de $v$ en $G$, de lo contrario $\bar G$ tendría un triángulo! Esto prueba que $T \subset G$.
+\end{solution}
+
 \begin{exercise}
 Pruebe que si $e(G)> n^2/4$, entonces $G$ contiene al menos $\lfloor n/2 \rfloor$ triángulos.
 \end{exercise}
@@ -1688,9 +1694,9 @@ Sea $H$ un grafo y $\delta >0$. Defina $r = \chi (H)$. Entonces, existen $\varep
 \begin{proof}
 El Lema \ref{lema:regularidad de szemeredi - lema inmersion general} garantiza que para todo $\delta ' > 0$ existen $\varepsilon ', n'_0$ tales que
 \[
-    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad K_r (t) \subset G;
+    G \in \mathcal G (K_r (t), n' , \varepsilon ' , \delta '), n' \geq n'_0 \quad \Rightarrow \quad K_r (t) \subset G,
 \]
-Como $H \subset K_r (t)$, se tiene que en este caso $H \subset G$.
+donde $t := \abs H$. Como $H \subset K_r (t)$, se tiene que en este caso $H \subset G$.
 
 Concluimos gracias al siguiente ejercicio:
 \begin{exercise}
@@ -1787,7 +1793,7 @@ entonces $G$ está $(5 \delta n^2)$-cerca de ser $(\chi (H)-1)$-partito.
 \end{theorem}
 
 \begin{remark}
-Notar que este enunciado es equivalente al enunciado que vimos antes: \ref{Teorema de Estabilidad de Erdos-simonovits version H general}
+Notar que este enunciado es equivalente al enunciado que vimos antes: \ref{Teorema de Estabilidad de Erdos-simonovits version H general}.
 \end{remark}
 
 \begin{proof}
