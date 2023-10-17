@@ -2095,23 +2095,41 @@ Ahora, probemos la desigualdad por inducción en $s+t$, el caso base es $R (1,t)
 
 \end{proof}
 
+\begin{obs}\label{obs:cota inferior trivial del numero de ramsey (orden lineal)}
+Existe una cota inferior muy mala, para valores de $k$ grandes, del número de Ramsey:
+\[
+    R(k) \geq 2 (k-1), \quad k \geq 2.
+\]
+\end{obs}
+\begin{proof}
+Supongamos $k > 3$, pues el caso $k = 2$ es trivial.
 
+En efecto, sea $n = 2 (k-1)$, entonces particionando los vértices de $K_n$ en dos conjuntos $A_1, A_2$ de tamaño $k-1$, y pintando las aristas de $K_n[A_1]$ y $K_n[A_2]$ de azul, pero las aristas entre $A_1$ y $A_2$ de rojo, obtenemos una coloración libre de $K_k$ monocromáticos. En efecto, si existiera un $K_k$ monocromático, entonces no puede ser azul porque cada $A_i$ tiene $k-1$ vértices; por otro lado no puede ser rojo porque en una partición hay almenos un vértice y en otra almenos $2$ (estamos en el caso $k > 3$), digamos en $A_1$ y $A_2$ respectivamente, entonces en $K_n [A_2]$ debería haber una arista color rojo, absurdo.
+\end{proof}
+El siguiente teorema confirma que la cota anterior es \textit{muy poco óptima}.
 
 \begin{theorem}[Erdös (1947)]
 \[
-    R(k)  \geq 2^{k/2}, \quad \forall k \geq 5.
+    R(k)  \geq 2^{k/2}, \quad \forall k \geq 2.
 \]
-
 \end{theorem}
 \begin{proof}
-Consideremos $K_n$. Tenemos exactamente
+Consideremos $K_n$ con $n = \ceil{2^{k/2}}$ y supongamos que $k \geq 6$, notar que los casos $k = 2 , \ldots, 5$ valen por la cota de la Observación anterior \ref{obs:cota inferior trivial del numero de ramsey (orden lineal)} (que es mejor para $k$ chico).
+
+Tenemos exactamente
 \[
     2^{\binom n 2}
 \]
-2-coloraciónes de $E(K_n)$. Vamos a mostrar que la cantidad de $2$-coloraciones de $E(K_n)$ que contienen a $K_k$ monocromático es $< 2^{\binom m 2}$. Para eso, notar que en este caso tenemos $\binom n k$ formas de elegir una copia de $K_k$ y luego $2^{\binom n 2 - \binom k 2 + 1}$ formas de colorear el resto de las aristas. Por lo tanto, la cantidad de $2$-coloraciones que contienen un $K_k$ monocromático es
+2-coloraciónes de $E(K_n)$. Vamos a mostrar que la cantidad de $2$-coloraciones de $E(K_n)$ que contienen a $K_k$ monocromático es $< 2^{\binom m 2}$. Para eso, notar que en este caso tenemos $\binom n k$ formas de elegir una copia de $K_k$ y luego $2^{\binom n 2 - \binom k 2 + 1}$ formas de colorear el resto de las aristas. Por lo tanto, la cantidad de $2$-coloraciones que contienen un $K_k$ monocromático es menor o igual que
+\begin{align*}
+\binom n k 2^{\binom n 2 - \binom k 2 + 1} &\leq \left (\frac{en}{k} \right )^{k} 2^{\binom n 2 - \binom k 2 + 1} \\
+&\leq \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{-\frac{k(k-1)}{2}} 2 \cdot 2^ {\binom n 2},
+\end{align*}
+pero notar que si $k \geq 6$, entonces
 \[
-    \leq \binom n k 2^{\binom n 2 - \binom k 2 + 1} < 2^{\binom n 2}.
+    \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{\frac{k(k-1)}{2}} \cdot 2 \leq \left ( \frac{2^{k/2} + 1}{2} \right )^k 2^{- \frac{k(k-1)}{2}} \cdot 2< 1,
 \]
+de donde se sigue lo que queríamos. En efecto, se puede realizar un estudio cualitativo de la función para $k \in \reals_{\geq 6}$ utilizando cálculo elemental.
 \end{proof}
 
 
@@ -2129,29 +2147,30 @@ Para todo $r \geq 2$, se tiene que
 \]
 \end{theorem}
 \begin{proof}
-Primero veamos la cota inferior, para eso consideremos $n:= 2^r$ y encontraremos una $r$-coloración de $K_n$ sin $K_k$ monocromáticos. Haremos inducción en $r$, si $r = 2$ vale, pues podemos considerar la siguiente coloración:
-\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 2.pdf_tex"}
+Primero veamos la cota inferior, para eso consideremos $n:= 2^r$ y encontraremos una $r$-coloración de $K_n$ sin triángulos monocromáticos. Haremos inducción en $r$, si $r = 2$ vale, pues podemos considerar la siguiente coloración:
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 6.pdf_tex"}
 Para el paso inductivo, consideremos una partición en dos partes de $2^{r-1}$ vértices, donde el conjunto $A$ y el $B$ tienen $(r-1)$-coloraciones sin triángulos monocromáticos, por hipótesis inductiva, y luego pintamos las aristas entre $A$ y $B$ de color $r$ que nunca fue utilizado.
-\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 3.pdf_tex"}
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 7.pdf_tex"}
 
-Ahora veamos la cota superior. En el Ejemplo \ref{ejemplo:2-coloracion de K_6} vimos que $R_2(3) \leq 6 = 3 \cdot 2 !$, así vale el caso $r = 2$. Supongamos ahora que $r \geq 3$, y que $n = 3 \cdot r!$, sea $v \in K_n$, y $c$ una $r$-coloración de $K_n$. Entonces existe un color $i \in  \{1, \ldots, r\}$ tal que
+Ahora veamos la cota superior. En el Ejemplo \ref{ejemplo:2-coloracion de K_6} vimos que $R_2(3) \leq 6 = 3 \cdot 2 !$, así vale el caso $r = 2$. Supongamos ahora que $r \geq 3$, y que $n = 3 \cdot r!$, sea $v_0 \in K_n$ fijo, y $c$ una $r$-coloración de $K_n$. Entonces existe un color $i \in  \{1, \ldots, r\}$ tal que
 \[
-    E_i = \abs{\set{uv \in K_n | c (uv) = i}} \geq \frac{3 \cdot r !}{r} = 3 \cdot (r-1)!
+    E_i^0 = \abs{\set{uv_0 \in K_n | c (uv) = i}} \geq \frac{3 \cdot r !}{r} = 3 \cdot (r-1)!
 \]
-y sea $A := \set{u \in K_n | \text{ existe $v \in K_n$ con } u v \in E_i}$. Pueden ocurrir dos casos:
+y sea $A := N_{K_n}^i (v_0)$. Pueden ocurrir dos casos:
 \begin{enumerate}
 \item[\textbf{Caso 1:}] El color $i$ aparece en una arista de $K_n [A]$, luego tenemos un triángulo de color $i$.
 \item[\textbf{Caso 2:}] En $K_n [A]$ no aparece el color $i$, entonces la coloración $c$ inducida en $K_n [A]$ es una $(r-1)$-coloración, con lo cual por hipótesis inductiva existe un triángulo monocromático en $K_n [A]$, en particular en $K_n$.
 \end{enumerate}
+
+\Inkscape{Ilustración del Caso 1.}{"./Figuras/Teoria de Ramsey/Figura 2.pdf_tex"}
 \end{proof}
 
 
 \begin{definition}
 El \textbf{número de Ramsey de $H_1$ versus $H_2$} está definido por:
 \[
-    r(H_1, H_2) = \min \{ n | K_n \to (H_1, H_2)\},
+    r(H_1, H_2) = \min \{ n | K_n \to (H_1, H_2)\}.
 \]
-donde $K_n \to (H_1, H_2)$ es notación que significa que toda coloración de $K_n$ con rojo o azul contiene una copia de $H_1$ rojo o una de $H_2$ azul.
 \end{definition}
 
 
@@ -2162,14 +2181,16 @@ donde $K_n \to (H_1, H_2)$ es notación que significa que toda coloración de $K
 \end{theorem}
 \begin{proof}
 Primero acotaremos por abajo: sea $n = 2k$, consideramos la siguiente coloración de $K_n$:
-\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 4.pdf_tex"}
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 3.pdf_tex"}
 Particionamos $K_n$ en dos partes de $k$ vértices cada uno y pintamos las aristas de color azúl, y las aristas entre ambas particiones las pintamos de rojo. Claramente no hay caminos de longitud $k$ de color azul porque las particiones tienen $k$ vértices y no hay triángulos rojos porque las aristas rojas inducen un grafo bipartito.
 
-Para la cota superior, consideremos $K_n$ con $n = 2k + 1$. Sea $P$ un maximal de color azul; supongamos que $\abs{V (P)} \leq k$ y entonces $B := V(K_n) \setminus V(P)$ tiene al menos $k+1$ vértices. Sea $v_0$ un extremo de $P$, por maximalidad $v_0$ está conectado a cada vértice de $B$ por aristas rojas. Tenemos dos casos:
+Para la cota superior, consideremos $K_n$ con $n = 2k + 1$. Sea $P$ un camino maximal de color azul; supongamos que $\abs{V (P)} \leq k$ y entonces $B := V(K_n) \setminus V(P)$ tiene al menos $k+1$ vértices. Sea $v_0$ un extremo de $P$, por maximalidad $v_0$ está conectado a cada vértice de $B$ por aristas rojas. Tenemos dos casos:
 \begin{enumerate}
-\item[\textbf{Caso 1:}] Si en $K_n [B]$ hay aristas rojas entonces hay un triángulo de color rojo.
-\item[\textbf{Caso 2:}] Si en $K_n [B]$ no hay aristas rojas, entonces todas las aristas son azules y por lo tanto hay una copia de $K_{k+1}$ azul y por lo tanto contiene a $P_k$ de color azul.
+\item[\textbf{Caso 1:}] Si en $K_n [B]$ hay aristas rojas entonces hay un triángulo de color rojo (con un vértice $v_0$).
+\item[\textbf{Caso 2:}] Si en $K_n [B]$ no hay aristas rojas, entonces todas las aristas son azules y por lo tanto hay una copia de $K_{k+1}$ azul, y por lo tanto contiene a $P_k$ de color azul.
 \end{enumerate}
+
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 4.pdf_tex"}
 \end{proof}
 
 \begin{theorem}
@@ -2179,7 +2200,9 @@ Sea $T_k$ un árbol con $k$ aristas (i.e., $k+1$ vértices). Entonces
 \]
 \end{theorem}
 \begin{proof}
-Primero veamos la cota superior. Sea $n = 2k + 1$ y consideremos $K_n$ con una coloración. Supongamos entonces que existe un vértice $v$ de grado rojo al menos $k+1$. Entonces la vecindad $N^{\text{rojo}} (v)$ induce un $K_{k+1}$ que si tiene alguna arista roja entonces existe un triángulo rojo en $K_n$, y si no, $K_n$ contiene un $K_{k+1}$ con aristas azules y en particular contiene un $T_k$ azul. Ahora, supongamos que todo vértice tiene grado rojo $\leq k$. Esto implica que el grado mínimo del subgrafo azul inducido es $\geq k$, y por lo tanto el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices} nos permite encontrar una copia de $T_k$ en el subgrafo azul inducido, en particular $K_n$ tiene una copia azul de $T_k$.
+Para la primera desigualdad se puede aplicar un razonamieneto similar a la demostración del teorema anterior. Veamos entonces solo la cota superior.
+
+Sea $n = 2k + 1$ y consideremos $K_n$ con una coloración. Supongamos entonces que existe un vértice $v$ de grado rojo al menos $k+1$. Entonces la vecindad $N^{\text{rojo}} (v)$ induce un $K_{k+1}$ que si tiene alguna arista roja entonces existe un triángulo rojo en $K_n$, y si no, $K_n$ contiene un $K_{k+1}$ con aristas azules y en particular contiene un $T_k$ azul. Ahora, supongamos que todo vértice tiene grado rojo $\leq k$. Esto implica que el grado mínimo del subgrafo azul inducido es $\geq k$, y por lo tanto el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices} nos permite encontrar una copia de $T_k$ en el subgrafo azul inducido, en particular $K_n$ tiene una copia azul de $T_k$.
 \end{proof}
 
 \begin{theorem}[Chvátal (1977)]
@@ -2189,11 +2212,11 @@ Sea $T_k$ un árbol con $k$ aristas, y sea $s \geq 2$. Entonces
 \]
 \end{theorem}
 \begin{proof}
-Primero veamos la cota inferior: sea $n = s\cdot k$ y consideremos la siguiente coloración de $K_n$. El grafo azul consiste de $s$ copias de $K_k$ y las aristas rojas son las aristas entre los vértices de las copias de $K_k$.
+Primero veamos la cota inferior: sea $n = s\cdot k$, consideremos la siguiente coloración de $K_n$: el grafo azul consiste de $s$ copias de $K_k$ y las aristas rojas son las aristas entre los vértices de las copias de $K_k$.
 
 \Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 5.pdf_tex"}
 
-Para la cota superior, haremos inducción en $s \geq 2$. Si $s = 2$, tenemos que $r (K_3, T) \leq 2 k + 1$ por el teorema anterior. Supongamos ahora que $s \geq 3$. Sea $n = s\cdot k + 1$. Sea $v$ un vértice con grado rojo $\geq (s-1)k + 1$, y sea $A$ la vecindad roja de $v$. Por hipótesis inductiba en $K_n[A]$, hay una copia de $K_s$ rojo, o una copia de $T$ azul y ganamos. Así, podemos asumir que el grado rojo de cada vértice es $\leq (s-1)k$. Esto implica qu eel grafo azul tendrá grado mínimo $\geq (s \cdot k +1 ) - 1 - (s + 1) k \geq k$. Con lo cual contiene a $T$ por el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices}.
+Para la cota superior, haremos inducción en $s \geq 2$. Si $s = 2$, tenemos que $r (K_3, T_k) \leq 2 k + 1$ por el teorema anterior. Supongamos ahora que $s \geq 3$. Sea $n = s\cdot k + 1$. Sea $v$ un vértice con grado rojo $\geq (s-1)k + 1$, y sea $A$ la vecindad roja de $v$. Por hipótesis inductiba en $K_n[A]$, hay una copia de $K_s$ rojo, o una copia de $T_k$ azul y ganamos. Así, podemos asumir que el grado rojo de cada vértice es $\leq (s-1)k$. Esto implica que el grafo azul tendrá grado mínimo $\geq (s \cdot k +1 ) - 1 - (s + 1) k \geq k$. Con lo cual contiene una copia de $T_k$ por el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices}.
 \end{proof}
 
 

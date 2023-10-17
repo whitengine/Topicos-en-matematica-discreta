@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.2.2 (732a01da63, 2022-12-09, custom), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Figura 3.pdf' (pdf, eps, ps)
+%% Accompanies image file 'Figura 6.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,11 +53,7 @@
   \begin{picture}(1,0.53242086)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Figura 3.pdf}}%
-    \put(0.64595226,0.31838814){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Azul\end{tabular}}}}%
-    \put(0.28355292,0.31838814){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Azul\end{tabular}}}}%
-    \put(0.28078347,0.08177883){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$ vértices\end{tabular}}}}%
-    \put(0.60790507,0.08177883){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$k$ vértices\end{tabular}}}}%
-    \put(0.47349502,0.38161786){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Rojo\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Figura 6.pdf}}%
+    \put(0.48552334,0.06494751){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$K_{2^2}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

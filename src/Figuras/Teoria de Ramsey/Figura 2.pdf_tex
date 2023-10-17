@@ -54,8 +54,8 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Figura 2.pdf}}%
-    \put(0.61328278,0.36766324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$A \geq 3 (r-1)!$\end{tabular}}}}%
-    \put(0.23847474,0.32642399){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v$\end{tabular}}}}%
+    \put(0.61328278,0.36766324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\abs{A} \geq 3 (r-1)!$\end{tabular}}}}%
+    \put(0.24168181,0.32642399){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_0$\end{tabular}}}}%
     \put(0.38601009,0.38971072){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i$\end{tabular}}}}%
     \put(0.38601009,0.34561578){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i$\end{tabular}}}}%
     \put(0.38601009,0.30152084){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i$\end{tabular}}}}%
