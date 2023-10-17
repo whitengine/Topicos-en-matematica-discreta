@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{Rob55}
+
+\bibitem[Rob55]{herbertRobbins1955}
+Herbert Robbins.
+\newblock A remark on stirling's formula.
+\newblock {\em The American Mathematical Monthly}, 62(1):26--29, 1955.
 
 \end{thebibliography}
