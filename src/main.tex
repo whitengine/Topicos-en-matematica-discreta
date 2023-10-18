@@ -2171,6 +2171,8 @@ El \textbf{número de Ramsey de $H_1$ versus $H_2$} está definido por:
 \[
     r(H_1, H_2) = \min \{ n | K_n \to (H_1, H_2)\}.
 \]
+
+En particular, escribimos $r (H):= r (H,H)$.
 \end{definition}
 
 
@@ -2189,8 +2191,6 @@ Para la cota superior, consideremos $K_n$ con $n = 2k + 1$. Sea $P$ un camino ma
 \item[\textbf{Caso 1:}] Si en $K_n [B]$ hay aristas rojas entonces hay un triángulo de color rojo (con un vértice $v_0$).
 \item[\textbf{Caso 2:}] Si en $K_n [B]$ no hay aristas rojas, entonces todas las aristas son azules y por lo tanto hay una copia de $K_{k+1}$ azul, y por lo tanto contiene a $P_k$ de color azul.
 \end{enumerate}
-
-\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 4.pdf_tex"}
 \end{proof}
 
 \begin{theorem}
@@ -2202,7 +2202,11 @@ Sea $T_k$ un árbol con $k$ aristas (i.e., $k+1$ vértices). Entonces
 \begin{proof}
 Para la primera desigualdad se puede aplicar un razonamieneto similar a la demostración del teorema anterior. Veamos entonces solo la cota superior.
 
-Sea $n = 2k + 1$ y consideremos $K_n$ con una coloración. Supongamos entonces que existe un vértice $v$ de grado rojo al menos $k+1$. Entonces la vecindad $N^{\text{rojo}} (v)$ induce un $K_{k+1}$ que si tiene alguna arista roja entonces existe un triángulo rojo en $K_n$, y si no, $K_n$ contiene un $K_{k+1}$ con aristas azules y en particular contiene un $T_k$ azul. Ahora, supongamos que todo vértice tiene grado rojo $\leq k$. Esto implica que el grado mínimo del subgrafo azul inducido es $\geq k$, y por lo tanto el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices} nos permite encontrar una copia de $T_k$ en el subgrafo azul inducido, en particular $K_n$ tiene una copia azul de $T_k$.
+Sea $n = 2k + 1$ y consideremos $K_n$ con una coloración. Supongamos entonces que existe un vértice $v$ de grado rojo al menos $k+1$. Entonces la vecindad $N^{\text{rojo}} (v)$ induce un $K_{k+1}$ que si tiene alguna arista roja entonces existe un triángulo rojo en $K_n$, y si no, $K_n$ contiene un $K_{k+1}$ con aristas azules y en particular contiene un $T_k$ azul.
+
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 4.pdf_tex"}
+
+Ahora, supongamos que todo vértice tiene grado rojo $\leq k$. Esto implica que el grado mínimo del subgrafo azul inducido es $\geq k$, y por lo tanto el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices} nos permite encontrar una copia de $T_k$ en el subgrafo azul inducido, en particular $K_n$ tiene una copia azul de $T_k$.
 \end{proof}
 
 \begin{theorem}[Chvátal (1977)]
@@ -2219,14 +2223,67 @@ Primero veamos la cota inferior: sea $n = s\cdot k$, consideremos la siguiente c
 Para la cota superior, haremos inducción en $s \geq 2$. Si $s = 2$, tenemos que $r (K_3, T_k) \leq 2 k + 1$ por el teorema anterior. Supongamos ahora que $s \geq 3$. Sea $n = s\cdot k + 1$. Sea $v$ un vértice con grado rojo $\geq (s-1)k + 1$, y sea $A$ la vecindad roja de $v$. Por hipótesis inductiba en $K_n[A]$, hay una copia de $K_s$ rojo, o una copia de $T_k$ azul y ganamos. Así, podemos asumir que el grado rojo de cada vértice es $\leq (s-1)k$. Esto implica que el grafo azul tendrá grado mínimo $\geq (s \cdot k +1 ) - 1 - (s + 1) k \geq k$. Con lo cual contiene una copia de $T_k$ por el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices}.
 \end{proof}
 
+\begin{theorem}
+Para todo $k \in \naturals$ se tiene que
+\[
+    \boxed{r (P_k) = \ceil{\frac{3k}{2}}}.
+\]
+\end{theorem}
+\begin{proof}
+Veamos primero la cota inferior. Sea $n := \ceil{\frac{3k}{2}}-1$. Consideremos un $K_k$ azul en $K_n$ y escribamos $A$ al conjunto de sus vértices; el resto de las aristas las pintamos de rojo. Notar que $B:= V(K_n) \setminus V(K_k)$ cumple
+\[
+    \abs B < \frac{k}{2}.
+\]
+Así, $K_n$ no tiene un $P_k$ azul. Veamos que tampoco tiene un rojo:
 
+Tomemos un camino rojo $P$, luego no puede tener dos vértices adyacentes de $A$ (pues $K_n [A]$ es un completo azul). Por lo tanto en el peor de los casos $P$ tiene $\abs B$ vértices de $B$ tales que entre cada par consecutivos de estos hay un vértice de $A$. O sea,
+\[
+    \abs{P} \leq 2\abs{B} + 1 < k + 1.
+\]
+Es decir, tampoco tiene un $P_k$ rojo.
 
+\Inkscape{Ilustración de esta situación.}{"./Figuras/Teoria de Ramsey/Figura 8.pdf_tex"}
 
+\bigskip
 
+Veamos ahora la cota superior.
 
+\end{proof}
 
+\section{Problema del final feliz}
 
+\begin{quote}[El problema de E. Klein (1930)]
+Para todo $k \in \naturals$, existe $n = n(k) \in \naturals$ tal que dados $n$ puntos en posición general del plano (i.e. no hay $3$ puntos colineales). Entonces el conjunto de puntos contiene $k$ puntos en posición convexa.
+\end{quote}
+Ella probó el caso $k = 4$ y $n = 5$: consideramos la cápsula convexa de los $5$ puntos, si los vértices son $4$ o $5$ de estos puntos ya ganamos, si no, existen dos puntos que están contenidos en el interior del triángulo convexo (formado por $3$ de estos puntos como vértices). Luego simplemente considerar la recta que une a estos dos puntos interiores, interseca a dos lados distintos del triángulo y por lo tanto hay $4$ puntos en posición convexa:
 
+\Inkscape{Dibujo}{}
+
+En general, se probó lo siguiente:
+
+\begin{definition}
+Sea una $r$-coloración de subconjuntos de $\{1, \ldots, n\}$ de tamaño $s$, digamos
+\[
+    c : \binom{\{1, \ldots, n\}}{s} \longrightarrow \{1, \ldots, r\}.
+\]
+Diremos que el conjunto $A \subset \{1, \ldots, n\}$ es monocromático si $c$ es constante en $\binom A s := \{S\subset A | \abs S = s\}$.
+\end{definition}
+
+\begin{theorem}[Teorema de Ramsey Generalizado]\label{th:teorema de Ramsey Generalizado}
+Para todo $k,r,s \in \naturals$, existe $n \in \naturals$ tal que toda $r$-coloración de $\binom{\{1, \ldots, s\}}{s}$ contiene un conjunto monocromático de tamaño $k$.
+\end{theorem}
+
+\begin{remark}
+Nosotros probamos el caso $K_n$ en lugar de $\binom{\{1,\ldots,n\}}{s}$ con $s = 2$ y $K_k$ monocromático.
+\end{remark}
+
+\begin{proof}[Problema de Klein]
+Tomemos una coloración rojo-azul $c$ del conjunto $\binom{\{1, \ldots, n\}}{4}$. Y coloreemos $c(S)$ de rojo si y solo si los puntos de $S$ están en posición convexa. Por el Teorema de Ramsey Generalizado \ref{th:teorema de Ramsey Generalizado}, existe $n$ tal que $B \subset \{1, \ldots, n\}$ es monocromático y $\abs B = k$. Hay dos casos:
+\begin{enumerate}
+\item[\textbf{Caso 1:}] $B$ es rojo, y por lo tanto todos los subconjuntos de tamaño $4$ de $B$ tienen color rojo, i.e., están en posición convexa. Ahora, los puntos de $B$ están en posición convexa, de lo contrario, podríamos encontrar un punto de $B$ en el interior de un triángulo con vértices de $B$ (notar que esto vale por no-colinealidad: trazamos las diagonales entre vértices del polígono convexo el punto no puede estar en ninguna de estas rectas, i.e., está dentro de un triángulo), absurdo.
+\item[\textbf{Caso 2:}] $B$ es azul, como $k \geq 5$, por el resultado preliminar de Klein, existen $4$ puntos en posición convexa, absurdo.
+\end{enumerate}
+\end{proof}
 
 
 
