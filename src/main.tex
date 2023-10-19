@@ -10,9 +10,6 @@
 
 
 
-\usepackage{subfiles} %esto es para modularizar el overleaf
-%para usar este paquete solamente hay que usar el comando
-%\subfile{}
 
 
 
@@ -62,6 +59,7 @@
 
 \usepackage[shortlabels]{enumitem}
 
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
@@ -73,6 +71,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsthm}
+
+\usepackage{subfiles} %esto es para modularizar el overleaf
+%para usar este paquete solamente hay que usar el comando
+%\subfile{}
+%funciona mejor al final
+
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[section]
@@ -2246,41 +2250,107 @@ Es decir, tampoco tiene un $P_k$ rojo.
 
 \bigskip
 
-Veamos ahora la cota superior.
+Veamos ahora la cota superior. Vamos a probar un resultado un poco más general haciendo inducción en $k$:
+\begin{quote}
+Sea $k \geq l \geq 1$ y sea $n = k + \ceil{\frac{l}{2}}$, entonces
+\[
+    K_n \longrightarrow (P_k , P_l)
+\]
+\end{quote}
+Notar que el caso $k = l$ implica la cota superior.
 
+Consideremos una coloración de $K_n$. Sea $P$ un camino rojo maximal y supongamos que $\abs P \leq k$. Por maximalidad, cada extremo forma aristas azules con cada vértice de $V(G) \setminus V(P)$.
+
+Nuestro caso base es $1 \leq l \leq k \leq 3$, donde vale la afirmación:
+
+\Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 9.pdf_tex"}
+
+Ahora veamos el paso inductivo. Supongamos que $4 \leq l < k$. Por hipótesis inductiva, tenemos que $K_n \longrightarrow (P_{k-1}, P_l)$ y por lo tanto sin pérdida de generalidad podemos suponer que existe un $(k-1)$-camino rojo en $K_n$, digamos $P = v_1 v_2 \cdots v_k$. Escribamos $U := V(K_n) \setminus V(P)$; sabemos que $\abs U = \ceil{\frac l 2 }$. Notemos lo siguiente:
+\begin{enumerate}[(i)]
+\item Las aristas entre $v_1,v_k$ y $U$ son azules.
+\item Para cada par de vértices consecutivos $v_i v_{i+1}$ en $P$ y cada $u \in U$, existe una arista azul en $\{v_i u, v_{i+1} u\}$, pues de lo contrario habríamos encontrado un $P_k$ rojo.
+\end{enumerate}
+
+Sean $Q_1$ y $Q_2$ caminos azules vértice-disjuntos de longitud impar (i.e., cantidad par de vértices) que alternan vértices de $v_2, \ldots, v_k$ y $U$. Tomemos $Q_1$ maximal, y sujeto a esto, tomemos $Q_2$ maximal. Por paridad de la longitud de $Q_1$ y $Q_2$, ambos tienen exactamente un extremo en $U$, digamos $x$ e $y$, respectivamente. Tenemos dos casos:
+\begin{enumerate}
+\item[\textbf{Caso 1:}] $Q_1$ y $Q_2$ cubren $U$, es decir, $U \subset Q_1 \cup Q_2$. Con lo cual, podemos construir un $l$-camino rojo considerando $Q_1 x v_1 y Q_2$. Luego supongamos que estamos en:
+\item[\textbf{Caso 2:}] Existe $z \in U \setminus ( Q_1 \cup Q_2)$.
+\end{enumerate}
+
+Observemos que $v_k \in Q_1$, de lo contrario podríamos extender $Q_1$ con las aristas azules $v_k z$ y $v_k x$. Notemos que $Q_1 \cup Q_2$ contiene a lo más $\abs{U} -1$ vértices de $P$, y
+\[
+    \abs U  - 1 < \frac{k-1}{2}.
+\]
+Con lo cual, en $\{v_2, \ldots, v_{k-1}\}$ hay $\frac{k-1}{2} - 2 < \floor{\frac{k-2}{2}}$ vértices de $Q_1 \cup Q_2$. Así, existe un par de vértices consecutivos $v_{i}, v_{i+1}$ con $2 \leq i \leq k-2$ tales que $v_i , v_{i+1} \not \in Q_1 \cup Q_2$. Sin embargo, por el ítem (ii), existen existen dos aristas azules entre $v_i$ o $v_{i+1}$ y alguno de los siguientes conjuntos: $\{x,y\}$; $\{y,z\}$; o $\{x,z\}$. Esto contradice la maximalidad de $Q_1$ y $Q_2$, ya que podríamos extender algunos de estos caminos, y por ende el caso 2 no puede ocurrir.
+
+\bigskip
+
+
+Finalmente veamos el caso $k = l \geq 4$. Por hipótesis inductiva, tenemos que $K_n \longrightarrow (P_k, P_{k-1})$ y y por simetría se tiene $K_n \longrightarrow (P_{k-1}, P_k)$. Con lo cual, existe un $(k-1)$-camino rojo, digamos $P_r = v_1 \cdots v_k$, y un $(k-1)$-camino azul, digamos $P_a = w_1 \cdots w_k$. Si alguno de estos caminos se pudiera extender monocromáticamente habríamos terminado, con lo cual supongamos que son maximales monocromáticos. Notar que por maximalidad, debe ser que $\{v_1 , v_k\} = \{w_1, w_k\}$, de lo contrario podríamos extender monocromáticamente alguno de los dos caminos; digamos que $v_1 = w_1$ y $v_k = w_k$.
+
+Ahora bien, tenemos que
+\[
+    n  = k + \ceil{\frac k 2} \geq \abs{V(P_r) \cup V(P_a)} = \abs{V(P_r)} + \abs{V (P_a)} - \abs{V(P_r) \cap V(P_a)} = 2k - \abs{V(P_r) \cap V(P_a)}.
+\]
+Consecuentemente, $\abs{V(P_r) \cap V(P_a)} \geq \floor{\frac{k}{2}}$. Hay dos opciones:
+\begin{enumerate}
+\item[\textbf{Opción 1:}] $\abs{V(P_r) \cap V(P_a)} > \floor{\frac{k}{2}}$. En este caso existe $z \in V(K_n) \setminus (V(P_r) \cup V(P_a))$, y por lo tanto $z v_1 = z w_1$ es una arista de color rojo o azul, y en cualquier caso podemos extender $P_r$ o $P_a$ monocromáticamente, contradiciendo la maximalidad de los caminos.
+\item[\textbf{Opción 2:}] $\abs{V(P_r) \cap V(P_a)} = \floor{\frac{k}{2}}$. En este caso $P_r \cup P_a = K_n$ y de hecho, deben existir dos vértices interiores consecutivos de $P_r$, digamos $v_i v_{i+1}$ con $1 < i < k$, tales que no son vértices de $P_a$; similarmente, existen dos vértices interiores consecutivos de $P_a$, digamos $w_j w_{j+1}$ con $1 < j < k$, tales que no son vértices de $P_r$.
+\end{enumerate}
+
+Más aún, la arista $v_1 v_k = w_1 w_k$ es de color rojo o azul, digamos rojo (el otro caso es análogo). Con lo cual, tenemos un ciclo rojo $C_r := v_1 P_r v_{k} v_1$ de longitud $k$, y por lo tanto, podemos suponer que todas las aristas incidentes a $C_r$ tienen que ser azules, si no habríamos encontrado un $k$-camino rojo. Pero luego las aristas $w_j v_i$ y $w_{j+1} v_i$ son azules, y podemos alargar $P_a$ a un $k$-camino azul:
+\[
+    w_1 \cdots w_j v_i w_{j+1} \cdots w_k,
+\]
+contradiciendo la maximalidad de $P_a$. Como hemos agotado todos los casos, se concluye la demostración.
 \end{proof}
 
-\section{Problema del final feliz}
+\section{El problema con un final feliz}
 
-\begin{quote}[El problema de E. Klein (1930)]
+\begin{proposition}[El problema de E. Klein (1930)]
 Para todo $k \in \naturals$, existe $n = n(k) \in \naturals$ tal que dados $n$ puntos en posición general del plano (i.e. no hay $3$ puntos colineales). Entonces el conjunto de puntos contiene $k$ puntos en posición convexa.
-\end{quote}
-Ella probó el caso $k = 4$ y $n = 5$: consideramos la cápsula convexa de los $5$ puntos, si los vértices son $4$ o $5$ de estos puntos ya ganamos, si no, existen dos puntos que están contenidos en el interior del triángulo convexo (formado por $3$ de estos puntos como vértices). Luego simplemente considerar la recta que une a estos dos puntos interiores, interseca a dos lados distintos del triángulo y por lo tanto hay $4$ puntos en posición convexa:
+\end{proposition}
+\begin{proof}[Demostración del caso $k = 4$ y $n = 5$]
+Ella probó este caso\footnote{El cual fue bautizado como ``El problema con un final feliz'' por Paul Erdős, debido a que llevó al casamiento de George Szekeres y Esther Klein.}. Consideramos la cápsula convexa de los $5$ puntos, si los vértices son $4$ o $5$ de estos puntos ya ganamos, si no, existen dos puntos que están contenidos en el interior del triángulo convexo (formado por $3$ de estos puntos como vértices). Luego simplemente consideramos la recta que une a estos dos puntos interiores, la cual interseca a dos lados distintos del triángulo, y por lo tanto hay $4$ puntos en posición convexa:
 
-\Inkscape{Dibujo}{}
 
-En general, se probó lo siguiente:
+
+\subfile{Figuras/Final feliz/final-feliz}
+\end{proof}
+
+El caso general se resolvió utilizando el \textit{Teorema de Ramsey Generalizado}, que enunciamos luego de algunas definiciones:
+
+\begin{notation}
+Dado $n \in \naturals$, notamos al conjunto $[n] := \{1, \ldots, n\}$.
+\end{notation}
+
+\begin{notation}
+Sea $A$ un conjunto arbitrario, y $s \in \naturals$, notamos al conjunto:
+\[
+    \binom{A}{s} := \Set{S \subset A | \abs S = s}.
+\]
+\end{notation}
 
 \begin{definition}
-Sea una $r$-coloración de subconjuntos de $\{1, \ldots, n\}$ de tamaño $s$, digamos
+Una \textbf{$r$-coloración de subconjuntos} de $[n]$ de tamaño $s$, es una función
 \[
-    c : \binom{\{1, \ldots, n\}}{s} \longrightarrow \{1, \ldots, r\}.
+    c : \binom{[n]}{s} \longrightarrow \{1, \ldots, r\}.
 \]
-Diremos que el conjunto $A \subset \{1, \ldots, n\}$ es monocromático si $c$ es constante en $\binom A s := \{S\subset A | \abs S = s\}$.
+Diremos que $A \in \binom{[n]}s$ es \textbf{monocromático} (respecto de $c$), si $c(S) = c(S')$ para todo $S \in \binom{A}s$.
 \end{definition}
 
 \begin{theorem}[Teorema de Ramsey Generalizado]\label{th:teorema de Ramsey Generalizado}
-Para todo $k,r,s \in \naturals$, existe $n \in \naturals$ tal que toda $r$-coloración de $\binom{\{1, \ldots, s\}}{s}$ contiene un conjunto monocromático de tamaño $k$.
+Para todo $k,r,s \in \naturals$, existe $n \in \naturals$ tal que toda $r$-coloración de $\binom{[n]}{s}$ contiene un conjunto monocromático de tamaño $k$.
 \end{theorem}
 
 \begin{remark}
-Nosotros probamos el caso $K_n$ en lugar de $\binom{\{1,\ldots,n\}}{s}$ con $s = 2$ y $K_k$ monocromático.
+Nosotros probamos el caso $K_n$ en lugar de $\binom{[n]}{s}$ con $s = 2$ y $K_k$ monocromático.
 \end{remark}
 
-\begin{proof}[Problema de Klein]
-Tomemos una coloración rojo-azul $c$ del conjunto $\binom{\{1, \ldots, n\}}{4}$. Y coloreemos $c(S)$ de rojo si y solo si los puntos de $S$ están en posición convexa. Por el Teorema de Ramsey Generalizado \ref{th:teorema de Ramsey Generalizado}, existe $n$ tal que $B \subset \{1, \ldots, n\}$ es monocromático y $\abs B = k$. Hay dos casos:
+\begin{proof}[Continuación de la demostración del problema de E. Klein]
+Falta probar el caso $k \geq 5$. Tomemos una coloración rojo-azul $c$ del conjunto $\binom{[n]}{4}$. Y coloreemos $c(S)$ de rojo si y solo si los puntos de $S$ están en posición convexa. Por el Teorema de Ramsey Generalizado \ref{th:teorema de Ramsey Generalizado}, existe $n$ tal que $B \subset [n]$ es monocromático y $\abs B = k$. Hay dos casos:
 \begin{enumerate}
-\item[\textbf{Caso 1:}] $B$ es rojo, y por lo tanto todos los subconjuntos de tamaño $4$ de $B$ tienen color rojo, i.e., están en posición convexa. Ahora, los puntos de $B$ están en posición convexa, de lo contrario, podríamos encontrar un punto de $B$ en el interior de un triángulo con vértices de $B$ (notar que esto vale por no-colinealidad: trazamos las diagonales entre vértices del polígono convexo el punto no puede estar en ninguna de estas rectas, i.e., está dentro de un triángulo), absurdo.
+\item[\textbf{Caso 1:}] $B$ es rojo, y por lo tanto todos los subconjuntos de tamaño $4$ de $B$ tienen color rojo, i.e., están en posición convexa. Ahora, los puntos de $B$ están en posición convexa, de lo contrario, podríamos encontrar un punto de $B$ en el interior de un triángulo con vértices de $B$ (notar que esto vale por no-colinealidad: trazamos las diagonales entre vértices del polígono convexo; el punto no puede estar en ninguna de estas rectas, i.e., está dentro de un triángulo), absurdo.
 \item[\textbf{Caso 2:}] $B$ es azul, como $k \geq 5$, por el resultado preliminar de Klein, existen $4$ puntos en posición convexa, absurdo.
 \end{enumerate}
 \end{proof}

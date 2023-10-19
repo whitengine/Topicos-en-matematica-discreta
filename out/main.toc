@@ -9,4 +9,4 @@
 \contentsline {section}{\numberline {1.7}Regularidad}{23}{section.1.7}%
 \contentsline {chapter}{\numberline {2}Teoría de Ramsey}{35}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Números de Ramsey}{36}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Problema del final feliz}{43}{section.2.2}%
+\contentsline {section}{\numberline {2.2}El problema con un final feliz}{45}{section.2.2}%
