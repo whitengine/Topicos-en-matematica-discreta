@@ -2356,19 +2356,84 @@ Falta probar el caso $k \geq 5$. Tomemos una coloración rojo-azul $c$ del conju
 \end{proof}
 
 
+\begin{theorem}[Seidenberg]
+Toda secuencia de $k^2 + 1$ números reales contiene una subsecuencia monótona de largo $k+1$.
+\end{theorem}
+\begin{proof}
+Sea $a_1, \ldots, a_n$ una secuencia de números reales con $n = k^2 + 1$. Para cada $i \in [n]$, definimos un par:
+\[
+    (x_i, y_i),
+\]
+donde $x_i$ es el largo de la subsecuencia no decreciente más larga que termina en $a_i$; $y_i$ es el largo de la subsecuencia no creciente más larga que termina en $a_i$.
+
+Para $i \neq j$, veamos que $(x_i, y_i) \neq (x_j, y_j)$. Para eso, sin pérdida de generalidad, supongamos que $i < j$. Tenemos dos casos:
+\begin{enumerate}
+\item[\textbf{Caso 1:}] $a_i \leq a_j$. Acá se tiene que $x_i < x_j$.
+\item[\textbf{Caso 2:}] $a_j \leq a_i$. Acá se tiene que $y_i < y_j$.
+\end{enumerate}
+
+Ahora por contradicción, si $x_i, y_i \leq k$ para todo $i \in [n]$, entonces hay a lo más $k^2$ pares distintos, sin embargo $n = k^2 + 1$, por lo que hay almenos un par repetido, absurdo.
+\end{proof}
+
+
+El siguiente ejercicio dice que el teorema anterior es preciso:
+\begin{exercise}
+Encontrar secuencia de números reales de largo $k^2$ sin subsecuencias monótonas de largo $k+1$.
+\end{exercise}
 
 
 
 
+\begin{theorem}[Chrátal, Rödl, Szemeredi \& Trotter (1983)]
+Para todo $\Delta \in \naturals$, existe una constante $c = c(\Delta)>0$ tal que todo grafo $H$ con $\Delta (H) \leq \Delta$, satisface
+\[
+    r(H) \leq c(\Delta) \cdot \abs H.
+\]
+En particular, para $n \geq c(\Delta) \cdot \abs H$, toda $2$-coloración de $K_n$ contiene un $H$ monocromático.
+\end{theorem}
+
+\begin{proof}
+La idea será aplicar el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} y el siguiente lema de inmersión:
 
 
+\begin{lemma}[Un lema de inmersión]\label{lema:un lema de inmersion para numeros de ramsey}
+Dados $d \in \naturals$ y $\delta >0$, existe $\varepsilon > 0$ y $\gamma > 0$ tales que si $n \in \naturals$ y $H$ es un grafo con $\Delta (H) \leq d$ y $\abs H \leq \gamma n$, entonces
+\[
+    G \in \mathcal G (K_{d+1}, n , \varepsilon , \delta) \quad \Longrightarrow \quad H \subset G    .
+\]
+\end{lemma}
 
+Sea $\Delta > 0$ y $H$ con $\Delta (H) \leq \Delta$. Aplicamos este lema de inmersión con $d = \Delta$ y $\delta = \frac{1 }{2}$, y obtenemos parámetros $\varepsilon$ y $\gamma$, tales que se cumple la conclusión del enunciado. Consideremos $K_n$ con $n \geq c(\Delta) \cdot \abs H$ donde $c(\delta) $ es lo suficientemente grande.
 
+Tomemos una coloración con rojo y azul de $K_n$, y sean $G_r$ y $G_a$ los subgrafos inducidos de color rojo y azul, respectivamente. Sea $m := r(K_{d+1})$. Aplicamos el Lema de Regularidad de Szémeredi \ref{theorem:lema de regularidad de szemeredi} en $G_r$ con parámetro $m$ y $\varepsilon$. Obtenemos una partición $\varepsilon$-regular
+\[
+    V(G_r) = V_0 \coprod V_1 \coprod \cdots \coprod V_k,
+\]
+con $m \leq k \leq M$. Notar que esta partición también es $\varepsilon regular$ para $G_a$ \red{\textbf{TAREA}}.
 
+Sea $R$ el grafo reducido con parámetros $\varepsilon$ y densidad $0$ (no nos interesa la densidad). Entonces,
+\[
+    e(R) \geq \binom k 2     - \varepsilon k^2 > t_{m-1} (k) = \left ( 1 - \frac{1}{m-1} + o(1) \right) \frac{k^2}{2}  \quad (k \longrightarrow 1),
+\]
+y por lo tanto el Teorema de Turán \ref{th:teorema de Turan todo grafo K_k+1 libre en n vertices tiene cantidad de aristas e < t_k (n)}, $R \supset K_m$. Sean ahora $A_1, \ldots, A_m$ las partes que corresponden a los vértices de $K_m$ en $R$. Vamos a definir una $2$-coloración $f$ de las aristas de $K_m$:
+\[
+    f(ij) = \text{rojo} \quad \Leftrightarrow \quad d_{G_r} (V_i, V_j) \geq \frac{1}{2}.
+\]
+Como $m = r (K_{d + 1})$, existe un $K_{d + 1}$ rojo o azul, sin pérdida de generalidad supongamos que es rojo en $K_m$. Reindexando los $A_i$, podemos suponer que $A_1, \ldots, A_{d+1}$ corresponden a las partes de $K_{d+1}$ de $K_m$. El grafo inducido
+\[
+    G' = G_r [A_1 \cup \cdots \cup A_{d+1}]
+\]
+satisface que $G' \in \mathcal G (K_{d+1}, n', \varepsilon, \delta)$, con
+\[
+    n' = \abs{V_1} = \cdots, \abs{V_k} \geq \frac{n}{M}.
+\]
 
-
-
-
+Así, elegimos $c = c(\Delta)$ suficientemente grande (en particular, $c \geq M/\gamma$), entonces
+\[
+    \abs (H) \leq \frac{n}{c(\Delta)} \leq \frac{\gamma n}{M} \leq \gamma n',
+\]
+con lo cual se tiene la conclusión del teorema por el lema de inmersión de arriba.
+\end{proof}
 
 
 
