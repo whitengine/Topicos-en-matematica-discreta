@@ -15,7 +15,7 @@
 
 \usepackage{graphicx}
 
-\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo probabilistico - 1/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
 
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
@@ -2434,6 +2434,150 @@ Así, elegimos $c = c(\Delta)$ suficientemente grande (en particular, $c \geq M/
 \]
 con lo cual se tiene la conclusión del teorema por el lema de inmersión de arriba.
 \end{proof}
+
+
+
+
+
+
+
+\chapter{El método probabilístico}
+
+Blanche Descarte se preguntó si existen grafos $K_3$-libres con número cromático arbitrariamente grande. Erdös da una prueba probabilítica y mkielski una constructiva. El primero motiva lo que veremos en este capítulo.
+
+
+\section{Fundamentos}
+
+\begin{definition}
+Un \textbf{espacio probabilístico} es un par $(\Omega, P)$, donde $\Omega$ se denomina \textbf{espacio muestral} y $P$ la \textbf{función probabilística}, la cual cumple
+\[
+    \sum_{\omega \in \Omega} P(\omega) = 1,
+\]
+y $P(\omega) \in [0,1] \subset \reals$. A los subconjuntos $A \subset \Omega$, los llamamos \textbf{eventos}, y definimos la cantidad
+\[
+    P(A) := \sum_{\omega \in A} P (w),
+\]
+i.e., la \textbf{probabilidad de que suceda el evento $A$}.
+\end{definition}
+
+Daremos ahora las propiedades básicas de un espacio probabilístico, cuyas demostraciones se ven en cualquier curso introductorio de probabilidad:
+\begin{proposition}
+Sea $(\Omega, P)$ un espacio de probabilidad. Entonces:
+\begin{enumerate}[(1)]
+\item Para todo evento $A \subset \Omega$
+\[
+    P(A) = 1 - P (\Omega \setminus A).
+\]
+\item Si $A \subset B \subset \Omega$, luego $P(A) \leq P(B)$.
+\item Sean $A,B \subset \Omega$, luego tenemos
+\[
+    P(A \cup B) = P(A) + P(B) - P(A \cap B).
+\]
+\item Para una familia $A_1, \ldots, A_r \subset \Omega$, tenemos que
+\[
+    P(\bigcup_{i = 1}^n A_i) \leq \sum_{i = 1}^n P(A_i).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Una \textbf{distribución uniforme} (discreta), es un espacio probabilístico $(\Omega, P)$ tal que $P (\omega) = \frac{1}{\abs \Omega}$. Si $A \subset \Omega$, entonces $P(A) = \frac{\abs A}{\abs \Omega}$.
+\end{definition}
+
+\begin{definition}
+Sean $A,B \subset \Omega$, decimos que $A$ y $B$ son \textbf{eventos independientes} o simplemente \textbf{independientes} si
+\[
+    P(A \cap B) = P(A) \cdot P(B).
+\]
+Más generalemnte, sean $A_1, \ldots, A_n \subset \Omega$, decimos que son \textbf{independientes dos a dos}, si $A_i $ y $A_j$ son independientes para cada $i \neq j$. Por otro lado, decimos que $A_1, \ldots, A_n$ son \textbf{mutuamente independientes} si
+\[
+    P(\bigcap_{i = 1}^n A_i) = \prod_{i = 1}^n P(A_i).
+\]
+\end{definition}
+
+\begin{theorem}[Erdös 1947]
+Para todo $k \geq 3$, se tiene que $R(k) > 2^{k/2}$.
+\end{theorem}
+\begin{proof}
+Sea $n = 2^{k/2}$. A cada arista $uv$ de $K_n$, asignémosle la probabilidad $P(uv) = \frac 1 2$ de que sea color rojo, y lo mismo color azul. El objetivo es probar de que el evento de que haya una coloreo sin $K_k$ monocromático en $K_n$ tiene medida positiva, de aquí se seguirá la demostración. (Notar que estamos trabajando en el espacio probabilístico $(\Omega, P)$, con espacio muestral $\prod_{uv \in E(K_n)} \{\text{rojo}, \text{azul}\}$ y los eventos con aristas distintas son independientes.)
+
+Para cada $A \subset V(K_n)$ de tamaño $k$, tenemos que
+\[
+    P(A \text{ monocromático}) = 2^{-\binom k 2} + 2^{- \binom k 2} = 2^{1 - \binom k 2}.
+\]
+Por lo tanto,
+\begin{align*}
+P(\bigcup_{i = 1}^{\binom n k} A_i) &\leq \sum_{i = 1}^{\binom n k} P(A_i) \\
+&= \binom n k    2^{1 - \binom k 2} \\
+&\leq \frac{n^k}{k!} 2^{1 - k^2/2 + k/2} \\
+&= \frac{2^{1 + k/2}}{k!} \\
+&= \frac{2^{1+ k/2}}{k!} < 1.
+\end{align*}
+\end{proof}
+
+\begin{definition}
+Un \textbf{hipergrafo $k$-uniforme} $H$, es una estructura compuesta por vértices y aristas, donde las aristas son conjuntos de $k$-vértices.
+\end{definition}
+
+
+
+\begin{definition}
+Decimos que un hipergrafo $H$ es \textbf{bicolor}, si es posible colorear los vértices con dos colores, de tal manera que no hay aristas monocromáticas.
+\end{definition}
+
+\Inkscape{Bicoloración de un $3$-hipergrafo $H$ con vértices $v_1,v_2,v_3,v_4$ y aristas $e_1 = \{v_1,v_2,v_3\}$, $e_2 = \{v_2,v_3,v_4\}$, $e_3 = \{v_1,v_2,v_4\}$.}{"./Figuras/Metodo probabilistico - 1/Dibujo 1.pdf_tex"}
+
+\begin{theorem}[Erdös 1963]
+Sea $H$ un hipergrafo $k$-uniforme con aristas $m$ aristas. Si $m < 2^{k-1}$, entonces $H$ es bicolor.
+\end{theorem}
+\begin{proof}
+Sea $H$ un hipergrafo $k$-uniforme. Pintar cada vértice de color rojo o azul de forma independiente con probabilidad $\frac 1 2$.
+Consideremos $A \in E(H)$, luego
+\[
+    P(A \text{ monocromático}) = 2^{1-k}.
+\]
+Escribamos $A_i$ con $i \in [m]$ para los vértices de cada una de las $m$ aristas de $H$. Luego
+\[
+    P(\bigcup_{i = 1}^m A_i) \leq \sum_{i = 1}^n P(A_i) = m \cdot 2^{1-k} < 1.
+\]
+\end{proof}
+
+
+\begin{definition}
+Un \textbf{torneo} $T$ es un grafo dirigido tal que su grafo subyacente no tiene aristas paralelas.
+
+Dado un conjunto $S \subset V(T)$ y un vértice $u \in V(T)$, escribimos $u \to S$ si $(u,v) \in E(T)$ para todo $v \in S$.
+
+Decimios que $T$ tiene \textbf{la propiedad $\mathcal T_k$}, si para todo $S \subset V(T)$ de tamaño $k$, existe un $u \in V(T) \setminus \{S\}$ tal que $u \to S$.
+\end{definition}
+
+\Inkscape{Ejemplo de un torneo $T$ con conjunto $S \subset V(T)$ y $u \in V(T)$ tal que $u \to S$.}{"./Figuras/Metodo probabilistico - 1/Dibujo 2.pdf_tex"}
+
+\begin{theorem}[Erdös 1963]
+Si $n \geq k^2 2^{k+1}$, entonces existe un torneo $T$ con $n$ vértices con la propiedad $\mathcal T_k$.
+
+\end{theorem}
+\begin{proof}
+Consideremos un torneo aleatorio $T$ con $n$ vértices y para cada par $u,v$ escogemos $uv \in E(T)$ o $vu \in E(T)$ de forma independiente con probabilidad $\frac 1 2$. Consideremos un conjunto $S \subset V(T)$ con tamaño $k$. Para todo $u \in V(T) \setminus S$
+\[
+    P(u \to S) = 2^{-k}.
+\]
+Consideremos $A_S$ como el evento de que todo $u \in V(T) \setminus S$ no se cumpla que $u \to S$. Luego
+\[
+    P(A_S) = P(\bigcap_{i = 1}^{n-k} \{u_i \not \to S\}) = \prod_{i = 1}^{n-k} P(\{ u_i \not \in S \}) = (1 - 2^{-k})^{n-k}
+\]
+por independencia de eventos. Ahora
+\begin{align*}
+P(\bigcup_{i = 1}^{\binom n k} A_{S_i}) \leq \binom n k \cdot P(A_{S}) = \binom n k (1 - 2^{-k})^{n-k} \leq \frac{n^k}{k!} e^{-(n-k)/2^k} \leq n^k e^{-n /2^k} = n^k / e^{n/2^k}.
+\end{align*}
+donde usamos que $1 + x \leq e^x$ y que $e^{k/2k}/k! < 1$. 
+\end{proof}
+
+
+
+
+
+
 
 
 
