@@ -15,7 +15,7 @@
 
 \usepackage{graphicx}
 
-\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo probabilistico - 1/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo-probabilistico-1/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
 
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
@@ -2510,8 +2510,7 @@ Por lo tanto,
 P(\bigcup_{i = 1}^{\binom n k} A_i) &\leq \sum_{i = 1}^{\binom n k} P(A_i) \\
 &= \binom n k    2^{1 - \binom k 2} \\
 &\leq \frac{n^k}{k!} 2^{1 - k^2/2 + k/2} \\
-&= \frac{2^{1 + k/2}}{k!} \\
-&= \frac{2^{1+ k/2}}{k!} < 1.
+&= \frac{2^{1 + k/2}}{k!} < 1.
 \end{align*}
 \end{proof}
 
@@ -2522,23 +2521,23 @@ Un \textbf{hipergrafo $k$-uniforme} $H$, es una estructura compuesta por vértic
 
 
 \begin{definition}
-Decimos que un hipergrafo $H$ es \textbf{bicolor}, si es posible colorear los vértices con dos colores, de tal manera que no hay aristas monocromáticas.
+Decimos que un hipergrafo $H$ es \textbf{bicolor}, si es posible colorear los vértices con dos colores, de tal manera que no hay aristas con vértices monocromáticos.
 \end{definition}
 
-\Inkscape{Bicoloración de un $3$-hipergrafo $H$ con vértices $v_1,v_2,v_3,v_4$ y aristas $e_1 = \{v_1,v_2,v_3\}$, $e_2 = \{v_2,v_3,v_4\}$, $e_3 = \{v_1,v_2,v_4\}$.}{"./Figuras/Metodo probabilistico - 1/Dibujo 1.pdf_tex"}
+\Inkscape{Bicoloración de un $3$-hipergrafo $H$ con vértices $v_1,v_2,v_3,v_4$ y aristas $e_1 = \{v_1,v_2,v_3\}$, $e_2 = \{v_2,v_3,v_4\}$, $e_3 = \{v_1,v_2,v_4\}$.}{"./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf_tex"}
 
 \begin{theorem}[Erdös 1963]
-Sea $H$ un hipergrafo $k$-uniforme con aristas $m$ aristas. Si $m < 2^{k-1}$, entonces $H$ es bicolor.
+Sea $H$ un hipergrafo $k$-uniforme con $m$ aristas. Si $m < 2^{k-1}$, entonces $H$ es bicolor.
 \end{theorem}
 \begin{proof}
-Sea $H$ un hipergrafo $k$-uniforme. Pintar cada vértice de color rojo o azul de forma independiente con probabilidad $\frac 1 2$.
+Sea $H$ un hipergrafo $k$-uniforme. Consideramos un coloreo de cada vértice vértice con color rojo o azul, de forma independiente con probabilidad $\frac 1 2$.
 Consideremos $A \in E(H)$, luego
 \[
     P(A \text{ monocromático}) = 2^{1-k}.
 \]
 Escribamos $A_i$ con $i \in [m]$ para los vértices de cada una de las $m$ aristas de $H$. Luego
 \[
-    P(\bigcup_{i = 1}^m A_i) \leq \sum_{i = 1}^n P(A_i) = m \cdot 2^{1-k} < 1.
+    P(\bigcup_{i = 1}^m A_i) \leq \sum_{i = 1}^m P(A_i) = m \cdot 2^{1-k} < 1.
 \]
 \end{proof}
 
@@ -2548,10 +2547,10 @@ Un \textbf{torneo} $T$ es un grafo dirigido tal que su grafo subyacente no tiene
 
 Dado un conjunto $S \subset V(T)$ y un vértice $u \in V(T)$, escribimos $u \to S$ si $(u,v) \in E(T)$ para todo $v \in S$.
 
-Decimios que $T$ tiene \textbf{la propiedad $\mathcal T_k$}, si para todo $S \subset V(T)$ de tamaño $k$, existe un $u \in V(T) \setminus \{S\}$ tal que $u \to S$.
+Decimos que $T$ tiene \textbf{la propiedad $\mathcal T_k$}, si para todo $S \subset V(T)$ de tamaño $k$, existe un $u \in V(T) \setminus \{S\}$ tal que $u \to S$.
 \end{definition}
 
-\Inkscape{Ejemplo de un torneo $T$ con conjunto $S \subset V(T)$ y $u \in V(T)$ tal que $u \to S$.}{"./Figuras/Metodo probabilistico - 1/Dibujo 2.pdf_tex"}
+\Inkscape{Ejemplo de un torneo $T$ con conjunto $S \subset V(T)$ y $u \in V(T)$ tal que $u \to S$.}{"./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf_tex"}
 
 \begin{theorem}[Erdös 1963]
 Si $n \geq k^2 2^{k+1}$, entonces existe un torneo $T$ con $n$ vértices con la propiedad $\mathcal T_k$.
@@ -2564,13 +2563,17 @@ Consideremos un torneo aleatorio $T$ con $n$ vértices y para cada par $u,v$ esc
 \]
 Consideremos $A_S$ como el evento de que todo $u \in V(T) \setminus S$ no se cumpla que $u \to S$. Luego
 \[
-    P(A_S) = P(\bigcap_{i = 1}^{n-k} \{u_i \not \to S\}) = \prod_{i = 1}^{n-k} P(\{ u_i \not \in S \}) = (1 - 2^{-k})^{n-k}
+    P(A_S) = P(\bigcap_{i = 1}^{n-k} \{u_i \not \to S\}) = \prod_{i = 1}^{n-k} P(\{ u_i \not \to S \}) = (1 - 2^{-k})^{n-k}
 \]
 por independencia de eventos. Ahora
 \begin{align*}
-P(\bigcup_{i = 1}^{\binom n k} A_{S_i}) \leq \binom n k \cdot P(A_{S}) = \binom n k (1 - 2^{-k})^{n-k} \leq \frac{n^k}{k!} e^{-(n-k)/2^k} \leq n^k e^{-n /2^k} = n^k / e^{n/2^k}.
+P(\bigcup_{i = 1}^{\binom n k} A_{S_i}) \leq \binom n k \cdot P(A_{S}) = \binom n k (1 - 2^{-k})^{n-k} \leq \frac{n^k}{k!} e^{-(n-k)/2^k} \leq n^k e^{-n /2^k}.
 \end{align*}
-donde usamos que $1 + x \leq e^x$ y que $e^{k/2k}/k! < 1$. 
+donde usamos que $1 + x \leq e^x$ y que $e^{k/2^k}/k! < 1$. Finalmente, notar que se puede escribir el lado derecho como $n^{k}e^{-n/2^k}= e^{k \log n - n/ 2^k}$. Por lo tanto, basta ver que $k \log n < n / 2^k$, equivalentemente
+\[
+    k 2^k < n / \log n,
+\]
+para probar que la probabilidad del lado izquierdo de la desigualdad de arriba es menor que $1$. Este es el caso, pues el lado derecho es creciente en $n$ y se cumple la desigualdad para $n = k^2 2^{k+1}$.
 \end{proof}
 
 
