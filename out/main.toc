@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {2.2}El problema con un final feliz}{45}{section.2.2}%
 \contentsline {chapter}{\numberline {3}El método probabilístico}{49}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Fundamentos}{49}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Esperanza}{53}{section.3.2}%

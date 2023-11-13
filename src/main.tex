@@ -2443,7 +2443,7 @@ con lo cual se tiene la conclusión del teorema por el lema de inmersión de arr
 
 \chapter{El método probabilístico}
 
-Blanche Descarte se preguntó si existen grafos $K_3$-libres con número cromático arbitrariamente grande. Erdös da una prueba probabilítica y mkielski una constructiva. El primero motiva lo que veremos en este capítulo.
+En 1959, Erdös probó que \textit{para todo entero $k$ existe un grafo $G$ con $g(G)>k$ y $\chi (G) > k$}. El enfoque que tomó fue definir un espacio de probabilidad en el conjunto de grafos con $n$ vértices, y probar que para una medida de probabilidad adecuada, la probabilidad de que un grafo con $n$ vértices cumpla ambas condiciones es positiva para $n$ lo suficientemente grande. A esta técnica se le llama el \textbf{método probabilístico}, y será el eje central de este capítulo.
 
 
 \section{Fundamentos}
@@ -2494,6 +2494,16 @@ Más generalemnte, sean $A_1, \ldots, A_n \subset \Omega$, decimos que son \text
     P(\bigcap_{i = 1}^n A_i) = \prod_{i = 1}^n P(A_i).
 \]
 \end{definition}
+
+Dado $n \in \naturals$, podemos construir un espacio probabilístico $\mathcal G:= \mathcal G (n, p) := (\Omega , P)$, donde $\Omega$ es el conjunto de grafos con conjunto de vértices $V:= [n]$, y para cada posible arista $e$, la probabilidad de que $e$ pertenezca a $E(G)$ para $G \in \Omega$ es $p$, y estos eventos son independientes para distintas aristas $e \neq e'$. Más precisamente, los eventos $A_e := \{G \in \Omega | e \text{ es arista de $G$}\}$ con distintos $e$, son mutuamente independientes. Llamaremos a $G$ un \textbf{grafo aleatorio}. (Se puede encontrar una construcción formal en el Capítulo 11 de \cite{diestel2000graphTheory}).
+
+\begin{example}
+Dado un grafo fijo $H$ con $k$ vértices y $m$ aristas, consideremos el evento: $G$ contiene a $H$ como subgrafo. La probabilidad de que este evento suceda, es
+\[
+    \prod_{e \in H} P (A_e) = p^m.
+\]
+Similarmente, la probabilidad de que $H$ sea un subgrafo inducido de $G$ es $p^m (1-p)^{\binom k 2 - m}$, pues ahora hay que considerar que las aristas que no están en $H$ tampoco pueden estar en $G$ (evento independiente).
+\end{example}
 
 \begin{theorem}[Erdös 1947]
 Para todo $k \geq 3$, se tiene que $R(k) > 2^{k/2}$.
@@ -2575,6 +2585,135 @@ donde usamos que $1 + x \leq e^x$ y que $e^{k/2^k}/k! < 1$. Finalmente, notar qu
 \]
 para probar que la probabilidad del lado izquierdo de la desigualdad de arriba es menor que $1$. Este es el caso, pues el lado derecho es creciente en $n$ y se cumple la desigualdad para $n = k^2 2^{k+1}$.
 \end{proof}
+
+
+
+
+
+
+
+\section{Esperanza}
+
+\begin{definition}
+Dado un espacio probabilístico $\mathcal G = (\Omega, P)$, una \textbf{variable aleatoria} (en $\mathcal G$) es una función
+\[
+    X: \Omega \longrightarrow [0, +\infty).
+\]
+
+La \textbf{esperanza} o \textbf{promedio} de $X$ es la cantidad
+\[
+    \mathbb{E} (X) = \sum_{G \in \Omega} P (\{G\}) \cdot X (G).
+\]
+\end{definition}
+
+\begin{notation}
+Si $X : \mathcal G \to [0, + \infty)$ es una variable aleatoria en un espacio probabilístico, dada una proposición lógica $A$, notamos
+\[
+    P (X \text{ cumple la propiedad $A$}) = P (\{G \in \Omega | X(G) \text{ cumple la propiedad $A$}\}).
+\]
+En particular, $P(X \geq a) := P \left(X^{-1} ([a, + \infty ) )\right)$, $P(X < b) := P \left(X^{-1} ([0, b ) )\right)$, $P(X = c) := P \left(X^{-1} (\{c\})\right)$, etc.
+
+También diremos que $X$ cumple la propiedad $A$ \textbf{salvo probabilidad cero}, si
+\[
+    P(G \in \Omega | X(G) \text{ no cumple $A$}) = 0.
+\]
+Por ejemplo, $X \geq a$, $X < b$, $X = c$, salvo probabilidad cero, si respectivamente
+\[
+  P(X \geq a) = P ( X < b) = P (X = c) = 0.
+\]
+\end{notation}
+
+\begin{obs}
+\begin{enumerate}
+\item Notar que cuando $X$ toma valores enteros, podemos calcular la esperanza de manera alternativa:
+\[
+    \mathbb{E} (X) = \sum_{k \geq 1} P(X \geq k) = \sum_{k \geq 1} k \cdot P(X = k).
+\]
+\item Sea $\mathcal H$ un conjunto fijo de grafos en $V$. Y sea $X$ la variable aleatoria tal que $X(G)$ es la cantidad de grafos $H \in \mathcal H$ que son subgrafos de $G$. Entonces la esperanza de $X$ tiene dos maneras distintas de calcular (observación útil para utilizar argumentos de ``conte doble''):
+\[
+    \mathbb{E} (X) = \sum_{G \in \mathcal G}\# \{H \in \mathcal H | H \subset G\} \cdot P(\{G\}) = \sum_{H \in \mathcal H} P (G \in \Omega | G \supset H).
+\]
+\end{enumerate}
+\end{obs}
+
+Las siguientes propiedades son fáciles de demostrar:
+\begin{proposition}\label{proposition:propiedades de la esperanza}
+Dadas variables aleatorias $X,Y \geq 0$ de un espacio probabilítico $G = (\Omega, P)$, y sea $a \geq 0$. La esperanza cumple las siguientes propiedades:
+\begin{enumerate}[(i)]
+\item \textbf{Positividad:} $\mathbb{E}(X)\geq 0$.
+\item \textbf{Linealidad:} $\mathbb{E} (X + Y) = \mathbb{E} (X) + \mathbb{E} (Y)$, y $\mathbb{E}(a \cdot X) = a \mathbb{E} (X)$.
+\item \textbf{Monotonicidad:} Si $X \leq Y$, salvo probabilidad cero, entonces $\mathbb{E} (X) \leq \mathbb{E} (Y)$.
+\item Si $\mathbb{E} (X) = 0$, entonces el conjunto $B := \{G \in \Omega | X(G) \neq 0\}$ tiene probabilidad $0$.
+\item Si $X = Y$, salvo probabilidad cero, entonces $\mathbb{E} (X) = \mathbb{E}(Y)$.
+\end{enumerate}
+\end{proposition}
+
+Estas propiedades nos permiten calcular la esperanza de una variable aleatoria como ilustra el siguiente ejemplo:
+\begin{example}
+El promedio de $k$-ciclos en $G \in \mathcal G (n,p)$ es
+\[
+    \mathbb{E} (X) = \frac {p^k}{2k} \prod_{r = 0}^{k-1} n - r.
+\]
+\end{example}
+\begin{proof}
+Consideremos la familia de $k$-ciclos $\mathcal C_k$ en $\mathcal G$. Entonces dado $C \in \mathcal C_k$ podemos considerar la variable aleatoria \textbf{función indicadora}:
+\begin{align*}
+X_C : \mathcal G (n,p) &\longrightarrow \{0,1\} \\
+G &\longmapsto \begin{cases}
+1 &\text{ si $C \subset G$,} \\
+0 &\text{ si no.}
+\end{cases}
+\end{align*}
+Notar que
+\[
+    \mathbb{E} (X_C) = P(X_C = 1) = P(G \in \mathcal G (n,p) | G \supset C) = p^k.
+\]
+
+Por otro lado, sea $X$ la variable aleatoria tal que $X (G)$ es la cantidad de ciclos $C \in \mathcal C _k$ contenidos en $G$. Entonces
+\[
+    X = \sum_{C \in \mathcal C_k} X_C.
+\]
+Por linealidad (\ref{proposition:propiedades de la esperanza}),
+\[
+    \mathbb{E}(X) = \sum_{C \in \mathcal C_k} \mathbb{E}(X_C) = \sum_{C \in \mathcal C_k} P (G \supset C) = \abs{\mathcal C_k} p^k.
+\]
+
+Finalmente, como por cada elección de $k$ distintos vértices en $V$ hay $2k$ maneras distintas de formar un $k$-ciclo en $\mathcal G$, tenemos que
+\[
+    \abs{C_k} = \frac{1}{2k} \prod_{r = 0}^{k-1} n - r,
+\]
+de donde concluimos.
+\end{proof}
+
+
+\bigskip
+
+Una desigualdad útil que nos dice que la probabiliad de que $X$ valga ``mucho más respecto del promedio'' es baja:
+
+\begin{lemma}[Desigualdad de Markov]
+Sea $X : \mathcal G \to [0, +\infty)$ una variable aleatoria y $a > 0$. Entonces
+\[
+    P(X \geq a) \leq \frac{\mathbb{E} (X)}{a}.
+\]
+\end{lemma}
+\begin{proof}
+\[
+    E(X) = \sum_{G \in \mathcal G} P(\{G\}) \cdot X(G) \geq \sum_{\substack{G \in \mathcal G \\ X(G) \geq a}} P(\{G\}) \cdot a = P(X \geq a) \cdot a.
+\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
