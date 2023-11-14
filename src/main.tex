@@ -2597,7 +2597,7 @@ para probar que la probabilidad del lado izquierdo de la desigualdad de arriba e
 \begin{definition}
 Dado un espacio probabilístico $\mathcal G = (\Omega, P)$, una \textbf{variable aleatoria} (en $\mathcal G$) es una función
 \[
-    X: \Omega \longrightarrow [0, +\infty).
+    X: \Omega \longrightarrow \reals.
 \]
 
 La \textbf{esperanza} o \textbf{promedio} de $X$ es la cantidad
@@ -2706,20 +2706,109 @@ Sea $X : \mathcal G \to [0, +\infty)$ una variable aleatoria y $a > 0$. Entonces
 
 
 
+\section{Método del primer momento}
 
 
 
+\begin{definition}
+Decimos que una variable aleatoria $X$ \textbf{sigue una distribución de Bernoulli con parámetro $p\in [0,1]$}, si $P(X = 1) = p$ y $P (X = 0) = 1$. (Notar que $\mathbb{E} (X) = p$).
+\end{definition}
 
+\begin{definition}
+Decimos que $X_1, \ldots, X_n : \Omega \to \reals$ variables aleatorias, decimos que son \textbf{independientes}, si para cualquier $x_1, \ldots, x_n \in \reals$, los eventos $\{X_i = x_i\}$ con $i = 1, \ldots, n$ son mutuamente independientes.
+\end{definition}
 
+\begin{proposition}
+Sean $X_1, X_2$ variables aleatorias independientes, entonces
+\[
+    \mathbb{E (X_1 \cdot X_2)} = E(X_1) \cdot E(X_2)
+\]
+\end{proposition}
+\begin{definition}
+Una variable aleatoria binomial con parámetros $n$ y $p$ es la suma de $n$ variables aleatorias mutuamente independientes de Bernulli con parámetro $p$.
+\end{definition}
 
+Sean $X_1, \ldots, X_n$ de bernoulli con parámetro $p$ independientes, luego
+\[
+    X = X_1 + \cdots + X_n
+\]
+cumple $\mathbb{E} (X) = np$.
 
+\begin{proposition}
+Sea $X$ una variable aleatoria. Si $\mathbb{E} (X) \geq t$, entonces $P(X \geq t) > 0$.
+\end{proposition}
 
+\begin{theorem}
+Todo grafo $G$ tiene un subgrafo bipartito $H \subset G$ tal que
+\[
+    e(H) \geq \frac{e(G)}{2}.
+\]
+\end{theorem}
+\begin{proof}
+Consideremos un conjunto aleatorio $A \subset V(G)$, obtenido escogiendo a cada vértice $v \in V(G)$ de forma aleatoria e independiente con probabilidad $\frac 1 2$. Sea $B = V \setminus A$ y consideremos el subgrafo $H$ con conjunto de vértices $A$ y $B$, y aristas $E(H) = \{uv \in E(G) | u \in A, v \in B\}$. Para $uv \in E(G)$, definamos la variable aleatoria $X_{uv}$ tal que $X_{uv} (H) = 1$ si $uv \in E(H)$ o $X_{uv} (H) = 0$ si no. Se tiene que
+\[
+    \mathbb{E} (X_{uv}) = P (\{uv \in E(H)\}) = \frac 1 4 + \frac 1 4 = \frac 1 2.
+\]
+Consideremos la variable aleatoria $e(H)$ que devuelve la cantidad de aristas de $H$. Como $e(H) = \sum_{uv \in E(G)} X_{uv}$, con lo cual
+\begin{align*}
+\mathbb{E} (e(H)) = \mathbb{E} \left ( \sum_{uv \in E(G)} X_{uv} \right ) = \sum_{uv \in E(G)} \mathbb{E}X_{uv} = \frac{e(G)}{2}.
+\end{align*}
+Finalmente, por la proposición de arriba, $P(e(H) \geq \frac{e(G)}{2}) > 0$, i.e., tiene que existir un subgrafo $H$ de $G$ bipartito con la propiedad del enunciado.
+\end{proof}
 
+\begin{theorem}[Szele]
+Existe un torneo $T$ con $n$ vértices, entonces contiene $\frac{n!}{2^{n-1}}$ caminos dirigidos Hamiltonianos (caminos que pasan por todas los vértices).
+\end{theorem}
+\begin{proof}
+Consideremos el espacio de torneos aleatorios $T$ de orden $n$, donde la probabilidad de que cierta arista dirigida esté es de $\frac 1 2$, y los eventos de que aristas distintas no estén son independientes. Tenemos la variable aleatoria $X$ tal que $X(T)$ es el número de caminos hamiltonianos en $T$. Para cada permutación $\sigma : [n] \to [n]$, definimos $X_\sigma$ como la variable aleatoria indicadora del evento $\{\sigma (1) \cdot  \sigma (n) \text{ es un camino Hamiltoneano en $T$}\}$, donde identificamos los vértices de $T$ con $[n]$. Ahora,
+\[
+    \mathbb{E} (X_\sigma) = P (\sigma (1) \cdots \sigma (n) \text{ es un camino Hamiltoneano en $T$}) = \frac 1 {2^n} + \frac 1 {2^n} = \frac{1}{2^{n-1}}.
+\]
+Así,
+\[
+\mathbb{E} (X) = \mathbb{E} (\sum_{\sigma} X_\sigma) = \frac{n!}{2^{n-1}}.
+\]
+Con lo cual la proposición de arriba concluye el teorema.
+\end{proof}
 
+\bigskip
 
+Dado un grupo abeliano $\mathcal A$. Diremos que $A \subset \mathcal A$ es \textit{libre de suma}, si no existen tres elementos $x,y,z \in A$ tales que $x + y = z$. Por ejemplo, podemos considerar $\mathcal A = \integers$ o $\integers / p \integers$, para un primo $p$.
 
+\begin{theorem}[Erdös]
+Sea $A$ un conjunto de $n$ números enteros positivos, entonces existe $B \subset A$ libre de suma tal que $\abs B > \frac n 3$.
+\end{theorem}
+\begin{proof}
+Tomemos un número primo $p = 3k +1$ suficientemente grande, por ejemplo $p > 2 \max {A}$. Sea $\integers_p := \left ( \integers / p \integers \right )^\times$, y consideremos $C := \{ i \in \naturals | k < i \leq 2k +1\}$. Luego $\abs C = k + 1 > \frac{p-1}3$. Luego $C$ es libre de suma en $\integers Z _p$.
 
+Consideremos $t \in \integers_{p}^\times$ de manera uniforme (probabilidad $\frac 1 {p-1}$). Sea $Y = t \cdot A \mod p$, notemos que para $a \in \integers_p^\times$,
+\[
+    P(a \in Y) = \frac{\# A}{p-1}.
+\]
+Consecuentemente,
+\[
+    \mathbb{E}(\# Y \cap C) = \sum_{a \in C} P (x \in Y) = \frac{\#A \cdot \#C}{p-1} > \frac{\abs{A}}{3} = \frac n 3.
+\]
+Luego existe $t_0 \in \integers_p^\times$, tal que $\# Y \cap C \geq \frac n 3$. Notar que luego el $B := \{a \in A | | t_0 a \mod p \in C\}$ funciona.
+\end{proof}
 
+\begin{theorem}
+Para cada grafo $G$
+\[
+    \alpha (G) \geq \sum_{v \in V} \frac{1}{1 + d_G (v)}.
+\]
+\end{theorem}
+\begin{proof}
+Sea $n = \abs{G}$ y $\sigma : V(G) \to [n]$ una función escogida de manera aleatoria y uniforme entre $n!$ funciones biyectivas. Sea
+\[
+    A = \{v \in V(G) | \sigma (v) \leq \min_{w \in N_G (v) \sigma (w)}\}
+\]
+Notar que $A$ es un conjunto independiente y que $P (v \in A) = \frac{1}{1 + d(v)}$. Por lo tanto
+\[
+    \mathbb{E}(\#A) = \sum_{v \in V(G)} P ( v \in A) = \sum_{v \in V(G)} \frac{1 }{1 + d_G(v)},
+\]
+y la proposición de arriba prueba lo que queríamos.
+\end{proof}
 
 
 
