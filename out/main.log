@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  17 NOV 2023 12:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  17 NOV 2023 18:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2135,7 +2135,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0B44D2F5E1813E7F9831870BF8041529;2822.
+(rerunfilecheck)             Checksum: 59D0ADB57BA4D4A5639ED0984D71D041;2822.
  ) 
 Here is how much of TeX's memory you used:
  29503 strings out of 476017
@@ -2161,7 +2161,7 @@ itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></home/wh
 itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></home/whi
 tengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (62 pages, 374428 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (62 pages, 374555 bytes).
 PDF statistics:
  799 PDF objects out of 1000 (max. 8388607)
  677 compressed objects within 7 object streams

@@ -2828,7 +2828,7 @@ con lo cual la Proposición \ref{proposition:si la esperanza es mayor que t lueg
 \end{proof}
 
 
-\section{Erdös-Réngi}
+\section{Erdös-Rényi}
 
 \begin{definition}
 Sea $p_n \in [0,1]$. Diremos que un evento $E_n$ en $\mathcal G (n,p_n)$ tiene \textbf{probabilidad alta}, si
@@ -2837,7 +2837,7 @@ Sea $p_n \in [0,1]$. Diremos que un evento $E_n$ en $\mathcal G (n,p_n)$ tiene \
 \]
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Erdös-Rényi]
 Sea $p_n \in (0,1)$. Entonces el evento
 \[
     \alpha (G) \leq \frac{2 \log n}{p_n}, \quad G \in \mathcal G(n,p),
@@ -2851,23 +2851,23 @@ Sea $G \in \mathcal G (n,p_n)$. Dado $S \subset V(G)$ de tamaño $k$. Entonces
 \]
 Luego, por la desigualdad de la unión,
 \begin{align*}
-P(\alpha \geq k) &\leq \binom n k (1-p)^{\binom k 2} \\
-&\leq \left ( \frac {en}{k} \cdot (1-p)^{\frac{k-1}2} \right )^k \\
-&\leq \left ( \frac {en}k \cdot e^{\frac{-p(k-1)}{2}} \right )^k.
+P(\alpha \geq k) &\leq \binom n k (1-p_n)^{\binom k 2} \\
+&\leq \left ( \frac {en}{k} \cdot (1-p_n)^{\frac{k-1}2} \right )^k \\
+&\leq \left ( \frac {en}k \cdot e^{\frac{-p_n(k-1)}{2}} \right )^k.
 \end{align*}
-Si $pk \geq 2 \log (n)$, i.e., $k \geq \frac{2 \log n }{p}$, luego
+Si $p_nk \geq 2 \log (n)$, i.e., $k \geq \frac{2 \log n }{p_n}$, luego
 \begin{align*}
-\frac{e \cdot e^{\log (n)}}{k} \cdot e^{\frac{-p (k-1)}{2}} &\leq \frac{e^{1 + \log n - \log n + \frac p 2}}{k} \\
-&\leq \frac{e^{1 + p/2}}{k} \\
-&\leq e^{\frac 3 2}{k} \leq \frac 5 k.
+\frac{e \cdot e^{\log (n)}}{k} \cdot e^{\frac{-p_n (k-1)}{2}} &\leq \frac{e^{1 + \log n - \log n + \frac {p_n} 2}}{k} \\
+&\leq \frac{e^{1 + p_n/2}}{k} \\
+&\leq \frac {e^{\frac 3 2}}{k} \leq \frac 5 k.
 \end{align*}
-Por lo tanto,
+Por lo tanto, podemos tomar $k$ de tal forma que
 \[
     P(\alpha \geq k) \leq \left ( \frac 5 k \right )^k \longrightarrow 0, \quad (n \to \infty).
 \]
 Equivalentemente,
 \[
-    P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
+    P(\alpha < \frac{2 \log n}{p_n}) \leq P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
 \]
 \end{proof}
 
