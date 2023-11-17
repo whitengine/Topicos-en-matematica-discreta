@@ -2690,7 +2690,7 @@ de donde concluimos.
 
 Una desigualdad útil que nos dice que la probabiliad de que $X$ valga ``mucho más respecto del promedio'' es baja:
 
-\begin{lemma}[Desigualdad de Markov]
+\begin{lemma}[Desigualdad de Markov]\label{lema:desigualdad de markov}
 Sea $X : \mathcal G \to [0, +\infty)$ una variable aleatoria y $a > 0$. Entonces
 \[
     P(X \geq a) \leq \frac{\mathbb{E} (X)}{a}.
@@ -2826,6 +2826,195 @@ Por lo tanto,
 \]
 con lo cual la Proposición \ref{proposition:si la esperanza es mayor que t luego la probabilidad de que X sea mayor que t es positiva} prueba el teorema.
 \end{proof}
+
+
+\section{Erdös-Réngi}
+
+\begin{definition}
+Sea $p_n \in [0,1]$. Diremos que un evento $E_n$ en $\mathcal G (n,p_n)$ tiene \textbf{probabilidad alta}, si
+\[
+    P(E_n) \longrightarrow 1 \quad (n \to \infty).
+\]
+\end{definition}
+
+\begin{theorem}
+Sea $p_n \in (0,1)$. Entonces el evento
+\[
+    \alpha (G) \leq \frac{2 \log n}{p_n}, \quad G \in \mathcal G(n,p),
+\]
+tiene probabilidad alta.
+\end{theorem}
+\begin{proof}
+Sea $G \in \mathcal G (n,p_n)$. Dado $S \subset V(G)$ de tamaño $k$. Entonces
+\[
+    P(e(G[S]) = 0) = (1-p_n)^{\binom k 2}.
+\]
+Luego, por la desigualdad de la unión,
+\begin{align*}
+P(\alpha \geq k) &\leq \binom n k (1-p)^{\binom k 2} \\
+&\leq \left ( \frac {en}{k} \cdot (1-p)^{\frac{k-1}2} \right )^k \\
+&\leq \left ( \frac {en}k \cdot e^{\frac{-p(k-1)}{2}} \right )^k.
+\end{align*}
+Si $pk \geq 2 \log (n)$, i.e., $k \geq \frac{2 \log n }{p}$, luego
+\begin{align*}
+\frac{e \cdot e^{\log (n)}}{k} \cdot e^{\frac{-p (k-1)}{2}} &\leq \frac{e^{1 + \log n - \log n + \frac p 2}}{k} \\
+&\leq \frac{e^{1 + p/2}}{k} \\
+&\leq e^{\frac 3 2}{k} \leq \frac 5 k.
+\end{align*}
+Por lo tanto,
+\[
+    P(\alpha \geq k) \leq \left ( \frac 5 k \right )^k \longrightarrow 0, \quad (n \to \infty).
+\]
+Equivalentemente,
+\[
+    P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
+\]
+\end{proof}
+
+
+\begin{corollary}
+Sea $p_n \in (0,1)$. Entonces
+\[
+    \chi (G) \geq \frac{n p_n}{2 \log n} , \quad G \in \mathcal G (n,p_n)
+\]
+con probabilidad alta.
+\end{corollary}
+\begin{proof}
+Sea $c$ una $(\chi (G) = k)$-coloración de los vértices, y sean las partes $A_1, \ldots, A_k$ de cada color. Entonces
+\[
+    n = \sum_{i = 1}^k \abs{A_i} \leq \sum_{i = 1}^k \alpha (G) = \chi (G) \cdot \alpha (G).
+\]
+Consecuentemente,
+\[
+    \chi (G) \geq \frac{n}{\alpha (G)} \geq \frac{n p_n}{2 \log n}
+\]
+con probabilidad alta por el teorema anterior.
+\end{proof}
+
+
+\subsection{Método de alteración}
+
+\begin{theorem}
+Si $G$ es un grafo con $n$ vértices y $d(G) = d$, entonces
+\[
+    \alpha (G) \geq \frac{n}{2 d}.
+\]
+\end{theorem}
+\begin{proof}
+Sea $p \in (0,1)$ (que no depende de $n$). Sea $A$ un conjunto aleatorio escogiendo vértice de $V(G)$ con probabilidad $p$ de forma independiente. Luego $\#A \sim \operatorname{Bin} (n,p)$, y
+\[
+    \mathbb{E}(\#A) = np.
+\]
+Además, para cada $uv \in E (G)$,
+\[
+    P (uv \in E(G[A])) = P(\{u \in A\} \cap \{v \in A\}) = P (u \in A) \cdot P (v \in A) = p^2.
+\]
+Con lo cual, la aditividad de la esperanza implica:
+\[
+    \mathbb{E} (e (G[A])) = e(G) p^2.
+\]
+
+Ahora, notemos que
+\[
+    \mathbb{E}(\abs A - e(G[A])) = pn (1 - \frac {pd}2).
+\]
+Por la Proposición \ref{proposition:si la esperanza es mayor que t luego la probabilidad de que X sea mayor que t es positiva},
+\[
+    P(\{A | \abs{A} - e(G[A]) \geq p n ( 1 - \frac {pd}{2})\}) > 0,
+\]
+en particular existe un conjunto $A$ de vértices de $G$ tal que,
+\[
+    \abs A - e(G[A]) \geq pn (1 - \frac{pd}2),
+\]
+y el lado de la derecha se maximiza cuando $p = \frac 1 d$; nos queda:
+\[
+    \abs A - e(G[A]) \geq \frac{n}{2d}.
+\]
+Tomemos ahora el subconjunto $A'$ de $A$, donde por cada arista $e \in E(G[A])$, quito un extremo en $e$ de $A$. Por construcción $A'$ es un conjunto independiente de $G$, y además
+\[
+    \abs{A'} \geq \frac{n}{2d}.
+\]
+De aquí deducimos la desigualdad del teorema.
+\end{proof}
+
+Como bién ilustra la demostración anterior, el \textit{método de alteración} es la técnica de obtener un conjunto $A$ no cumple exactamente la propiedad que buscábamos, pero ``alterándolo'' en $A'$ se obtiene lo que queríamos.
+
+\begin{theorem}[Erdös]
+Para todo $k \in \naturals$, existe un grafo $G$ con $n$ vértices tal que
+\[
+    \chi (G) \geq k \quad \text y \quad g(G) \geq k.
+\]
+\end{theorem}
+\begin{proof}
+Sea $k \in \naturals$ fijo. Consideremos $\mathcal G = \mathcal G (n, p_n)$ con $p_n := n^{-1 + \varepsilon}$, donde $\varepsilon := \frac 1 k$. Consideremos la variable aleatoria $X$ en $\mathcal G$ que cuenta el número de ciclos de tamaño a lo más $k-1$. Por definición, existen $n^i$ ciclos de tamaño $i$ contenidos en el grafo completo $K_n$. Luego
+\[
+    \mathbb{E} (X) \leq \sum_{i = 3}^{k-1} n^i p^i = \sum_{i = 3}^{k-1} n^{\varepsilon i} < k n^{\varepsilon(k-1)}.
+\]
+Con lo cual, la desigualdad de Markov \ref{lema:desigualdad de markov} implica que
+\[
+    P(X \geq \frac n 2) \leq \frac 2 n \mathbb{E}(X) \longrightarrow 0 \quad (n \to \infty),
+\]
+así, $X < \frac n 2$ con probabilidad alta.
+
+Ahora, por el teorema anterior,
+\[
+    \alpha (G) \leq \frac{2 \log n} p_n = 2 n^{1-\varepsilon} \log n , \quad G \in \mathcal G
+\]
+con probabilidad alta. Consecuentemente, existe $G'$ en $n$ vértices y a lo más $\frac n 2$ ciclos de tamaño menor que $k$. Removiendo $\frac n 2$ vértices, uno por cada ciclo, obtenemos $G$ tal que $V(G) \geq \frac n 2$ y $g (G) \geq k$. Por otro lado,
+\[
+    \alpha (G) \leq \alpha (G') \leq 2 n^{1-\varepsilon} \log (n),
+\]
+con lo cual,
+\[
+    \chi (G) \geq \frac{V(G)}{\alpha (G)} \geq \frac{n^{\varepsilon}}{4 \log n} > k
+\]
+para $n$ lo suficientemente grande.
+\end{proof}
+
+
+\bigskip
+
+
+Antes, observemos que podemos interpretar el número de Ramsey $R(3, k)$ como el mínimo $n$ tal que todo grafo con $n$ vértices libre de triángulos satisface $\alpha (G) \geq k$. En efecto, si $n = R (3,k)$, podemos considerar el grafo completo $K_n$, e incrustamos $G$ en $K_n$ pintando las aristas de $G$ de color rojo, y las aristas de su complemento $\bar G$ de azul. Si $G$ es libre de triángulos, $K_n$ es libre de $K_3$-rojo, pero entonces tiene un $K_k$-azul, equivalentemente, $\bar G$ contiene un $K_k$, i.e., $G$ tiene con conjunto de $k$-vértices independientes.
+
+\begin{theorem}
+Existe $c > 0$ tal que
+\[
+    R(3,k) \geq \left ( \frac{ck}{\log k} \right )^{\frac 3 2}.
+\]
+Para todo $k \in \naturals$ lo suficientemente grande.
+\end{theorem}
+\begin{proof}
+Tomemos $n := \left ( \frac{k}{4 \log k} \right )^{\frac 3 2}$. Consideremos $\mathcal G = \mathcal G (n, p)$ con $p = n^{-\frac 2 3}$. Notar que $pk = 4 \log k$. El teorema anterior dice que
+\[
+    \alpha (G) \leq \frac{2 \log n}{p} < k , \quad G\in \mathcal G
+\]
+con probabilidad alta. Si $n < k^2$ si y solo si, $\log n < 2 \log k$.
+
+Sea $X$ la variable aleatoria en $\mathcal G$ tal que $X(G)$ es el número de triángulos de $G$. Tenemos que
+\[
+    \mathbb{E} (X) = \binom n 3 p^3 \leq \frac{n^3}{6}p^3 = \frac n 6.
+\]
+Luego por la desigualdad de Markov \ref{lema:desigualdad de markov},
+\[
+    P(X \geq \frac n 2) \leq \frac{2}{n} \mathbb{E} (X) \leq \frac 1 3.
+\]
+Por lo tanto, existe un grafo $G'$ con $n$ vértices y $\alpha (G') < k$, que contiene a lo más $\frac n 2$ triángulos. Y quitando a lo más $\frac n 2$ triángulos de $G'$, obtenemos un $G''$ con $\alpha (G'') < k$, libre de triángulos y $V(G'') \geq \frac n 2$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

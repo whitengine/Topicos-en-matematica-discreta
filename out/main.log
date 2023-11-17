@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  15 NOV 2023 10:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  17 NOV 2023 12:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1595,14 +1595,14 @@ LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 [2
 
 ] (./Figuras/Teoria extremal de grafos/Dibujo 1.pdf_tex
-<./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, id=110, page=1, 469.47046pt 
+<./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, id=120, page=1, 469.47046pt 
 x 249.95587pt>
 File: ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf , pag
 e1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.23134pt.
-<./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, id=111, page=2, 469.47046pt 
+<./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, id=121, page=2, 469.47046pt 
 x 249.95587pt>
 File: ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria extremal de grafos/Dibujo 1.pdf, page 2>
@@ -1625,7 +1625,7 @@ LaTeX Font Info:    Font shape `T1/fnc/m/sc' will be
 (Font)              scaled to size 11.15991pt on input line 552.
  [4] [5] [6]
 (./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf_tex
-<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf, id=149, page=1
+<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf, id=159, page=1
 , 469.47046pt x 249.95587pt>
 File: ./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf Graphic fi
 le (type pdf)
@@ -1641,7 +1641,7 @@ See the caption package documentation for explanation.
 
 [7 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 1.pdf>]
 (./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf_tex
-<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf, id=160, page=1
+<./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf, id=170, page=1
 , 469.47046pt x 249.95587pt>
 File: ./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf Graphic fi
 le (type pdf)
@@ -1665,7 +1665,7 @@ mo. Sa-be-mos que $\FML/fncmi/m/it/12 N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v[
  []
 
 (./Figuras/Numeros extremales para arboles/figura.pdf_tex
-<./Figuras/Numeros extremales para arboles/figura.pdf, id=180, page=1, 469.4704
+<./Figuras/Numeros extremales para arboles/figura.pdf, id=190, page=1, 469.4704
 6pt x 249.95587pt>
 File: ./Figuras/Numeros extremales para arboles/figura.pdf Graphic file (type p
 df)
@@ -1673,7 +1673,7 @@ df)
 Package pdftex.def Info: ./Figuras/Numeros extremales para arboles/figura.pdf ,
  page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.23134pt.
-<./Figuras/Numeros extremales para arboles/figura.pdf, id=181, page=2, 469.4704
+<./Figuras/Numeros extremales para arboles/figura.pdf, id=191, page=2, 469.4704
 6pt x 249.95587pt>
 File: ./Figuras/Numeros extremales para arboles/figura.pdf Graphic file (type p
 df)
@@ -1767,13 +1767,13 @@ e-men-te pe-que-ño y apli-que-mos el Le-ma [][]1.7.13[][] a ca-da $\U/matha/m/n
  []
 
 (./Figuras/Regularidad/Dibujo 1.pdf_tex
-<./Figuras/Regularidad/Dibujo 1.pdf, id=333, page=1, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=343, page=1, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 640.187pt x 257.2629pt.
-<./Figuras/Regularidad/Dibujo 1.pdf, id=334, page=2, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=344, page=2, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 2>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page2 used on inp
@@ -1848,7 +1848,7 @@ A[]; []$\T1/fnc/m/n/12 .
 [35
 
 ] (./Figuras/Teoria de Ramsey/Figura 1.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 1.pdf, id=422, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 1.pdf, id=432, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 1.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 1.pdf, page 1>
@@ -1863,7 +1863,7 @@ See the caption package documentation for explanation.
 
 [36 <./Figuras/Teoria de Ramsey//Figura 1.pdf>] [37]
 (./Figuras/Teoria de Ramsey/Figura 6.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 6.pdf, id=445, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 6.pdf, id=455, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 6.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 6.pdf, page 1>
@@ -1877,7 +1877,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [38] (./Figuras/Teoria de Ramsey/Figura 7.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 7.pdf, id=453, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 7.pdf, id=463, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 7.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 7.pdf, page 1>
@@ -1896,7 +1896,7 @@ ura 7.pdf
 pdfTeX warning: pdflatex (file ./Figuras/Teoria de Ramsey//Figura 7.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >] (./Figuras/Teoria de Ramsey/Figura 2.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 2.pdf, id=464, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 2.pdf, id=474, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 2.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 2.pdf, page 1>
@@ -1910,7 +1910,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 (./Figuras/Teoria de Ramsey/Figura 3.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 3.pdf, id=465, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 3.pdf, id=475, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 3.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 3.pdf, page 1>
@@ -1929,7 +1929,7 @@ ura 3.pdf
 pdfTeX warning: pdflatex (file ./Figuras/Teoria de Ramsey//Figura 3.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >] (./Figuras/Teoria de Ramsey/Figura 4.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 4.pdf, id=476, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 4.pdf, id=486, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 4.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 4.pdf, page 1>
@@ -1944,7 +1944,7 @@ See the caption package documentation for explanation.
 
 [41 <./Figuras/Teoria de Ramsey//Figura 4.pdf>]
 (./Figuras/Teoria de Ramsey/Figura 5.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 5.pdf, id=487, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 5.pdf, id=497, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 5.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 5.pdf, page 1>
@@ -1966,7 +1966,7 @@ n/12 p\FML/fncmi/m/it/12 K[]; T[]\U/matha/m/n/12 q ¤
  []
 
 (./Figuras/Teoria de Ramsey/Figura 8.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 8.pdf, id=489, page=1, 485.21307pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 8.pdf, id=499, page=1, 485.21307pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 8.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 8.pdf, page 1>
@@ -1980,35 +1980,35 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 (./Figuras/Teoria de Ramsey/Figura 9.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=500, page=1, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=510, page=1, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=501, page=2, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=511, page=2, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 2>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page2 used 
 on input line 58.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=502, page=3, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=512, page=3, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 3>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page3 used 
 on input line 60.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=503, page=4, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=513, page=4, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 4>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page4 used 
 on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=504, page=5, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=514, page=5, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 5>
@@ -2065,7 +2065,7 @@ LaTeX Warning: Citation `diestel2000graphTheory' on page 50 undefined on input
 line 2498.
 
 [50] (./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=572, page=1, 469.47046pt x 
+<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=582, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, page 1>
@@ -2080,7 +2080,7 @@ See the caption package documentation for explanation.
 
 [51 <./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf>]
 (./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=583, page=1, 469.47046pt x 
+<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=593, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, page 1>
@@ -2116,8 +2116,11 @@ LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 (Font)              using `T1/fnc/m/sc' instead on input line 2647.
 
 [54] [55] [56] [57]
+LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
+(Font)              scaled to size 13.39188pt on input line 2895.
+ [58] [59] [60]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
-ematica discreta/out/main.bbl) [58
+ematica discreta/out/main.bbl) [61
 
 ]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
@@ -2132,14 +2135,14 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E39A150ED13B585F15E8E15B848B11CC;2532.
+(rerunfilecheck)             Checksum: 0B44D2F5E1813E7F9831870BF8041529;2822.
  ) 
 Here is how much of TeX's memory you used:
- 29487 strings out of 476017
- 561055 string characters out of 5786780
+ 29503 strings out of 476017
+ 561261 string characters out of 5786780
  1869666 words of memory out of 5000000
- 49058 multiletter control sequences out of 15000+600000
- 602835 words of font info for 195 fonts, out of 8000000 for 9000
+ 49062 multiletter control sequences out of 15000+600000
+ 604769 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/whitengine/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-
@@ -2158,10 +2161,10 @@ itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></home/wh
 itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></home/whi
 tengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (59 pages, 362790 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (62 pages, 374428 bytes).
 PDF statistics:
- 765 PDF objects out of 1000 (max. 8388607)
- 646 compressed objects within 7 object streams
- 257 named destinations out of 1000 (max. 500000)
- 248 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 799 PDF objects out of 1000 (max. 8388607)
+ 677 compressed objects within 7 object streams
+ 268 named destinations out of 1000 (max. 500000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,3 +14,5 @@
 \contentsline {section}{\numberline {3.1}Fundamentos}{49}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Esperanza}{53}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Método del primer momento}{55}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Erdös-Réngi}{57}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Método de alteración}{58}{subsection.3.4.1}%
