@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  17 NOV 2023 18:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  18 NOV 2023 15:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1701,19 +1701,6 @@ LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 (Font)              scaled to size 6.50995pt on input line 1059.
  [15] [16] [17] [18]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 1239.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 1239.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 1239.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 1239.
-
-
 Overfull \hbox (18.81047pt too wide) detected at line 1239
 []
  []
@@ -2118,9 +2105,9 @@ LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 [54] [55] [56] [57]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
 (Font)              scaled to size 13.39188pt on input line 2895.
- [58] [59] [60]
+ [58] [59] [60] [61]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
-ematica discreta/out/main.bbl) [61
+ematica discreta/out/main.bbl) [62
 
 ]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
@@ -2138,8 +2125,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 59D0ADB57BA4D4A5639ED0984D71D041;2822.
  ) 
 Here is how much of TeX's memory you used:
- 29503 strings out of 476017
- 561261 string characters out of 5786780
+ 29504 strings out of 476017
+ 561268 string characters out of 5786780
  1869666 words of memory out of 5000000
  49062 multiletter control sequences out of 15000+600000
  604769 words of font info for 197 fonts, out of 8000000 for 9000
@@ -2161,10 +2148,10 @@ itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></home/wh
 itengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></home/whi
 tengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (62 pages, 374555 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (63 pages, 376776 bytes).
 PDF statistics:
- 799 PDF objects out of 1000 (max. 8388607)
- 677 compressed objects within 7 object streams
- 268 named destinations out of 1000 (max. 500000)
+ 803 PDF objects out of 1000 (max. 8388607)
+ 680 compressed objects within 7 object streams
+ 269 named destinations out of 1000 (max. 500000)
  264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

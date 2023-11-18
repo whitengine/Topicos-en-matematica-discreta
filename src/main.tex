@@ -971,7 +971,7 @@ Haremos inducción en $k$. El caso $k = 1$ tenemos que $t_k (n) = 0$ y siempre s
 
  Probemos que
 \[
-    H := \Big (V(H') \cup A, E(H') \cup E(A,B) \Big)
+    H := \big (V(H') \cup A, E(H') \cup E(A,B) \big)
 \]
 tiene al menos $e(G) - t$ aristas, y así $H$ es un subgrafo $k$-partito generador de $G$ con al menos $e(G)- t$ aristas. En efecto, queremos probar que
 \[
@@ -1235,7 +1235,7 @@ Si tomamos $\delta >0$ lo suficientemente pequeño, entonces $G$ contiene una co
 Sea $A$ un conjunto de vértices que induce un $K_r$ en $G$. Sean $B := V(G) \setminus A$ y $X := \set{v \in V(G) | \abs{N_G (v) \cap A} \leq r -2}$, vamos a mostrar que $X$ es pequeño.
 \begin{align*}
 \left ( 1 - \frac 1 r - \delta \right ) n r - r (r-1) &\leq e(A, B) \quad \quad \left ( 2 e(A) + e(A,B) = \sum_{v \in A} d_G (v) \geq r \left (1 - \frac 1 r - \delta \right )n \right )\\
-                &\leq (r-1) \large ((n-r) -\abs X \large) + (r-2) \abs X  = (r-1) (n-r) - \abs X,
+                &\leq (r-1) \big ((n-r) -\abs X \big) + (r-2) \abs X  = (r-1) (n-r) - \abs X,
 \end{align*}
 manipulando la desigualdad, obtenemos:
 \[
@@ -2861,11 +2861,11 @@ Si $p_nk \geq 2 \log (n)$, i.e., $k \geq \frac{2 \log n }{p_n}$, luego
 &\leq \frac{e^{1 + p_n/2}}{k} \\
 &\leq \frac {e^{\frac 3 2}}{k} \leq \frac 5 k.
 \end{align*}
-Por lo tanto, podemos tomar $k$ de tal forma que
+Por lo tanto, podemos tomar $k=k(n)$ de tal forma que
 \[
     P(\alpha \geq k) \leq \left ( \frac 5 k \right )^k \longrightarrow 0, \quad (n \to \infty).
 \]
-Equivalentemente,
+En consecuencia,
 \[
     P(\alpha < \frac{2 \log n}{p_n}) \leq P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
 \]
@@ -2895,7 +2895,7 @@ con probabilidad alta por el teorema anterior.
 \subsection{Método de alteración}
 
 \begin{theorem}
-Si $G$ es un grafo con $n$ vértices y $d(G) = d$, entonces
+Si $G$ es un grafo con $n \in \naturals$ vértices y $d(G) := d := 2 \frac{v(G)}{e(G)}$, entonces
 \[
     \alpha (G) \geq \frac{n}{2 d}.
 \]
@@ -2916,11 +2916,11 @@ Con lo cual, la aditividad de la esperanza implica:
 
 Ahora, notemos que
 \[
-    \mathbb{E}(\abs A - e(G[A])) = pn (1 - \frac {pd}2).
+    \mathbb{E}(\abs A - e(G[A])) = pn \big(1 - \frac {pd}2 \big).
 \]
 Por la Proposición \ref{proposition:si la esperanza es mayor que t luego la probabilidad de que X sea mayor que t es positiva},
 \[
-    P(\{A | \abs{A} - e(G[A]) \geq p n ( 1 - \frac {pd}{2})\}) > 0,
+    P \left (\Set {A | \abs{A} - e(G[A]  ) \geq p n \big ( 1 - \frac {pd}{2} \big ) } \right ) > 0,
 \]
 en particular existe un conjunto $A$ de vértices de $G$ tal que,
 \[
@@ -2937,69 +2937,73 @@ Tomemos ahora el subconjunto $A'$ de $A$, donde por cada arista $e \in E(G[A])$,
 De aquí deducimos la desigualdad del teorema.
 \end{proof}
 
-Como bién ilustra la demostración anterior, el \textit{método de alteración} es la técnica de obtener un conjunto $A$ no cumple exactamente la propiedad que buscábamos, pero ``alterándolo'' en $A'$ se obtiene lo que queríamos.
+Como bién ilustra la demostración anterior, el \textit{método de alteración} es la técnica de obtener un conjunto $A$ que no cumple exactamente la propiedad que buscábamos, pero ``alterándolo'' a un conjunto $A'$, se obtiene lo que queríamos.
 
 \begin{theorem}[Erdös]
-Para todo $k \in \naturals$, existe un grafo $G$ con $n$ vértices tal que
+Para todo $k \in \naturals$, existe $n_0 \in \naturals$, tal que para todo $n \geq n_0$, existe un grafo $G$ con $n$ vértices y
 \[
     \chi (G) \geq k \quad \text y \quad g(G) \geq k.
 \]
 \end{theorem}
 \begin{proof}
-Sea $k \in \naturals$ fijo. Consideremos $\mathcal G = \mathcal G (n, p_n)$ con $p_n := n^{-1 + \varepsilon}$, donde $\varepsilon := \frac 1 k$. Consideremos la variable aleatoria $X$ en $\mathcal G$ que cuenta el número de ciclos de tamaño a lo más $k-1$. Por definición, existen $n^i$ ciclos de tamaño $i$ contenidos en el grafo completo $K_n$. Luego
+Sea $k \in \naturals$ fijo. Consideremos $\mathcal G = \mathcal G (n, p_n)$ con $p_n := n^{-1 + \varepsilon}$, donde $\varepsilon := \frac 1 k$. Consideremos la variable aleatoria $X_i$ en $\mathcal G$ que cuenta el número de ciclos de longitud $3 \leq i \leq k-1$; luego la variable aleatoria $X := \sum_{i=3}^{k-1} X_i$ cuenta el número de ciclos de longitud a lo más $k -1$. Notar que existen a lo más $n^i$ ciclos distintos que se pueden formar con los vértices del espacio muestral $\mathcal G$, luego, como $X_i$ es la suma de las variables aleatorias indicadoras de los ciclos $C_r$ de longitud $i$,
 \[
-    \mathbb{E} (X) \leq \sum_{i = 3}^{k-1} n^i p^i = \sum_{i = 3}^{k-1} n^{\varepsilon i} < k n^{\varepsilon(k-1)}.
+    \mathbb{E}(X_i) = \sum_r ( G \supset C_r) \leq \sum_{r=1 }^{n^i}p^i = n^i p^i.
+\]
+Así,
+\[
+    \mathbb{E} (X)  = \sum_{i = 3}^{k-1} \mathbb{E} (X_i) \leq \sum_{i = 3}^{k-1} n^i p^i = \sum_{i = 3}^{k-1} n^{\varepsilon i} < k n^{\varepsilon(k-1)}.
 \]
 Con lo cual, la desigualdad de Markov \ref{lema:desigualdad de markov} implica que
 \[
-    P(X \geq \frac n 2) \leq \frac 2 n \mathbb{E}(X) \longrightarrow 0 \quad (n \to \infty),
+    P(X \geq \frac n 2) \leq \frac 2 n \mathbb{E}(X) \longrightarrow 0 \quad (n \to \infty).
 \]
-así, $X < \frac n 2$ con probabilidad alta.
+Entonces $X < \frac n 2$ con probabilidad alta.
 
 Ahora, por el teorema anterior,
 \[
-    \alpha (G) \leq \frac{2 \log n} p_n = 2 n^{1-\varepsilon} \log n , \quad G \in \mathcal G
+    \alpha (G) \leq \frac{2 \log n} {p_n} = 2 n^{1-\varepsilon} \log n , \quad G \in \mathcal G
 \]
-con probabilidad alta. Consecuentemente, existe $G'$ en $n$ vértices y a lo más $\frac n 2$ ciclos de tamaño menor que $k$. Removiendo $\frac n 2$ vértices, uno por cada ciclo, obtenemos $G$ tal que $V(G) \geq \frac n 2$ y $g (G) \geq k$. Por otro lado,
+con probabilidad alta. Consecuentemente, existe $G$ en $n$ vértices y a lo más $\frac n 2$ ciclos de tamaño menor que $k$. Removiendo $\frac n 2$ vértices, uno por cada ciclo, obtenemos $G'$ tal que $v(G') \geq \frac n 2$ y $g (G') \geq k$. Por otro lado,
 \[
-    \alpha (G) \leq \alpha (G') \leq 2 n^{1-\varepsilon} \log (n),
+    \alpha (G') \leq \alpha (G) \leq 2 n^{1-\varepsilon} \log n,
 \]
 con lo cual,
 \[
-    \chi (G) \geq \frac{V(G)}{\alpha (G)} \geq \frac{n^{\varepsilon}}{4 \log n} > k
+    \chi (G') \geq \frac{v(G')}{\alpha (G')} \geq \frac{n^{\varepsilon}}{4 \log n} > k,
 \]
-para $n$ lo suficientemente grande.
+para todo $n$ lo suficientemente grande.
 \end{proof}
 
 
 \bigskip
 
 
-Antes, observemos que podemos interpretar el número de Ramsey $R(3, k)$ como el mínimo $n$ tal que todo grafo con $n$ vértices libre de triángulos satisface $\alpha (G) \geq k$. En efecto, si $n = R (3,k)$, podemos considerar el grafo completo $K_n$, e incrustamos $G$ en $K_n$ pintando las aristas de $G$ de color rojo, y las aristas de su complemento $\bar G$ de azul. Si $G$ es libre de triángulos, $K_n$ es libre de $K_3$-rojo, pero entonces tiene un $K_k$-azul, equivalentemente, $\bar G$ contiene un $K_k$, i.e., $G$ tiene con conjunto de $k$-vértices independientes.
+Antes, observemos que podemos interpretar el número de Ramsey $R(3, k)$ como el mínimo $n$ tal que todo grafo $G$ con $n$ vértices libre de triángulos satisface $\alpha (G) \geq k$. En efecto, si $n = R (3,k)$, podemos considerar el grafo completo $K_n$, e incrustar $G$ en $K_n$ pintando las aristas de $G$ de color rojo, y las aristas de su complemento $\bar G$ de azul. Si $G$ es libre de triángulos, $K_n$ es libre de $K_3$-rojo, pero entonces tiene un $K_k$-azul por definición de número de Ramsey, equivalentemente, $\bar G$ contiene un $K_k$, i.e., $G$ tiene con conjunto de $k$-vértices independientes.
 
 \begin{theorem}
 Existe $c > 0$ tal que
 \[
-    R(3,k) \geq \left ( \frac{ck}{\log k} \right )^{\frac 3 2}.
+    R(3,k) \geq \left ( \frac{ck}{\log k} \right )^{\frac 3 2},
 \]
-Para todo $k \in \naturals$ lo suficientemente grande.
+para todo $k \in \naturals$ lo suficientemente grande.
 \end{theorem}
 \begin{proof}
-Tomemos $n := \left ( \frac{k}{4 \log k} \right )^{\frac 3 2}$. Consideremos $\mathcal G = \mathcal G (n, p)$ con $p = n^{-\frac 2 3}$. Notar que $pk = 4 \log k$. El teorema anterior dice que
+Tomemos $n_k := \left ( \frac{k}{4 \log k} \right )^{\frac 3 2}$. Consideremos $\mathcal G = \mathcal G (n_k, p_{n_k})$ con $p_{n_k} := {n_k}^{-\frac 2 3}$. Notar que $p_{n_k}k = 4 \log k$. El teorema anterior dice que
 \[
-    \alpha (G) \leq \frac{2 \log n}{p} < k , \quad G\in \mathcal G
+    \alpha (G) \leq \frac{2 \log {n_k}}{p_{n_k}} < k , \quad G\in \mathcal G
 \]
-con probabilidad alta. Si $n < k^2$ si y solo si, $\log n < 2 \log k$.
+con probabilidad alta $(k \to \infty)$.
 
 Sea $X$ la variable aleatoria en $\mathcal G$ tal que $X(G)$ es el número de triángulos de $G$. Tenemos que
 \[
-    \mathbb{E} (X) = \binom n 3 p^3 \leq \frac{n^3}{6}p^3 = \frac n 6.
+    \mathbb{E} (X) = \binom {n_k} 3 p_{n_k}^3 \leq \frac{{n_k}^3}{6}p_{n_k}^3 = \frac {n_k} 6.
 \]
 Luego por la desigualdad de Markov \ref{lema:desigualdad de markov},
 \[
-    P(X \geq \frac n 2) \leq \frac{2}{n} \mathbb{E} (X) \leq \frac 1 3.
+    P(X \geq \frac {n_k} 2) \leq \frac{2}{{n_k}} \mathbb{E} (X) \leq \frac 1 3.
 \]
-Por lo tanto, existe un grafo $G'$ con $n$ vértices y $\alpha (G') < k$, que contiene a lo más $\frac n 2$ triángulos. Y quitando a lo más $\frac n 2$ triángulos de $G'$, obtenemos un $G''$ con $\alpha (G'') < k$, libre de triángulos y $V(G'') \geq \frac n 2$.
+Por lo tanto, para $k$ lo suficientemente grande, existe un grafo $G$ con $n_k$ vértices y $\alpha (G) < k$, que contiene a lo más $\frac {n_k} 2$ triángulos. Y quitando a lo más $\frac {n_k} 2$ vértice de $G$ por cada triángulo, obtenemos un grafo $G'$ con $\alpha (G') < k$, libre de triángulos y $v(G') \geq \frac {n_k} 2$. Es decir, la constante $c = 1/2^{\frac 8 3}$ funciona.
 \end{proof}
 
 
