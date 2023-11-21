@@ -3007,6 +3007,235 @@ Por lo tanto, para $k$ lo suficientemente grande, existe un grafo $G$ con $n_k$ 
 \end{proof}
 
 
+\section{Método del segundo momento}
+
+\begin{definition}
+La \textbf{varianza} de una variedad aleatoria $X$ está dada por
+\[
+    \operatorname{Var} (X) := \mathbb{E} ((X - \mathbb{E}(X))^2).
+\]
+Además, definimos la \textbf{desviación estándar}:
+\[
+    \sigma (X) := \sqrt{\operatorname{Var}(X)}.
+\]
+\end{definition}
+
+Tenemos las siguientes propieades de la varianza:
+\begin{proposition}
+Dada una variable aleatoria $X$, se tiene que:
+\begin{enumerate}
+\item $\operatorname{Var}(X) = \mathbb{E}(X^2)- \mathbb{E}(X)^2$.
+\item $\operatorname{Var}(cX) = c^2 \operatorname{Var}(X)$ para toda constante $c \in \reals$.
+\item Si $X_1, \ldots, X_n$ son variables aleatorias independientes, entonces
+\[
+    \operatorname{Var}(X_1 + \cdots + X_n) = \operatorname{Var}(X_1) + \cdots + \operatorname{Var}(X_n).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Desigualdad de Chebyshev]\label{proposition:desigualdad de Chebyshev}
+Sea $X$ una variable aleatoria y $\lambda > 0$ una constante. Entoncces
+\[
+    P(\abs{X - \mathbb{E}(X)} \geq \lambda) \leq \frac{\operatorname{Var}(X)}{\lambda^2}.
+\]
+
+En particular, tomando $\lambda := t \sigma (X)$ para $t > 0$,
+\[
+    P(\abs{X - \mathbb{E}(X)} \geq t \sigma (X)) \leq \frac{1}{t^2}.
+\]
+\end{proposition}
+\begin{proof}
+\begin{align*}
+P(\abs{X - \mathbb{E}(X)} \geq \lambda)  &= P (\abs{X - \mathbb{E}(X)}^2 \geq \lambda^2) \\
+&\leq \frac{\mathbb{E} ((X- \mathbb{E}(X))^2)}{\lambda^2} \\
+&= \frac{\operatorname{Var}(X)}{\lambda^2}.
+\end{align*}
+Donde la desigualdad sale de la Desigualdad de Markov \ref{lema:desigualdad de markov}.
+\end{proof}
+
+
+\bigskip
+
+
+
+Dado $A \subset \naturals$, denotamos por $\Sigma (A)$ al conjunto de todas las sumas posibles de elemntos de $A$. Notemos que
+\[
+    \#\Sigma (A) \leq 2^{\# A}.
+\]
+Diremos que $A$ tiene \textit{sumas distintas}, si
+\[
+    \# \Sigma (A) = 2^{\# A}.
+\]
+Para cada $n \in \naturals$, $A \subset [n]$. ¿Cuál será la máxima cardinalidad f(n) tal que $A$ tiene sumas distintas?
+
+Sea $A := \Set{2^i | 0 \leq i \leq \log _2 n} \subset [n]$. Entonces $\# A \geq 1 + \floor{\log_2 (n)}$ y todas las sumas son distintas, con lo cual
+\[
+    f(n) \geq 1 + \floor{\log _2 n}.
+\]
+
+\begin{theorem}
+Para todo $n \in \naturals$, tenemos que
+\[
+    f(n) \leq \log _2 n + \frac 1 2 \log _2 \log _2 n + O(1).
+\]
+\end{theorem}
+\begin{proof}
+Consideremos $A = \{a_1, \ldots, a_m\} \subset [n]$ con sumas distintas. Tomemos $X_1, \ldots, X_m$ variables aleatorias independientes con $X_i \sim \operatorname{Ber} (\frac 1 2)$. Se sigue que $\operatorname{Var}(X_i) = \frac 1 4$. Sea $X := \sum_{i = 1}^m a_i X_i$; escribamos $\mu := \mathbb{E} (X) = \sum_{i = 1}^m a_i \mathbb{E}(X_i) = \frac 1 2 \sum_{i = 1}^m a_i$; similarmente, $\operatorname{Var}(X) = \frac{1}{4} \sum_{i = 1}^m a_i^2 \leq \frac{n^2 m}{4}$, por lo tanto $\sigma(X) \leq \frac{n \sqrt m}{2}$.
+
+Tomemos $t > 1$, por la desigualdad de Chebyshev \ref{proposition:desigualdad de Chebyshev},
+\[
+    P(\abs {X - \mu} \geq \underbrace{\frac{t n \sqrt m}{2}}_{\geq t \sigma (X)}) \leq \frac{1}{t^2}.
+\]
+Con lo cual,
+\[
+    P(\abs{X - \mu} < \frac{t n \sqrt m}{2}) \geq 1 - t^{-2}.
+\]
+
+Notar que
+\[
+    P(X = x) = \begin{cases}
+    0 & \text{ si $x \not \in \Sigma (A)$} \\
+    2^{-m} & \text{ si $x \in \Sigma (A)$}.
+    \end{cases}
+\]
+Luego
+\[
+    P(\abs{X- \mu} < \frac{t n \sqrt m}{2}) \leq \frac{t n \sqrt m + 1}{2^m},
+\]
+porque las sumas son distintas. Juntando esta desigualdad con la anterior, tenemos que
+\[
+    \Omega (\frac{2^m}{\sqrt m}) = \frac{(1 - t^2) 2^m - 1}{t \sqrt m} \leq n.
+\]
+Conluyamos ahora a partir de esto que
+\[
+    m \leq \log_2 n + \frac 1 2 \log_2 \log_2 n + O(1),
+\]
+y por lo tanto $f(n) \leq \log _2 n + \frac 1 2 \log_2 \log_2 n + O(1)$ como queríamos.
+
+En efecto, la cantidad se maximiza cuando tomamos $t = \sqrt 3$ (de todas formas no es necesario tomar este $t$, cualquier $t$ sirve). Tomando logarítmo, nos queda
+\begin{align*}
+\log_2 n &\geq \log_2 (2^m \cdot \frac 2 3 - 1) - \frac 1 2 \left ( \log_2 m + \log_2 3 \right) \\
+    &\geq \log_2 2^{m-2} - \frac 1 2 \left ( \log_2 m + \log_2 (3) \right) \\
+    &= m-2 - \frac 1 2 \log_2 m - \frac 1 2 \log_2 (3).
+\end{align*}
+Como $\log_2 m \leq m$,
+\[
+    \log_2 n \geq \frac m 2 - 2 - \frac 1 2 \log_2 3 \geq \frac m 4
+\]
+para $m$ lo suficientemente grande. En particular,
+\[
+    \log_2 \log_2 n + 2 \geq \log m
+\]
+para $m$ grande. Así, usando esta cota para acotar el $\log m$ en la desigualdad de arriba, nos queda
+\begin{align*}
+        m &\leq \log_2 n + \frac 1 2 \log _ 2 m + \log_2 \sqrt 3 + 2 \\
+    &\leq \log_2 n + \frac 1 2 \log_2 \log_2 n + 3 + \log_2 \sqrt 3 \\
+    &= \log_2 n + \frac 1 2 \log_2 \log_2 n + O(1).
+\end{align*}
+\end{proof}
+
+
+\begin{conjecture}
+Erdös ofreció una pequeña recompensa para la persona que pruebe
+\[
+    f(n) \leq \log_2 n + O(1).
+\]
+\end{conjecture}
+
+
+
+\bigskip
+
+Sean $A_1, \ldots, A_t$ eventos en un espacio probabilítico $(\Omega, p)$, escribamos $X_i := \mathbb{1}_{A_i}$ para las variables aleatorias indicadoras respectivas. Vamos a utilizar el símbolo $i \sim j$ si solo si $A_i$ y $A_j$ no son independientes. Consideremos $X := X_1 + \cdots + X_t$. Luego
+\begin{align*}
+\operatorname{Var} (X) &= \mathbb{E} (X^2) - \mathbb{E} (X)^2 \\
+&= \sum_{i = 1}^t \sum_{j = 1}^t \mathbb{E}(X_i X_j) - \mathbb{E}(X_i) \mathbb{E}(x_j) \\
+&\leq \sum_{i \sim j} P(A_i \cap A_j) + \sum_{i = 1}^t \mathbb{E} (X_i) \\
+&= \mathbb{E} (X) + \Delta.
+\end{align*}
+
+\begin{proposition}
+Sean $A_1, \ldots, A_t$ eventos en $(\Omega, p)$, $X_i := \mathbb{1}_{A_i}$ y $X:= X_1 + \cdots + X_t$. Si $\mathbb{E} (X) \longrightarrow + \infty$ y $\Delta = o (\mathbb{E}(X)^2)$, entonces
+\[
+    X > 0
+\]
+con probabilidad alta.
+\end{proposition}
+\begin{proof}
+Por Chebyshev \ref{proposition:desigualdad de Chebyshev},
+\begin{align*}
+P(X = 0) &\leq P(\abs{X - \mathbb{E} (X)} \geq \frac{\mathbb{E} (X)}{2}) \\
+&\leq \frac{4 \operatorname{Var}(X)}{\mathbb{E}(X)^2} .
+\end{align*}
+Entonces, como
+\[
+    \frac{\operatorname{Var}(X)}{\mathbb{E}(X)^2} \leq \frac{1}{\mathbb{E}(X)} + \frac{\Delta}{\mathbb{E}(X)^2} = o(1).
+\]
+Por lo tanto $X > 0$ con probabilidad alta.
+\end{proof}
+
+\begin{theorem}
+Sea $\mathcal G = \mathcal G (n, \frac 1 2)$. Entonces
+\[
+    \alpha (G) = (2 + o(1)) \log_2 n, \quad G \in \mathcal G
+\]
+con probabilidad alta.
+\end{theorem}
+\begin{proof}
+Fijemos $k \in [n]$, el conjunto de vértices de $\mathcal G$, y tomemos $S$ un subconjunto de vértices con $k$ elementos. Consideremos la variable aleatoria indicadora $X_S$ para el evento $e(G[S]) = 0$; escribamos $X := \sum_{\substack{S \subset [n]}\\ \abs S = k} X_S$. Luego
+\[
+    \mathbb{E}  (X) = \sum_{\substack{S \subset [n]} \\ \abs{S} = k} \mathbb{E}(X_S)  = \binom n k 2^{- \binom k 2}.
+\]
+Notar que $X > 0$ implica $\alpha (G) \geq k$.
+\begin{enumerate}[(i)]
+\item $X = 0$ si $k > (2 + \varepsilon) \log_2 n$.
+\item $X > 0$ si $k < (2- \varepsilon) \log _2 n$.
+\end{enumerate}
+En efecto,
+\begin{enumerate}[(i)]
+\item
+\begin{align*}
+P(X \geq 1) &\leq \mathbb{E} (X ) \\
+&= \binom n k 2^{-k (k-1)/2} \\
+&\leq \left ( n \cdot 2^{- (k-1)/2} \right)^k \\
+&\leq \left ( n \cdot n^{-1 - \frac \varepsilon 2} \cdot \sqrt 2 \right )^k \\
+&= n^{-\frac \varepsilon 2 \cdot k} (\sqrt 2 )^k \\
+&= o(1).
+\end{align*}
+\item \begin{align*}
+\mathbb{E}[X] &= \binom n k \cdot 2^{- \binom k 2} \\
+&\geq \left ( \frac n k \right )^k \cdot 2^{- \binom k 2} \\
+& \geq \left ( \frac n k \right )^k \cdot n^{-k ( 1 - \varepsilon /2)} \\
+& \geq \left ( \frac n k \right )^k \cdot \frac{1}{n^{k ( 1 - \varepsilon /2)}}
+\end{align*}
+Que tiene a infinito cuando $n$ tiende a infinito, de manera uniforme para $k$.
+\end{enumerate}
+
+Si $\Delta = \sum_{S \sim T} P (X_S X_T \geq 1)$ con $S,T$ subconjuntos de vértices de tamaño $k$; $2 \leq \abs{S \cap T} \leq k-1$. Así
+\begin{align*}
+\Delta &= \sum_{i = 2}^{k-1} \binom n k \binom k i \binom {n-k}{k-i} 2^{\binom i 2 - 2 \binom k 2} \\
+&= \mathbb{E}(X)^2 \sum_{i = 2}^{k-1} g (i),
+\end{align*}
+donde $g(i) := \frac{\binom {n-k}{k-i} \binom k i 2^{\binom i 2}}{\binom n k} = o(n^{-1})$.
+Consecuentemente,
+\[
+    \frac{\Delta}{\mathbb{E}(X)^2} = \sum_{i = 2}^{k-1} g(i) = o (k n^{-1} )= o(1),
+\]
+y por lo tanto con probabilidad alta $X > 0$.
+\end{proof}
+
+\begin{corollary}
+Sea $\mathcal G = \mathcal G(n, \frac 1 2)$. Entonces
+\[
+\chi (G) \leq \left (\frac 1 {2 + o(1)} \right ) \frac{n}{\log_2 n}
+\]
+con probabilidad alta.
+\end{corollary}
+
+
+
+
+
 
 
 
