@@ -3234,14 +3234,121 @@ con probabilidad alta.
 
 
 
+\section{Método de concentración}
 
 
+\begin{proposition}[Desigualdad de Chernoff]\label{proposition:desigualdad de chernoff}
+Si $\varepsilon \in (0, 1]$ y $X$ una variable aleatoria binomial con media $\mu$. Entonces
+\[
+    P (\abs{X - \mu} \geq \varepsilon \mu) \leq 2 e^{\frac{-\varepsilon^2 \mu}{3}}.
+\]
+\end{proposition}
+
+\begin{definition}
+$\hat r (H_1,H_2) = \min \set{e(G) | G \longrightarrow (H_1,H_2)}$. En particular, escribimos $\hat r (H)$ para $\hat r (H,H)$.
+\end{definition}
+
+\begin{theorem}[Beck, 1983]\label{th:teorema de Beck}
+Existe una constante $c > 0$ tal que
+\[
+    \hat r (P_k) \leq c \cdot k
+\]
+para todo $k \in \naturals$.
+\end{theorem}
 
 
+\begin{lemma}
+Sea $c > 0$, y sea $\mathcal G = \mathcal G (n,p)$ con $p = \frac c n$ para $n$ lo suficientemente grande. Entonces
+\[
+    P\left (\{G \in \mathcal G | e(G) \geq p n^2\} \right ) \leq e^{- c \frac n 8}.
+\]
+\end{lemma}
+\begin{proof}
+Sabemos que la variable aleatoria que cuenta el número de aristas $e(\cdot) $ en $\mathcal G$ tiene distribución $\operatorname{Bin} (\binom n 2 , p)$. Notar que su $\mu = p \binom n2$. Como $\abs {e(G) - \mu} \geq \mu$ si y solo si $e(G) \geq 2 \mu$, tenemos que por la desigualdad de Chernoff \ref{proposition:desigualdad de chernoff} con $\varepsilon = 1$:
+\begin{align*}
+P(e(\cdot) \geq p n^2) \leq P (e(\cdot ) \geq 2 \mu) &\leq 2 e^{- \frac \mu 3} \leq 2 e^{- p \frac{n^2}{8}} = e^{- c \frac n 8}.
+\end{align*}
+\end{proof}
 
 
+\begin{lemma}
+Sea $c > 0$, y sea $\mathcal G = \mathcal G (n,p)$ con $P = \frac c n$ y $n$ lo suficientemente grande. Entonces con probabilidad alta
+\[
+    e(X,Y) \geq 1
+\]
+para cada para de subconjuntos de vértices $X,Y$ de $\mathcal G$, disjuntos con $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2} n$.
+\end{lemma}
+\begin{proof}
+Dados $X,Y$ subconjuntos de vértices de $\mathcal G$, disjuntos. Notar que la variable aleatoria $e(X,Y)$ (que depende de $G \in \mathcal G$) tiene distribución $\operatorname{Bin}(\abs X \abs Y, p)$, en particular $\mu = p \abs X \abs Y$. Por la desigualdad de Chernoff \ref{proposition:desigualdad de chernoff}, si $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2}n$, se tiene que
+\begin{align*}
+P(e(X,Y) = 0) &\leq P(\abs{e(X,Y) -  \mu} \geq \mu) \leq 2 e^{- \frac \mu 3} \\
+&= 2 e^{-p \frac{\abs X \abs Y}{3}} \\
+&\leq 2 e^{-p \frac{\abs X \abs Y}{4}} \\
+&\leq 2 e^{-p \frac{9 c^{-1} n^2}{3}} \\
+&\leq 2 e^{-\frac 9 4 n}\\
+&= e^{- (\frac 9 4 n - \log 2)} \\
+&\leq e^{-2n} \longrightarrow 0 \quad (n \to \infty).
+\end{align*}
+Así, tenemos un total de $2^n \cdot 2^n = 4^n$ formas de escoger $X$ e $Y$, con lo cual
+\[
+    4^n e^{-2n} = \left (\frac 4 {e^2} \right)^n = o(1) \quad (n \to \infty).
+\]
+De donde se sigue lo que queríamos.
+\end{proof}
 
 
+Ahora estamos en condiciones de probar el teorema principal de esta sección:
+
+\begin{proof}[Demostración del teorema]
+Sean $a,c >0$ constantes lo suficientemente grandes. Tomemos $n = a \cdot k$ y $C = a \cdot c$. Aplicamos ambos lemas de arriba con $p = \frac c n$. Tomemos un grafo $G$ con $n$ vértices y
+\[
+    e(G) \leq pn^2 = C \cdot k  .
+\]
+Además, por el segundo lema, para todo $X,Y \subset V(G)$ disjuntos con $\abs X \geq \abs Y \geq 3 c^{- \frac 1 2}n$ y $e(X,Y) \geq 1$.
+
+Ahora, supongamos por el absurdo que $G$ no tiene una $2$-coloración de aristas con un $P_k$ monocromático. Escribamos $V(G) = A \coprod X \coprod Y$ para la partición de los vértices de $G$ obtenida, y comencemos el siguiente algorítmo:
+\begin{enumerate}
+\item Si $A = X = \emptyset$ e $Y = V(G)$.
+    \begin{enumerate}[(a)]
+    \item Si $A = \emptyset$, escogemos cualquier vértice $u \in Y$ y lo muevo a $A$.
+    \item Si $A \neq \emptyset$, tomamos $v \in A$, el último que hemos agregado a $A$. Si existe $u \in Y$ tal que $v u$ es una arista azul, agregamos $u$ a $A$. Si no, movemos $v$ a $X$.
+    \end{enumerate}
+\end{enumerate}
+Repetimos esto hasta que $\abs X = \abs Y$. Observemos que $A$ forma un camino azul, por lo tanto $\abs A \leq k$. Más aún, $\abs Y - \abs X$ disminuye $1$ unidad por cada iteración del algorítmo. Como $\abs Y - \abs X = n$, en algún paso del algorítmo se llegó a que $\abs X = \abs Y$; así
+\[
+    \abs X + \abs Y = n - \abs A \geq n - k = k (a-1).
+\]
+Consecuentemente, $\abs X = \abs Y \geq \frac {k (a-1)}{2}$.
+
+Similarmente, podemos repetir el mismo proceso para el caso de aristas rojas: partimos $V(G) = A' \coprod X' \coprod Y'$ con $A'$ conteniendo un camino rojo y por lo tanto $\abs {A'} \leq k$, con $\abs{X'} = \abs{Y'} \geq \frac{k(a-1)}{2}$.
+
+Consideremos los conjuntos
+\begin{align*}
+\mathcal P_1 &= \{(X,X'), (Y,Y')\} \\
+\mathcal P_2 &= \{(X,Y'), (Y, X')\}
+\end{align*}
+de pares de partes de $V(G)$ obtenidas arriba. Afirmamos que existe $i = 1,2$ tal que
+\[
+    \abs{U \cap W} \geq \frac{k (a-3)}{4}
+\]
+para todo par $(U,V)$ en $\mathcal P_i$. En efecto, supongamos por el absurdo que $\abs{X \cap X'}$ y $\abs{X \cap Y'}$ ambos son menores que $\frac{k(a-3)}4$, luego
+\begin{align*}
+\frac{k(a-3)}{2} > \abs{X \cap X'} + ¸\abs{X \cap X'} &\geq \abs X - \abs{A'} \\
+&\geq \frac{k(a-1)}{2} - k \\
+&= \frac{k(a-3)}{2},
+\end{align*}
+absurdo.
+
+Finalmente, por la afirmación de recién, consideremos sin perdida de generalidad, que $X \cap X'$ e $Y \cap Y'$ son subconjuntos de $V(G)$ de tamaño almenos $\frac{k(a-3)}{4}$ elementos, disjuntos entre sí. Además,
+\[
+    \frac{k(a-3)}{4} \geq 3 c^{-\frac 1 2} n,
+\]
+como $k = \frac n a$,
+\[
+    n \frac{(1-\frac 3 a)}{4} \geq 3 c^{-\frac 1 2} n,
+\]
+llegando a una contradicción porque el segundo lema implica que tiene que haber almenos una arista entre ambos conjuntos.
+\end{proof}
 
 
 
