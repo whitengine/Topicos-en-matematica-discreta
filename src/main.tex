@@ -3364,6 +3364,208 @@ Por otro lado, Bal y DeBiasio probaron
 \end{remark}
 
 
+\section{Grafos aleatorios}
+
+\begin{theorem}
+Si $p_n = o(\frac 1 n)$, entonces
+\[
+    P(K_3 \subset \mathcal G (n,p_n)) \longrightarrow 0 \quad (n \to \infty).
+\]
+\end{theorem}
+\begin{proof}
+Consideremos la variable aleatorioa $X$ en $\mathcal G = \mathcal G(n,p_n)$ tal que $X(G)$ es el número de triángulos en $G$. Notar que $P(K_3 \subset \mathcal G) = P(X \geq 1)$. Ahora, podemos formar $\binom n 3$ triángulos con los vértices $V$ de $\mathcal G$, y la probabilidad de que uno de estos triángulos esté en $G \in \mathcal G$ es $p^3_n$. Consecuentemente,
+\[
+    \mathbb{E} (X) = p^3_n \binom n 3 \leq (p_nn)^3 \longrightarrow 0 \quad (n \to \infty).
+\]
+Así, la desigualdad de Markov \ref{lema:desigualdad de markov} implica
+\[
+    0 \leq P(X \geq 1) \leq \mathbb{E} (K) \longrightarrow 0 \quad (n \to \infty).
+\]
+\end{proof}
+
+\begin{theorem}
+Si $p_n = o (n) + 1$, entonces
+\[
+    P (K_3 \subset \mathcal G (n, p_n)) \longrightarrow 1 \quad (n \to \infty).
+\]
+\end{theorem}
+
+\begin{proof}
+
+Escribamos $p := p_n$. Como antes consideremos la variable aleatoria $X$ en $\mathcal G := \mathcal G (n,p_n)$ que cuenta la cantidad de triángulos en un grafo. Tenemos que $\mathbb{E}(X) = p^3 \binom n 3 \geq \left ( \frac{pn}{3} \right )^3 \rightarrow \infty$ cuando $n$ tiende a infinito.
+
+Precisamos ahora estimar la varianza de $X$. Para eso escribimos $X = \sum_{\tau} X_\tau$ como la sumatoria de todas las variables aleatorias indicadoras de los $\binom n 3$ triángulos $\tau$. Se tiene que
+\[
+    \operatorname{Var} \left ( \sum_{\tau} X_\tau \right ) = \sum_{\tau_i , \tau_j} \operatorname{Cov} (X_{\tau_i}, X_{\tau_j}).
+\]
+Notar que la covarianza es cero si $\tau_i, \tau_j$ no comparten aristas (las variables son independientes); si comparten una sola arista, la covarianza es:
+\[
+    \mathbb{E} (X_{\tau_1} X_{\tau_2}) - \mathbb{E} (X_{\tau_1}) \mathbb{E} (X_{\tau_2}) = p^5 - p^6;
+\]
+y si comparten todas las aristas, la covarianza es $p^3-p^6$. Juntando esto, tenemos que
+\begin{align*}
+\operatorname{Varr} (X) &= \sum_{\abs{\tau_i \cap \tau_j} = 1} p^5 - p^6 + \sum_{\abs{\tau_i \cap \tau_j} = 3} p^3 - p^6 \\
+&= 2 \binom n 4 (p^5-p^6) + \binom n 3 (p^3 - p^6) \\
+&\sim n^4 (p^5-p^6) + n^3 (p^3 - p^6).
+\end{align*}
+
+Finalmente, como
+\[
+    \left \{ \sum_{\tau} X_\tau = 0\right\} \subset \left \{ \abs {\sum_\tau X_\tau - \mathbb{E} (X)}  \geq \mathbb{E} (X) \right\},
+\]
+podemos deducir que
+\begin{align*}
+P\left ( \sum_{\tau} X_\tau = 0 \right ) &\leq P \left ( \abs{\sum_\tau X_\tau - \mathbb{E} (X)} \geq \mathbb{E} (X) \right) \\
+&\leq \frac{\operatorname{Var} (X)}{\mathbb{E} (X)^2} \quad (\text{Desigualdad de Chebyshev \ref{proposition:desigualdad de Chebyshev}}) \\
+&\sim \frac{n^4 (p^5 - p^6) + n^3 (p^3 - p^6)}{(pn)^3} \\
+&= n (p^2 - p^3) + (1 - p^3) \longrightarrow 0 \quad (n \to \infty)
+\end{align*}
+\end{proof}
+
+
+
+
+
+
+\section{Conexidad de grafos aleatorios}
+
+\begin{theorem}
+Sea $\mathcal G (n, p_n) =: \mathcal G$ con $p_n := \frac{c \log n}{n}$, entonces
+\[
+    P ( G \in \mathcal G | G \text{ es conexo}) = \begin{cases}
+    0 & \text{ si $c < 1$} \\
+    1 & \text{ si $c > 1$}
+    \end{cases} \quad (n \to \infty).
+\]
+\end{theorem}
+\begin{proof}
+Sea $X_\mu$ la variable aleatoria indicadora de si $\mu$ es un vértice aislado. Definamos $N := \sum_{\mu \in V(G)} X_\mu$. Notar que si $N \geq 1$, entonces $G$ no es conexo. Tenemos que
+\begin{align*}
+\mathbb{E} (X_\mu) &= P ( \mu \text{ es aislado}) = (1- p_n)^{n-1} \\
+\mathbb{E} (N) &= n (1-p_n)^{n-1}.
+\end{align*}
+Como $(1-p_n)^{n-1} = e^{(n-1) \log (1- p_n)} \sim e^{-(n-1) p_n} \sim e^{-n p_n}$ cuando $n \to \infty$. Ahora,
+\begin{align*}
+\mathbb{E} (N) &= n (1-p_n)^{n-1} \\
+&\sim n e^{- c \log n} \\
+&= n e^{\log n^{-c}} \\
+&= n^{1-c} \longrightarrow \begin{cases}
+0 & \text{ si $c > 1$} \\
+\infty & \text{ si $c < 1$}.
+\end{cases}
+\end{align*}
+
+Ahora calculamos la varianza
+\[
+    \operatorname{Var} (N) = \sum_{\mu, \nu} \operatorname{Cov} (X_\mu, X_\nu).
+\]
+Antes, notar que
+\[
+    \mathbb{E} (X_\mu \cdot X_\nu) = P (\mu \text{ y } \nu \text{ son aislados}) = (1-p_n)^{2n-3},
+\]
+pues para que sean aislados, no pueden estar las $2n-3$ aristas incidentes a $\mu$ y $\nu$ (hay $n-2$ vértices distintos de $\mu, \nu$ y luego una arista entre ellos). Si $\mu \neq \nu$:
+\begin{align*}
+\operatorname{Cov} (X_\mu, X_\nu) &= \mathbb{E} (X_\mu, X_\nu) - \mathbb{E} (X_\mu) \mathbb{E} (X_\nu) \\
+&= (1-p_n)^{2n-3} - (1-p_n)^{2(n-1)} \\
+&= p_n (1-p_n)^{2n-3}.
+\end{align*}
+Y si $\mu = \nu$:
+\begin{align*}
+\operatorname{Cov} (X_\mu , X_\nu) &= \operatorname{Var} (X_\mu) \\
+\operatorname{Var} (X_\mu) &= \mathbb{E} (X_\mu^2) - \mathbb{E}(X_\mu)^2\\
+&= \mathbb{E} (X_\mu) - \mathbb{E} (X_\mu)^2 \\
+&= (1-p_n)^{n-1} - (1-p_n)^{2(n-1)}.
+\end{align*}
+Como $p_n = \frac{c \log n}{n}$,
+\begin{align*}
+\operatorname{Cov} (X_\mu, X_\nu) &= \frac{c \log n}{n} (1 - \frac{c \log n}{n} )^{2n - 3 } \\
+&\leq \frac{c \log n}{n} e^{-c \frac{\log n}{n}} (2n-3) \quad (1 + x \leq e^x) \\
+&\sim \frac{c \log n}{n} e^{- \log (n^{-2c})} \\
+&= \frac{c\log n}{n} n^{-2 c} \\
+&= c \log n n^{-1 - 2 c}.
+\end{align*}
+Por otro lado,
+\[
+    \operatorname{Var} (X_\mu) = (1- \frac{c\log n}{n})^{n-1} - (1- \frac{c \log n }{n})^{2(n-1)} \sim n^{-c} - n^{-2c}.
+\]
+Juntando todo:
+\begin{align*}
+\operatorname{Var} (N) &= \sum_{\mu \neq \nu} \operatorname{Cov} (X_\mu, X_\nu) + \sum_{\mu} \operatorname{Var} (X_\mu) \\
+&\sim \binom n 2 cn^{-1 -2 c} \log n + n n^{-c} (1- n^{-c}) \\
+&\leq \frac c 2 n^{1-2c} \log n + n^{1-c} (1-n^{-c}).
+\end{align*}
+
+Si $c > 1$, tenemos que
+\[
+    P (N \geq 1) \leq \mathbb{E} (N) = n^{1-c} \longrightarrow 0 \quad (n \to \infty),
+\]
+por la desigualdad de Markov \ref{lema:desigualdad de markov}; y si $c < 1$,
+\begin{align*}
+P(N = 0) \leq P(\abs{N - \mathbb{E} (N)} \geq \mathbb{E} (N)) &\leq \frac{\operatorname{Var} (N)}{\mathbb{E} (N)^2} \quad (\text{ desigualdad de Chebyshev \ref{proposition:desigualdad de Chebyshev}}) \\
+&\sim \frac{\frac c 2 n^{1-2c} \log n + n^{1-c} (1- \frac 1 {n^c})}{n^{2-2c}} \\
+&= \frac{c}{2} n^{-1} \log n + \frac {n^c - 1}{m} \longrightarrow 0 \quad (n \to \infty).
+\end{align*}
+
+\bigskip
+
+
+Finalmente, probaremos que no existe un conjunto de $k$-vértices, con $2 \leq k \leq \frac n 2$, que esté aislado del complemento. Sea $S_k$ un conjunto de $k$-vértices; definimos la variable aleatoria indicadora $X_{S_k}$ que dice si $S_k$ está aislado, i.e., $E(S_k, \bar{S_k}) = \emptyset$. Tenemos que
+\[
+    \mathbb{E} (X_{S_k}) \leq (1 - p_n)^{k (n-k)} ,
+\]
+y por lo tanto,
+\[
+    P( G \text{ disconexo}) \leq \sum_{k = 2}^{\frac n 2} \binom n k \mathbb{E}(X_{S_k}) + P(\text{ hay un vértice aislado}).
+\]
+Como el último término ya vimos que tiende a cero cuando $c > 1$, basta estimar la sumatoria. Ahora,
+\begin{align*}
+\sum_{k = 2}^{\frac n 2} \binom n k \mathbb{E} (X_{S_k}) &\leq \sum_{k = 2}^{\frac n 2} \left (\frac{ne}{k} (1-p_n)^{n-k} \right )^k \\
+&\leq \sum_{k = 2}^{\frac n 2} \left (\frac{ne}{k} e^{-p_n(n-k)} \right )^k \\
+&= \sum_{k = 2}^{\frac n 2} \left ( \frac{n e}{k} n^{- \frac c n (n-k)} \right )^k \\
+&= \sum_{k = 2}^{\frac n 2}  \frac{ e^k}{k^k} n^{(1- c)k +  \frac{c k^2}{n}}.
+\end{align*}
+Para estimar esta sumatoria, notemos que como la función $f(x) := (c-1)x - \frac{c x^2}{n}$ es decreciente cuando $x \geq \frac{(c-1)n}{2c} =: \alpha_n$ y creciente cuando $x \leq \alpha_n$, luego
+\begin{align*}
+\sum_{k = 2}^{\frac n 2}  \frac{ e^k}{k^k} n^{(1- c)k +  \frac{c k^2}{n}} &\leq \frac{e^2}{2^2} n^{(1-c) 2 + \frac{c 2^2}{n}} + \frac{e^3}{3^3} n^{(1-c) 2 + \frac{c 3^2}{n}} +\sum_{k = 4}^{k} \frac{e^{\alpha_n}}{4^k} n^{(1-c) 2 + \frac{c 2^2}{n}} + \sum_{k = \alpha_n}^{\frac{n}{2}} \frac{e^{\frac n 2}}{\alpha_n^{\alpha_n}} \frac{1}{n^{\frac{(c-1)^2 n}{4 c}}}.
+\end{align*}
+Los primeros dos términos tienden a cero cuando $n$ tiende a infinito; el tercer término se puede escribir gracias a la fórmula geométrica como
+\begin{align*}
+n^{(1-c)2 +\frac{4 c}{n}}\sum_{k = 4}^{(c-1) \frac{n}{2c}} (\frac{e}{4})^k \leq C n^{(1-c)2 + \frac{4c}{n}} \longrightarrow 0 \quad (n \to \infty),
+\end{align*}
+para alguna constante $C>0$ que no depende de $n$.
+y el cuarto término lo acotamos de la siguiente manera:
+\begin{align*}
+\sum_{k = \alpha_n}^{\frac{n}{2}} \frac{e^{\frac n 2}}{\alpha_n^{\alpha_n}} \frac{1}{n^{\frac{(c-1)^2 n}{4 c}}} &\leq \frac{n}{2c} \frac{e^{\frac n 2}}{\alpha_n^{\alpha_n}} \frac{1}{n^{\frac{(c-1)^2n}{4c}}} \longrightarrow 0 \quad (n \to \infty).
+\end{align*}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
