@@ -3544,12 +3544,131 @@ y el cuarto término lo acotamos de la siguiente manera:
 
 
 
+\section{}
+
+\begin{definition}
+Sea $(\Omega, P)$ un espacio probabilístico y $A \subset \mathcal P (\Omega)$ un subconjunto de finitos eventos $\mathcal A = \{A_1, \ldots, A_n\}$. Un \textbf{grafo de dependencia} es un grafo con conjunto de vértices $\mathcal A$ cuyas aristas cumpleln que para todo $A\in \mathcal A$, el complemento del vecindario $N_G (A)$ consiste de eventos mutuamente independientes respecto de $P$.
+\end{definition}
+
+\begin{lemma}[Lovász]\label{lema:lovasz sobre grafo de dependencia}
+Sea $G$ un grafo de dependencia para un subconjunto de eventos $\mathcal A$,
+\[
+    \forall A \in \mathcal A , P(A) \leq \frac{1}{e (\Delta (G) + 1)} \quad \Longrightarrow \quad P(\bigcap_{A \in \mathcal A} A^c) > 0.
+\]
+\end{lemma}
+
+Recordemos que todo hypergrafo $k$-uniforme es $2$-coloreable si tiene menos de $2^{k-1}$ aristas.
+
+\begin{theorem}
+Si $\mathcal H$ es un hypergrafo $k$-uniforme con $\Delta (\mathcal H) =d$. Entonces
+\[
+    d \leq \frac{2^{k-1}}{ek} -1 \quad \Rightarrow \quad \chi (\mathcal H) = 2.
+\]
+\end{theorem}
+\begin{proof}
+Consideremos $c$ una $2$-coloración aleatoria. Para $e \in E(\mathcal H)$, consideremos los eventos $A_e = $``$e$ es monocromático''. Consideremos el grafo de dependencia
+\[
+    G := \left ( \bigcup_{E (\mathcal H)} A_e, \bigcup_{e,f \in E(\mathcal H)} \{ A_e A_f | e \cap f \neq \emptyset \}\right ).
+\]
+Observarq ue $\Delta (G) \leq kd$. Por lo tanto,
+\[
+    P(A_e) = 2^{1-k} \leq \frac{1}{e (kd + 1)},
+\]
+y luego el lema anterior implica que
+\[
+    P (\bigcap_{e \in E (\mathcal H)} A_e^c) >0.
+\]
+Así probamos el resultado.
+\end{proof}
 
 
+\begin{definition}
+Denotaremos por $\omega (r,k)$ al menor $n \in \naturals$ tal que toda $r$-coloración de $[n]$ tiene una $k$-progresión aritmética monocromática.
+\end{definition}
+
+\begin{obs}
+\[
+    \left ( (k-1) r^{k-1} \right )^{\frac 1 2} \leq \omega (r,k) \leq \frac{r^2}{k-1}.
+\]
+\end{obs}
+
+\begin{theorem}
+Dados $r,k \in \naturals$, se tiene que
+\[
+    \omega (r,k) \geq \frac{r^{k-1}}{2 e k}.
+\]
+\end{theorem}
+\begin{proof}
+Escribamos $n := \floor{\frac{r^{k-1}}{2 e k}}$, sea $c : [n] \to [n]$ una $r$-coloración aleatoria. Para una $k$-progresión aritmética $p$, definimos el evento $A_p = $``$p$ es monocromático'', luego consideremos el grafo de dependencia
+\[
+    G := \left ( \bigcup_{p} A_p , \bigcup_{p, q} \{A_p A_q | p \cap q \neq \emptyset\} \right ).
+\]
+Como $\delta (G) \leq 2 k r$ y $P(A_p) = r^{1-k} \leq \frac{1}{2 e k n}$, el Lema local de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que
+\[
+    P(\bigcap_{p} A_p^c) > 0,
+\]
+de donde se sigue el resultado.
+\end{proof}
+
+\begin{theorem}[Spencer, 1975]
+\[
+    R(k) \geq (1 + o(1)) \frac{\sqrt 2}{e} k 2^{\frac k 2}.
+\]
+
+\end{theorem}
+\begin{proof}
+Tomamos $K_n$ y una $2$-coloración aleatoria. Todo $K_k \cong S \subset K_n$ se le asocia el evento $A_S = $``$S$ es monocromático'', y luego construimos el grafo de dependencia
+\[
+    G:= \left ( \bigcup_S A_S, \bigcup_{S,T} \{A_S A_T | e(S \cap  T) \geq 1\} \right ).
+\]
+Notar que $P(A_S) = 2^{- \binom k 2 + 1}$, y que $\Delta (G) \leq \binom k 2 \binom{n-2}{k-2} \leq \frac{k^4}{n^2}\binom n k$.
+
+Si $n = (1 - \varepsilon) \frac{k \sqrt 2}{e} 2^{\frac k 2}$, se sigue que
+\[
+    \binom n k 2^{- \frac k 2} \leq \left ( \frac{e n}{k} 2^{- \frac {k-1}2} \right ) \leq (2- \varepsilon)^k \ll \frac{n^2}{k^4},
+\]
+equivalentemente, $\frac{k^4}{n^2} \binom n k 2^{- \frac k 2} \ll 1$.
+Así,
+\[
+    P(A_S) \leq 2^{- \binom k 2 + 1} \ll \frac{1}{\frac{k^4}{n^2} \binom n k} \leq \frac{1}{e \left ( \frac{k^4}{n^2} \binom n k +  1 \right )}.
+\]
+Finalmente, el Lema de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que lo que que queremos.
+\end{proof}
 
 
+\begin{lemma}[Lema local (asimétrica)]\label{lema:lema local asimetrica}
+Para $\mathcal A = \{A_1, \ldots, A_n\} \subset \mathcal P (\Omega)$, si existen $x_i \in [0, 1)$ tales que si $G$ es un grafo de dependencia en $\mathcal A$,
+\[
+    \forall i \in [n] , P(A_i) \leq x_i \prod_{A_i A_j \in E(\mathcal G)} (1 - x_j) \quad \Longrightarrow \quad p (\bicap_{i \in [n]} A_i^c) \geq \prod_{i \in [n]} (1-x_i) > 0.
+\]
+\end{lemma}
 
+\begin{theorem}
+Existe una constante $c > 0$ tal que
+\[
+    R(3, k) \geq \frac{c k^2}{\log^2 k}, \quad \forall k \geq 3.
+\]
+\end{theorem}
+\begin{proof}
+Sea $\varepsilon > 0$ y tomemos $n = \frac{\varepsilon^4 k ^2}{\log^2 k}$ y $p = \frac{\varepsilon}{\sqrt n}$. Para todo $S \subset K_n$ con $S \cong K_3$, definimos $A_S = \{ S \subset \mathcal G (n,p)\}$ y para todo $T \subset K_n$, $T \cong K_r$, con $B_T := \{ T \cap \mathcal G (n,p) \neq \emptyset\}$. Basta ver que
+\[
+    P (\bicap_{S \cong K_3} A_S \cap \bigcap_{T \cong K_r} B_T) > 0.
+\]
 
+Consideremos $\mathcal A$ el conjunto de los $K_3$ en $K_n$ y $\mathcal B$ el conjunto de los $K_k$ en $K_n$. Consideremos el grafo de dependencia
+\[
+    G = ( \mathcal A \cup \mathcal B, E),
+\]
+donde $\{A, B\} \in E$ si $A$ y $B$ comparten almenos una arista. Notar que todo $S \in \mathcal A$ tiene $\leq 3n$ vecinos en $\mathcal A$ y $\leq 3n^{k-2}$ vecinos en $\mathcal B$; por otro lado, $T \in \mathcal B$ tiene $\leq k^2 n$ vecinos en $\mathcal A$ y $\leq k^2 n^{k-2}$ vecinos en $\mathcal B$. Tomemos las cantidades $x_S = 2p^3$ y $x_T = n^{-k}$ para $S \in \mathcal A$ y $T \in \mathcal B$. Tenemos que
+\[
+    P(A_S) = p^3 \leq 2 p^3 (1-2p^3)^{3n} (1-n^{-k})^{3 n^{k-2}} \leq x_S \prod_{S U \in E(G)} (1- X_U),
+\]
+y
+\[
+    P(B_T) = (1-p)^{\binom k 2} \leq \exp (- \frac{p k ^2}{4}) \leq \€xp (-4k \log k) < n^{-2k} \leq n^{-k}(1-2 p^3)^{k^2n} (1- n^{-k})^{k^2 n^{k-2}} \leq x_S \prod_{S U \in E(G)} (1-X_U).
+\]
+Siempre que $p^3 k^2 n< k \log k$, por el Lema local asimétrico \ref{lema:lema local asimetrica} $G_{1,p}$ no contiene copias de $K_3$ ni conjuntos independientes de más de $k$ vértices.
+\end{proof}
 
 
 
