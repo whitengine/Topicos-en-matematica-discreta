@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg12165"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
+   inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
    sodipodi:docname="Figura 5.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.4039843"
-     inkscape:cx="301.99768"
-     inkscape:cy="164.17563"
+     inkscape:zoom="1.9855336"
+     inkscape:cx="280.78094"
+     inkscape:cy="187.607"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -36,10 +36,51 @@
      showguides="true">
     <inkscape:grid
        type="xygrid"
-       id="grid23485" />
+       id="grid23485"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="mm"
+       visible="true" />
   </sodipodi:namedview>
   <defs
      id="defs12162">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect5"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
        effect="bspline"
        id="path-effect4637"
@@ -230,6 +271,19 @@
        id="path4629"
        inkscape:path-effect="#path-effect4637"
        inkscape:original-d="m 83.64103,51.790835 c 7.999236,8.741876 15.998223,17.484294 23.997,26.227258 9.43109,-8.44268 18.86154,-16.884478 28.29194,-25.3259" />
+    <path
+       style="fill:none;stroke:#ed333b;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:2.26205;paint-order:markers fill stroke"
+       d="m 34.795309,59.12173 c 5.980536,7.000253 11.961072,14.000505 19.483246,18.292546 7.522174,4.29204 16.585624,5.875806 25.791193,5.851585 9.205568,-0.02422 18.552701,-1.656395 26.495002,-5.768644 7.94231,-4.112248 14.47933,-10.70427 21.01649,-17.296429"
+       id="path3"
+       inkscape:path-effect="#path-effect3"
+       inkscape:original-d="m 34.795309,59.12173 c 5.980536,7.000253 11.961071,14.000506 17.941607,21.000757 9.063813,1.58383 18.127263,3.167597 27.190893,4.751392 9.347507,-1.632238 18.69464,-3.264413 28.041961,-4.89662 6.53729,-6.592289 13.07431,-13.184314 19.61147,-19.776471" />
+    <path
+       style="fill:none;stroke:#ed333b;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:2.26205;paint-order:markers fill stroke"
+       d="m 34.795309,59.12173 c 5.980536,7.000253 11.961072,14.000505 19.483246,18.292546 7.522174,4.29204 16.585624,5.875806 25.791193,5.851585 9.205568,-0.02422 18.552701,-1.656395 26.495002,-5.768644 7.94231,-4.112248 14.47933,-10.70427 21.01649,-17.296429"
+       id="path4"
+       inkscape:path-effect="#path-effect5"
+       inkscape:original-d="m 34.795309,59.12173 c 5.980536,7.000253 11.961071,14.000506 17.941607,21.000757 9.063813,1.58383 18.127263,3.167597 27.190893,4.751392 9.347507,-1.632238 18.69464,-3.264413 28.041961,-4.89662 6.53729,-6.592289 13.07431,-13.184314 19.61147,-19.776471"
+       transform="matrix(1,0,0,-1,0,87.354252)" />
   </g>
   <g
      inkscape:groupmode="layer"
