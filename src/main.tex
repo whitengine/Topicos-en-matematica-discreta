@@ -2224,7 +2224,7 @@ Primero veamos la cota inferior: sea $n = s\cdot k$, consideremos la siguiente c
 
 \Inkscape{}{"./Figuras/Teoria de Ramsey/Figura 5.pdf_tex"}
 
-Para la cota superior, haremos inducción en $s \geq 2$. Si $s = 2$, tenemos que $r (K_3, T_k) \leq 2 k + 1$ por el teorema anterior. Supongamos ahora que $s \geq 3$. Sea $n = s\cdot k + 1$. Sea $v$ un vértice con grado rojo $\geq (s-1)k + 1$, y sea $A$ la vecindad roja de $v$. Por hipótesis inductiba en $K_n[A]$, hay una copia de $K_s$ rojo, o una copia de $T_k$ azul y ganamos. Así, podemos asumir que el grado rojo de cada vértice es $\leq (s-1)k$. Esto implica que el grafo azul tendrá grado mínimo $\geq (s \cdot k +1 ) - 1 - (s - 1) k \geq k$. Con lo cual contiene una copia de $T_k$ por el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices}.
+Para la cota superior, haremos inducción en $s \geq 2$. Si $s = 2$, tenemos que $r (K_3, T_k) \leq 2 k + 1$ por el teorema anterior. Supongamos ahora que $s \geq 3$. Sea $n = s\cdot k + 1$. Sea $v$ un vértice con grado rojo $\geq (s-1)k + 1$, y sea $A$ la vecindad roja de $v$. Por hipótesis inductiba en $K_n[A]$, hay una copia de $K_s$ rojo, o una copia de $T_k$ azul y ganamos. Así, podemos asumir que el grado rojo de cada vértice es $\leq (s-1)k$. Esto implica que el grafo azul tendrá grado mínimo $\geq (s \cdot k +1 ) - 1 - (s - 1) k = k$. Con lo cual contiene una copia de $T_k$ por el Lema \ref{lemma:si G contiene un vertice de grado almenos k entonces contiene un arbol T con k + 1 vertices}.
 \end{proof}
 
 \begin{theorem}
@@ -2409,7 +2409,7 @@ Tomemos una coloración con rojo y azul de $K_n$, y sean $G_r$ y $G_a$ los subgr
 \[
     V(G_r) = V_0 \coprod V_1 \coprod \cdots \coprod V_k,
 \]
-con $m \leq k \leq M$. Notar que esta partición también es $\varepsilon regular$ para $G_a$ \red{\textbf{TAREA}}.
+con $m \leq k \leq M$. Notar que esta partición también es $\varepsilon$-regular para $G_a$ \red{\textbf{TAREA}}.
 
 Sea $R$ el grafo reducido con parámetros $\varepsilon$ y densidad $0$ (no nos interesa la densidad). Entonces,
 \[
@@ -2430,7 +2430,7 @@ satisface que $G' \in \mathcal G (K_{d+1}, n', \varepsilon, \delta)$, con
 
 Así, elegimos $c = c(\Delta)$ suficientemente grande (en particular, $c \geq M/\gamma$), entonces
 \[
-    \abs (H) \leq \frac{n}{c(\Delta)} \leq \frac{\gamma n}{M} \leq \gamma n',
+    \abs H \leq \frac{n}{c(\Delta)} \leq \frac{\gamma n}{M} \leq \gamma n',
 \]
 con lo cual se tiene la conclusión del teorema por el lema de inmersión de arriba.
 \end{proof}
