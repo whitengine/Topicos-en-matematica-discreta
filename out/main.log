@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  5 DEC 2023 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  8 DEC 2023 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2117,9 +2117,22 @@ Overfull \hbox (35.55202pt too wide) detected at line 3530
 []
  []
 
-[71] [72] [73]
+[71] [72]
+Overfull \hbox (138.02303pt too wide) detected at line 3669
+\FML/fncmi/m/it/12 P\U/matha/m/n/12 p\FML/fncmi/m/it/12 B[]\U/matha/m/n/12 q ^^
+P p\T1/fnc/m/n/12 1 \U/matha/m/n/12 ^^A \FML/fncmi/m/it/12 p\U/matha/m/n/12 q[]
+ ¤ []p^^A[]q ¤ []p^^A\T1/fnc/m/n/12 4\FML/fncmi/m/it/12 k [] k\U/matha/m/n/12 q
+   \FML/fncmi/m/it/12 n[] \U/matha/m/n/12 ¤ \FML/fncmi/m/it/12 n[]\U/matha/m/n/
+12 p\T1/fnc/m/n/12 1 \U/matha/m/n/12 ^^A \T1/fnc/m/n/12 2\FML/fncmi/m/it/12 p[]
+\U/matha/m/n/12 q[]p\T1/fnc/m/n/12 1 \U/matha/m/n/12 ^^A \FML/fncmi/m/it/12 n[]
+\U/matha/m/n/12 q[] ¤ \FML/fncmi/m/it/12 x[] []\U/matha/m/n/12 p\T1/fnc/m/n/12 
+1 \U/matha/m/n/12 ^^A \FML/fncmi/m/it/12 X[]\U/matha/m/n/12 q\FML/fncmi/m/it/12
+ :
+ []
+
+[73] [74]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
-ematica discreta/out/main.bbl) [74
+ematica discreta/out/main.bbl) [75
 
 ]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
@@ -2137,10 +2150,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5125F71710EAA687D7A4D5B7AA19C27A;3605.
  ) 
 Here is how much of TeX's memory you used:
- 29567 strings out of 476017
- 562027 string characters out of 5786780
+ 29571 strings out of 476017
+ 562088 string characters out of 5786780
  1870666 words of memory out of 5000000
- 49074 multiletter control sequences out of 15000+600000
+ 49075 multiletter control sequences out of 15000+600000
  604769 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2161,10 +2174,10 @@ ome/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></h
 ome/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></ho
 me/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (75 pages, 428031 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (76 pages, 432626 bytes).
 PDF statistics:
- 955 PDF objects out of 1000 (max. 8388607)
- 802 compressed objects within 9 object streams
- 320 named destinations out of 1000 (max. 500000)
+ 962 PDF objects out of 1000 (max. 8388607)
+ 808 compressed objects within 9 object streams
+ 323 named destinations out of 1000 (max. 500000)
  304 words of extra memory for PDF output out of 10000 (max. 10000000)
 
