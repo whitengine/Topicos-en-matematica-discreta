@@ -2308,7 +2308,7 @@ contradiciendo la maximalidad de $P_a$. Como hemos agotado todos los casos, se c
 \section{El problema con un final feliz}
 
 \begin{proposition}[El problema de E. Klein (1930)]
-Para todo $k \in \naturals$, existe $n = n(k) \in \naturals$ tal que dados $n$ puntos en posición general del plano (i.e. no hay $3$ puntos colineales). Entonces el conjunto de puntos contiene $k$ puntos en posición convexa.
+Para todo $k \in \naturals$, existe $n = n(k) \in \naturals$ tal que dados $n$ puntos en posición general del plano (i.e. no hay $3$ puntos colineales), entonces el conjunto de puntos contiene $k$ puntos en posición convexa.
 \end{proposition}
 \begin{proof}[Demostración del caso $k = 4$ y $n = 5$]
 Ella probó este caso\footnote{El cual fue bautizado como ``El problema con un final feliz'' por Paul Erdős, debido a que llevó al casamiento de George Szekeres y Esther Klein.}. Consideramos la cápsula convexa de los $5$ puntos, si los vértices son $4$ o $5$ de estos puntos ya ganamos, si no, existen dos puntos que están contenidos en el interior del triángulo convexo (formado por $3$ de estos puntos como vértices). Luego simplemente consideramos la recta que une a estos dos puntos interiores, la cual interseca a dos lados distintos del triángulo, y por lo tanto hay $4$ puntos en posición convexa:
@@ -2336,7 +2336,7 @@ Una \textbf{$r$-coloración de subconjuntos} de $[n]$ de tamaño $s$, es una fun
 \[
     c : \binom{[n]}{s} \longrightarrow \{1, \ldots, r\}.
 \]
-Diremos que $A \in \binom{[n]}s$ es \textbf{monocromático} (respecto de $c$), si $c(S) = c(S')$ para todo $S \in \binom{A}s$.
+Diremos que $A \subset [n]$ es \textbf{monocromático} (respecto de $c$), si $c(S) = c(S')$ para todo $S \in \binom{A}s$.
 \end{definition}
 
 \begin{theorem}[Teorema de Ramsey Generalizado]\label{th:teorema de Ramsey Generalizado}
@@ -2399,7 +2399,7 @@ La idea será aplicar el Lema de Regularidad de Szémeredi \ref{theorem:lema de 
 \begin{lemma}[Un lema de inmersión]\label{lema:un lema de inmersion para numeros de ramsey}
 Dados $d \in \naturals$ y $\delta >0$, existe $\varepsilon > 0$ y $\gamma > 0$ tales que si $n \in \naturals$ y $H$ es un grafo con $\Delta (H) \leq d$ y $\abs H \leq \gamma n$, entonces
 \[
-    G \in \mathcal G (K_{d+1}, n , \varepsilon , \delta) \quad \longrightarrow \quad H \subset G    .
+    G \in \mathcal G (K_{d+1}, n , \varepsilon , \delta) \quad \Longrightarrow \quad H \subset G    .
 \]
 \end{lemma}
 
@@ -3544,7 +3544,7 @@ y el cuarto término lo acotamos de la siguiente manera:
 
 
 
-\section{}
+\section{Grafos de dependencia}
 
 \begin{definition}
 Sea $(\Omega, P)$ un espacio probabilístico y $A \subset \mathcal P (\Omega)$ un subconjunto de finitos eventos $\mathcal A = \{A_1, \ldots, A_n\}$. Un \textbf{grafo de dependencia} es un grafo con conjunto de vértices $\mathcal A$ cuyas aristas cumpleln que para todo $A\in \mathcal A$, el complemento del vecindario $N_G (A)$ consiste de eventos mutuamente independientes respecto de $P$.
@@ -3669,6 +3669,148 @@ y
 \]
 Siempre que $p^3 k^2 n< k \log k$, por el Lema local asimétrico \ref{lema:lema local asimetrica} $G_{1,p}$ no contiene copias de $K_3$ ni conjuntos independientes de más de $k$ vértices.
 \end{proof}
+
+
+
+
+
+\section{Grafos $K_3$ libres}
+
+\begin{definition}
+    $E \subset \{0,1\}^n$ es \textbf{creciente} si
+    \[
+    x \in E \text y x \leq y \quad \Longrightarrow \quad y \in E.
+    \]
+    Donde tomamos el orden parcial $\leq$ en los vectores dada por el orden coordenada a coordenada.
+
+\end{definition}
+
+\begin{lemma}[Harris]
+Sean $\{x_i\}_{i \in [n]}$ e $\{y_i\}_{i \in [n]}$ \textit{muestras aleatorias} de $\{0,1\}$ escogidas independientemente con probabilidad
+\[
+P (x_i = 1) = P (y_i = 1) = p.
+\]
+Si $E, F \subset \{0,1\}^n$ son crecientes y $p > 0$, entonces
+\[
+P(E \cap F) \geq P(E) P(F).
+\]
+\end{lemma}
+
+\begin{proposition}
+Si $c > 0$ y $p = \frac c n$,
+\[
+P (K_3 \subset \mathcal G (n, p)) \leq 1 - e^{- c^3/6} + o(1) \quad (n \to \infty).
+\]
+Sean $A_i$ los eventos indicadores asociados al $i$-ésimo triángulo $T_i \subset [n]$. Podemos pensar $A_i \subset \{0,1\}^{\binom n 2}$. Notar que $A_i$ es creciente y que $P (A_i) = p^3$. Sea $m := \binom n 3$. Por el lema de arriba:
+\[
+P(K_3 \not \subset \mathcal G (n,p)) = P (\bigcap_{i = 1}^m A_i^c) \geq \prod_{i = 1}^m P(A_i^c) = (1- p^3)^m \longrightarrow e^{-c^3 / 6} \quad (n \to \infty)
+\].
+\end{proposition}
+
+\subsection{Desigualdades de Jason}
+
+$\{ T_i\}_{i = 1}^t \subset [N]$, $p \in (0,1)$ y $R \subset [N]$, y conjunto aleatorio $P( x \in R) = p_1 , x \in [N]$. Los eventos $A_i = \{T_i \subset R\}$. $A_i$ es creciente. Escribamos $i \sim j$ si solo si $T_i \cap T_j \neq \emptyset$. Notar que $i \not \sim j$ si y solo si $A_i$ y $A_j$ son independientes entre sí. Escribamos
+\[
+\mu = \sum_i P(A_i) \quad \text y \quad \Delta = \sum_{i \sim j} P (A_i \cap A_j).
+\]
+
+\begin{lemma}[Desigualdades de Jason]
+\[
+    P (\bigcap_{i \in [t]} A_i^c) \leq \exp (- \mu + \Delta / 2).
+\]
+Además, si $\Delta \geq \mu$,
+\[
+P (\bigcap_{ i \in [t]} A_i^c) \leq \exp ( - \frac{\mu^2}{2 \Delta}).
+\]
+\end{lemma}
+
+Daremos otra demostración de la proposición de antes:
+
+\begin{proof}
+    Tomemos $N = \binom n 2$ y una biyección entre $[N]$ y las aristas de $K_n$ de modo que el conjunto aleatorio $R$ sea mapeado a $\mathcal G (n, p)$. Si $\{T_i\}$ son los distintos triángulos en $[n]$, la primera desigualdad de Jason implica que
+    \[
+        P (K_3 \not \subset \mathcal G (n, p)) \leq e^{- \mu + \Delta / 2},
+    \]
+    $\mu = p^3 \binom n 3 \to c^3 / 6$ y $\Delta \leq p^5 n^4 \to 0$.
+\end{proof}
+
+
+\begin{lemma}
+Si $\varepsilon > 0$ y $m \geq \frac{n}{\log ^2 (n)}$, entonces
+\[
+    P (\alpha (\mathcal G (n, 1/2)) > (2 - \varepsilon) \log (n)) \leq \exp ( \frac{-n^2}{\log^9 (n)}).
+\]
+\end{lemma}
+
+\begin{theorem}
+Con probabilidad alta,
+\[
+    \chi (\mathcal G (n, 1/2)) = (\frac 1 2 + o(1)) \frac{n}{\log n}.
+\]
+\end{theorem}
+
+\begin{proof}
+Por un lado, tenemos que
+\[
+\chi (\mathcal (n, 1/2)) \geq (\frac 1 2 + o(1))
+\frac{n}{\log n},
+\]
+pues hemos probado anteriormente que
+\[
+\alpha (\mathcal G (n, 1/2)) \geq (2 + o(1)) \log n.
+\]
+
+Por otro lado, el lema anterior el número esperado de subconjuntos de vértices de $\mathcal G (n, 1/2)$ sin conjuntos independientes de tamaño $(2- \varepsilon) \log n$ es a lo más
+\[
+2^n \exp (\frac{- n^2}{\log^9 n}) \longrightarrow 0.
+\]
+Con probabilidad alta, todo subgrafo de $\mathcal G (n, 1/2)$ con por lo menos $\frac{n}{\log^2 n}$ vértices, contiene un conjunto independiente de tamaño $(2-\varepsilon) \log n$. Sea $\mathcal G (n, 1/2)$ con esta propiedad y entonces podemos hallar de manera golosa conjuntos independientes $\{A_i\}_{i = 1}^r$ de tamaño $(2-\varepsilon) \log n$ hasta que
+\[
+    \sum_{i = 1}^r \abs{A_i} \geq n - \frac{n}{\log^2 n},
+\]
+entonces
+\[
+    \chi (\mathcal G (n, 1/2)) \leq \frac{n}{(2-\varepsilon) \log n} + \frac{n}{\log ^2 n} = (\frac{1}{2 - \varepsilon} + o(1)) \frac{n}{\log n} \quad ( \varepsilon \to 0).
+\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
