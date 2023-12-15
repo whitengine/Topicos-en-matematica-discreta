@@ -3958,15 +3958,26 @@ En efecto, para probar que $G$ contiene una copia de $Q_k$, vamos a primero usar
 \[
     \frac{2^t e(G)^t}{n^{2t-1}} - \binom n k \left ( \frac{2^k}{n} \right )^t \geq 2^{k-1}
 \]
-para algún $t \in \naturals$. Si $e(G) \geq n^2 / 4$, como $n = 2^{3k}$, se sigue que
+para algún $t \in \naturals$. Como  $e(G) \geq \binom n 2 / 2 = n^2(1-\frac 1 n)/4$ y $n = 2^{3k}$, basta ver que
 \[
-2^{3k - t} - 2^{3k^2 - 2k t} \geq 2^{k-1},
+2^{3k-t}(1- \frac{1}{2^{3k}})^t - 2^{3k^2 - 2k t} \geq 2^{k-1},
 \]
-que vale para todo $3 k /2 \leq t \leq 2k$.
+lo cual vale para todo $3 k /2 \leq t \leq 2k$ si $k \geq 2$ (el caso $k = 1$ es trivial). En efecto, basta ver que
+\[
+    2^k (1- \frac 1 {2^{3k}})^{2k} - 1 \geq 2^{k-1}.
+\]
+Esto se puede probar porp inducción en $k \geq 2$. El caso base vale; en general, por hipótesis inductiva tenemos que
+\begin{align*}
+2^{k+1} (1- \frac {1}{2^{3k + 3}})^{2k + 2} &\geq 2 (1- \frac{1}{2^{3k+3}})^2 (2^{k-1} + 1) \\
+&= 2^k + 2 - \frac{2^{k-1}+ 1}{2^{3k}} + \frac{2^{k-1} + 1}{2^{6k + 1}},
+\end{align*}
+esto último es mayor o igual a $2^k + 1$ si es que probamos que
+\[
+    2^{6k + 3} + 2^{k-1} + 1 \geq 2^{4k + 2} + 2^{3k + 3}.
+\]
+Pero esto es claramente cierto para $k \geq 2$.
 
 Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} junto con la observación que hicimos antes del teorema, implican que $Q_k \subset G$ como queríamos.
-
-En general, $e(G)$ no tiene por qué ser $\geq n^2/4$, sin embargo, si se tiene que es $\geq \binom n 2 / 2 = n^2/4 (1-\frac 1 n)$. Una cuenta un poco más complicada nos permite encontrar $t$ tal que se cumple la hipótesis del lema de elección aleatoria dependiente.
 \end{proof}
 
 \begin{obs}
