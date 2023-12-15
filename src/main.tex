@@ -3786,25 +3786,190 @@ entonces
 
 
 
+\section{Elección aleatoria dependiente}
+
+\subsection{El número de Ramsey-Turán}
+
+\begin{definition}
+El \textbf{número de Ramsey-Turán} de un grafo $H$ (límitado por una función $k(n)$ es la cantidad
+\[
+RT (n, H, k(n)) := \max \Set{e(G) | G \not \supset H \text{ tiene $n$ vértices y } \alpha (G) \leq k(n)}.
+\]
+\end{definition}
+
+\begin{obs}
+\[
+    RT (n, K_3, o (n)) = o(n^2).
+\]
+En efecto, la vecindad $N_G (v)$ de un grafo $G$ libre de triángulos es un conjunto independiente, con lo cual $\alpha (G) = o (n)$, y por lo tanto $\Delta (G) = o (n)$.
+\end{obs}
+
+\begin{theorem}[Sudakov (2003)]
+Para todo $\varepsilon > 0$,
+\[
+    RT (n, K_4, n^{1-\varepsilon}) = o (n^2) \quad (n \to \infty).
+\]
+
+\end{theorem}
+
+\begin{proof}
+La estrategia será la siguiente: supongamos que podemos encontrar un conjunto $A \subset V(G)$ de vértices de $G$ de tamaño $k = n^{1- \varepsilon}$ de tal suerte que para todo par de vértices $u,v \in A$ hay al menos $k$ vecinos en común. $A$ es un conjunto independiente o contiene una arista $uv$. Además, la vecindad en común entre $u$ y $v$ tiene tamaño al menos $k$, o es un conjunto independiente o conteniendo una arista $xy$. De esta manera, se sigue que $\alpha (G) < k$, y por lo tanto $G$ contiene un $K_4$, por ejemplo los vértices $u,v,x,y$ funcionan.
+
+El siguiente lema nos permite encontrar dicho conjunto $A$ en cualquier grafo con densidad positiva:
+
+\begin{quote}
+\begin{lemma}[Lema de elección aleatoria dependiente\footnote{
+Para una demostración, ver el Lema 10.3.3 de \cite{botler2022combinatoria}
+}]\label{lema:eleccion aleatoria dependiente}
+Sea $G$ un grafo con $n$ vértices, y sean $r,s \in \naturals$. Si existe $t \in \naturals$ tal que
+\[
+    \frac{2^t e(G)^t}{n^{2t - 1}} - \binom n s \left ( \frac r n \right )^t \geq a,
+\]
+entonces existe un subconjunto $A \subset V(G)$ tal que:
+\begin{enumerate}[(i)]
+\item $\abs A \geq a$.
+\item Todo conjunto con $s$ vértices de $A$ tiene al menos $r$ vecinos en común.
+\end{enumerate}
+\end{lemma}
+\end{quote}
+
+Ahora, tomemos $\varepsilon > 0$ arbitrariamente pequeño. Basta probar que todo grafo $G$ con $n$ vértices tal que
+\[
+    e(G) \geq \varepsilon n^2 \quad \text y \quad \alpha (G) \leq k = k(n) := n^{1- \varepsilon}
+\]
+contiene una copia de $K_4$. Para eso, utilizamos el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} con $s = 2$ y $a = r = k$ para encontrar un conjunto $A \subset V(G)$ de tamaño $k$ tal que para todo par de vértices en $A$ hay por lo menos $k$ vecinos en común. Para eso, debemos probar que
+\[
+    \frac{2^t e(G)^t}{n^{2t-1}} - \binom n 2 \left ( \frac k n \right )^t \geq k
+\]
+para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$ y $k = n^{1-\varepsilon}$, esto se deduce de la desigualdad
+\[
+    (2\varepsilon)^t n - n^{2 - \varepsilon t} \geq n^{1-\varepsilon},
+\]
+que es verdadero si $t \geq 2 / \varepsilon$ y $n$ es lo suficientemente grande.
+
+Consecuentemente, el lema nos dice que existe un subconjunto de vértices $A$ con $\abs A \geq k$, tal que para todo par de vértices de $A$ hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, debe exister una arista $uv \in E(G)$ en $A$, y como $u$ y $v$ tienen al menos $k$ vecinos en común, su vecindad en común contiene una arista $xy$. De esta manera los vértices $u,v,x,y$ inducen un $K_4$ en $G$, como queríamos.
+\end{proof}
+
+\begin{theorem}
+Sea $k(n) \gg \sqrt{n \log n}$, entonces
+\[
+    RT (n, K_5, k(n)) \geq \frac{n^2}{4},
+\]
+y si $k(n) \ll \sqrt{n \log n}$, entonces
+\[
+    RT (n, K_5 , k(n)) = o (n^2).
+\]
+\end{theorem}
+\begin{proof}
+Enunciamos el siguiente teorema de \cite[Teorema 9.2.8]{botler2022combinatoria}:
+\begin{quote}
+\[
+    \left ( \frac 1 4 + o (1 ) \right ) \frac{k^2}{\log k} \leq R(3, k) \leq (1 + o (1)) \frac{k^2}{\log k} \quad (k \to \infty).
+\]
+\end{quote}
+De aquí se sigue que para todo $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2$ vértices y $\alpha (G) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
+
+Para la desigualdad recíproca, sea $\varepsilon > 0$ y supongamos que $G$ es un grafo con
+\[
+e(G) \geq \varepsilon n^2 \quad \text y \quad \alpha (G) \leq k .
+\]
+Para ver que $G$ contiene una copia de $K_5$, vamos primero a usar el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} con $s = 3$, $a = R(3,k)$ y $r = k$ para encontrar un conjunto $A \subset V(G)$ de tamaño $R(3,k)$ tal que para toda terna de vértices en $A$ haya al menos $k$ vecinos en común. Para esto, debemos probar previamente que
+\[
+\frac{2^t e(G)^t}{n^{2t - 1}} - \binom n 3 \left ( \frac k n \right )^t \geq R(3, k)
+\]
+para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$ y $k \ll \sqrt{n \log n}$, entonces $R(3,k) = O (k^2 / \log k) \ll n$, con lo cual
+\[
+    (2 \varepsilon)^t n - n^{3- t/2} (\log n)^{t/2} \geq R(3, k),
+\]
+lo cual es cierto para $t = 6$ y $n$ lo suficientemente grande.
+
+Así, el lema nos provee de un conjunto de vértices $A$ de $G$ con $\abs A \geq R(3,k)$, tal que para toda terna de vértices de $A$, hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, se sigue que existe un triángulo $uvw$ en $A$, y como $u,v,w$ tienen al menos $k$ vecinos en común, su vecindad contiene una arista $xy$. Por lo tanto, los vértices $u,v,w,x,y$ forman un $K_5$ en $G$ como queríamos.
+\end{proof}
+
+\subsection{Número extremal de grafos bipartitos}
+
+\begin{theorem}
+Sea $H$ un grafo bipartito con partes $A$ y $B$, y supongamos que cada vértice de $B$ tiene grado máximo $s$. Entonces
+\[
+\ex{n}{H} = O (n^{2- 1 / s}),
+\]
+donde la constante implícita depende solamente de $H$.
+\end{theorem}
+
+
+Necesitamos un lema previo:
+\begin{lemma}\footnote{
+Para una demostración, ver el Lema 10.3.6 de \cite{botler2022combinatoria}
+}\label{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H}
+Sea $H$ un grafo bipartito con partes $A$ y $B$, tal que cada vértice de $B$ tiene a lo más grado $s$. Sea $G$ un grafo tal que existe $U \subset V(G)$ de tal suerte que:
+\begin{enumerate}[(i)]
+\item $\abs U = \abs A$.
+\item Todos los subconjuntos de $U$ de tamaño $s$ tienen al menos $v(H)$ vecinos en común.
+\end{enumerate}
+Entonces $H \subset G$.
+\end{lemma}
+\begin{proof}
+Usando la propiedad (i) del conjunto $U$, podemos biyectar los vértices de $A$ con los de $U$. Vamos a mapear los vértices de $B$ de manera golosa, uno por uno, entonces tomemos $B = \{v_1, \ldots, v_t\}$ y supongamos que ya hemos mapeado los vértices $v_1, \ldots, v_{i-1}$ para algún $1 \leq i \leq t$. Consideremos la vecindad $N_H (v_i)$, sea $S_i$ el conjunto de vértices correspondiente de $U$, observemos que $\abs{S_i} \leq s$.
+
+Ahora, por la propiedad (ii) del conjunto $U$, se sigue que los vértices de $S_i$ tienen al menos $v(H)$ vecinos en común en $G$. Para mapear $v_i$, simplemente elegimos cualquier elemento de esta vecindad en común que no haya sido utilizado. Notar que existe una posible elección, pues hemos mapeado hasta el momento menos de $v(H)$ vértices. Esto finaliza la demostración del lema.
+\end{proof}
+
+\begin{proof}[Demostración del teorema]
+Ahora, sea $G$ un grafo con $n$ vértices tal que $e(G) \geq C n^{2-1/s}$ para una constante $C >0$. Para probar que $G$ contiene una copia de $H$, primero utilizaremos el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} con $s = s$, $a = \abs A$ y $r = v(H)$, para encontrar un conjunto $U \subset V(G)$ de tamaño $\abs A$ tal que todo subconjunto $S \subset U$ de tamaño $s$ tiene almenos $v(H)$ vecinos en común. Previamente, debemos verificar que
+\[
+\frac{2^t e(G)^t}{n^{2t -1}} - \binom n s \left ( \frac{v(H)}{n} \right )^t \geq \abs A
+\]
+para algún $t \in \naturals$. Como $e(G) \geq C n^{2- 1/s}$ y $\abs A \leq v(H)$, se sigue que
+\[
+    (2C)^t n^{1- t/s} - v(H)^t n^{s-t} \geq v(H),
+\]
+que vale para $t = s$ si $C = C(H)$ es lo suficientemente grande. Luego se sigue que existe $U \subset V(G)$ con $\abs U \geq \abs A$ tal que todos los subconjuntos de $U$ de tamaño $s$ tienen al menos $v(H)$ vecinos en común. Pero la conclusión del lema de arriba \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} nos indica que $H \subset G$, como queríamos.
+\end{proof}
 
 
 
+\subsection{El número de Ramsey de un hipercubo}
 
+Utilizando el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} estudiaremos el número de Ramsey $r(Q_k)$ del grafo \textit{hipercubo $k$-dimensional} $Q_k$, que más precisamente se define como:
+\begin{definition}
+Para cada $k \in \naturals$, el \textbf{hipercubo $k$-dimensional} $Q_k$ es el grafo con conjunto de vértices $\{0,1\}^k$ y conjunto de aristas
+\[
+    E(Q_k) := \Set{xy | \# \{i \in [k] : x_i \neq y_i\} = 1}.
+\]
+\end{definition}
+Notemos que $Q_k$ es un grafo bipartito $k$-regular con ambas partes de tamaño $2^{k-1}$.
 
+\begin{theorem}[Shi (2001)]
+    \[
+    r(Q_k) \leq 2^{3k}.
+    \]
+\end{theorem}
+\begin{proof}
+Sea $n := 2^{3k}$, y sea $c$ una $2$-coloración de las aristas de $K_n$ de color rojo-azul. Supongamos sin pérdida de generalidad que al menos la mitad de las aristas son rojas. Sea $G$ el grafo inducido por las aristas rojas. Afirmamos que $Q_k \subset G$.
 
+En efecto, para probar que $G$ contiene una copia de $Q_k$, vamos a primero usar el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} con $s = k$, $a = 2^{k-1}$ y $r = 2^k$, para encontrar un conjunto $U \subset V(G)$ de tamaño $2^{k-1}$ de tal suerte que todo subconjunto $S \subset U$ de tamaño $k$ tiene al menos $2^k$ vecinos en común. Para esto, hay que verificar que
+\[
+    \frac{2^t e(G)^t}{n^{2t-1}} - \binom n k \left ( \frac{2^k}{n} \right )^t \geq 2^{k-1}
+\]
+para algún $t \in \naturals$. Como $e(G) \geq n^2 / 4$ y $n = 2^{3k}$, se sigue que
+\[
+2^{3k - t} - 2^{3k^2 - 2k t} \geq 2^{k-1},
+\]
+que vale para todo $3 k /2 \leq t \leq 2k$.
 
+Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} implica que $Q_k \subset G$ como queríamos.
+\end{proof}
 
+\begin{obs}
+Hemos probado un resultado de extremalidad: existe una copia de $Q_k$ en todo grafo con almenos $2^{3k}$ vértices y al menos $n^2/4$ aristas (donde $n := 2^{3k}$). Es decir,
+\[
+    \ex {2^{3k}}{Q_k} < n^2 / 4 = 2^{6k}/4.
+\]
+\end{obs}
 
-
-
-
-
-
-
-
-
-
-
+\begin{remark}
+Una mejor cota es de la forma $O(k 2^{2k})$, probado por Conlon (2009), también por Fox y Sudakov (2009).
+\end{remark}
 
 
 
