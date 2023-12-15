@@ -3791,7 +3791,7 @@ entonces
 \subsection{El número de Ramsey-Turán}
 
 \begin{definition}
-El \textbf{número de Ramsey-Turán} de un grafo $H$ (límitado por una función $k(n)$ es la cantidad
+El \textbf{número de Ramsey-Turán} de un grafo $H$ (límitado por una función $k(n)$) es la cantidad
 \[
 RT (n, H, k(n)) := \max \Set{e(G) | G \not \supset H \text{ tiene $n$ vértices y } \alpha (G) \leq k(n)}.
 \]
@@ -3801,7 +3801,7 @@ RT (n, H, k(n)) := \max \Set{e(G) | G \not \supset H \text{ tiene $n$ vértices 
 \[
     RT (n, K_3, o (n)) = o(n^2).
 \]
-En efecto, la vecindad $N_G (v)$ de un grafo $G$ libre de triángulos es un conjunto independiente, con lo cual $\alpha (G) = o (n)$, y por lo tanto $\Delta (G) = o (n)$.
+En efecto, la vecindad $N_G (v)$ de un grafo $G$ libre de triángulos es un conjunto independiente, con lo cual $\alpha (G) = o (n)$, y por lo tanto $\Delta (G) = o (n)$. Esto implica que $e(G) = o (n^2)$.
 \end{obs}
 
 \begin{theorem}[Sudakov (2003)]
@@ -3813,10 +3813,10 @@ Para todo $\varepsilon > 0$,
 \end{theorem}
 
 \begin{proof}
-La estrategia será la siguiente: supongamos que podemos encontrar un conjunto $A \subset V(G)$ de vértices de $G$ de tamaño $k = n^{1- \varepsilon}$ de tal suerte que para todo par de vértices $u,v \in A$ hay al menos $k$ vecinos en común. $A$ es un conjunto independiente o contiene una arista $uv$. Además, la vecindad en común entre $u$ y $v$ tiene tamaño al menos $k$, o es un conjunto independiente o conteniendo una arista $xy$. De esta manera, se sigue que $\alpha (G) < k$, y por lo tanto $G$ contiene un $K_4$, por ejemplo los vértices $u,v,x,y$ funcionan.
+La estrategia será la siguiente: supongamos que podemos encontrar un conjunto $A \subset V(G)$ de vértices de $G$ de tamaño $k = n^{1- \varepsilon}$ de tal suerte que para todo par de vértices $u,v \in A$ hay al menos $k$ vecinos en común. $A$ es un conjunto independiente o contiene una arista $uv$. Además, la vecindad en común entre $u$ y $v$ tiene tamaño al menos $k$, o es un conjunto independiente o conteniendo una arista $xy$. De esta manera, si $\alpha (G) < k$, se seguirá que $G$ contiene un $K_4$, por ejemplo el grafo inducido por los vértices $u,v,x,y$.
 
 El siguiente lema nos permite encontrar dicho conjunto $A$ en cualquier grafo con densidad positiva:
-
+\vspace{-20pt}
 \begin{quote}
 \begin{lemma}[Lema de elección aleatoria dependiente\footnote{
 Para una demostración, ver el Lema 10.3.3 de \cite{botler2022combinatoria}
