@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  15 DEC 2023 01:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  15 DEC 2023 03:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2046,13 +2046,8 @@ Overfull \hbox (0.49275pt too wide) in paragraph at lines 2351--2353
 Cap\'{\i }tulo 3.
 [49
 
-]
-
-LaTeX Warning: Citation `diestel2000graphTheory' on page 50 undefined on input 
-line 2498.
-
-[50] (./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=637, page=1, 469.47046pt x 
+] [50] (./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf_tex
+<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=639, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, page 1>
@@ -2067,7 +2062,7 @@ See the caption package documentation for explanation.
 
 [51 <./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf>]
 (./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=648, page=1, 469.47046pt x 
+<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=650, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, page 1>
@@ -2150,10 +2145,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [74] [75]
 
-LaTeX Warning: Citation `botler2022combinatoria' on page 76 undefined on input 
-line 3823.
-
-
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 (Font)              using `T1/fnc/m/sc' instead on input line 3830.
 
@@ -2161,23 +2152,14 @@ LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 (Font)              using `T1/fnc/m/sc' instead on input line 3831.
 
-[76]
+[76] [77]
 
-LaTeX Warning: Citation `botler2022combinatoria' on page 77 undefined on input 
-line 3864.
-
-[77]
-
-LaTeX Warning: Citation `botler2022combinatoria' on page 78 undefined on input 
-line 3903.
+LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
+(Font)              using `T1/fnc/m/sc' instead on input line 3910.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3906.
-
-
-LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3907.
+(Font)              using `T1/fnc/m/sc' instead on input line 3911.
 
 [78] [79]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
@@ -2190,19 +2172,16 @@ LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CBFEB20143ABBFBC5865BDC0BEAB73D3;4984.
  ) 
 Here is how much of TeX's memory you used:
- 29631 strings out of 476017
- 563012 string characters out of 5786780
+ 29640 strings out of 476017
+ 563182 string characters out of 5786780
  1870666 words of memory out of 5000000
- 49097 multiletter control sequences out of 15000+600000
+ 49102 multiletter control sequences out of 15000+600000
  610608 words of font info for 213 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2215,18 +2194,20 @@ ublic/fourier/fourier-mlit.pfb></home/whitengine/texlive/2023/texmf-dist/fonts/
 type1/public/mathabx-type1/matha10.pfb></home/whitengine/texlive/2023/texmf-dis
 t/fonts/type1/public/mathabx-type1/matha12.pfb></home/whitengine/texlive/2023/t
 exmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></home/whitengine/texlive
-/2023/texmf-dist/fonts/type1/public/mathabx-type1/matha9.pfb></home/whitengine/
-texlive/2023/texmf-dist/fonts/type1/public/mathabx-type1/mathb12.pfb></home/whi
-tengine/texlive/2023/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></
-home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></h
-ome/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></h
-ome/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></ho
-me/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
+/2023/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb></home/whitengine/
+texlive/2023/texmf-dist/fonts/type1/public/mathabx-type1/matha9.pfb></home/whit
+engine/texlive/2023/texmf-dist/fonts/type1/public/mathabx-type1/mathb12.pfb></h
+ome/whitengine/texlive/2023/texmf-dist/fonts/type1/public/mathabx-type1/mathx10
+.pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.
+pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.
+pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.p
+fb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.p
+fb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (81 pages, 456648 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (81 pages, 460635 bytes).
 PDF statistics:
- 1052 PDF objects out of 1200 (max. 8388607)
- 893 compressed objects within 9 object streams
- 357 named destinations out of 1000 (max. 500000)
+ 1069 PDF objects out of 1200 (max. 8388607)
+ 907 compressed objects within 10 object streams
+ 361 named destinations out of 1000 (max. 500000)
  352 words of extra memory for PDF output out of 10000 (max. 10000000)
 

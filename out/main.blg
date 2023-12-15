@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: main.bib
-You've used 1 entry,
+Warning--empty journal in botler2022combinatoria
+You've used 3 entries,
             2543 wiz_defined-function locations,
-            566 strings with 4588 characters,
-and the built_in function-call counts, 366 in all, are:
-= -- 36
-> -- 8
-< -- 1
-+ -- 3
-- -- 2
-* -- 27
-:= -- 66
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 5
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 15
-empty$ -- 29
-format.name$ -- 4
-if$ -- 70
+            576 strings with 4855 characters,
+and the built_in function-call counts, 1045 in all, are:
+= -- 96
+> -- 51
+< -- 2
++ -- 18
+- -- 17
+* -- 72
+:= -- 185
+add.period$ -- 8
+call.type$ -- 3
+change.case$ -- 19
+chr.to.int$ -- 3
+cite$ -- 4
+duplicate$ -- 39
+empty$ -- 74
+format.name$ -- 21
+if$ -- 201
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 3
-pop$ -- 3
+missing$ -- 2
+newline$ -- 18
+num.names$ -- 9
+pop$ -- 23
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 22
 quote$ -- 0
-skip$ -- 12
+skip$ -- 33
 stack$ -- 0
-substring$ -- 27
-swap$ -- 1
-text.length$ -- 1
-text.prefix$ -- 1
+substring$ -- 41
+swap$ -- 2
+text.length$ -- 2
+text.prefix$ -- 2
 top$ -- 0
-type$ -- 8
-warning$ -- 0
-while$ -- 4
-width$ -- 2
-write$ -- 15
+type$ -- 24
+warning$ -- 1
+while$ -- 9
+width$ -- 5
+write$ -- 37
+(There was 1 warning)

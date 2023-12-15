@@ -3861,17 +3861,17 @@ y si $k(n) \ll \sqrt{n \log n}$, entonces
 \]
 \end{theorem}
 \begin{proof}
-Enunciamos el siguiente teorema de \cite[Teorema 9.2.8]{botler2022combinatoria}:
+Para la primera afirmación, requerimos enunciar el siguiente teorema de \cite[Teorema 9.2.8]{botler2022combinatoria}:
 \begin{quote}
 \[
     \left ( \frac 1 4 + o (1 ) \right ) \frac{k^2}{\log k} \leq R(3, k) \leq (1 + o (1)) \frac{k^2}{\log k} \quad (k \to \infty).
 \]
 \end{quote}
-De aquí se sigue que para todo $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2$ vértices y $\alpha (G) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
+De aquí se sigue que para todo $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2$ vértices y $\alpha (H) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
 
-Para la desigualdad recíproca, sea $\varepsilon > 0$ y supongamos que $G$ es un grafo con
+Para la segunda afirmación, sea $\varepsilon > 0$ y supongamos que $G$ es un grafo con
 \[
-e(G) \geq \varepsilon n^2 \quad \text y \quad \alpha (G) \leq k .
+e(G) \geq \varepsilon n^2 \quad \text y \quad \alpha (G) \leq k := k(n).
 \]
 Para ver que $G$ contiene una copia de $K_5$, vamos primero a usar el Lema de elección aleatoria dependiente \ref{lema:eleccion aleatoria dependiente} con $s = 3$, $a = R(3,k)$ y $r = k$ para encontrar un conjunto $A \subset V(G)$ de tamaño $R(3,k)$ tal que para toda terna de vértices en $A$ haya al menos $k$ vecinos en común. Para esto, debemos probar previamente que
 \[
@@ -3896,6 +3896,10 @@ Sea $H$ un grafo bipartito con partes $A$ y $B$, y supongamos que cada vértice 
 donde la constante implícita depende solamente de $H$.
 \end{theorem}
 
+\begin{obs}
+Tomando $H = K_{s,t}$ recuperamos el Teorema \ref{th:teorema de kovani sos turan - extremalidad de Kst}.
+\end{obs}
+
 
 Necesitamos un lema previo:
 \begin{lemma}\footnote{
@@ -3909,7 +3913,7 @@ Sea $H$ un grafo bipartito con partes $A$ y $B$, tal que cada vértice de $B$ ti
 Entonces $H \subset G$.
 \end{lemma}
 \begin{proof}
-Usando la propiedad (i) del conjunto $U$, podemos biyectar los vértices de $A$ con los de $U$. Vamos a mapear los vértices de $B$ de manera golosa, uno por uno, entonces tomemos $B = \{v_1, \ldots, v_t\}$ y supongamos que ya hemos mapeado los vértices $v_1, \ldots, v_{i-1}$ para algún $1 \leq i \leq t$. Consideremos la vecindad $N_H (v_i)$, sea $S_i$ el conjunto de vértices correspondiente de $U$, observemos que $\abs{S_i} \leq s$.
+Usando la propiedad (i) del conjunto $U$, podemos biyectar los vértices de $A$ con los de $U$. Vamos a mapear los vértices de $B$ de manera golosa, tomemos $B = \{v_1, \ldots, v_t\}$ y supongamos que ya hemos mapeado los vértices $v_1, \ldots, v_{i-1}$ para algún $1 \leq i \leq t$ en $G$. Consideremos la vecindad $N_H (v_i)$, sea $S_i$ el conjunto de vértices correspondiente de $U$, observemos que $\abs{S_i} \leq s$, pues los elementos de $B$ tienen grado a lo más $s$.
 
 Ahora, por la propiedad (ii) del conjunto $U$, se sigue que los vértices de $S_i$ tienen al menos $v(H)$ vecinos en común en $G$. Para mapear $v_i$, simplemente elegimos cualquier elemento de esta vecindad en común que no haya sido utilizado. Notar que existe una posible elección, pues hemos mapeado hasta el momento menos de $v(H)$ vértices. Esto finaliza la demostración del lema.
 \end{proof}
@@ -3937,7 +3941,10 @@ Para cada $k \in \naturals$, el \textbf{hipercubo $k$-dimensional} $Q_k$ es el g
     E(Q_k) := \Set{xy | \# \{i \in [k] : x_i \neq y_i\} = 1}.
 \]
 \end{definition}
+
+\begin{obs}
 Notemos que $Q_k$ es un grafo bipartito $k$-regular con ambas partes de tamaño $2^{k-1}$.
+\end{obs}
 
 \begin{theorem}[Shi (2001)]
     \[
@@ -3951,13 +3958,15 @@ En efecto, para probar que $G$ contiene una copia de $Q_k$, vamos a primero usar
 \[
     \frac{2^t e(G)^t}{n^{2t-1}} - \binom n k \left ( \frac{2^k}{n} \right )^t \geq 2^{k-1}
 \]
-para algún $t \in \naturals$. Como $e(G) \geq n^2 / 4$ y $n = 2^{3k}$, se sigue que
+para algún $t \in \naturals$. Si $e(G) \geq n^2 / 4$, como $n = 2^{3k}$, se sigue que
 \[
 2^{3k - t} - 2^{3k^2 - 2k t} \geq 2^{k-1},
 \]
 que vale para todo $3 k /2 \leq t \leq 2k$.
 
-Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} implica que $Q_k \subset G$ como queríamos.
+Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} junto con la observación que hicimos antes del teorema, implican que $Q_k \subset G$ como queríamos.
+
+En general, $e(G)$ no tiene por qué ser $\geq n^2/4$, sin embargo, si se tiene que es $\geq \binom n 2 / 2 = n^2/4 (1-\frac 1 n)$. Una cuenta un poco más complicada nos permite encontrar $t$ tal que se cumple la hipótesis del lema de elección aleatoria dependiente.
 \end{proof}
 
 \begin{obs}

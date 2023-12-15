@@ -1,4 +1,15 @@
-\begin{thebibliography}{Rob55}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BCM{\etalchar{+}}22}
+
+\bibitem[BCM{\etalchar{+}}22]{botler2022combinatoria}
+F{\'a}bio~Happ Botler, Maur{\'\i}cio Collares, Ta{\'\i}sa Martins, Walner
+  Mendon{\c{c}}a, and Guilherme~Oliveira Mota.
+\newblock Combinat{\'o}ria.
+\newblock 2022.
+
+\bibitem[Die00]{diestel2000graphTheory}
+Reinhard Diestel.
+\newblock Graph theory, 2000.
 
 \bibitem[Rob55]{herbertRobbins1955}
 Herbert Robbins.
