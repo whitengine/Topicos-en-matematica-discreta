@@ -3146,10 +3146,10 @@ Erdös ofreció una pequeña recompensa para la persona que pruebe
 
 \bigskip
 
-Sean $A_1, \ldots, A_t$ eventos en un espacio probabilítico $(\Omega, p)$, escribamos $X_i := \mathbb{1}_{A_i}$ para las variables aleatorias indicadoras respectivas. Vamos a utilizar el símbolo $i \sim j$ si solo si $A_i$ y $A_j$ no son independientes. Consideremos $X := X_1 + \cdots + X_t$. Luego
+Sean $A_1, \ldots, A_t$ eventos en un espacio probabilítico $(\Omega, p)$, escribamos $X_i := \mathbb{1}_{A_i}$ para las variables aleatorias indicadoras respectivas. Vamos a utilizar el símbolo $i \sim j$ si solo si $A_i$ y $A_j$ no son independientes e $i \neq j$. Consideremos $X := X_1 + \cdots + X_t$. Luego
 \begin{align*}
 \operatorname{Var} (X) &= \mathbb{E} (X^2) - \mathbb{E} (X)^2 \\
-&= \sum_{i = 1}^t \sum_{j = 1}^t \mathbb{E}(X_i X_j) - \mathbb{E}(X_i) \mathbb{E}(x_j) \\
+&= \sum_{i = 1}^t \sum_{j = 1}^t \mathbb{E}(X_i X_j) - \mathbb{E}(X_i) \mathbb{E}(X_j) \\
 &\leq \sum_{i \sim j} P(A_i \cap A_j) + \sum_{i = 1}^t \mathbb{E} (X_i) \\
 &= \mathbb{E} (X) + \Delta.
 \end{align*}
@@ -3164,10 +3164,10 @@ con probabilidad alta.
 \begin{proof}
 Por Chebyshev \ref{proposition:desigualdad de Chebyshev},
 \begin{align*}
-P(X = 0) &\leq P(\abs{X - \mathbb{E} (X)} \geq \frac{\mathbb{E} (X)}{2}) \\
+P(X = 0) &\leq P \left (\abs{X - \mathbb{E} (X)} \geq \frac{\mathbb{E} (X)}{2} \right ) \\
 &\leq \frac{4 \operatorname{Var}(X)}{\mathbb{E}(X)^2} .
 \end{align*}
-Entonces, como
+Entonces,
 \[
     \frac{\operatorname{Var}(X)}{\mathbb{E}(X)^2} \leq \frac{1}{\mathbb{E}(X)} + \frac{\Delta}{\mathbb{E}(X)^2} = o(1).
 \]
@@ -3182,17 +3182,17 @@ Sea $\mathcal G = \mathcal G (n, \frac 1 2)$. Entonces
 con probabilidad alta.
 \end{theorem}
 \begin{proof}
-Fijemos $k \in [n]$, el conjunto de vértices de $\mathcal G$, y tomemos $S$ un subconjunto de vértices con $k$ elementos. Consideremos la variable aleatoria indicadora $X_S$ para el evento $e(G[S]) = 0$; escribamos $X := \sum_{\substack{S \subset [n]}\\ \abs S = k} X_S$. Luego
+Fijemos $k \in [n]$, el conjunto de vértices de $\mathcal G$, y tomemos $S$ un subconjunto de vértices con $k$ elementos. Consideremos la variable aleatoria indicadora $X_S$ para el evento $e(G[S]) = 0$; escribamos $X := \sum_{S \subset [n], \: \abs S = k} X_S$. Luego
 \[
-    \mathbb{E}  (X) = \sum_{\substack{S \subset [n]} \\ \abs{S} = k} \mathbb{E}(X_S)  = \binom n k 2^{- \binom k 2}.
+    \mathbb{E}  (X) = \sum_{\substack{S \subset [n] \\ \abs{S} = k}} \mathbb{E}(X_S)  = \binom n k 2^{- \binom k 2}.
 \]
-Notar que $X > 0$ implica $\alpha (G) \geq k$.
-\begin{enumerate}[(i)]
-\item $X = 0$ si $k > (2 + \varepsilon) \log_2 n$.
-\item $X > 0$ si $k < (2- \varepsilon) \log _2 n$.
+Notar que $X > 0$ implica $\alpha (G) \geq k$. Luego
+\begin{enumerate}[(a)]
+\item $X = 0$ con prorbabilidad alta, si $k > (2 + \varepsilon) \log_2 n$.
+\item $X > 0$ con probabilidad alta, si $k < (2- \varepsilon) \log _2 n$.
 \end{enumerate}
-En efecto,
-\begin{enumerate}[(i)]
+Por la desigualdad de Markov \ref{lema:desigualdad de markov},
+\begin{enumerate}[(a)]
 \item
 \begin{align*}
 P(X \geq 1) &\leq \mathbb{E} (X ) \\
@@ -3202,14 +3202,14 @@ P(X \geq 1) &\leq \mathbb{E} (X ) \\
 &= n^{-\frac \varepsilon 2 \cdot k} (\sqrt 2 )^k \\
 &= o(1).
 \end{align*}
-\item \begin{align*}
+\item Ahora,
+\begin{align*}
 \mathbb{E}[X] &= \binom n k \cdot 2^{- \binom k 2} \\
 &\geq \left ( \frac n k \right )^k \cdot 2^{- \binom k 2} \\
 & \geq \left ( \frac n k \right )^k \cdot n^{-k ( 1 - \varepsilon /2)} \\
 & \geq \left ( \frac n k \right )^k \cdot \frac{1}{n^{k ( 1 - \varepsilon /2)}}
 \end{align*}
-Que tiene a infinito cuando $n$ tiende a infinito, de manera uniforme para $k$.
-\end{enumerate}
+Que tiene a infinito cuando $n$ tiende a infinito.
 
 Si $\Delta = \sum_{S \sim T} P (X_S X_T \geq 1)$ con $S,T$ subconjuntos de vértices de tamaño $k$; $2 \leq \abs{S \cap T} \leq k-1$. Así
 \begin{align*}
@@ -3219,9 +3219,14 @@ Si $\Delta = \sum_{S \sim T} P (X_S X_T \geq 1)$ con $S,T$ subconjuntos de vért
 donde $g(i) := \frac{\binom {n-k}{k-i} \binom k i 2^{\binom i 2}}{\binom n k} = o(n^{-1})$.
 Consecuentemente,
 \[
-    \frac{\Delta}{\mathbb{E}(X)^2} = \sum_{i = 2}^{k-1} g(i) = o (k n^{-1} )= o(1),
+    \frac{\Delta}{\mathbb{E}(X)^2} = \sum_{i = 2}^{k-1} g(i) = o ((k-2) n^{-1} )= o(1),
 \]
-y por lo tanto con probabilidad alta $X > 0$.
+y por lo tanto la proposición anterior implica que $X > 0$ con probabilidad alta.
+\end{enumerate}
+
+Así, $\alpha (G) = (2 + o(1))  \log_2 n$ con probabilidad alta en $G \in \mathcal G$ cuando $n \to \infty$.
+
+
 \end{proof}
 
 \begin{corollary}
