@@ -3232,18 +3232,23 @@ Así, $\alpha (G) = (2 + o(1))  \log_2 n$ con probabilidad alta en $G \in \mathc
 \begin{corollary}
 Sea $\mathcal G = \mathcal G(n, \frac 1 2)$. Entonces
 \[
-\chi (G) \leq \left (\frac 1 {2 + o(1)} \right ) \frac{n}{\log_2 n}
+\chi (G) \geq \left (\frac 1 {2 + o(1)} \right ) \frac{n}{\log_2 n}
 \]
 con probabilidad alta.
 \end{corollary}
-
+\begin{proof}
+Se deduce de lo anterior junto con la identidad general para grafos
+\[
+    \chi (G) \geq \frac{n}{\alpha(G)}.
+\]
+\end{proof}
 
 
 \section{Método de concentración}
 
 
 \begin{proposition}[Desigualdad de Chernoff]\label{proposition:desigualdad de chernoff}
-Si $\varepsilon \in (0, 1]$ y $X$ una variable aleatoria binomial con media $\mu$. Entonces
+Si $\varepsilon \in [0, 1]$ y $X$ una variable aleatoria binomial con media $\mu$. Entonces
 \[
     P (\abs{X - \mu} \geq \varepsilon \mu) \leq 2 e^{\frac{-\varepsilon^2 \mu}{3}}.
 \]
@@ -3265,38 +3270,40 @@ para todo $k \in \naturals$.
 \begin{lemma}
 Sea $c > 0$, y sea $\mathcal G = \mathcal G (n,p)$ con $p = \frac c n$ para $n$ lo suficientemente grande. Entonces
 \[
-    P\left (\{G \in \mathcal G | e(G) \geq p n^2\} \right ) \leq e^{- c \frac n 8}.
+    P\left (\{G \in \mathcal G | e(G) \geq p n^2\} \right ) \leq 2e^{- c \frac {n-1} 8}.
 \]
 \end{lemma}
 \begin{proof}
 Sabemos que la variable aleatoria que cuenta el número de aristas $e(\cdot) $ en $\mathcal G$ tiene distribución $\operatorname{Bin} (\binom n 2 , p)$. Notar que su $\mu = p \binom n2$. Como $\abs {e(G) - \mu} \geq \mu$ si y solo si $e(G) \geq 2 \mu$, tenemos que por la desigualdad de Chernoff \ref{proposition:desigualdad de chernoff} con $\varepsilon = 1$:
 \begin{align*}
-P(e(\cdot) \geq p n^2) \leq P (e(\cdot ) \geq 2 \mu) &\leq 2 e^{- \frac \mu 3} \leq 2 e^{- p \frac{n^2}{8}} = e^{- c \frac n 8}.
+P(e(\cdot) \geq p n^2) &\leq P (e(\cdot ) \geq 2 \mu) \\
+&= P(\abs{e(\cdot) - \mu} \geq \mu)  \\
+&\leq 2 e^{- \frac \mu 3} \\
+&\leq 2 e^{- p \frac{n (n-1)}{8}} \\
+&= 2e^{- c \frac {n-1} 8}.
 \end{align*}
 \end{proof}
 
 
 \begin{lemma}
-Sea $c > 0$, y sea $\mathcal G = \mathcal G (n,p)$ con $P = \frac c n$ y $n$ lo suficientemente grande. Entonces con probabilidad alta
+Sea $c > 0$, y sea $\mathcal G = \mathcal G (n,p)$ con $p = \frac c n$ y $n$ lo suficientemente grande. Entonces con probabilidad alta,
 \[
     e(X,Y) \geq 1
 \]
-para cada para de subconjuntos de vértices $X,Y$ de $\mathcal G$, disjuntos con $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2} n$.
+para cada par de subconjuntos de vértices $X,Y$ de $\mathcal G$, disjuntos con $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2} n$.
 \end{lemma}
 \begin{proof}
-Dados $X,Y$ subconjuntos de vértices de $\mathcal G$, disjuntos. Notar que la variable aleatoria $e(X,Y)$ (que depende de $G \in \mathcal G$) tiene distribución $\operatorname{Bin}(\abs X \abs Y, p)$, en particular $\mu = p \abs X \abs Y$. Por la desigualdad de Chernoff \ref{proposition:desigualdad de chernoff}, si $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2}n$, se tiene que
+Dados $X,Y$ subconjuntos de vértices de $\mathcal G$, disjuntos. Notar que la variable aleatoria $e(X,Y)$ (que depende de $G \in \mathcal G$) tiene distribución $\operatorname{Bin}(\abs X \abs Y, p)$, en particular $\mu = p \abs X \abs Y$. Por la desigualdad de Chernoff \ref{proposition:desigualdad de chernoff} con $\varepsilon = 1$, si $\abs X \geq \abs Y \geq 3 c^{-\frac 1 2}n$, se tiene que
 \begin{align*}
-P(e(X,Y) = 0) &\leq P(\abs{e(X,Y) -  \mu} \geq \mu) \leq 2 e^{- \frac \mu 3} \\
+P(e(X,Y) = 0) &\leq P(\abs{e(X,Y) -  \mu} \geq \mu) \\
+&\leq 2 e^{- \frac \mu 3} \\
 &= 2 e^{-p \frac{\abs X \abs Y}{3}} \\
-&\leq 2 e^{-p \frac{\abs X \abs Y}{4}} \\
 &\leq 2 e^{-p \frac{9 c^{-1} n^2}{3}} \\
-&\leq 2 e^{-\frac 9 4 n}\\
-&= e^{- (\frac 9 4 n - \log 2)} \\
-&\leq e^{-2n} \longrightarrow 0 \quad (n \to \infty).
+&\leq 2 e^{- 3 n}  \longrightarrow 0 \quad (n \to \infty).
 \end{align*}
-Así, tenemos un total de $2^n \cdot 2^n = 4^n$ formas de escoger $X$ e $Y$, con lo cual
+Así, tenemos un total de a lo más $2^n \cdot 2^n = 4^n$ formas de escoger $X$ e $Y$, con lo cual la probabilidad de que haya un par $X,Y$ con $e(X,Y) = 0$ es a lo más
 \[
-    4^n e^{-2n} = \left (\frac 4 {e^2} \right)^n = o(1) \quad (n \to \infty).
+    4^{n+1} e^{-3n} = 2e^{-n} \left (\frac 4 {e^2} \right)^n \longrightarrow 0 \quad (n \to \infty).
 \]
 De donde se sigue lo que queríamos.
 \end{proof}

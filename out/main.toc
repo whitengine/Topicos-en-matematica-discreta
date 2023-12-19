@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.4.1}Método de alteración}{58}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}Método del segundo momento}{61}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Método de concentración}{65}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Grafos aleatorios}{67}{section.3.7}%
+\contentsline {section}{\numberline {3.7}Grafos aleatorios}{68}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Conexidad de grafos aleatorios}{69}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Grafos de dependencia}{71}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Grafos $K_3$ libres}{74}{section.3.10}%
