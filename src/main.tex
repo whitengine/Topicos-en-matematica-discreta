@@ -3247,6 +3247,7 @@ Se deduce de lo anterior junto con la identidad general para grafos
 \section{Método de concentración}
 
 
+
 \begin{proposition}[Desigualdad de Chernoff]\label{proposition:desigualdad de chernoff}
 Si $\varepsilon \in [0, 1]$ y $X$ una variable aleatoria binomial con media $\mu$. Entonces
 \[
@@ -3312,27 +3313,30 @@ De donde se sigue lo que queríamos.
 Ahora estamos en condiciones de probar el teorema principal de esta sección:
 
 \begin{proof}[Demostración del teorema]
-Sean $a,c >0$ constantes lo suficientemente grandes. Tomemos $n = a \cdot k$ y $C = a \cdot c$. Aplicamos ambos lemas de arriba con $p = \frac c n$. Tomemos un grafo $G$ con $n$ vértices y
+Sea $c > 0$ lo suficientemente grande, y luego en función de esta constante tomemos $a>0$ lo suficientemente grande. Consideremos $n = a \cdot k$ y $C = a \cdot c$. Aplicamos ambos lemas de arriba con $p = \frac c n$. Luego existe un grafo $G \in \mathcal G (n,p)$ con $n$ vértices y
 \[
     e(G) \leq pn^2 = C \cdot k  .
 \]
-Además, por el segundo lema, para todo $X,Y \subset V(G)$ disjuntos con $\abs X \geq \abs Y \geq 3 c^{- \frac 1 2}n$ y $e(X,Y) \geq 1$.
+Además, por el segundo lema, para todo $X,Y \subset V(G)$ disjuntos con $\abs X \geq \abs Y \geq 3 c^{- \frac 1 2}n$, se tiene que $e(X,Y) \geq 1$.
 
-Ahora, supongamos por el absurdo que $G$ no tiene una $2$-coloración de aristas con un $P_k$ monocromático. Escribamos $V(G) = A \coprod X \coprod Y$ para la partición de los vértices de $G$ obtenida, y comencemos el siguiente algorítmo:
+Ahora veremos que $G \longrightarrow (P_k, P_k)$ para cualquier coloración de las aristas. Supongamos por el absurdo que $G$ no tiene una $2$-coloración de aristas con un $P_k$ monocromático. Consideremos el siguiente algorítmo, que nos permite encontrar una partición $V(G) = A \coprod X \coprod Y$ tal que no hay $(X,Y)$-aristas rojas:
 \begin{enumerate}
-\item Si $A = X = \emptyset$ e $Y = V(G)$.
-    \begin{enumerate}[(a)]
-    \item Si $A = \emptyset$, escogemos cualquier vértice $u \in Y$ y lo muevo a $A$.
-    \item Si $A \neq \emptyset$, tomamos $v \in A$, el último que hemos agregado a $A$. Si existe $u \in Y$ tal que $v u$ es una arista azul, agregamos $u$ a $A$. Si no, movemos $v$ a $X$.
-    \end{enumerate}
+\item empezamos con $A = X = \emptyset$ e $Y = V(G)$;
+\item
+\begin{enumerate}[(a)]
+\item si $A = \emptyset$, escogemos cualquier vértice $u \in Y$ y lo muevo a $A$.
+\item si $A \neq \emptyset$, tomamos $v \in A$, el último que hemos agregado a $A$. Si existe $u \in Y$ tal que $v u$ es una arista azul, agregamos $u$ a $A$. Si no, movemos $v$ a $X$.
 \end{enumerate}
-Repetimos esto hasta que $\abs X = \abs Y$. Observemos que $A$ forma un camino azul, por lo tanto $\abs A \leq k$. Más aún, $\abs Y - \abs X$ disminuye $1$ unidad por cada iteración del algorítmo. Como $\abs Y - \abs X = n$, en algún paso del algorítmo se llegó a que $\abs X = \abs Y$; así
+\item si $\abs X = \abs Y$ terminamos, si no volvemos al paso 2.
+\end{enumerate}
+
+Eventualmente este algortimo termina, pues en cada paso $\abs Y - \abs X$ disminuye en una unidad. Después, observemos que $A$ forma un camino azul, por lo tanto $\abs A \leq k$. Más aún,
 \[
     \abs X + \abs Y = n - \abs A \geq n - k = k (a-1).
 \]
 Consecuentemente, $\abs X = \abs Y \geq \frac {k (a-1)}{2}$.
 
-Similarmente, podemos repetir el mismo proceso para el caso de aristas rojas: partimos $V(G) = A' \coprod X' \coprod Y'$ con $A'$ conteniendo un camino rojo y por lo tanto $\abs {A'} \leq k$, con $\abs{X'} = \abs{Y'} \geq \frac{k(a-1)}{2}$.
+Análogamente, podemos repetir el mismo proceso para el caso de aristas rojas: partimos $V(G) = A' \coprod X' \coprod Y'$ con $A'$ conteniendo un camino rojo y por lo tanto $\abs {A'} \leq k$, $\abs{X'} = \abs{Y'} \geq \frac{k(a-1)}{2}$, y no hay $(X',Y')$-aristas azules.
 
 Consideremos los conjuntos
 \begin{align*}
@@ -3343,23 +3347,19 @@ de pares de partes de $V(G)$ obtenidas arriba. Afirmamos que existe $i = 1,2$ ta
 \[
     \abs{U \cap W} \geq \frac{k (a-3)}{4}
 \]
-para todo par $(U,V)$ en $\mathcal P_i$. En efecto, supongamos por el absurdo que $\abs{X \cap X'}$ y $\abs{X \cap Y'}$ ambos son menores que $\frac{k(a-3)}4$, luego
+para todo par $(U,V)$ en $\mathcal P_i$. En efecto, si esto no fuera cierto, podríamos encontrar un par en $\mathcal P_1$ y otro en $\mathcal P_2$, digamos $X \cap X'$ y $X \cap Y'$, tales que las intersecciones son menores que $\frac{k(a-3)}4$, con lo cual,
 \begin{align*}
-\frac{k(a-3)}{2} > \abs{X \cap X'} + ¸\abs{X \cap X'} &\geq \abs X - \abs{A'} \\
+\frac{k(a-3)}{2} > \abs{X \cap X'} + ¸\abs{X \cap Y'} &\geq \abs X - \abs{A'} \\
 &\geq \frac{k(a-1)}{2} - k \\
 &= \frac{k(a-3)}{2},
 \end{align*}
 absurdo.
 
-Finalmente, por la afirmación de recién, consideremos sin perdida de generalidad, que $X \cap X'$ e $Y \cap Y'$ son subconjuntos de $V(G)$ de tamaño almenos $\frac{k(a-3)}{4}$ elementos, disjuntos entre sí. Además,
+Finalmente, por la afirmación de recién, consideremos sin perdida de generalidad, que $X \cap X'$ e $Y \cap Y'$ son subconjuntos de $V(G)$ de tamaño almenos $\frac{k(a-3)}{4}$. Notar que son disjuntos entre sí, además,
 \[
     \frac{k(a-3)}{4} \geq 3 c^{-\frac 1 2} n,
 \]
-como $k = \frac n a$,
-\[
-    n \frac{(1-\frac 3 a)}{4} \geq 3 c^{-\frac 1 2} n,
-\]
-llegando a una contradicción porque el segundo lema implica que tiene que haber almenos una arista entre ambos conjuntos.
+llegando a una contradicción, porque el segundo lema implica que tiene que haber almenos una arista entre ambos conjuntos, la cual es roja o azul, pero las particiones obtenidas en el algorítmo no lo permiten.
 \end{proof}
 
 
