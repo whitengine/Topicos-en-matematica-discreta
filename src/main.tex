@@ -3229,10 +3229,10 @@ Así, $\alpha (G) = (2 + o(1))  \log_2 n$ con probabilidad alta en $G \in \mathc
 
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corolario:cota inferior para el numero cromatico del grafo aleatorio con p = 1/2 es la mitad de n /log2n}
 Sea $\mathcal G = \mathcal G(n, \frac 1 2)$. Entonces
 \[
-\chi (G) \geq \left (\frac 1 {2 + o(1)} \right ) \frac{n}{\log_2 n}
+\chi (G) \geq \left (\frac 1 {2} + o(1) \right ) \frac{n}{\log_2 n}
 \]
 con probabilidad alta.
 \end{corollary}
@@ -3697,9 +3697,11 @@ Luego por el Lema local de Lovász asimétrico \ref{lema:lema local asimetrica},
 \begin{definition}
     $E \subset \{0,1\}^n$ es \textbf{creciente} si
     \[
-    x \in E \text y x \leq y \quad \Longrightarrow \quad y \in E.
+    x \in E \quad \text y \quad x \leq y \quad \Longrightarrow \quad y \in E.
     \]
     Donde tomamos el orden parcial $\leq$ en los vectores dada por el orden coordenada a coordenada.
+
+    Similarmente podemos definir que $E$ sea \textbf{decreciente}.
 
 \end{definition}
 
@@ -3708,26 +3710,35 @@ Sean $\{x_i\}_{i \in [n]}$ e $\{y_i\}_{i \in [n]}$ \textit{muestras aleatorias} 
 \[
 P (x_i = 1) = P (y_i = 1) = p.
 \]
-Si $E, F \subset \{0,1\}^n$ son crecientes y $p > 0$, entonces
+Si $E, F \subset \{0,1\}^n$ son ambas crecientes o decrecientes y $p > 0$, entonces
 \[
 P(E \cap F) \geq P(E) P(F).
 \]
+
+De manera opuesta, si una es creciente y la otra decreciente, entonces
+\[
+    P(E \cap F) \leq P (E) P (F).
+\]
 \end{lemma}
 
-\begin{proposition}
+\begin{proposition}\label{proposicion:probabilidad de que un grafo aleatorio contenga un triangulo}
 Si $c > 0$ y $p = \frac c n$,
 \[
 P (K_3 \subset \mathcal G (n, p)) \leq 1 - e^{- c^3/6} + o(1) \quad (n \to \infty).
 \]
-Sean $A_i$ los eventos indicadores asociados al $i$-ésimo triángulo $T_i \subset [n]$. Podemos pensar $A_i \subset \{0,1\}^{\binom n 2}$. Notar que $A_i$ es creciente y que $P (A_i) = p^3$. Sea $m := \binom n 3$. Por el lema de arriba:
+\end{proposition}
+\begin{proof}
+Sean $A_i$ los eventos indicadores asociados al $i$-ésimo triángulo $T_i \subset [n]$. Podemos pensar $A_i \subset \{0,1\}^{\binom n 2}$. Notar que $A_i$ es creciente, por lo tanto $A_i^c$ es decreciente, y que $P (A_i) = p^3$. Sea $m := \binom n 3$. Por el lema de arriba:
 \[
 P(K_3 \not \subset \mathcal G (n,p)) = P (\bigcap_{i = 1}^m A_i^c) \geq \prod_{i = 1}^m P(A_i^c) = (1- p^3)^m \longrightarrow e^{-c^3 / 6} \quad (n \to \infty)
 \].
-\end{proposition}
+\end{proof}
+
+
 
 \subsection{Desigualdades de Jason}
 
-$\{ T_i\}_{i = 1}^t \subset [N]$, $p \in (0,1)$ y $R \subset [N]$, y conjunto aleatorio $P( x \in R) = p_1 , x \in [N]$. Los eventos $A_i = \{T_i \subset R\}$. $A_i$ es creciente. Escribamos $i \sim j$ si solo si $T_i \cap T_j \neq \emptyset$. Notar que $i \not \sim j$ si y solo si $A_i$ y $A_j$ son independientes entre sí. Escribamos
+Sean $ T_1, \ldots, T_t \subset [N]$ y $p \in (0,1)$, y sea $R \subset [N]$ un conjunto aleatorio tal que $P( x \in R) = p_1 , x \in [N]$. Definamos los eventos $A_i = \{T_i \subset R\}$. Notar que $A_i$ es creciente. Escribamos $i \sim j$ si $T_i \cap T_j \neq \emptyset$ e $i \neq j$. Observar que si $i \not \sim j$ entonces $A_i$ y $A_j$ son independientes entre sí. Escribamos
 \[
 \mu = \sum_i P(A_i) \quad \text y \quad \Delta = \sum_{i \sim j} P (A_i \cap A_j).
 \]
@@ -3736,60 +3747,59 @@ $\{ T_i\}_{i = 1}^t \subset [N]$, $p \in (0,1)$ y $R \subset [N]$, y conjunto al
 \[
     P (\bigcap_{i \in [t]} A_i^c) \leq \exp (- \mu + \Delta / 2).
 \]
-Además, si $\Delta \geq \mu$,
+Además, si $\Delta \geq \mu$, entonces
 \[
 P (\bigcap_{ i \in [t]} A_i^c) \leq \exp ( - \frac{\mu^2}{2 \Delta}).
 \]
 \end{lemma}
 
-Daremos otra demostración de la proposición de antes:
+Daremos otra demostración de la Proposición \ref{proposicion:probabilidad de que un grafo aleatorio contenga un triangulo}:
 
 \begin{proof}
-    Tomemos $N = \binom n 2$ y una biyección entre $[N]$ y las aristas de $K_n$ de modo que el conjunto aleatorio $R$ sea mapeado a $\mathcal G (n, p)$. Si $\{T_i\}$ son los distintos triángulos en $[n]$, la primera desigualdad de Jason implica que
+    Tomemos $N = \binom n 2$ y una biyección entre $[N]$ y las aristas de $K_n$ de modo que el conjunto aleatorio $R$ sea mapeado en $\mathcal G (n, p)$. Si $\{T_i\}$ son los distintos triángulos en $[n]$, la primera desigualdad de Jason implica que
     \[
         P (K_3 \not \subset \mathcal G (n, p)) \leq e^{- \mu + \Delta / 2},
     \]
-    $\mu = p^3 \binom n 3 \to c^3 / 6$ y $\Delta \leq p^5 n^4 \to 0$.
+    donde $\mu = p^3 \binom n 3 \to c^3 / 6$ y $\Delta \leq p^5 n^4 \to 0$.
 \end{proof}
 
 
 \begin{lemma}
-Si $\varepsilon > 0$ y $m \geq \frac{n}{\log ^2 (n)}$, entonces
+Si $\varepsilon > 0$ y $m \geq \frac{n}{\log ^2_2 n}$, entonces
 \[
-    P (\alpha (\mathcal G (n, 1/2)) > (2 - \varepsilon) \log (n)) \leq \exp ( \frac{-n^2}{\log^9 (n)}).
+    P (\alpha (\mathcal G (n, 1/2)) < (2 - \varepsilon) \log_2 n) \leq \exp \left ( \frac{-n^2}{\log^9_2 n} \right )
 \]
+para todo $n$ lo suficientemente grande.
 \end{lemma}
 
 \begin{theorem}
 Con probabilidad alta,
 \[
-    \chi (\mathcal G (n, 1/2)) = (\frac 1 2 + o(1)) \frac{n}{\log n}.
+    \chi (\mathcal G (n, 1/2)) = \left (\frac 1 2 + o(1) \right ) \frac{n}{\log_2 n}
 \]
+cuando $n \to \infty$.
 \end{theorem}
 
 \begin{proof}
-Por un lado, tenemos que
+Por un lado, el Corolario \ref{corolario:cota inferior para el numero cromatico del grafo aleatorio con p = 1/2 es la mitad de n /log2n} nos da la primera desigualdad:
 \[
-\chi (\mathcal (n, 1/2)) \geq (\frac 1 2 + o(1))
-\frac{n}{\log n},
-\]
-pues hemos probado anteriormente que
-\[
-\alpha (\mathcal G (n, 1/2)) \geq (2 + o(1)) \log n.
+\chi (\mathcal G (n, 1/2)) \geq \left (\frac 1 2 + o(1) \right )
+\frac{n}{\log_2 n}.
 \]
 
-Por otro lado, el lema anterior el número esperado de subconjuntos de vértices de $\mathcal G (n, 1/2)$ sin conjuntos independientes de tamaño $(2- \varepsilon) \log n$ es a lo más
+Por otro lado, el lema anterior implica que el número esperado de subconjuntos al menos $\frac n {\log^2_2 n}$ vértices en $\mathcal G (n, 1/2)$ con al menos $\frac n {\log^2_2 n}$ vértices, sin conjuntos independientes de tamaño al menos $(2- \varepsilon) \log_2 n$, es a lo más
 \[
-2^n \exp (\frac{- n^2}{\log^9 n}) \longrightarrow 0.
+2^n \exp \left (\frac{- n^2}{\log^9_2 n} \right ) \longrightarrow 0
 \]
-Con probabilidad alta, todo subgrafo de $\mathcal G (n, 1/2)$ con por lo menos $\frac{n}{\log^2 n}$ vértices, contiene un conjunto independiente de tamaño $(2-\varepsilon) \log n$. Sea $\mathcal G (n, 1/2)$ con esta propiedad y entonces podemos hallar de manera golosa conjuntos independientes $\{A_i\}_{i = 1}^r$ de tamaño $(2-\varepsilon) \log n$ hasta que
+cuando $n \to \infty$. Consecuentemente, con probabilidad alta, todo subgrafo de $\mathcal G (n, 1/2)$ con por lo menos $\frac{n}{\log^2 n}$ vértices, contiene un conjunto independiente de tamaño $(2-\varepsilon) \log n$. Sea $\mathcal G (n, 1/2)$ con esta propiedad y entonces podemos hallar de manera golosa conjuntos independientes $\{A_i\}_{i = 1}^r$ de tamaño $(2-\varepsilon) \log_2 n$ hasta que
 \[
-    \sum_{i = 1}^r \abs{A_i} \geq n - \frac{n}{\log^2 n},
+    \sum_{i = 1}^r \abs{A_i} \geq n - \frac{n}{\log^2_2 n},
 \]
 entonces
 \[
-    \chi (\mathcal G (n, 1/2)) \leq \frac{n}{(2-\varepsilon) \log n} + \frac{n}{\log ^2 n} = (\frac{1}{2 - \varepsilon} + o(1)) \frac{n}{\log n} \quad ( \varepsilon \to 0).
+    \chi (\mathcal G (n, 1/2)) \leq \frac{n}{(2-\varepsilon) \log_2 n} + \frac{n}{\log ^2_2 n} = \left (\frac{1}{2 - \varepsilon} + o(1) \right ) \frac{n}{\log_2 n} \quad ( \varepsilon \to 0).
 \]
+De donde se sigue la otra desigualdad deseada.
 \end{proof}
 
 

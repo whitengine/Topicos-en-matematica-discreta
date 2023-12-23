@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  23 DEC 2023 13:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  23 DEC 2023 15:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2125,25 +2125,33 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3695.
 
-[74] [75] [76]
+[74] [75]
+Overfull \hbox (0.11224pt too wide) in paragraph at lines 3793--3795
+\T1/fnc/m/n/12 cuando $\FML/fncmi/m/it/12 n \U/matha/m/n/12 Ñ 8$\T1/fnc/m/n/12 
+. Con-se-cuen-te-men-te, con pro-ba-bi-li-dad al-ta, to-do sub-gra-fo de $\FMS/
+fncm/m/n/12 G\U/matha/m/n/12 p\FML/fncmi/m/it/12 n; \T1/fnc/m/n/12 1\U/matha/m/
+n/12 {\T1/fnc/m/n/12 2\U/matha/m/n/12 q$
+ []
+
+[76]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3848.
+(Font)              using `T1/fnc/m/sc' instead on input line 3858.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3849.
+(Font)              using `T1/fnc/m/sc' instead on input line 3859.
 
-[77]
-
-LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3928.
-
+[77] [78]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3929.
+(Font)              using `T1/fnc/m/sc' instead on input line 3938.
 
-[78] [79] [80]
+
+LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
+(Font)              using `T1/fnc/m/sc' instead on input line 3939.
+
+[79] [80]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
 ematica discreta/out/main.bbl) [81
 
@@ -2160,10 +2168,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CBFEB20143ABBFBC5865BDC0BEAB73D3;4984.
  ) 
 Here is how much of TeX's memory you used:
- 29643 strings out of 476017
- 563203 string characters out of 5786780
+ 29645 strings out of 476017
+ 563383 string characters out of 5786780
  1869666 words of memory out of 5000000
- 49102 multiletter control sequences out of 15000+600000
+ 49104 multiletter control sequences out of 15000+600000
  610608 words of font info for 213 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2186,10 +2194,10 @@ pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.p
 fb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.p
 fb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (82 pages, 463365 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (82 pages, 463800 bytes).
 PDF statistics:
- 1075 PDF objects out of 1200 (max. 8388607)
- 912 compressed objects within 10 object streams
+ 1077 PDF objects out of 1200 (max. 8388607)
+ 914 compressed objects within 10 object streams
  364 named destinations out of 1000 (max. 500000)
  352 words of extra memory for PDF output out of 10000 (max. 10000000)
 
