@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  22 DEC 2023 20:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  22 DEC 2023 23:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2108,7 +2108,7 @@ LaTeX Warning: Command \c invalid in math mode on input line 3355.
 LaTeX Warning: Command \c invalid in math mode on input line 3355.
 
 [67] [68] [69] [70] [71] [72] [73]
-Overfull \hbox (138.02303pt too wide) detected at line 3679
+Overfull \hbox (138.02303pt too wide) detected at line 3683
 \FML/fncmi/m/it/12 P\U/matha/m/n/12 p\FML/fncmi/m/it/12 B[]\U/matha/m/n/12 q ^^
 P p\T1/fnc/m/n/12 1 \U/matha/m/n/12 ^^A \FML/fncmi/m/it/12 p\U/matha/m/n/12 q[]
  ¤ []p^^A[]q ¤ []p^^A\T1/fnc/m/n/12 4\FML/fncmi/m/it/12 k [] k\U/matha/m/n/12 q
@@ -2121,38 +2121,38 @@ P p\T1/fnc/m/n/12 1 \U/matha/m/n/12 ^^A \FML/fncmi/m/it/12 p\U/matha/m/n/12 q[]
  []
 
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 3687.
+(Font)              scaled to size 15.89755pt on input line 3691.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 3687.
+(Font)              scaled to size 15.89755pt on input line 3691.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3687.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 3687.
+(hyperref)                removing `math shift' on input line 3691.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3687.
+(hyperref)                removing `subscript' on input line 3691.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3691.
 
 [74] [75]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3840.
+(Font)              using `T1/fnc/m/sc' instead on input line 3844.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3841.
+(Font)              using `T1/fnc/m/sc' instead on input line 3845.
 
 [76] [77]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3920.
+(Font)              using `T1/fnc/m/sc' instead on input line 3924.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3921.
+(Font)              using `T1/fnc/m/sc' instead on input line 3925.
 
 [78] [79] [80]
 (/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semestre/Topicos en mat
@@ -2197,7 +2197,7 @@ pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.p
 fb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.p
 fb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (82 pages, 463304 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (82 pages, 463580 bytes).
 PDF statistics:
  1075 PDF objects out of 1200 (max. 8388607)
  912 compressed objects within 10 object streams

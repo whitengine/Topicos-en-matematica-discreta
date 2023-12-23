@@ -3605,7 +3605,7 @@ Denotaremos por $\omega (r,k)$ al menor $n \in \naturals$ tal que toda $r$-color
 \begin{theorem}
 Dados $r,k \in \naturals$, se tiene que
 \[
-    \omega (r,k) > \frac{r^{k-1}}{e k} - \frac 1 k.
+    \omega (r,k) > \frac{(k-1)r^{k-1}}{e k^2} - \frac {k-1} {k^2}.
 \]
 \end{theorem}
 \begin{proof}
@@ -3613,11 +3613,11 @@ Sea $c : [n] \to [n]$ una $r$-coloración aleatoria. Para una $k$-progresión ar
 \[
     G := \left ( \bigcup_{p} A_p , \bigcup_{p, q} \{A_p A_q | p \cap q \neq \emptyset\} \right ).
 \]
-Como $\Delta (G) \leq kn$, y $P(A_p) = r^{1-k} \leq \frac{1}{e (\Delta (G) +1)}$ si $n \leq \frac{r^{k-1}}{e k} - \frac 1 k$, el Lema local de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que
+Como $\Delta (G) \leq nk^2 / (k-1)$, y $P(A_p) = r^{1-k} \leq \frac{1}{e (\Delta (G) +1)}$ si $n \leq \frac{(k-1)r^{k-1}}{e k^2} - \frac {k-1} {k^2}$, el Lema local de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que
 \[
     P(\bigcap_{p} A_p^c) > 0,
 \]
-es decir, existe una $r$-coloración $c$ para cualquier $n \leq \frac{r^{k-1}}{e k} - \frac 1 k$ que es libre de $k$-progresiónes aritméticas monocromáticas. De aquí se obtiene el resultado.
+es decir, existe una $r$-coloración $c$ para cualquier $n \leq \frac{(k-1)r^{k-1}}{e k^2} - \frac {k-1} {k^2}$, que es libre de $k$-progresiónes aritméticas monocromáticas. De aquí se obtiene el resultado.
 \end{proof}
 
 \begin{theorem}[Spencer, 1975]
@@ -3627,29 +3627,33 @@ es decir, existe una $r$-coloración $c$ para cualquier $n \leq \frac{r^{k-1}}{e
 
 \end{theorem}
 \begin{proof}
-Tomamos $K_n$ y una $2$-coloración aleatoria. Todo $K_k \cong S \subset K_n$ se le asocia el evento $A_S = $``$S$ es monocromático'', y luego construimos el grafo de dependencia
+Tomamos $K_n$ y una $2$-coloración aleatoria. A todo $K_k \cong S \subset K_n$ le asociamos el evento $A_S = $``$S$ es monocromático'', y luego construimos el grafo de dependencia
 \[
     G:= \left ( \bigcup_S A_S, \bigcup_{S,T} \{A_S A_T | e(S \cap  T) \geq 1\} \right ).
 \]
-Notar que $P(A_S) = 2^{- \binom k 2 + 1}$, y que $\Delta (G) \leq \binom k 2 \binom{n-2}{k-2} \leq \frac{k^4}{n^2}\binom n k$.
+Notar que $P(A_S) = 2^{- \binom k 2}$, y que $\Delta (G) \leq \binom k 2 \binom{n-2}{k-2} \leq \frac{k^4}{n^2}\binom n k$.
 
-Si $n = (1 - \varepsilon) \frac{k \sqrt 2}{e} 2^{\frac k 2}$, se sigue que
+Si $n = (1 \pm \varepsilon) \frac{k \sqrt 2}{e} 2^{\frac k 2}$, se sigue que
 \[
-    \binom n k 2^{- \frac k 2} \leq \left ( \frac{e n}{k} 2^{- \frac {k-1}2} \right ) \leq (2- \varepsilon)^k \ll \frac{n^2}{k^4},
+    \binom n k 2^{- \binom k 2} \leq \left ( \frac{e n}{k} 2^{- \frac {k-1}2} \right )^k = (1 \pm \varepsilon)^k \ll \frac{n^2}{k^4} \quad (k \to \infty),
 \]
 equivalentemente, $\frac{k^4}{n^2} \binom n k 2^{- \frac k 2} \ll 1$.
 Así,
 \[
-    P(A_S) \leq 2^{- \binom k 2 + 1} \ll \frac{1}{\frac{k^4}{n^2} \binom n k} \leq \frac{1}{e \left ( \frac{k^4}{n^2} \binom n k +  1 \right )}.
+    P(A_S) = 2^{- \binom k 2} \ll \frac{1}{e \left ( \frac{k^4}{n^2} \binom n k +  1 \right )}.
 \]
 Finalmente, el Lema de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que lo que que queremos.
 \end{proof}
 
 
-\begin{lemma}[Lema local (asimétrica)]\label{lema:lema local asimetrica}
-Para $\mathcal A = \{A_1, \ldots, A_n\} \subset \mathcal P (\Omega)$, si existen $x_i \in [0, 1)$ tales que si $G$ es un grafo de dependencia en $\mathcal A$,
+\begin{lemma}[Lema local de Lovász asimétrico]\label{lema:lema local asimetrica}
+Sea $G$ un grafo de dependencia en $\mathcal A = \{A_1, \ldots, A_n\} \subset \mathcal P (\Omega)$. Si existen $x_i \in [0, 1)$ tales que
 \[
-    \forall i \in [n] , P(A_i) \leq x_i \prod_{A_i A_j \in E(\mathcal G)} (1 - x_j) \quad \longrightarrow \quad p (\bigcap_{i \in [n]} A_i^c) \geq \prod_{i \in [n]} (1-x_i) > 0.
+    P(A_i) \leq x_i \prod_{A_i A_j \in E(\mathcal G)} (1 - x_j)
+\]
+para todo $i \in [n]$, entonces
+\[
+    P (\bigcap_{i \in [n]} A_i^c) \geq \prod_{i \in [n]} (1-x_i) > 0
 \]
 \end{lemma}
 
