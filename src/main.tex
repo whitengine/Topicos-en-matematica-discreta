@@ -3633,16 +3633,16 @@ Tomamos $K_n$ y una $2$-coloración aleatoria. A todo $K_k \cong S \subset K_n$ 
 \]
 Notar que $P(A_S) = 2^{- \binom k 2}$, y que $\Delta (G) \leq \binom k 2 \binom{n-2}{k-2} \leq \frac{k^4}{n^2}\binom n k$.
 
-Si $n = (1 \pm \varepsilon) \frac{k \sqrt 2}{e} 2^{\frac k 2}$, se sigue que
+Si $n = (1 + \varepsilon) \frac{k \sqrt 2}{e} 2^{\frac k 2}$, se sigue que
 \[
-    \binom n k 2^{- \binom k 2} \leq \left ( \frac{e n}{k} 2^{- \frac {k-1}2} \right )^k = (1 \pm \varepsilon)^k \ll \frac{n^2}{k^4} \quad (k \to \infty),
+    \binom n k 2^{- \binom k 2} \leq \left ( \frac{e n}{k} 2^{- \frac {k-1}2} \right )^k = (1 + \varepsilon)^k \ll \frac{n^2}{k^4} \quad (k \to \infty),
 \]
 equivalentemente, $\frac{k^4}{n^2} \binom n k 2^{- \frac k 2} \ll 1$.
 Así,
 \[
     P(A_S) = 2^{- \binom k 2} \ll \frac{1}{e \left ( \frac{k^4}{n^2} \binom n k +  1 \right )}.
 \]
-Finalmente, el Lema de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que lo que que queremos.
+Finalmente, el Lema de Lovász \ref{lema:lovasz sobre grafo de dependencia} implica que lo que queremos.
 \end{proof}
 
 
@@ -3664,7 +3664,7 @@ Existe una constante $c > 0$ tal que
 \]
 \end{theorem}
 \begin{proof}
-Sea $\varepsilon > 0$ y tomemos $n = \frac{\varepsilon^4 k ^2}{\log^2 k}$ y $p = \frac{\varepsilon}{\sqrt n}$. Para todo $S \subset K_n$ con $S \cong K_3$, definimos $A_S = \{ S \subset \mathcal G (n,p)\}$ y para todo $T \subset K_n$, $T \cong K_r$, con $B_T := \{ T \cap \mathcal G (n,p) \neq \emptyset\}$. Basta ver que
+Sea $\varepsilon > 0$ lo suficientemente chico y tomemos $n = \frac{\varepsilon^{-4} k ^2}{\log^2 k}$ y $p = \frac{\varepsilon}{\sqrt n}$. Para todo $S \subset K_n$ con $S \cong K_3$, definimos $A_S = \{ S \subset \mathcal G (n,p)\}$ y para todo $T \subset K_n$, $T \cong K_r$, con $B_T := \{ T \cap \mathcal G (n,p) = \emptyset\}$. Basta ver que
 \[
     P (\bigcap_{S \cong K_3} A_S \cap \bigcap_{T \cong K_r} B_T) > 0.
 \]
@@ -3674,14 +3674,18 @@ Consideremos $\mathcal A$ el conjunto de los $K_3$ en $K_n$ y $\mathcal B$ el co
     G = ( \mathcal A \cup \mathcal B, E),
 \]
 donde $\{A, B\} \in E$ si $A$ y $B$ comparten almenos una arista. Notar que todo $S \in \mathcal A$ tiene $\leq 3n$ vecinos en $\mathcal A$ y $\leq 3n^{k-2}$ vecinos en $\mathcal B$; por otro lado, $T \in \mathcal B$ tiene $\leq k^2 n$ vecinos en $\mathcal A$ y $\leq k^2 n^{k-2}$ vecinos en $\mathcal B$. Tomemos las cantidades $x_S = 2p^3$ y $x_T = n^{-k}$ para $S \in \mathcal A$ y $T \in \mathcal B$. Tenemos que
-\[
-    P(A_S) = p^3 \leq 2 p^3 (1-2p^3)^{3n} (1-n^{-k})^{3 n^{k-2}} \leq x_S \prod_{S U \in E(G)} (1- X_U),
-\]
+\begin{align*}
+P(A_S) = p^3 &\leq 2 p^3 (1-2p^3)^{3n} (1-n^{-k})^{3 n^{k-2}} \quad (\varepsilon \to 0^+)\\
+&\leq x_S \prod_{S U \in E(G)} (1- X_U),
+\end{align*}
 y
-\[
-    P(B_T) = (1-p)^{\binom k 2} \leq \exp (- \frac{p k ^2}{4}) \leq \exp (-4k \log k) < n^{-2k} \leq n^{-k}(1-2 p^3)^{k^2n} (1- n^{-k})^{k^2 n^{k-2}} \leq x_S \prod_{S U \in E(G)} (1-X_U).
-\]
-Siempre que $p^3 k^2 n< k \log k$, por el Lema local asimétrico \ref{lema:lema local asimetrica} $G_{1,p}$ no contiene copias de $K_3$ ni conjuntos independientes de más de $k$ vértices.
+\begin{align*}
+    P(B_T) = (1-p)^{\binom k 2} \leq \exp \left (- p \binom k 2 \right ) &= \exp (- \varepsilon^{-1} \log k (k-1)/2) \\
+    &= k^{-\varepsilon^{-1} (k-1)/2} \\
+    &< n^{-k}(1-2 p^3)^{k^2n} (1- n^{-k})^{k^2 n^{k-2}} \quad (\varepsilon \to 0^+)\\
+    &\leq x_T \prod_{T U \in E(G)} (1-X_U).
+\end{align*}
+Luego por el Lema local de Lovász asimétrico \ref{lema:lema local asimetrica}, existe $G \in \mathcal G (n,p)$ que no contiene copias de $K_3$ ni conjuntos independientes de más de $k$ vértices. Por lo tanto se sigue el resultado.
 \end{proof}
 
 
