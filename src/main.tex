@@ -15,7 +15,7 @@
 
 \usepackage{graphicx}
 
-\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo-probabilistico-1/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo-probabilistico-1/}{./Figuras/Conexidad-de-grafos-aleatorios/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
 
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
@@ -2867,7 +2867,7 @@ Por lo tanto, podemos tomar $k=k(n)$ de tal forma que
 \]
 En consecuencia,
 \[
-    P(\alpha < \frac{2 \log n}{p_n}) \leq P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
+    P \left (\alpha < \frac{2 \log n}{p_n} \right ) \leq P(\alpha < k) \longrightarrow 1, \quad (n \to \infty).
 \]
 \end{proof}
 
@@ -2924,7 +2924,7 @@ Por la Proposición \ref{proposition:si la esperanza es mayor que t luego la pro
 \]
 en particular existe un conjunto $A$ de vértices de $G$ tal que,
 \[
-    \abs A - e(G[A]) \geq pn (1 - \frac{pd}2),
+    \abs A - e(G[A]) \geq pn \Big (1 - \frac{pd}2 \Big),
 \]
 y el lado de la derecha se maximiza cuando $p = \frac 1 d$; nos queda:
 \[
@@ -3475,7 +3475,12 @@ Ahora, calculamos la varianza de $N$. Antes, notar que
 \[
     \mathbb{E} (X_\mu \cdot X_\nu) = P (\mu \text{ y } \nu \text{ son aislados}) = (1-p_n)^{2n-3},
 \]
-pues para que sean aislados, no pueden estar las $2n-3$ aristas incidentes a $\mu$ y $\nu$ (hay $n-2$ vértices distintos de $\mu, \nu$ y luego una arista entre ellos). Si $\mu \neq \nu$:
+pues para que sean aislados, no pueden estar las $2n-3$ aristas incidentes a $\mu$ y $\nu$ (hay $n-2$ vértices distintos de $\mu, \nu$ y luego una arista entre ellos; ver la siguiente figura).
+
+ \Inkscape{}{"./Figuras/Conexidad-de-grafos-aleatorios/Dibujo-1.pdf_tex"}
+
+
+Si $\mu \neq \nu$:
 \begin{align*}
 \operatorname{Cov} (X_\mu, X_\nu) &= \mathbb{E} (X_\mu, X_\nu) - \mathbb{E} (X_\mu) \mathbb{E} (X_\nu) \\
 &= (1-p_n)^{2n-3} - (1-p_n)^{2(n-1)} \\
@@ -3738,7 +3743,7 @@ P(K_3 \not \subset \mathcal G (n,p)) = P (\bigcap_{i = 1}^m A_i^c) \geq \prod_{i
 
 \subsection{Desigualdades de Jason}
 
-Sean $ T_1, \ldots, T_t \subset [N]$ y $p \in (0,1)$, y sea $R \subset [N]$ un conjunto aleatorio tal que $P( x \in R) = p_1 , x \in [N]$. Definamos los eventos $A_i = \{T_i \subset R\}$. Notar que $A_i$ es creciente. Escribamos $i \sim j$ si $T_i \cap T_j \neq \emptyset$ e $i \neq j$. Observar que si $i \not \sim j$ entonces $A_i$ y $A_j$ son independientes entre sí. Escribamos
+Sean $ T_1, \ldots, T_t \subset [N]$ y $p \in (0,1)$, y sea $R \subset [N]$ un conjunto aleatorio tal que $P( x \in R) = p_1 , \: x \in [N]$. Definamos los eventos $A_i = \{T_i \subset R\}$. Notar que $A_i$ es creciente. Escribamos $i \sim j$ si $T_i \cap T_j \neq \emptyset$ e $i \neq j$. Observar que si $i \not \sim j$ entonces $A_i$ y $A_j$ son independientes entre sí. Escribamos
 \[
 \mu = \sum_i P(A_i) \quad \text y \quad \Delta = \sum_{i \sim j} P (A_i \cap A_j).
 \]
@@ -3789,9 +3794,9 @@ Por un lado, el Corolario \ref{corolario:cota inferior para el numero cromatico 
 
 Por otro lado, el lema anterior implica que el número esperado de subconjuntos al menos $\frac n {\log^2_2 n}$ vértices en $\mathcal G (n, 1/2)$ con al menos $\frac n {\log^2_2 n}$ vértices, sin conjuntos independientes de tamaño al menos $(2- \varepsilon) \log_2 n$, es a lo más
 \[
-2^n \exp \left (\frac{- n^2}{\log^9_2 n} \right ) \longrightarrow 0
+2^n \exp \left (\frac{- n^2}{\log^9_2 n} \right ) \longrightarrow 0 \quad (n \to \infty).
 \]
-cuando $n \to \infty$. Consecuentemente, con probabilidad alta, todo subgrafo de $\mathcal G (n, 1/2)$ con por lo menos $\frac{n}{\log^2 n}$ vértices, contiene un conjunto independiente de tamaño $(2-\varepsilon) \log n$. Sea $\mathcal G (n, 1/2)$ con esta propiedad y entonces podemos hallar de manera golosa conjuntos independientes $\{A_i\}_{i = 1}^r$ de tamaño $(2-\varepsilon) \log_2 n$ hasta que
+Consecuentemente, con probabilidad alta, todo subgrafo de $\mathcal G (n, 1/2)$ con por lo menos $\frac{n}{\log^2_2 n}$ vértices, contiene un conjunto independiente de tamaño $(2-\varepsilon) \log n$. Sea $\mathcal G (n, 1/2)$ con esta propiedad y entonces podemos hallar de manera golosa conjuntos independientes disjuntos $\{A_i\}_{i = 1}^r$ de tamaño $(2-\varepsilon) \log_2 n$ (hay a lo más $n / (2-\varepsilon) \log_2 n$ de estos) hasta que
 \[
     \sum_{i = 1}^r \abs{A_i} \geq n - \frac{n}{\log^2_2 n},
 \]
@@ -3800,6 +3805,8 @@ entonces
     \chi (\mathcal G (n, 1/2)) \leq \frac{n}{(2-\varepsilon) \log_2 n} + \frac{n}{\log ^2_2 n} = \left (\frac{1}{2 - \varepsilon} + o(1) \right ) \frac{n}{\log_2 n} \quad ( \varepsilon \to 0).
 \]
 De donde se sigue la otra desigualdad deseada.
+
+\Inkscape{Coloreamos cada parte $A_i$ ($1 \leq i \leq r \leq \frac{n}{(2-\varepsilon) \log_2 n}$), y el resto de los $\leq \frac{n}{\log_2^2 n}$ vértices de distinto color.}{"./Figuras/Conexidad-de-grafos-aleatorios/Dibujo-2.pdf_tex"}
 \end{proof}
 
 
@@ -3873,9 +3880,9 @@ para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$ y $k = n^{1-\var
 \[
     (2\varepsilon)^t n - n^{2 - \varepsilon t} \geq n^{1-\varepsilon},
 \]
-que es verdadero si $t \geq 2 / \varepsilon$ y $n$ es lo suficientemente grande.
+que es verdadera si $t \geq 2 / \varepsilon$ y $n$ es lo suficientemente grande.
 
-Consecuentemente, el lema nos dice que existe un subconjunto de vértices $A$ con $\abs A \geq k$, tal que para todo par de vértices de $A$ hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, debe exister una arista $uv \in E(G)$ en $A$, y como $u$ y $v$ tienen al menos $k$ vecinos en común, su vecindad en común contiene una arista $xy$. De esta manera los vértices $u,v,x,y$ inducen un $K_4$ en $G$, como queríamos.
+Consecuentemente, el lema nos dice que existe un subconjunto de vértices $A$ con $\abs A \geq k$, tal que para todo par de vértices de $A$ hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, debe existir una arista $uv \in E(G)$ en $A$, y como $u$ y $v$ tienen al menos $k$ vecinos en común, su vecindad en común contiene una arista $xy$. De esta manera los vértices $u,v,x,y$ inducen un $K_4$ en $G$, como queríamos.
 \end{proof}
 
 \begin{theorem}
@@ -3895,7 +3902,7 @@ Para la primera afirmación, requerimos enunciar el siguiente teorema de \cite[T
     \left ( \frac 1 4 + o (1 ) \right ) \frac{k^2}{\log k} \leq R(3, k) \leq (1 + o (1)) \frac{k^2}{\log k} \quad (k \to \infty).
 \]
 \end{quote}
-De aquí se sigue que para todo $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2$ vértices y $\alpha (H) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
+De la primera desigualdad se sigue que para $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2 + o(1)$ vértices y $\alpha (H) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
 
 Para la segunda afirmación, sea $\varepsilon > 0$ y supongamos que $G$ es un grafo con
 \[
@@ -3905,13 +3912,13 @@ Para ver que $G$ contiene una copia de $K_5$, vamos primero a usar el Lema de el
 \[
 \frac{2^t e(G)^t}{n^{2t - 1}} - \binom n 3 \left ( \frac k n \right )^t \geq R(3, k)
 \]
-para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$ y $k \ll \sqrt{n \log n}$, entonces $R(3,k) = O (k^2 / \log k) \ll n$, con lo cual
+para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$, $k \ll \sqrt{n \log n}$, y $R(3,k) = O (k^2 / \log k) \ll n$ por la segunda desigualdad del principio, basta ver que
 \[
     (2 \varepsilon)^t n - n^{3- t/2} (\log n)^{t/2} \geq R(3, k),
 \]
 lo cual es cierto para $t = 6$ y $n$ lo suficientemente grande.
 
-Así, el lema nos provee de un conjunto de vértices $A$ de $G$ con $\abs A \geq R(3,k)$, tal que para toda terna de vértices de $A$, hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, se sigue que existe un triángulo $uvw$ en $A$, y como $u,v,w$ tienen al menos $k$ vecinos en común, su vecindad contiene una arista $xy$. Por lo tanto, los vértices $u,v,w,x,y$ forman un $K_5$ en $G$ como queríamos.
+Así, el lema nos provee de un conjunto de vértices $A$ de $G$ con $\abs A \geq R(3,k)$, tal que para toda terna de vértices de $A$, hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, se sigue que existe un triángulo $uvw$ en $A$, y como $u,v,w$ tienen al menos $k$ vecinos en común, su vecindad contiene una arista $xy$. Por lo tanto, los vértices $u,v,w,x,y$ forman un $K_5$ en $G$, como queríamos.
 \end{proof}
 
 \subsection{Número extremal de grafos bipartitos}
@@ -3929,10 +3936,8 @@ Tomando $H = K_{s,t}$ recuperamos el Teorema \ref{th:teorema de kovani sos turan
 \end{obs}
 
 
-Necesitamos un lema previo:
-\begin{lemma}\footnote{
-Para una demostración, ver el Lema 10.3.6 de \cite{botler2022combinatoria}
-}\label{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H}
+Para poder probar este teorema ecesitamos un lema previo:
+\begin{lemma}\label{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H}
 Sea $H$ un grafo bipartito con partes $A$ y $B$, tal que cada vértice de $B$ tiene a lo más grado $s$. Sea $G$ un grafo tal que existe $U \subset V(G)$ de tal suerte que:
 \begin{enumerate}[(i)]
 \item $\abs U = \abs A$.
@@ -3994,7 +3999,7 @@ lo cual vale para todo $3 k /2 \leq t \leq 2k$ si $k \geq 2$ (el caso $k = 1$ es
 \[
     2^k (1- \frac 1 {2^{3k}})^{2k} - 1 \geq 2^{k-1}.
 \]
-Esto se puede probar porp inducción en $k \geq 2$. El caso base vale; en general, por hipótesis inductiva tenemos que
+Esto se puede probar por inducción en $k \geq 2$. El caso base vale; en general, por hipótesis inductiva tenemos que
 \begin{align*}
 2^{k+1} (1- \frac {1}{2^{3k + 3}})^{2k + 2} &\geq 2 (1- \frac{1}{2^{3k+3}})^2 (2^{k-1} + 1) \\
 &= 2^k + 2 - \frac{2^{k-1}+ 1}{2^{3k}} + \frac{2^{k-1} + 1}{2^{6k + 1}},
@@ -4005,18 +4010,18 @@ esto último es mayor o igual a $2^k + 1$ si es que probamos que
 \]
 Pero esto es claramente cierto para $k \geq 2$.
 
-Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} junto con la observación que hicimos antes del teorema, implican que $Q_k \subset G$ como queríamos.
+Así, el lema implica que existe un conjunto $U \subset V(G)$ con $\abs U \geq 2^{k-1} $ tal que para todo subconjunto de tamaño $k$ hay al menos $2^k$ vecinos en común. Pero el Lema \ref{lema:un lema sobre grafos bipartitos H para probar resultado del metodo probabilistico y numero extremal de H} junto con la observación que hicimos antes del teorema, implican que $Q_k \subset G$, como queríamos ver.
 \end{proof}
 
 \begin{obs}
 Hemos probado un resultado de extremalidad: existe una copia de $Q_k$ en todo grafo con almenos $2^{3k}$ vértices y al menos $n^2/4$ aristas (donde $n := 2^{3k}$). Es decir,
 \[
-    \ex {2^{3k}}{Q_k} < n^2 / 4 = 2^{6k}/4.
+    \ex {2^{3k}}{Q_k} < n^2 / 4 = 4^{3k-1}.
 \]
 \end{obs}
 
 \begin{remark}
-Una mejor cota es de la forma $O(k 2^{2k})$, probado por Conlon (2009), también por Fox y Sudakov (2009).
+Una mejor cota es de la forma $O(k 2^{2k})$, probada por Conlon (2009), también por Fox y Sudakov (2009).
 \end{remark}
 
 
