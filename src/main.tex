@@ -15,7 +15,7 @@
 
 \usepackage{graphicx}
 
-\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo-probabilistico-1/}{./Figuras/Conexidad-de-grafos-aleatorios/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
+\graphicspath{{./Figuras/Teoria extremal de grafos/}{./Figuras/}{./Figuras/Numeros extremales en grafos bipartitos/}{./Figuras/Teoria de Ramsey/}{./Figuras/Metodo-probabilistico-1/}{./Figuras/Conexidad-de-grafos-aleatorios/}{./Figuras/Eleccion-aleatoria-dependiente/}} %esto es para que encuentre las figuras hechas con pdf_tex en inkscape
 
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor} %agrega mas colores para xcolor.
@@ -3850,6 +3850,8 @@ Para todo $\varepsilon > 0$,
 \begin{proof}
 La estrategia será la siguiente: supongamos que podemos encontrar un conjunto $A \subset V(G)$ de vértices de $G$ de tamaño $k = n^{1- \varepsilon}$ de tal suerte que para todo par de vértices $u,v \in A$ hay al menos $k$ vecinos en común. $A$ es un conjunto independiente o contiene una arista $uv$. Además, la vecindad en común entre $u$ y $v$ tiene tamaño al menos $k$, o es un conjunto independiente o conteniendo una arista $xy$. De esta manera, si $\alpha (G) < k$, se seguirá que $G$ contiene un $K_4$, por ejemplo el grafo inducido por los vértices $u,v,x,y$.
 
+\Inkscape{Ilustración de la estrategia.}{"./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf_tex"}
+
 El siguiente lema nos permite encontrar dicho conjunto $A$ en cualquier grafo con densidad positiva:
 \vspace{-20pt}
 \begin{quote}
@@ -3902,7 +3904,9 @@ Para la primera afirmación, requerimos enunciar el siguiente teorema de \cite[T
     \left ( \frac 1 4 + o (1 ) \right ) \frac{k^2}{\log k} \leq R(3, k) \leq (1 + o (1)) \frac{k^2}{\log k} \quad (k \to \infty).
 \]
 \end{quote}
-De la primera desigualdad se sigue que para $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2 + o(1)$ vértices y $\alpha (H) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
+De la primera desigualdad se sigue que para $n$ lo suficientemente grande, existe un grafo libre de triángulos $H$ con $n/2$ vértices y $\alpha (H) = O (\sqrt{n \log n})$. Ahora, para construir un grafo $G$ con $n$ vértices, simplemente tomamos dos copias de $H$ y agregamos todas las $n^2/4$ aristas entre ellas. Como $H$ es $K_3$-libre, se sigue que $G$ es libre de $K_5$ como queríamos.
+
+\Inkscape{Grafo $G$ formado a partir de la unión de dos copias de $H$ unidas por todas las $n^2/4$ aristas entre ellas.}{"./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf_tex"}
 
 Para la segunda afirmación, sea $\varepsilon > 0$ y supongamos que $G$ es un grafo con
 \[
@@ -3919,6 +3923,8 @@ para algún $t \in \naturals$. Como $e(G) \geq \varepsilon n^2$, $k \ll \sqrt{n 
 lo cual es cierto para $t = 6$ y $n$ lo suficientemente grande.
 
 Así, el lema nos provee de un conjunto de vértices $A$ de $G$ con $\abs A \geq R(3,k)$, tal que para toda terna de vértices de $A$, hay al menos $k$ vecinos en común. Como $\alpha (G) \leq k$, se sigue que existe un triángulo $uvw$ en $A$, y como $u,v,w$ tienen al menos $k$ vecinos en común, su vecindad contiene una arista $xy$. Por lo tanto, los vértices $u,v,w,x,y$ forman un $K_5$ en $G$, como queríamos.
+
+\Inkscape{Ilustración del conjunto $A$ en $G$ con $\abs A \geq R(3,k)$, el cual contiene un triángulo $u,v,w$ con un vecindario en común conteniendo la aristas $xy$.}{"./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf_tex"}
 \end{proof}
 
 \subsection{Número extremal de grafos bipartitos}
@@ -3949,6 +3955,8 @@ Entonces $H \subset G$.
 Usando la propiedad (i) del conjunto $U$, podemos biyectar los vértices de $A$ con los de $U$. Vamos a mapear los vértices de $B$ de manera golosa, tomemos $B = \{v_1, \ldots, v_t\}$ y supongamos que ya hemos mapeado los vértices $v_1, \ldots, v_{i-1}$ para algún $1 \leq i \leq t$ en $G$. Consideremos la vecindad $N_H (v_i)$, sea $S_i$ el conjunto de vértices correspondiente de $U$, observemos que $\abs{S_i} \leq s$, pues los elementos de $B$ tienen grado a lo más $s$.
 
 Ahora, por la propiedad (ii) del conjunto $U$, se sigue que los vértices de $S_i$ tienen al menos $v(H)$ vecinos en común en $G$. Para mapear $v_i$, simplemente elegimos cualquier elemento de esta vecindad en común que no haya sido utilizado. Notar que existe una posible elección, pues hemos mapeado hasta el momento menos de $v(H)$ vértices. Esto finaliza la demostración del lema.
+
+\Inkscape{Ilustración del algorítmo glotón que permite incrustar $H$ en $G$. Notar que en el $i$-ésimo paso hay que buscar un vecino en común de $N_H(v_i) \subset U$ en $G$, que no se haya elegido antes, para poder incrustar a $v_i$. Esto se puede hacer pues hay $\geq v(H)$ opciones. }{"./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf_tex"}
 \end{proof}
 
 \begin{proof}[Demostración del teorema]

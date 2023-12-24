@@ -25,5 +25,5 @@
 \contentsline {subsection}{\numberline {3.10.1}Desigualdades de Jason}{75}{subsection.3.10.1}%
 \contentsline {section}{\numberline {3.11}Elección aleatoria dependiente}{77}{section.3.11}%
 \contentsline {subsection}{\numberline {3.11.1}El número de Ramsey-Turán}{77}{subsection.3.11.1}%
-\contentsline {subsection}{\numberline {3.11.2}Número extremal de grafos bipartitos}{79}{subsection.3.11.2}%
-\contentsline {subsection}{\numberline {3.11.3}El número de Ramsey de un hipercubo}{80}{subsection.3.11.3}%
+\contentsline {subsection}{\numberline {3.11.2}Número extremal de grafos bipartitos}{80}{subsection.3.11.2}%
+\contentsline {subsection}{\numberline {3.11.3}El número de Ramsey de un hipercubo}{82}{subsection.3.11.3}%

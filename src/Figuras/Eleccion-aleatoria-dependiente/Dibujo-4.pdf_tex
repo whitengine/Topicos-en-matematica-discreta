@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.1 (9b9bdc1480, 2023-11-25, custom), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Dibujo-2.pdf' (pdf, eps, ps)
+%% Accompanies image file 'Dibujo-4.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,11 +53,16 @@
   \begin{picture}(1,0.53333333)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Dibujo-2.pdf}}%
-    \put(0.1436995,0.24413071){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$A_r$\end{tabular}}}}%
-    \put(0.32979281,0.41343768){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$A_1$\end{tabular}}}}%
-    \put(0.3277955,0.07685746){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$A_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{Dibujo-2.pdf}}%
-    \put(0.8,0.27){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\resizebox{!}{14pt}{$\leq \frac{n}{\log_2^2 n}$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf}}%
+    \put(-0.01,0.32134221){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$N_H(v_i) \subset U$\end{tabular}}}}%
+    \put(0.77329481,0.11829917){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1$\end{tabular}}}}%
+    \put(0.77317177,0.18486828){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_2$\end{tabular}}}}%
+    \put(0.77301086,0.25452331){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_3$\end{tabular}}}}%
+    \put(0.7734461,0.38726085){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_i$\end{tabular}}}}%
+    \put(0.45778513,0.42102517){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\leq s$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf}}%
+    \put(0.0320707,0.48522727){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$G$\end{tabular}}}}%
+    \put(0.18364593,0.0311234){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$U = A$\end{tabular}}}}%
+    \put(0.85511937,0.48244133){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\geq v(H)$ opciones\end{tabular}}}}%
   \end{picture}%
 \endgroup%
