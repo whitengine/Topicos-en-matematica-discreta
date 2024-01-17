@@ -606,13 +606,13 @@ Sea $G$ un grafo $K_{k+1}$-extremal y $H$ el grafo $r$-partito obtenido por el T
 \]
 y por lo tanto, $H$ también es $K_{r+1}$-extremal. Pero por definición, $t_k (n) \geq e(H)$. Pero ya vimos que los grafos $K_{r+1}$ extremales tienen $\geq t_k (n)$ aritas. Con lo cual, en realidad $e(G) = e(H)$ y más aún, $d_H (v) = d_G (v)$ para todo $v$.
 
-Esto nos indica que inspeccionando la demostración más detalladamanete, se tiene que $G'$ es un $T_{k-1} (\Delta)$ (con $\Delta := \delta (G)$) y que $G$ es luego $T_k (n)$.
+Esto nos indica que inspeccionando la demostración más detalladamanete, se tiene que $G'$ es un $T_{k-1} (\Delta)$ (con $\Delta := \Delta (G)$) y que $G$ es luego $T_k (n)$.
 \end{solution}
 
 \begin{obs}\label{obs:notar que si H es no bipartito entonces ex(n,H)= Theta (n2)}
 Sea $H$ un grafo con $\chi (H) \geq 3$, es decir no bipartito, entonces
 \[
-    \ex n H = \Theta (n^2).
+    \ex n H \sim  n^2.
 \]
 \end{obs}
 \begin{proof}
@@ -844,17 +844,17 @@ A partir de la demostración de este teorema, obtenga que los grafos extremales 
 \begin{lemma}\label{lema:grafo G conexo con n vertices tiene un camino de largo al menos 2 delta o n-1}
 Todo grafo conexo $G$ con $n$ vértices contiene un camino de largo
 \[
-    k := \min \{2 \delta (G), n-1\}.
+    k := \min \{2 \delta (G)+1, n-1\}.
 \]
 \end{lemma}
 \begin{proof}
-Tomemos $P := v_0, \ldots, ,v_l$ camino de largo máximo. Sabemos que $N_G (v_0), N_G (v_l) \subset V(P)$ por maximalidad de $P$. Si $V(P) = V(G)$ ganamos. Así que supongamos que no; supongamos también que $l < k\leq 2\delta (G)$. Demostraremos que existe un ciclo de longitud $l$ contenido en $G[V(P)]$, así llegaremos a una contradicción pues al existir un vértice $x$ fuera de $G[V(P)]$ en $G$, podríamos extender el ciclo a un camino de longitud al menos $k+1$ en $G$ conectándolo con $x$.
+Tomemos $P := v_0, \ldots, ,v_l$ camino de largo máximo. Sabemos que $N_G (v_0)$, $N_G (v_l) \subset V(P)$ por maximalidad de $P$. Si $V(P) = V(G)$ ganamos. Así que supongamos que no; supongamos también que $l < k\leq 2\delta (G)+1$. Demostraremos que existe un ciclo de longitud $l$ contenido en $G[V(P)]$, así llegaremos a una contradicción pues al existir un vértice $x$ fuera de $G[V(P)]$ en $G$, podríamos extender el ciclo a un camino de longitud al menos $l+1$ en $G$ conectándolo con $x$.
 
 \Inkscape{Notar que en este caso $v_0 P v_{i-1} v_l P v_i v_0$ es un ciclo de longitud $\abs P$ en $G[V(P)]$.}{"./Figuras/Numeros extremales para arboles/figura.pdf_tex"}
 
 En efecto, supongamos que no existe tal ciclo, luego para cada $i \in \{1, \ldots, l-1\}$ se tiene que $v_{i-1}v_l \not \in E(G)$ o $v_0 v_i \not \in E(G)$. Entonces
 \[
-    2 \delta(G) \leq d_G (v_0) + d_G (v_l) \leq l < 2 \delta (G),
+    2 \delta(G) \leq d_G (v_0) + d_G (v_l) \leq l -1< 2 \delta (G),
 \]
 absurdo.
 \end{proof}
@@ -1589,6 +1589,10 @@ Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-re
 \item $\varepsilon n^2$ aristas entre pares (con $i,j \neq 0$) que no son $\varepsilon$-regulares.
 \item $\delta n^2$ aristas entre pares (con $i,j \neq 0$) de densidad $< \delta$.
 \end{enumerate}
+Más aún, hay un máximo de
+\begin{enumerate}[(b')]
+\item $\varepsilon n^2$ aristas dentro de $V_0$.
+\end{enumerate}
 \end{lemma}
 \begin{proof}
 \begin{enumerate}[(a)]
@@ -1603,6 +1607,10 @@ Sea $V_0 \coprod V_1 \coprod \cdots \coprod V_k$ una partición $\varepsilon$-re
     e(V_i, V_j) \leq \delta \left ( \frac n k \right )^2, \quad \forall 1 \leq i, j \leq k,
 \]
 y entonces, hay a lo más $\delta \left ( \frac n k \right )^2 \binom k 2 \leq \delta n^2$ aristas en pares ``poco densos'', i.e., en (d).
+\end{enumerate}
+Por último,
+\begin{enumerate}[(b')]
+\item Como $\abs {V_0} \leq \varepsilon n$, hay a lo más $\abs{V_0}^2 \leq \varepsilon n^2$ aristas en $V_0$.
 \end{enumerate}
 \end{proof}
 

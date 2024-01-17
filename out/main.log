@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  25 DEC 2023 23:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.11)  17 JAN 2024 15:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1674,12 +1674,11 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [8 <./Figuras/Numeros extremales en grafos bipartitos/Dibujo 2.pdf>] [9]
-Overfull \hbox (64.49756pt too wide) in paragraph at lines 851--852
+Overfull \hbox (15.93404pt too wide) in paragraph at lines 851--852
 []\T1/fnc/m/n/12 Tomemos $\FML/fncmi/m/it/12 P \T1/fnc/m/n/12 :\U/matha/m/n/12 
 ^^P \FML/fncmi/m/it/12 v[]; [] ; ; v[]$ \T1/fnc/m/n/12 ca-mino de lar-go má-xi-
 mo. Sa-be-mos que $\FML/fncmi/m/it/12 N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v[
-]\U/matha/m/n/12 q\FML/fncmi/m/it/12 ; N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v
-[]\U/matha/m/n/12 q €
+]\U/matha/m/n/12 q$\T1/fnc/m/n/12 ,
  []
 
 (./Figuras/Numeros extremales para arboles/figura.pdf_tex
@@ -1756,7 +1755,7 @@ LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
 (Font)              using `T1/fnc/m/sc' instead on input line 1516.
 
 [24] [25] [26]
-Overfull \hbox (14.89626pt too wide) in paragraph at lines 1682--1683
+Overfull \hbox (14.89626pt too wide) in paragraph at lines 1690--1691
 \T1/fnc/m/n/12 una par-ti-ción de acuer-do a la de-fi-ni-ción de $\FMS/fncm/m/n
 /12 G\U/matha/m/n/12 p\FML/fncmi/m/it/12 H; n; "; ^^N\U/matha/m/n/12 q$\T1/fnc/
 m/n/12 : $\U/matha/m/n/12 p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q$ $\FML/
@@ -1765,20 +1764,20 @@ p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q ¥
  []
 
 
-Overfull \hbox (7.92128pt too wide) in paragraph at lines 1684--1685
+Overfull \hbox (7.92128pt too wide) in paragraph at lines 1692--1693
 []\T1/fnc/m/n/12 Elijamos $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/12 lo su-fi-cien-t
 e-men-te pe-que-ño y apli-que-mos el Le-ma [][]1.7.13[][] a ca-da $\U/matha/m/n
 /12 p\FML/fncmi/m/it/12 A[]; A[]\U/matha/m/n/12 q$
  []
 
 (./Figuras/Regularidad/Dibujo 1.pdf_tex
-<./Figuras/Regularidad/Dibujo 1.pdf, id=398, page=1, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=400, page=1, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page1 used on inp
 ut line 56.
 (pdftex.def)             Requested size: 640.187pt x 257.2629pt.
-<./Figuras/Regularidad/Dibujo 1.pdf, id=399, page=2, 622.0229pt x 249.95587pt>
+<./Figuras/Regularidad/Dibujo 1.pdf, id=401, page=2, 622.0229pt x 249.95587pt>
 File: ./Figuras/Regularidad/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Regularidad/Dibujo 1.pdf, page 2>
 Package pdftex.def Info: ./Figuras/Regularidad/Dibujo 1.pdf , page2 used on inp
@@ -1787,11 +1786,11 @@ ut line 61.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1688.
+(caption)                particular \caption on input line 1696.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (213.39566pt too wide) in paragraph at lines 70--1688
+Overfull \hbox (213.39566pt too wide) in paragraph at lines 70--1696
  [] 
  []
 
@@ -1801,7 +1800,7 @@ df
 pdfTeX warning: pdflatex (file ./Figuras/Regularidad/Dibujo 1.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (10.08612pt too wide) in paragraph at lines 1742--1743
+Overfull \hbox (10.08612pt too wide) in paragraph at lines 1750--1751
 []\T1/fnc/m/n/12 Ahora bus-que-mos $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/12 y $\FM
 L/fncmi/m/it/12 ^^N[]$ \T1/fnc/m/n/12 ta-les que $\FML/fncmi/m/it/12 G \U/matha
 /m/n/12 P \FMS/fncm/m/n/12 G\U/matha/m/n/12 p\FML/fncmi/m/it/12 K[]\U/matha/m/n
@@ -1812,7 +1811,7 @@ n/12 p\FML/fncmi/m/it/12 t\U/matha/m/n/12 qq$\T1/fnc/m/n/12 ,
  []
 
 [29] [30]
-Overfull \hbox (17.3196pt too wide) in paragraph at lines 1823--1824
+Overfull \hbox (17.3196pt too wide) in paragraph at lines 1831--1832
 []\T1/fnc/m/n/12 Luego con-si-de-ra-mos el ``gra-fo re-du-ci-do'' $\FML/fncmi/m
 /it/12 R$ \T1/fnc/m/n/12 con pa-rá-me-tros $\FML/fncmi/m/it/12 "$ \T1/fnc/m/n/1
 2 y $\FML/fncmi/m/it/12 ^^N$\T1/fnc/m/n/12 , y vér-ti-ces $\FML/fncmi/m/it/12 w
@@ -1821,9 +1820,9 @@ Overfull \hbox (17.3196pt too wide) in paragraph at lines 1823--1824
 
 [31] [32]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 9.29993pt on input line 1922.
+(Font)              scaled to size 9.29993pt on input line 1930.
 
-Overfull \hbox (18.6302pt too wide) in paragraph at lines 1936--1937
+Overfull \hbox (18.6302pt too wide) in paragraph at lines 1944--1945
 \T1/fnc/m/n/12 Apli-can-do el Le-ma de con-teo ge-ne-ral [][]1.7.23[][] pa-ra $
 \FML/fncmi/m/it/12 H \U/matha/m/n/12 ^^P \FML/fncmi/m/it/12 K[]$ \T1/fnc/m/n/12
  y el sub-gra-fo $\FML/fncmi/m/it/12 G[] \U/matha/m/n/12 P \FMS/fncm/m/n/12 G\U
@@ -1834,7 +1833,7 @@ Overfull \hbox (18.6302pt too wide) in paragraph at lines 1936--1937
 [33] [34]
 Cap\'{\i }tulo 2.
 
-Overfull \hbox (11.5813pt too wide) in paragraph at lines 2014--2016
+Overfull \hbox (11.5813pt too wide) in paragraph at lines 2022--2024
 \T1/fnc/m/n/12 escribamos $\FML/fncmi/m/it/12 A[] \T1/fnc/m/n/12 :\U/matha/m/n/
 12 ^^P \FML/fncmi/m/it/12 N[]\U/matha/m/n/12 p\FML/fncmi/m/it/12 v[]\U/matha/m/
 n/12 q$\T1/fnc/m/n/12 . Si-mi-lar-men-te, sea $\FML/fncmi/m/it/12 v[] \U/matha/
@@ -1844,7 +1843,7 @@ n/12 P t\T1/fnc/m/n/12 1\FML/fncmi/m/it/12 ; [] ; r\U/matha/m/n/12 u$
  []
 
 
-Overfull \hbox (25.61407pt too wide) in paragraph at lines 2031--2032
+Overfull \hbox (25.61407pt too wide) in paragraph at lines 2039--2040
 []\T1/fnc/m/n/12 Escribamo $\FML/fncmi/m/it/12 a[]; a[]; []$ \T1/fnc/m/n/12 pa-
 ra la se-cuen-cia de car-di-na-les de los con-jun-tos $\FML/fncmi/m/it/12 A[]; 
 A[]; []$\T1/fnc/m/n/12 .
@@ -1853,7 +1852,7 @@ A[]; []$\T1/fnc/m/n/12 .
 [35
 
 ] (./Figuras/Teoria de Ramsey/Figura 1.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 1.pdf, id=487, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 1.pdf, id=489, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 1.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 1.pdf, page 1>
@@ -1863,12 +1862,12 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2055.
+(caption)                particular \caption on input line 2063.
 See the caption package documentation for explanation.
 
 [36 <./Figuras/Teoria de Ramsey//Figura 1.pdf>] [37]
 (./Figuras/Teoria de Ramsey/Figura 6.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 6.pdf, id=510, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 6.pdf, id=512, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 6.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 6.pdf, page 1>
@@ -1878,11 +1877,11 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2161.
+(caption)                particular \caption on input line 2169.
 See the caption package documentation for explanation.
 
 [38] (./Figuras/Teoria de Ramsey/Figura 7.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 7.pdf, id=518, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 7.pdf, id=520, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 7.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 7.pdf, page 1>
@@ -1892,7 +1891,7 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2163.
+(caption)                particular \caption on input line 2171.
 See the caption package documentation for explanation.
 
 [39 <./Figuras/Teoria de Ramsey//Figura 6.pdf> <./Figuras/Teoria de Ramsey//Fig
@@ -1901,7 +1900,7 @@ ura 7.pdf
 pdfTeX warning: pdflatex (file ./Figuras/Teoria de Ramsey//Figura 7.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >] (./Figuras/Teoria de Ramsey/Figura 2.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 2.pdf, id=530, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 2.pdf, id=532, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 2.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 2.pdf, page 1>
@@ -1911,11 +1910,11 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2175.
+(caption)                particular \caption on input line 2183.
 See the caption package documentation for explanation.
 
 (./Figuras/Teoria de Ramsey/Figura 3.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 3.pdf, id=531, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 3.pdf, id=533, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 3.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 3.pdf, page 1>
@@ -1925,7 +1924,7 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2196.
+(caption)                particular \caption on input line 2204.
 See the caption package documentation for explanation.
 
 [40 <./Figuras/Teoria de Ramsey//Figura 2.pdf> <./Figuras/Teoria de Ramsey//Fig
@@ -1934,7 +1933,7 @@ ura 3.pdf
 pdfTeX warning: pdflatex (file ./Figuras/Teoria de Ramsey//Figura 3.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >] (./Figuras/Teoria de Ramsey/Figura 4.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 4.pdf, id=542, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 4.pdf, id=544, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 4.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 4.pdf, page 1>
@@ -1944,12 +1943,12 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2217.
+(caption)                particular \caption on input line 2225.
 See the caption package documentation for explanation.
 
 [41 <./Figuras/Teoria de Ramsey//Figura 4.pdf>]
 (./Figuras/Teoria de Ramsey/Figura 5.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 5.pdf, id=553, page=1, 469.47046pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 5.pdf, id=555, page=1, 469.47046pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 5.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 5.pdf, page 1>
@@ -1959,11 +1958,11 @@ on input line 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2231.
+(caption)                particular \caption on input line 2239.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (11.77834pt too wide) in paragraph at lines 2233--2234
+Overfull \hbox (11.77834pt too wide) in paragraph at lines 2241--2242
 []\T1/fnc/m/n/12 Para la co-ta su-pe-rior, ha-re-mos in-duc-ción en $\FML/fncmi
 /m/it/12 s \U/matha/m/n/12 ¥ \T1/fnc/m/n/12 2$. Si $\FML/fncmi/m/it/12 s \U/mat
 ha/m/n/12 ^^P \T1/fnc/m/n/12 2$, te-ne-mos que $\FML/fncmi/m/it/12 r\U/matha/m/
@@ -1971,7 +1970,7 @@ n/12 p\FML/fncmi/m/it/12 K[]; T[]\U/matha/m/n/12 q ¤
  []
 
 (./Figuras/Teoria de Ramsey/Figura 8.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 8.pdf, id=555, page=1, 485.21307pt x 249.95
+<./Figuras/Teoria de Ramsey//Figura 8.pdf, id=557, page=1, 485.21307pt x 249.95
 587pt>
 File: ./Figuras/Teoria de Ramsey//Figura 8.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 8.pdf, page 1>
@@ -1981,39 +1980,39 @@ on input line 56.
  [42 <./Figuras/Teoria de Ramsey//Figura 5.pdf>])
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2255.
+(caption)                particular \caption on input line 2263.
 See the caption package documentation for explanation.
 
 (./Figuras/Teoria de Ramsey/Figura 9.pdf_tex
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=566, page=1, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=568, page=1, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 1>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page1 used 
 on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=567, page=2, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=569, page=2, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 2>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page2 used 
 on input line 58.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=568, page=3, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=570, page=3, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 3>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page3 used 
 on input line 60.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=569, page=4, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=571, page=4, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 4>
 Package pdftex.def Info: ./Figuras/Teoria de Ramsey//Figura 9.pdf , page4 used 
 on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 182.33858pt.
-<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=570, page=5, 595.81874pt x 254.55
+<./Figuras/Teoria de Ramsey//Figura 9.pdf, id=572, page=5, 595.81874pt x 254.55
 374pt>
 File: ./Figuras/Teoria de Ramsey//Figura 9.pdf Graphic file (type pdf)
 <use ./Figuras/Teoria de Ramsey//Figura 9.pdf, page 5>
@@ -2023,7 +2022,7 @@ on input line 69.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2272.
+(caption)                particular \caption on input line 2280.
 See the caption package documentation for explanation.
 
 [43 <./Figuras/Teoria de Ramsey//Figura 8.pdf> <./Figuras/Teoria de Ramsey//Fig
@@ -2048,14 +2047,14 @@ nclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./Figuras/Teoria de Ramsey//Figura 9.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (37.41115pt too wide) detected at line 2300
+Overfull \hbox (37.41115pt too wide) detected at line 2308
 \FML/fncmi/m/it/12 n \U/matha/m/n/12 ^^P \FML/fncmi/m/it/12 k \U/matha/m/n/12 ^
 ^@ [] ¥ [] ^^P [] ^^@ [] ^^A [] ^^P \T1/fnc/m/n/12 2\FML/fncmi/m/it/12 k \U/mat
 ha/m/n/12 ^^A [] \FML/fncmi/m/it/12 :
  []
 
 [44] (./Figuras/Final feliz/final-feliz.tex) [45]
-Overfull \hbox (0.49275pt too wide) in paragraph at lines 2357--2359
+Overfull \hbox (0.49275pt too wide) in paragraph at lines 2365--2367
 []\T1/fnc/m/n/12 Falta pro-bar el ca-so $\FML/fncmi/m/it/12 k \U/matha/m/n/12 ¥
 
  []
@@ -2065,7 +2064,7 @@ Cap\'{\i }tulo 3.
 [49
 
 ] [50] (./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=639, page=1, 469.47046pt x 
+<./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, id=641, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf, page 1>
@@ -2075,12 +2074,12 @@ Package pdftex.def Info: ./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf , page1
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2543.
+(caption)                particular \caption on input line 2551.
 See the caption package documentation for explanation.
 
 [51 <./Figuras/Metodo-probabilistico-1/Dibujo 1.pdf>]
 (./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf_tex
-<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=650, page=1, 469.47046pt x 
+<./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, id=653, page=1, 469.47046pt x 
 249.95587pt>
 File: ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf Graphic file (type pdf)
 <use ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf, page 1>
@@ -2090,43 +2089,43 @@ Package pdftex.def Info: ./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf , page1
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2569.
+(caption)                particular \caption on input line 2577.
 See the caption package documentation for explanation.
 
 [52 <./Figuras/Metodo-probabilistico-1/Dibujo 2.pdf>]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 2649.
+(Font)              using `T1/fnc/m/sc' instead on input line 2657.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 2650.
+(Font)              using `T1/fnc/m/sc' instead on input line 2658.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 2651.
+(Font)              using `T1/fnc/m/sc' instead on input line 2659.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 2652.
+(Font)              using `T1/fnc/m/sc' instead on input line 2660.
 
 [53]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 2653.
+(Font)              using `T1/fnc/m/sc' instead on input line 2661.
 
 [54] [55] [56] [57]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 13.39188pt on input line 2901.
+(Font)              scaled to size 13.39188pt on input line 2909.
  [58] [59] [60] [61] [62] [63] [64] [65] [66]
 
-LaTeX Warning: Command \c invalid in math mode on input line 3361.
+LaTeX Warning: Command \c invalid in math mode on input line 3369.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 3361.
+LaTeX Warning: Command \c invalid in math mode on input line 3369.
 
 [67] [68] (./Figuras/Conexidad-de-grafos-aleatorios/Dibujo-1.pdf_tex
-<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-1.pdf, id=808, page=1, 469.47
+<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-1.pdf, id=810, page=1, 469.47
 046pt x 250.38426pt>
 File: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-1.pdf Graphic file (type
  pdf)
@@ -2137,30 +2136,30 @@ Package pdftex.def Info: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-1.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3486.
+(caption)                particular \caption on input line 3494.
 See the caption package documentation for explanation.
 
 [69] [70 <./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-1.pdf>] [71]
 [72] [73]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 3706.
+(Font)              scaled to size 15.89755pt on input line 3714.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 3706.
+(Font)              scaled to size 15.89755pt on input line 3714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3706.
+(hyperref)                removing `math shift' on input line 3714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 3706.
+(hyperref)                removing `subscript' on input line 3714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3706.
+(hyperref)                removing `math shift' on input line 3714.
 
 [74] [75] (./Figuras/Conexidad-de-grafos-aleatorios/Dibujo-2.pdf_tex
-<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf, id=868, page=1, 469.47
+<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf, id=870, page=1, 469.47
 046pt x 250.38426pt>
 File: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf Graphic file (type
  pdf)
@@ -2168,7 +2167,7 @@ File: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf Graphic file (type
 Package pdftex.def Info: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf
  , page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.62079pt.
-<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf, id=869, page=2, 469.47
+<./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf, id=871, page=2, 469.47
 046pt x 250.38426pt>
 File: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf Graphic file (type
  pdf)
@@ -2179,11 +2178,11 @@ Package pdftex.def Info: ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3815.
+(caption)                particular \caption on input line 3823.
 See the caption package documentation for explanation.
 
 [76] (./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf_tex
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf, id=876, page=1, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf, id=878, page=1, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf Graphic file (type 
 pdf)
@@ -2194,7 +2193,7 @@ Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3859.
+(caption)                particular \caption on input line 3867.
 See the caption package documentation for explanation.
 
 [77 <./Figuras/Conexidad-de-grafos-aleatorios//Dibujo-2.pdf> <./Figuras/Conexid
@@ -2206,15 +2205,15 @@ pdfTeX warning: pdflatex (file ./Figuras/Conexidad-de-grafos-aleatorios//Dibujo
 >]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3873.
+(Font)              using `T1/fnc/m/sc' instead on input line 3881.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3874.
+(Font)              using `T1/fnc/m/sc' instead on input line 3882.
 
 [78 <./Figuras/Eleccion-aleatoria-dependiente/Dibujo-1.pdf>]
 (./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf_tex
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf, id=906, page=1, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf, id=908, page=1, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf Graphic file (type 
 pdf)
@@ -2222,7 +2221,7 @@ pdf)
 Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf 
 , page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.62079pt.
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf, id=907, page=2, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf, id=909, page=2, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf Graphic file (type 
 pdf)
@@ -2233,7 +2232,7 @@ Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3915.
+(caption)                particular \caption on input line 3923.
 See the caption package documentation for explanation.
 
 [79 <./Figuras/Eleccion-aleatoria-dependiente/Dibujo 2.pdf> <./Figuras/Eleccion
@@ -2242,7 +2241,7 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ./Figuras/Eleccion-aleatoria-dependiente/Dibujo 
 2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf_tex
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf, id=917, page=1, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf, id=919, page=1, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf Graphic file (type 
 pdf)
@@ -2250,7 +2249,7 @@ pdf)
 Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf 
 , page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.62079pt.
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf, id=918, page=2, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf, id=920, page=2, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf Graphic file (type 
 pdf)
@@ -2261,7 +2260,7 @@ Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3933.
+(caption)                particular \caption on input line 3941.
 See the caption package documentation for explanation.
 
 [80 <./Figuras/Eleccion-aleatoria-dependiente/Dibujo-3.pdf> <./Figuras/Eleccion
@@ -2272,14 +2271,14 @@ pdfTeX warning: pdflatex (file ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-
 >]
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3955.
+(Font)              using `T1/fnc/m/sc' instead on input line 3963.
 
 
 LaTeX Font Warning: Font shape `T1/fnc/m/scit' undefined
-(Font)              using `T1/fnc/m/sc' instead on input line 3956.
+(Font)              using `T1/fnc/m/sc' instead on input line 3964.
 
 (./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf_tex
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf, id=929, page=1, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf, id=931, page=1, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf Graphic file (type 
 pdf)
@@ -2287,7 +2286,7 @@ pdf)
 Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf 
 , page1 used on input line 56.
 (pdftex.def)             Requested size: 426.79134pt x 227.62079pt.
-<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf, id=930, page=2, 469.470
+<./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf, id=932, page=2, 469.470
 46pt x 250.38426pt>
 File: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf Graphic file (type 
 pdf)
@@ -2298,7 +2297,7 @@ Package pdftex.def Info: ./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3965.
+(caption)                particular \caption on input line 3973.
 See the caption package documentation for explanation.
 
 [81 <./Figuras/Eleccion-aleatoria-dependiente/Dibujo-4.pdf> <./Figuras/Eleccion
@@ -2323,10 +2322,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CBFEB20143ABBFBC5865BDC0BEAB73D3;4984.
  ) 
 Here is how much of TeX's memory you used:
- 29743 strings out of 476017
- 568743 string characters out of 5786780
+ 29746 strings out of 476017
+ 568772 string characters out of 5786780
  1870666 words of memory out of 5000000
- 49175 multiletter control sequences out of 15000+600000
+ 49176 multiletter control sequences out of 15000+600000
  610608 words of font info for 213 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,94p,1345b,826s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2349,10 +2348,10 @@ pfb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.p
 fb></home/whitengine/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.p
 fb>
 Output written on "/home/enzo/Desktop/Doctorado Chile/Clases/2023/Segundo semes
-tre/Topicos en matematica discreta/out/main.pdf" (85 pages, 479429 bytes).
+tre/Topicos en matematica discreta/out/main.pdf" (85 pages, 479606 bytes).
 PDF statistics:
- 1116 PDF objects out of 1200 (max. 8388607)
- 940 compressed objects within 10 object streams
- 372 named destinations out of 1000 (max. 500000)
+ 1119 PDF objects out of 1200 (max. 8388607)
+ 943 compressed objects within 10 object streams
+ 374 named destinations out of 1000 (max. 500000)
  402 words of extra memory for PDF output out of 10000 (max. 10000000)
 
