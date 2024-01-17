@@ -1979,7 +1979,7 @@ y esto es una $3$-progresión aritmética $a, a'' = a +(a'-a''), a' = a + 2 (a'-
 \]
 triángulos.
 
-Por el Lema de Remoción de Triángulos \ref{lema:lema de remocion de triangulos}, es posible borrar $o(n^2)$ aristas de $G$ para obtener un grafo libre de triángulos. Ahora, vamos a obtener una cota por abajo de la cantidad de triángulos arista disjunto que tiene $G$: consideremos el conjunto de tripletas de la forma $(x,x+a,x+2a)$, con $x\in X, a \in A$. Observar que cada tripleta corresponde con un triángulo de $G$ y todos son arista-disjuntos entre sí, por lo tanto $G$ contiene al menos $3n \abs A> 3 \varepsilon n^2$ triángulos disjuntos y por lo tanto si o si deben ser quitados para que $G$ sea libre de triángulos. Contradiciendo el Lema de Remoción de Triángulos.
+Por el Lema de Remoción de Triángulos \ref{lema:lema de remocion de triangulos}, es posible borrar $o(n^2)$ aristas de $G$ para obtener un grafo libre de triángulos. Ahora, vamos a obtener una cota por abajo de la cantidad de triángulos arista disjunto que tiene $G$: consideremos el conjunto de tripletas de la forma $(x,x+a,x+2a)$, con $x\in \{1, \ldots, n\}, a \in A$. Observar que cada tripleta corresponde con un triángulo de $G$ y todos son arista-disjuntos entre sí, por lo tanto $G$ contiene al menos $n \abs A> \varepsilon n^2$ triángulos disjuntos y por lo tanto si o si deben ser quitados para que $G$ sea libre de triángulos. Contradiciendo el Lema de Remoción de Triángulos.
 \end{proof}
 
 
