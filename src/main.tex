@@ -2118,22 +2118,18 @@ El siguiente teorema confirma que la cota anterior es \textit{muy poco óptima}.
 \]
 \end{theorem}
 \begin{proof}
-Consideremos $K_n$ con $n = \ceil{2^{k/2}}$ y supongamos que $k \geq 6$, notar que los casos $k = 2 , \ldots, 5$ valen por la cota de la Observación anterior \ref{obs:cota inferior trivial del numero de ramsey (orden lineal)} (que es mejor para $k$ chico).
+Consideremos $K_n$ con $n = \ceil{2^{k/2}}$ y supongamos que $k \geq 8$, notar que los casos $k = 2 , \ldots, 7$ valen por la cota de la Observación anterior \ref{obs:cota inferior trivial del numero de ramsey (orden lineal)} (que es mejor para $k$ chico).
 
-Tenemos exactamente
-\[
-    2^{\binom n 2}
-\]
-2-coloraciónes de $E(K_n)$. Vamos a mostrar que la cantidad de $2$-coloraciones de $E(K_n)$ que contienen a $K_k$ monocromático es $< 2^{\binom n 2}$. Para eso, notar que en este caso tenemos $\binom n k$ formas de elegir una copia de $K_k$ y luego $2^{\binom n 2 - \binom k 2}$ formas de colorear el resto de las aristas. Por lo tanto, la cantidad de $2$-coloraciones que contienen un $K_k$ monocromático es menor o igual que
+Tenemos exactamente $2^{\binom n 2}$ 2-coloraciónes de $E(K_n)$. Vamos a mostrar que la cantidad de $2$-coloraciones de $E(K_n)$ que contienen a $K_k$ monocromático es $< 2^{\binom n 2}$. Para eso, notar que en este caso tenemos $\binom n k$ formas de elegir una copia de $K_k$ y luego $2^{\binom n 2 - \binom k 2}$ formas de colorear el resto de las aristas. Por lo tanto, la cantidad de $2$-coloraciones que contienen un $K_k$ monocromático (azul o rojo) es menor o igual que
 \begin{align*}
-\binom n k 2^{\binom n 2 - \binom k 2} &\leq \left (\frac{en}{k} \right )^{k} 2^{\binom n 2 - \binom k 2} \\
-&\leq \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{-\frac{k(k-1)}{2}} \cdot 2^ {\binom n 2},
+2 \binom  n k 2^{\binom n 2 - \binom k 2} &\leq \left (\frac{en}{k} \right )^{k} 2^{\binom n 2 - \binom k 2 + 1} \\
+&\leq \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{1-\frac{k(k-1)}{2}} \cdot 2^ {\binom n 2},
 \end{align*}
-pero notar que si $k \geq 6$, entonces
+pero notar que si $k \geq 8$, entonces
 \[
-    \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{\frac{k(k-1)}{2}}  \leq \left ( \frac{2^{k/2} + 1}{2} \right )^k 2^{- \frac{k(k-1)}{2}} < 1,
+    \left ( \frac{e (2^{k/2} + 1)}{k} \right )^k 2^{1-\frac{k(k-1)}{2}}  < \left ( \frac 2 5 \right)^k (2^{k/2} + 1)^k 2^{1- \frac{k(k-1)}{2}} \leq 1, \quad (e/k \leq 2/5)
 \]
-de donde se sigue lo que queríamos. En efecto, se puede realizar un estudio cualitativo de la función para $k \in \reals_{\geq 6}$ utilizando cálculo elemental.
+de donde se sigue lo que queríamos. En efecto, la última desigualdad se puede probar tomando raíz $k$-ésima a ambos lados, y usando que $k \geq 8$.
 \end{proof}
 
 
