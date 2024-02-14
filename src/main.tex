@@ -60,14 +60,23 @@
 \usepackage[shortlabels]{enumitem}
 
 
+\definecolor{violet}{rgb}{0.0,0.2,0.7}
+\definecolor{rouge2}{rgb}{0.8,0.0,0.2}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
-    citecolor=red,
-    filecolor=red,
-    linkcolor=red,
-    urlcolor=red
-}
+    %bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={},    % title
+    pdfauthor={},     % author
+    colorlinks=true,       % false: boxed links; true: colored links
+   linkcolor=violet,          % color of internal links
+    citecolor=rouge2,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=cyan}           % color of external links
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsthm}
@@ -1371,7 +1380,7 @@ triángulos en $G$.
 \end{quote}
 }
 
-Sea $H \subset G$ el subgrafo bipartito con cantidad de aristas $e(H)$ máxima de $G$. Como $e(H) \leq \frac {n^2}{2} < e(G)$, tenemos que $H \subsetneq G$; y podemos escribir $t := e(G) - e(H) \geq 1$. En particular, como $e(H)$ es máximo, tenemos que $G$ está $t$-lejos de ser bipartito. Con lo cual, el Teorema de Füredi implica que $G$ contiene al menos
+Sea $H \subset G$ el subgrafo bipartito con cantidad de aristas $e(H)$ máxima de $G$. Como $e(H) \leq \frac {n^2}{4} < e(G)$, tenemos que $H \subsetneq G$; y podemos escribir $t := e(G) - e(H) \geq 1$. En particular, como $e(H)$ es máximo, tenemos que $G$ está $t$-lejos de ser bipartito. Con lo cual, el Teorema de Füredi implica que $G$ contiene al menos
 \[
     \frac{n}{6} \left(e(G)-\frac{n^2}{4}+t\right)
 \]
@@ -2300,6 +2309,12 @@ Más aún, la arista $v_1 v_k = w_1 w_k$ es de color rojo o azul, digamos rojo (
 \]
 contradiciendo la maximalidad de $P_a$. Como hemos agotado todos los casos, se concluye la demostración.
 \end{proof}
+\begin{proof}[Demostración alternativa]
+Haremos inducción en $k$ con $k \geq l \geq 1$. Sea $n = k + \ceil{\frac l 2}$.
+
+\end{proof}
+
+
 
 \section{El problema con un final feliz}
 
