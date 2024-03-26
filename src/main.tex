@@ -110,6 +110,12 @@
 \newtheorem{warn}[theorem]{\textbf{ADVERTENCIA}}
 \renewenvironment{warning}{\begin{warn}}{\end{warn}}
 
+
+
+%me gusta renovar el ambiente demostración para que este subrayado
+\renewenvironment{proof}[1][Demostración]{\noindent \textit{\underline{#1}.\hspace{2mm}}}{\hfill\qed}
+
+
 %crear ejercicio
 \newtheorem{exercise}[theorem]{Ejercicio}
 %solución
